@@ -268,8 +268,19 @@ Future CheckUserConnection() async {
               SizedBox(
               height: MediaQuery.of(context).size.height / 40,
             ),
+            widget.snapshot.details["batchType"] == "manufacturer" ?
             Text(
               "Scanned Product Details",
+              style: 
+              // Theme.of(context).textTheme.headlineMedium,
+              TextStyle(
+                  color: const Color(0xff002060),
+                  fontSize: 16,
+                  fontFamily: "Poppins Medium",
+                  ),
+            ):
+            Text(
+              "Scanned Details",
               style: 
               // Theme.of(context).textTheme.headlineMedium,
               TextStyle(
@@ -281,18 +292,40 @@ Future CheckUserConnection() async {
             SizedBox(
               height: MediaQuery.of(context).size.height / 100,
             ),
-              Text(
-                widget.snapshot.details["prodName"],
-                textAlign: TextAlign.center,
-                style: 
-                // Theme.of(context).textTheme.headlineSmall,
-                TextStyle(
-                  color: Color(0xff00b7ff),
-                  fontFamily: "Poppins Medium",
+              if(widget.snapshot.details["batchType"] == "retailor")...[
+            Text(
+            widget.snapshot.details["brand"],
+            style:
+            //  Theme.of(context).textTheme.headlineSmall,
+            TextStyle(
+              color: const Color(0xff00b7ff),
+              fontSize: 12,
                   // fontSize: MediaQuery.of(context).size.width * 0.055,
-                  fontSize: 12,
-                ),
-              ),
+                  fontFamily: "Poppins Medium",
+            ),
+          )]
+          else...[
+          if(widget.snapshot.details["prodName"]!=null)...[
+          Text(
+            widget.snapshot.details["prodName"],
+            style:
+            //  Theme.of(context).textTheme.headlineSmall,
+            TextStyle(
+              color: const Color(0xff00b7ff),
+              fontSize: 12,
+                  // fontSize: MediaQuery.of(context).size.width * 0.055,
+                  fontFamily: "Poppins Medium",
+            ),
+          ),]
+          else...[
+            Text(
+            "unable to display name",
+            style: TextStyle(
+              color: const Color(0xff0b53be),
+                  fontSize: MediaQuery.of(context).size.width * 0.055,
+            ),
+          ),
+          ]],
               
               // SizedBox(
               //   height: MediaQuery.of(context).size.height / 35,
@@ -733,6 +766,12 @@ YoutubePlayer(
                           //  print("===============================covert===========================");
                           //  else if(widget.sublink.length == 31)
                           //  print("=============================overt==============================");
+
+
+
+                          print("###########");
+                          print(widget.snapshot.details["mfgDate"]);
+                          print("###########");
                            temp_class.details["message"] = widget.snapshot.message;
                           temp_class.details["brand"] = widget.snapshot.details["brand"];
                           temp_class.details["serialNo"] = widget.snapshot.details["serialNo"];
@@ -741,7 +780,7 @@ YoutubePlayer(
                           temp_class.details["imageProd"] = widget.snapshot.details["imageProd"];
                           // temp_class.details["QROnProd"] =
                           //     responseData["batchDetails"]["QROnProd"];
-                          temp_class.details["expiry"] = widget.snapshot.details["expiryDate"];
+                          temp_class.details["expiry"] = widget.snapshot.details["expiry"];
                           temp_class.details["batchNo"] = widget.snapshot.details["batchNo"];
                           temp_class.details["clientId"] = widget.snapshot.details["clientId"];
                           temp_class.details["warrantyApp"] = widget.snapshot.details["warrantyApp"];
@@ -755,8 +794,13 @@ YoutubePlayer(
                           temp_class.details["manuAddress"] = widget.snapshot.details["manuAddress"]; 
                           temp_class.details["additionalDetails"] =widget.snapshot.details["additionalDetails"];  
                           temp_class.details["additionalImages"] = widget.snapshot.details["additionalImages"]; 
+                          temp_class.details["additionalImageDetails"] = widget.snapshot.details["additionalImageDetails"]; 
                           temp_class.details["shelfLife"] = widget.snapshot.details["shelflife"];
                           temp_class.details['tracking']=widget.snapshot.details['tracking']; ///changed
+                          temp_class.details['prodVedioLink']=widget.snapshot.details['prodVedioLink'];
+                          print("&&&&&&&&&&&");
+                          print(temp_class.details["mfgDate"]);
+                          print("&&&&&&&&&&&&&");
                             Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => ProdDetails(link:widget.link,snapshot: temp_class),
                             ));
@@ -764,7 +808,9 @@ YoutubePlayer(
                           style: ElevatedButton.styleFrom(
                               primary: Colors.transparent,
                               shadowColor: Colors.transparent),
-                          child: Text(
+                          child: 
+                          widget.snapshot.details["batchType"] == "manufacturer" ?
+                          Text(
                             'Product Details',
                             textAlign: TextAlign.center,
                             style: 
@@ -773,7 +819,17 @@ YoutubePlayer(
                             fontFamily: "Poppins Medium",
                             fontSize: 10.8,
                             ),
+                          ):
+                           Text(
+                          'Details',
+                          style: 
+                          // Theme.of(context).textTheme.bodyMedium,
+                          TextStyle(
+                            // fontWeight: FontWeight.bold,
+                          fontFamily: "Poppins Medium",
+                          fontSize: 12
                           ),
+                        )
                         ),
                       )
                     ],

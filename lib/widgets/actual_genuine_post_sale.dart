@@ -104,6 +104,7 @@ class ActualGPSale extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                snapshot.details["batchType"] == "manufacturer" ?
                 Text(
               "Scanned Product Details",
               style: 
@@ -115,12 +116,37 @@ class ActualGPSale extends StatelessWidget {
                   fontFamily: "Poppins Medium",
                   // fontWeight: FontWeight.bold
                   ),
-            ),
+            ):
+             Text(
+              "Scanned Details",
+              style: 
+              // Theme.of(context).textTheme.headlineMedium,
+              TextStyle(
+                  color: const Color(0xff002060),
+                  // fontSize: MediaQuery.of(context).size.width * 0.045,
+                  fontSize: 16,
+                  fontFamily: "Poppins Medium",
+                  // fontWeight: FontWeight.bold
+                  ),
+            )
               ],
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height / 100,
             ),
+            if(snapshot.details["batchType"] == "retailor")...[
+            Text(
+            snapshot.details["brand"],
+            style:
+            //  Theme.of(context).textTheme.headlineSmall,
+            TextStyle(
+              color: const Color(0xff00b7ff),
+              fontSize: 12,
+                  // fontSize: MediaQuery.of(context).size.width * 0.055,
+                  fontFamily: "Poppins Medium",
+            ),
+          )]
+          else...[
           if(snapshot.details["prodName"]!=null)...[
           Text(
             snapshot.details["prodName"],
@@ -141,7 +167,7 @@ class ActualGPSale extends StatelessWidget {
                   fontSize: MediaQuery.of(context).size.width * 0.055,
             ),
           ),
-          ],
+          ]],
           // SizedBox(
           //   height: MediaQuery.of(context).size.height / 35,
           // ),
@@ -450,13 +476,15 @@ class ActualGPSale extends StatelessWidget {
                         temp_class.details["batchNo"] = snapshot.details["batchNo"];
                         temp_class.details["warranty"] = snapshot.details["warranty"];
                          temp_class.details["imageQrOnProd"] = snapshot.details["imageQrOnProd"];
-                         temp_class.details["mfgdate"] = snapshot.details["mfgdate"];
+                         temp_class.details["mfgDate"] = snapshot.details["mfgDate"];
                          temp_class.details["shelflife"] = snapshot.details["shelflife"];
                          temp_class.details["manuLicenseNo"] = snapshot.details["manuLicenseNo"];
                          temp_class.details["manuAddress"] = snapshot.details["manuAddress"];
                          temp_class.details["additionalDetails"] = snapshot.details["additionalDetails"];
                          temp_class.details["additionalImages"] = snapshot.details["additionalImages"];
+                         temp_class.details["additionalImageDetails"] = snapshot.details["additionalImageDetails"]; 
                          temp_class.details['tracking']=snapshot.details['tracking']; ///changed
+                         temp_class.details['prodVedioLink']=snapshot.details['prodVedioLink'];
                          temp_class.bill = snapshot.bill;
                          print("--------------------");
                          print(temp_class.bill);
@@ -468,7 +496,9 @@ class ActualGPSale extends StatelessWidget {
                           primary: Colors.transparent,
                           shadowColor: Colors.transparent),
                       child: FittedBox(
-                        child: Text(
+                        child: 
+                        snapshot.details["batchType"] == "manufacturer" ?
+                        Text(
                           'Product Details',
                           style: 
                           // Theme.of(context).textTheme.bodyMedium,
@@ -477,7 +507,17 @@ class ActualGPSale extends StatelessWidget {
                           fontFamily: "Poppins Medium",
                           fontSize: 12
                           ),
-                        ),
+                        ):
+                         Text(
+                          'Details',
+                          style: 
+                          // Theme.of(context).textTheme.bodyMedium,
+                          TextStyle(
+                            // fontWeight: FontWeight.bold,
+                          fontFamily: "Poppins Medium",
+                          fontSize: 12
+                          ),
+                        )
                       ),
                     ),
               )

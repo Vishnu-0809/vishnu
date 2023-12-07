@@ -30,6 +30,7 @@ class Expired {
   String message = "";
   String prodName = "";
   String imageProd = "";
+  var details = new Map();
 }
 
 class ScanPreFirst {

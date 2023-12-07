@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:Veots/screens/constants.dart';
+// import 'package:Veots/screens/constants.dart';
 import 'package:Veots/screens/home_page.dart';
 import 'package:Veots/screens/product_details.dart';
 import 'package:Veots/screens/purchase_history.dart';

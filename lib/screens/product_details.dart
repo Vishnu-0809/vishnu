@@ -12,7 +12,6 @@ import 'package:Veots/widgets/ham.dart';
 import 'package:Veots/widgets/view_image.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:video_player/video_player.dart';
 import '../models/class_models.dart';
 import '../widgets/NetworkCheck.dart';
 import '../widgets/send_accept.dart';
@@ -39,7 +38,7 @@ class ProdDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   
+    
      _launchURL(String url) async {
       
   final String link;
@@ -65,40 +64,60 @@ class ProdDetails extends StatelessWidget {
   String mfgdate="";
   String expdate="";
 
-int warranty_left = 0;
-  if (snapshot.details["message"] == "Genuine Post Sale")
+  int warranty_left = 0;
+
+  print("PURCHASE DATE");
+  print(snapshot.details["purchaseDetails"]);
+  if (snapshot.details["purchaseDetails"]!=null)
   {
+
+    print("CHECKING WARRANTY LEFT");
   DateTime today = DateTime.now();
 
   DateTime providedDate = DateTime.parse(snapshot.details["purchaseDetails"]);
 
   Duration difference = today.difference(providedDate);
+  print("difference");
+  
 
   int differenceInDays = difference.inDays;
+  print(difference);
 
   warranty_left = snapshot.details["warranty"] - differenceInDays;
+
+  print("warranty left");
+  print(warranty_left);
 
   if(warranty_left < 0)
   warranty_left = 0;
 
-  print("Difference in days: $differenceInDays days");
   }
-  if(snapshot.details["mfgdate"] != null)    {
-                
 
-                print("going to mfgdate");
+  if(snapshot.details["mfgDate"] != null)    {
+                
+if( snapshot.details["mfgDate"] == "not available")
+mfgdate = "Please refer to product";
+else{
+
+  print("going to mfgDate");
                 
                 temp =
-                                snapshot.details["mfgdate"].substring(0, 10);
+                                snapshot.details["mfgDate"].substring(0, 10);
                            mfgdate = temp.substring(8, 10) +
                                 "-" +
                                 temp.substring(5, 7) +
                                 "-" +
                                 temp.substring(0, 4);
+}
+                
   }
 
 if(snapshot.details["expiry"] != null){
-                         print("going to enddate");
+  if( snapshot.details["expiry"] == "not applicable")
+expdate = "Please refer to product";
+else{
+   print("going to enddate");
+   print(snapshot.details["expiry"]);
                                 temp2 =
                                 snapshot.details["expiry"].substring(0, 10);
                             expdate = temp2.substring(8, 10) +
@@ -106,6 +125,8 @@ if(snapshot.details["expiry"] != null){
                                 temp2.substring(5, 7) +
                                 "-" +
                                 temp2.substring(0, 4);
+}
+                        
 }
 
  
@@ -147,6 +168,7 @@ reupload_bill() async
                            }
  }
 
+  
     return SafeArea(
         child: Scaffold(
           backgroundColor: Colors.white,
@@ -198,57 +220,56 @@ reupload_bill() async
                   // SizedBox(
                   //   width: MediaQuery.of(context).size.width * 0.45,
                   // ),
-                   Container(
-                              height: MediaQuery.of(context).size.width * 0.07,
-                              width: MediaQuery.of(context).size.width * 0.07,
-                              decoration: const BoxDecoration(
-                                color: Color(0xff002060),
-                                borderRadius: BorderRadius.all(Radius.circular(5)),
-                              ),
-                              child: Center(
-                                child: FittedBox(
-                                    child: IconButton(
-                                        onPressed: () {
-                                     Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: 
-                                     (context)=>HomeScreen(first_time: 0,
-                                     mainLink: '',location_on: true,)), (route) => false);
-                                         },
-                                        icon: const Icon(
-                                          Icons.home,
-                                          color: Colors.white,
-                                        ))),
-                              )),
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.015,
+                  Container(
+                      height: MediaQuery.of(context).size.width * 0.08,
+                      width: MediaQuery.of(context).size.width * 0.08,
+                      decoration: const BoxDecoration(
+                        color: Color(0xff002060),
+                        borderRadius: BorderRadius.all(Radius.circular(5)),
+                      ),
+                      child: Center(
+                        child: FittedBox(
+                            child: IconButton(
+                                onPressed: () {
+                                  Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: 
+                                   (context)=>HomeScreen(first_time: 0,
+                                   mainLink: '',location_on: true,)), (route) => false);
+                                },
+                                icon: const Icon(
+                                  Icons.home,
+                                  // size: MediaQuery.of(context).size.width * 0.06,
+                                  color: Colors.white,
+                                ))),
+                      )),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.015,
+                  ),
+                  Not_icon(),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.015,
+                  ),
+                 Container(
+                          height: MediaQuery.of(context).size.width * 0.08,
+                          width: MediaQuery.of(context).size.width * 0.08,
+                          decoration: const BoxDecoration(
+                            color: Color(0xff002060),
+                            borderRadius: BorderRadius.all(Radius.circular(5)),
                           ),
-                          Not_icon(),
-                            
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.015,
-                          ),
-                          Container(
-                              height: MediaQuery.of(context).size.width * 0.07,
-                              width: MediaQuery.of(context).size.width * 0.07,
-                              decoration: const BoxDecoration(
-                                color: Color(0xff002060),
-                                borderRadius: BorderRadius.all(Radius.circular(5)),
-                              ),
-                              child: Center(
-                                child: FittedBox(
-                                  child: 
-                                  InkWell(
-                                 onTap: (){
-                            _scaffoldKey.currentState?.openDrawer();    },
-                                   child: Icon(
-                                      Icons.menu,
-                                      size: MediaQuery.of(context).size.width * 0.05,
-                                      color: Colors.white,
-                                    ),
-                                
-                                      ),
-                                ),
-                              )),
-                          const SizedBox(width: 12,)
+                          child: Center(
+                            child: FittedBox(
+                              child: 
+                              InkWell(
+                             onTap: (){
+                        _scaffoldKey.currentState?.openDrawer();    },
+                               child: Icon(
+                                  Icons.menu,
+                                  size: MediaQuery.of(context).size.width * 0.05,
+                                  color: Colors.white,
+                                ),         
+                            ),
+                            ),
+                          )),
+                  const SizedBox(width: 12,)
                 ],
               ),
             ),
@@ -416,8 +437,8 @@ reupload_bill() async
               ,
             ],
           ),
-           
-                  if (snapshot.details["message"] == "Genuine Post Sale")...[
+          
+          if (snapshot.details["message"] == "Genuine Post Sale")...[
             Text(
                     "Warranty left",
                     style: TextStyle(
@@ -492,6 +513,17 @@ reupload_bill() async
           errorBuilder: (context, error, stackTrace) =>
               const Center(child: Text('Sorry couldn\'t show the product image')),
                 )),],
+
+                if(snapshot.details["prodName"] != null)...[
+            Text(
+              "${snapshot.details["prodName"]}",
+              style: TextStyle(
+                  fontSize: 
+                  12,
+                  fontFamily: "Poppins Medium",
+                  color: const Color(0xff002060),
+                  ),
+            ),],
           SizedBox(
             height: MediaQuery.of(context).size.height / 80,
           ),
@@ -545,13 +577,14 @@ reupload_bill() async
                                 if(snapshot.details["brand"] != null)
                                 
                               Text(
+                                
                                   "Brand Name: ${snapshot.details["brand"]}",
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontFamily: "Poppins Medium",
                                       fontSize:
-                                          MediaQuery.of(context).size.width *
-                                              0.023,
+                                           MediaQuery.of(context).size.width *
+                                              0.026,
                                       ),
                                 ),
                             
@@ -563,7 +596,7 @@ reupload_bill() async
                                       fontFamily: "Poppins Medium",
                                       fontSize:
                                           MediaQuery.of(context).size.width *
-                                              0.023,
+                                              0.026,
                                       ),
                                 ),       
                                
@@ -602,10 +635,21 @@ reupload_bill() async
                                       fontFamily: "Poppins Medium",
                                       fontSize:
                                           MediaQuery.of(context).size.width *
-                                              0.023,
+                                              0.026,
                                       ),
                                 ),
-                                  if(temp!="")    
+                                if(mfgdate == "Please refer to product")...[
+                                Text(
+                                  "MFG Date: "+mfgdate,
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontFamily: "Poppins Medium",
+                                      fontSize:
+                                          MediaQuery.of(context).size.width *
+                                              0.026,
+                                      ),
+                                ), ]
+                                 else if(temp!="")    
                               Text(
                                   "MFG Date: "+mfgdate,
                                   style: TextStyle(
@@ -613,10 +657,10 @@ reupload_bill() async
                                       fontFamily: "Poppins Medium",
                                       fontSize:
                                           MediaQuery.of(context).size.width *
-                                              0.023,
+                                              0.026,
                                       ),
                                 ), 
-                                 if(snapshot.details["shelflife"] != null)    
+                                 if(snapshot.details["shelflife"] != null && snapshot.details["shelflife"] != 0)    
                               Text(
                                   "Shelf life: ${snapshot.details["shelflife"]}",
                                   style: TextStyle(
@@ -624,10 +668,21 @@ reupload_bill() async
                                       fontFamily: "Poppins Medium",
                                       fontSize:
                                           MediaQuery.of(context).size.width *
-                                              0.023,
+                                              0.026,
                                       ),
                                 ), 
-                              if(temp2!="")    
+                                if(expdate == "Please refer to product")...[
+                                Text(
+                                  "Expiry Date: "+expdate,
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontFamily: "Poppins Medium",
+                                      fontSize:
+                                          MediaQuery.of(context).size.width *
+                                              0.026,
+                                      ),
+                                ), ]
+                              else if(temp2!="")    
                               Text(
                                   "Expiry Date: "+expdate,
                                   style: TextStyle(
@@ -635,7 +690,7 @@ reupload_bill() async
                                       fontFamily: "Poppins Medium",
                                       fontSize:
                                           MediaQuery.of(context).size.width *
-                                              0.023,
+                                              0.026,
                                       ),
                                 ), 
                                 if(snapshot.details["batchNo"] != null)    
@@ -646,7 +701,7 @@ reupload_bill() async
                                       fontFamily: "Poppins Medium",
                                       fontSize:
                                           MediaQuery.of(context).size.width *
-                                              0.023,
+                                              0.026,
                                       ),
                                 ),
                               if(snapshot.details["serialNo"] != null)    
@@ -657,7 +712,7 @@ reupload_bill() async
                                       fontFamily: "Poppins Medium",
                                       fontSize:
                                           MediaQuery.of(context).size.width *
-                                              0.023,
+                                              0.026,
                                       ),
                                 ),
                                 if(snapshot.details["warranty"] != null )    
@@ -668,7 +723,7 @@ reupload_bill() async
                                       fontFamily: "Poppins Medium",
                                       fontSize:
                                           MediaQuery.of(context).size.width *
-                                              0.023,
+                                              0.026,
                                       ),
                                 ),
                         if(snapshot.details["manuLicenseNo"] != null)
@@ -681,7 +736,7 @@ reupload_bill() async
                                         fontFamily: "Poppins Medium",
                                         fontSize:
                                             MediaQuery.of(context).size.width *
-                                                0.023,
+                                                0.026,
                                         ),
                                   ),
                               ),
@@ -714,7 +769,7 @@ reupload_bill() async
                                       fontFamily: "Poppins Medium",
                                       fontSize:
                                           MediaQuery.of(context).size.width *
-                                              0.023,
+                                              0.026,
                                       ),
                               ),
                               // Text('hello ${widget.snapshot.details["additionalImages"][0][0]["url"]}'),
@@ -748,19 +803,19 @@ reupload_bill() async
                                       fontFamily: "Poppins Medium",
                                       fontSize:
                                           MediaQuery.of(context).size.width *
-                                              0.023,
+                                              0.026,
                                       ),
                                 ),
                                 // Text(widget.snapshot.details["addtionalImages"]),
                                 ],
                         
-                        if(snapshot.details["additionalImages"]!=null ) ...[
+                        if(snapshot.details["additionalImages"]!=null && snapshot.details["additionalImageDetails"]!=null) ...[
                         if(snapshot.details["additionalImages"][0].length!=0) ...[
                           if(snapshot.details["additionalImages"][0][0]["url"]!="")...[
                                 SizedBox(
                           height: MediaQuery.of(context).size.height * 0.03,
                         ),
-                  if(snapshot.details["additionalImageDetails"]!=null)...[
+                  
                             Text(snapshot.details["additionalImageDetails"],
                             style: TextStyle(
                                 fontFamily: "Poppins Medium",
@@ -768,7 +823,7 @@ reupload_bill() async
                                 fontSize:
                                     MediaQuery.of(context).size.width * 0.031,
                                 fontWeight: FontWeight.bold,
-                                letterSpacing: 1.2)),],
+                                letterSpacing: 1.2)),
                             
                         SizedBox(
                                     height: MediaQuery.of(context).size.height *

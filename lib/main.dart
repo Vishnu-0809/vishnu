@@ -173,11 +173,12 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
             title: 'Veots',
             theme: ThemeData(
                textTheme: const TextTheme(
-               headlineMedium: TextStyle(fontSize: 14,  fontFamily: "Montserrat-SemiBold", color: Color(0xff002060)),
-               headlineSmall: TextStyle(fontSize: 12,color: Color(0xff00b7ff), fontFamily: "Montserrat-SemiBold",),
-               bodyMedium: TextStyle(fontSize: 10.5, fontFamily: 'Mont'),
-               bodySmall: TextStyle(fontSize: 10.5,fontFamily: 'Montserrat', fontWeight: FontWeight.bold,color: Color(0xff002060),
-               
+               headlineMedium: TextStyle(fontSize: 16,  fontFamily: "Poppins Medium", color: Color(0xff002060), 
+               fontWeight: FontWeight.w600,
+               ),
+               headlineSmall: TextStyle(fontSize: 12,color: Color(0xff00b7ff), fontFamily: "Poppins Medium",),
+               bodyMedium: TextStyle(fontSize: 12, fontFamily: 'Poppins Medium', color: Colors.white),
+               bodySmall: TextStyle(fontSize: 10.5,fontFamily: 'Poppins Medium', fontWeight: FontWeight.bold,color: Color(0xff002060),
                 )
              ),
               primarySwatch: Colors.blue,

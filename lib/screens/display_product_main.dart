@@ -55,7 +55,7 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
   Future getData() async {
       requestCount = requestCount + 1;
     String url =
-        "http://ec2-13-235-124-84.ap-south-1.compute.amazonaws.com:3000/verify/" +
+        "https://api.veots.in/verify/" +
             widget.subLink +
             "/" +
             UDID.toString();
@@ -93,7 +93,7 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       temp_class.details["warranty"] = responseData["details"]["warranty"];
       temp_class.details["imageQrOnProd"] =
           responseData["details"]["imageQrOnProd"];
-      temp_class.details["mfgdate"] = responseData["details"]["mfgdate"];
+      temp_class.details["mfgDate"] = responseData["details"]["mfgdate"];
       temp_class.details["shelflife"] = responseData["details"]["shelflife"];
       temp_class.details["manuLicenseNo"] =
           responseData["details"]["manuLicenseNo"];
@@ -106,6 +106,10 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       temp_class.details['tracking'] = responseData['tracking'];
       temp_class.details["additionalImageDetails"] =
           responseData["details"]["additionalImageDetails"];
+          temp_class.details["batchType"] =
+          responseData["details"]["batchType"];
+          temp_class.details["prodVedioLink"] =
+          responseData["batchDetails"]["prodVedioLink"];
         print("wdhbweifuhqwofijqeofnweoviwekfjwcwnociwefnwelf");
         print(temp_class.details["additionalImageDetails"]);
 
@@ -115,6 +119,36 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       temp_class.message = responseData["message"];
       temp_class.imageProd = responseData["image"];
       temp_class.prodName = responseData["name"];
+      temp_class.details["brand"] = responseData["details"]["name"];
+      temp_class.details["serialNo"] = responseData["details"]["serialNo"];
+      // temp_class.details["warrantyApp"] = responseData["batchDetails"]["warrantyApp"];
+      temp_class.details["price"] = responseData["details"]["price"];
+      temp_class.details["prodName"] = responseData["details"]["name"];
+      temp_class.details["imageProd"] = responseData["details"]["imageProd"];
+      // // temp_class.details["QROnProd"] =
+      // //     responseData["batchDetails"]["QROnProd"];
+      temp_class.details["expiry"] = responseData["details"]["expiry"];
+      temp_class.details["batchNo"] = responseData["details"]["batchNo"];
+      temp_class.details["warranty"] = responseData["details"]["warranty"];
+      temp_class.details["imageQrOnProd"] =
+          responseData["details"]["imageQrOnProd"];
+      temp_class.details["mfgDate"] = responseData["details"]["mfgdate"];
+      temp_class.details["shelflife"] = responseData["details"]["shelflife"];
+      temp_class.details["manuLicenseNo"] =
+          responseData["details"]["manuLicenseNo"];
+      temp_class.details["manuAddress"] =
+          responseData["details"]["manuAddress"];
+      temp_class.details["additionalDetails"] =
+          responseData["details"]["addtionalDetails"];
+      temp_class.details["additionalImages"] =
+          responseData["details"]["addtionalImages"];
+      temp_class.details['tracking'] = responseData['tracking'];
+      temp_class.details["additionalImageDetails"] =
+          responseData["details"]["additionalImageDetails"];
+          temp_class.details["batchType"] =
+          responseData["details"]["batchType"];
+          temp_class.details["prodVedioLink"] =
+          responseData["details"]["prodVedioLink"];
       // temp_class.details['tracking']=responseData['tracking'];
       return temp_class;
     } else if (responseData["message"] == "Fake") {
@@ -129,6 +163,7 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       // print(temp_class.message);
       return temp_class;
     } else if (responseData["message"] == "claim product") {
+      print(responseData["batchDetails"]["mfgDate"]);
       ClaimProd temp_class = new ClaimProd();
       temp_class.message = responseData["message"];
       temp_class.i = responseData["i"];
@@ -159,7 +194,8 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
           responseData["batchDetails"]["manuAdd"]; // changed.....
       temp_class.details["additionalDetails"] =
           responseData["batchDetails"]["addDetails"];
-
+          temp_class.details["additionalImageDetails"] =
+          responseData["batchDetails"]["additionalImageDetails"];
       ///changed
       temp_class.details["additionalImages"] = [
         responseData["batchDetails"]["extraImages"]
@@ -167,6 +203,12 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       temp_class.details["shelflife"] =
           responseData["batchDetails"]["shelfLife"];
       temp_class.details['tracking'] = responseData['tracking'];
+      temp_class.details["batchType"] =
+          responseData["batchDetails"]["batchType"];
+          temp_class.details["prodVedioLink"] =
+          responseData["batchDetails"]["prodVedioLink"];
+          print("9999999999999999");
+          print(temp_class.details["prodVedioLink"]);
       print(temp_class.details);
       // print(responseData);
       return temp_class;
@@ -186,7 +228,7 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       temp_class.details["warranty"] = responseData["details"]["warranty"];
       temp_class.details["imageQrOnProd"] =
           responseData["details"]["imageQrOnProd"];
-      temp_class.details["mfgdate"] = responseData["details"]["mfgdate"];
+      temp_class.details["mfgDate"] = responseData["details"]["mfgdate"];
       temp_class.details["shelflife"] = responseData["details"]["shelflife"];
       temp_class.details["manuLicenseNo"] =
           responseData["details"]["manuLicenseNo"];
@@ -197,36 +239,71 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       temp_class.details["additionalImages"] =
           responseData["details"]["addtionalImages"];
       temp_class.details['tracking'] = responseData['tracking'];
+      temp_class.details["additionalImageDetails"] =
+          responseData["batchDetails"]["additionalImageDetails"];
+          temp_class.details["batchType"] =
+          responseData["details"]["batchType"];
+          temp_class.details["prodVedioLink"] =
+          responseData["batchDetails"]["prodVedioLink"];
       print(responseData["message"]);
       return temp_class;
     } else if (responseData["message"] == "Genuine Post Sale") {
       GenuinePostSale temp_class = new GenuinePostSale();
+      // print(responseData["message"]);
       temp_class.message = responseData["message"];
+      temp_class.purchaseDate = responseData["purchaseDate"];
+      print("****");
+      print(responseData["purchaseDate"]);
+      print("******");
       temp_class.details["brand"] = responseData["details"]["brand"];
+      // print(responseData["details"]["brand"]);
       temp_class.details["serialNo"] = responseData["details"]["serialNo"];
-      // temp_class.details["warrantyApp"] = responseData["batchDetails"]["warrantyApp"];
+      // print(responseData["details"]["serialNo"]);
+      // // temp_class.details["warrantyApp"] = responseData["batchDetails"]["warrantyApp"];
       temp_class.details["price"] = responseData["details"]["price"];
+      // print(responseData["details"]["price"]);
       temp_class.details["prodName"] = responseData["details"]["name"];
+      // print(responseData["details"]["name"]);
       temp_class.details["imageProd"] = responseData["details"]["imageProd"];
-      // temp_class.details["QROnProd"] =
-      //     responseData["batchDetails"]["QROnProd"];
+      // // temp_class.details["QROnProd"] =
+      // //     responseData["batchDetails"]["QROnProd"];
+      // print(responseData["details"]["imageProd"]);
       temp_class.details["expiry"] = responseData["details"]["expiry"];
+      //  print(responseData["details"]["expiry"]);
       temp_class.details["batchNo"] = responseData["details"]["batchNo"];
+      // print(responseData["details"]["batchNo"]);
       temp_class.details["warranty"] = responseData["details"]["warranty"];
+      // print(responseData["details"]["warranty"]);
       temp_class.details["imageQrOnProd"] =
           responseData["details"]["imageQrOnProd"];
-      temp_class.details["mfgdate"] = responseData["details"]["mfgdate"];
+      //     print(responseData["details"]["imageQrOnProd"]);
+      temp_class.details["mfgDate"] = responseData["details"]["mfgdate"];
+      // print( responseData["details"]["mfgdate"]);
       temp_class.details["shelflife"] = responseData["details"]["shelflife"];
+      //  print(responseData["details"]["shelflife"]);
       temp_class.details["manuLicenseNo"] =
           responseData["details"]["manuLicenseNo"];
+      //     print(responseData["details"]["manuLicenseNo"]);
       temp_class.details["manuAddress"] =
           responseData["details"]["manuAddress"];
+      //     print(responseData["details"]["manuAddress"]);
       temp_class.details["additionalDetails"] =
           responseData["details"]["addtionalDetails"];
+      //     print(responseData["details"]["addtionalDetails"]);
       temp_class.details["additionalImages"] =
           responseData["details"]["addtionalImages"];
+      //     print(responseData["details"]["addtionalImages"]);
       temp_class.details['tracking'] = responseData['tracking'];
-      temp_class.bill = responseData["bill"]; // chnage billl
+      // print( responseData['tracking']);
+      temp_class.details["additionalImageDetails"] =
+          responseData["details"]["additionalImageDetails"];
+      //     print(responseData["batchDetails"]["additionalImageDetails"]);
+      temp_class.bill = responseData["bill"];
+      temp_class.details["batchType"] =
+          responseData["details"]["batchType"];
+          temp_class.details["prodVedioLink"] =
+          responseData["batchDetails"]["prodVedioLink"];
+      // print(responseData["bill"]); // chnage billl
       return temp_class;
     } else if (responseData["message"] == "Info" ||
         responseData["message"] == "Tracking") {
@@ -245,7 +322,7 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       temp_class.details["warranty"] = responseData["details"]["warranty"];
       temp_class.details["imageQrOnProd"] =
           responseData["details"]["imageQrOnProd"];
-      temp_class.details["mfgdate"] = responseData["details"]["mfgdate"];
+      temp_class.details["mfgDate"] = responseData["details"]["mfgdate"];
       temp_class.details["shelflife"] = responseData["details"]["shelflife"];
       temp_class.details["manuLicenseNo"] =
           responseData["details"]["manuLicenseNo"];
@@ -256,6 +333,10 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       temp_class.details["additionalImages"] =
           responseData["details"]["addtionalImages"];
       temp_class.details['tracking'] = responseData['tracking'];
+      temp_class.details["batchType"] =
+          responseData["details"]["batchType"];
+      temp_class.details["prodVedioLink"] =
+          responseData["batchDetails"]["prodVedioLink"];
       return temp_class;
     }
   }
@@ -325,6 +406,9 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
               body: FutureBuilder(
                 future: _getDataFuture,
                 builder: (BuildContext ctx, AsyncSnapshot snapshot) {
+                  print("555555555555555555");
+                  print(snapshot.data);
+                  print("88888888888888");
                   if (snapshot.data == null) {
                     return Container(
                       child: Center(

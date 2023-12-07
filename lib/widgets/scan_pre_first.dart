@@ -1,3 +1,5 @@
+import 'dart:core';
+
 import 'package:flutter/material.dart';
 import 'package:Veots/models/class_models.dart';
 import 'package:Veots/screens/product_details.dart';
@@ -105,6 +107,7 @@ class ScanPreFirstScreen extends StatelessWidget {
                Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                snapshot.details["batchType"] == "manufacturer" ?
                 Text(
               "Scanned Product Details",
               style: 
@@ -115,7 +118,17 @@ class ScanPreFirstScreen extends StatelessWidget {
                   fontFamily: "Poppins Medium",
                   // fontWeight: FontWeight.bold
                   ),
-            ),
+            ):
+            Text(
+              "Scanned Details",
+              style: 
+              // Theme.of(context).textTheme.headlineMedium,
+              TextStyle(
+                  color: const Color(0xff002060),
+                  fontSize: 16,
+                  fontFamily: "Poppins Medium",
+                  ),
+            )
               ],
             ),
             SizedBox(
@@ -128,26 +141,40 @@ class ScanPreFirstScreen extends StatelessWidget {
               //     fontSize: MediaQuery.of(context).size.width * 0.055,
               //   ),
               // ),
+          if(snapshot.details["batchType"] == "retailor")...[
+            Text(
+            snapshot.details["brand"],
+            style:
+            //  Theme.of(context).textTheme.headlineSmall,
+            TextStyle(
+              color: const Color(0xff00b7ff),
+              fontSize: 12,
+                  // fontSize: MediaQuery.of(context).size.width * 0.055,
+                  fontFamily: "Poppins Medium",
+            ),
+          )]
+          else...[
           if(snapshot.details["prodName"]!=null)...[
           Text(
             snapshot.details["prodName"],
-            style: TextStyle(
+            style:
+            //  Theme.of(context).textTheme.headlineSmall,
+            TextStyle(
               color: const Color(0xff00b7ff),
+              fontSize: 12,
                   // fontSize: MediaQuery.of(context).size.width * 0.055,
-                  fontSize: 12,
                   fontFamily: "Poppins Medium",
             ),
           ),]
           else...[
-            Text("null",
-            // snapshot.details["prodName"],
+            Text(
+            "unable to display name",
             style: TextStyle(
-              color: const Color(0xff00b7ff),
+              color: const Color(0xff0b53be),
                   fontSize: MediaQuery.of(context).size.width * 0.055,
-                  fontFamily: "Montserrat-SemiBold",
             ),
           ),
-          ],
+          ]],
           // SizedBox(
           //   height: MediaQuery.of(context).size.height / 35,
           // ),
@@ -465,13 +492,14 @@ class ScanPreFirstScreen extends StatelessWidget {
                         temp_class.details["batchNo"] = snapshot.details["batchNo"];
                         temp_class.details["warranty"] = snapshot.details["warranty"];
                          temp_class.details["imageQrOnProd"] = snapshot.details["imageQrOnProd"];
-                         temp_class.details["mfgdate"] = snapshot.details["mfgdate"];
+                         temp_class.details["mfgDate"] = snapshot.details["mfgDate"];
                          temp_class.details["shelflife"] = snapshot.details["shelflife"];
                          temp_class.details["manuLicenseNo"] = snapshot.details["manuLicenseNo"];
                          temp_class.details["manuAddress"] = snapshot.details["manuAddress"];
                          temp_class.details["additionalDetails"] = snapshot.details["additionalDetails"];
                          temp_class.details["additionalImages"] = snapshot.details["additionalImages"];
                          temp_class.details['tracking']=snapshot.details['tracking']; ///changed
+                         temp_class.details['prodVedioLink']=snapshot.details['prodVedioLink'];
                         Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => ProdDetails(link:link,snapshot: temp_class),
                         ));
@@ -479,15 +507,27 @@ class ScanPreFirstScreen extends StatelessWidget {
                       style: ElevatedButton.styleFrom(
                           primary: Colors.transparent,
                           shadowColor: Colors.transparent),
-                      child: const FittedBox(
-                        child: Text(
+                      child:  FittedBox(
+                        child: 
+                        snapshot.details["batchType"] == "manufacturer" ?
+                        Text(
                           'Product Details',
                           style: TextStyle(
                             // fontWeight: FontWeight.bold,
                           fontFamily: "Poppins Medium",
                           fontSize: 12
                           ),
-                        ),
+                        ):
+                         Text(
+                          'Product Details',
+                          style: 
+                          // Theme.of(context).textTheme.bodyMedium,
+                          TextStyle(
+                            // fontWeight: FontWeight.bold,
+                          fontFamily: "Poppins Medium",
+                          fontSize: 12
+                          ),
+                        )
                       ),
                     ),
               )

@@ -82,6 +82,7 @@ android {
            storePassword keystoreProperties['storePassword']
        }
    }
+<<<<<<< HEAD
   buildTypes {
    release {
        // TODO: Add your own signing config for the release build.
@@ -89,6 +90,13 @@ android {
        // so `flutter run --release` works.
        signingConfig signingConfigs.debug
    }}
+=======
+   buildTypes {
+       release {
+           signingConfig signingConfigs.release
+       }
+   }
+>>>>>>> 3327c8a868376d09cb043c3cdc3398fcb59c6358
 
    
 }

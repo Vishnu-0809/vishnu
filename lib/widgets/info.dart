@@ -1,3 +1,5 @@
+import 'dart:core';
+
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:Veots/models/class_models.dart';
@@ -655,7 +657,7 @@ YoutubePlayer(
                         temp_class.details["batchNo"] = snapshot.details["batchNo"];
                         temp_class.details["warranty"] =snapshot.details["warranty"];
                          temp_class.details["imageQrOnProd"] = snapshot.details["imageQrOnProd"];
-                         temp_class.details["mfgdate"] =snapshot.details["mfgdate"];
+                         temp_class.details["mfgDate"] =snapshot.details["mfgDate"];
                          temp_class.details["shelflife"] = snapshot.details["shelflife"];
                          temp_class.details["manuLicenseNo"] = snapshot.details["manuLicenseNo"];
                          temp_class.details["manuAddress"] = snapshot.details["manuAddress"];

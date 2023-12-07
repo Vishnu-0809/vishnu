@@ -107,28 +107,65 @@ class ExpiredProd extends StatelessWidget {
             SizedBox(
               height: MediaQuery.of(context).size.height / 40,
             ),
+            snapshot.details["batchType"] == "manufacturer" ?
             Text(
               "Scanned Product Details",
-              style: TextStyle(
+              style: 
+              // Theme.of(context).textTheme.headlineMedium,
+              TextStyle(
                   color: const Color(0xff002060),
-                  fontFamily: "Poppins Medium",
-                  // fontSize: MediaQuery.of(context).size.width * 0.045,
+                  fontSize:16,
+                  //  MediaQuery.of(context).size.width * 0.045,
+                  fontFamily: "Poppins Medium"
+                  ),
+            ):
+            Text(
+              "Scanned Details",
+              style: 
+              // Theme.of(context).textTheme.headlineMedium,
+              TextStyle(
+                  color: const Color(0xff002060),
                   fontSize: 16,
-                  // fontWeight: FontWeight.bold
+                  fontFamily: "Poppins Medium",
                   ),
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height / 100,
             ),
+            if(snapshot.details["batchType"] == "retailor")...[
             Text(
-              snapshot.prodName,
-              style: TextStyle(
-                color: const Color(0xff00b7ff),
-                fontFamily: "Poppins Medium",
-                // fontSize: MediaQuery.of(context).size.width * 0.045,
-                fontSize: 12,
-              ),
+            snapshot.details["brand"],
+            style:
+            //  Theme.of(context).textTheme.headlineSmall,
+            TextStyle(
+              color: const Color(0xff00b7ff),
+              fontSize: 12,
+                  // fontSize: MediaQuery.of(context).size.width * 0.055,
+                  fontFamily: "Poppins Medium",
             ),
+          )]
+          else...[
+          if(snapshot.details["prodName"]!=null)...[
+          Text(
+            snapshot.details["prodName"],
+            style:
+            //  Theme.of(context).textTheme.headlineSmall,
+            TextStyle(
+              color: const Color(0xff00b7ff),
+              fontSize: 12,
+                  // fontSize: MediaQuery.of(context).size.width * 0.055,
+                  fontFamily: "Poppins Medium",
+            ),
+          ),]
+          else...[
+            Text(
+            "unable to display name",
+            style: TextStyle(
+              color: const Color(0xff0b53be),
+                  fontSize: MediaQuery.of(context).size.width * 0.055,
+            ),
+          ),
+          ]],
             // SizedBox(
             //   height: MediaQuery.of(context).size.height / 35,
             // ),
@@ -373,6 +410,31 @@ YoutubePlayer(
                       temp_class.details["message"] = snapshot.message;
                       temp_class.details["image"] = snapshot.imageProd;
                       temp_class.details["prodName"] = snapshot.prodName;
+                      temp_class.details["brand"] = snapshot.details["brand"];
+                        temp_class.details["serialNo"] = snapshot.details["serialNo"];
+                        // temp_class.details["warrantyApp"] = responseData["batchDetails"]["warrantyApp"];
+                        temp_class.details["price"] = snapshot.details["price"];
+                        temp_class.details["prodName"] = snapshot.details["prodName"];
+                        temp_class.details["imageProd"] = snapshot.details["imageProd"];
+                        // temp_class.details["QROnProd"] =
+                        //     responseData["batchDetails"]["QROnProd"];
+                        temp_class.details["expiry"] = snapshot.details["expiry"];
+                        temp_class.details["batchNo"] = snapshot.details["batchNo"];
+                        temp_class.details["warranty"] = snapshot.details["warranty"];
+                         temp_class.details["imageQrOnProd"] = snapshot.details["imageQrOnProd"];
+                         temp_class.details["mfgDate"] = snapshot.details["mfgDate"];
+                         temp_class.details["shelflife"] = snapshot.details["shelflife"];
+                         temp_class.details["manuLicenseNo"] = snapshot.details["manuLicenseNo"];
+                         temp_class.details["manuAddress"] = snapshot.details["manuAddress"];
+                         temp_class.details["additionalDetails"] =snapshot.details["additionalDetails"];
+                         temp_class.details["additionalImages"] = snapshot.details["additionalImages"];
+                         temp_class.details['prodVedioLink']=snapshot.details['prodVedioLink'];
+                         print("=====================================");
+                         print(snapshot.details["additionalImageDetails"]);
+                         print("======================================");
+                         
+                         temp_class.details["additionalImageDetails"] = snapshot.details["additionalImageDetails"];
+                         print(temp_class.details["additionalImageDetails"]);
                       Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => ProdDetails(link: link,snapshot:temp_class),
                       ));
@@ -380,15 +442,29 @@ YoutubePlayer(
                     style: ElevatedButton.styleFrom(
                         primary: Colors.transparent,
                         shadowColor: Colors.transparent),
-                    child: const FittedBox(
-                      child: Text(
-                        'Product Details',
-                        style: TextStyle(
-                          // fontWeight: FontWeight.bold,
-                        fontFamily: "Poppins Medium",
-                        fontSize: 13.5
+                    child: FittedBox(
+                      child: 
+                      snapshot.details["batchType"] == "manufacturer" ?
+                                Text(
+                                  'Product Details',
+                                  style: 
+                                  // Theme.of(context).textTheme.bodyMedium,
+                                  TextStyle(
+                                  fontFamily: "Poppins Medium",
+                                  fontSize: 13.5
+                                  // fontSize: MediaQuery.of(context).size.width*0.030
+                                  ),
+                                ):
+                                 Text(
+                          'Details',
+                          style: 
+                          // Theme.of(context).textTheme.bodyMedium,
+                          TextStyle(
+                            // fontWeight: FontWeight.bold,
+                          fontFamily: "Poppins Medium",
+                          fontSize: 12
+                          ),
                         ),
-                      ),
                     ),
                   ),
                 ),

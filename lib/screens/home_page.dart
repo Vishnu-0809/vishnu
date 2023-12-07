@@ -399,7 +399,6 @@ Future CheckUserConnection() async {
     NAME=preferences.getString('name');
     GENDER=preferences.getString('gender');
     COMNAME=preferences.getString('companyName');
-
     DOB=preferences.getString('dob');
     RegExp reg = RegExp(r'^[0-9]{10}$');
     if (
@@ -456,12 +455,12 @@ Future<Null> _onrefresh()
                           Container(
                             child: Image.asset(
                               'assets/veots_logo_wo_tl.png',
-                                height: MediaQuery.of(context).size.width * 0.09,
-                          width: MediaQuery.of(context).size.width * 0.09,
+                                height: MediaQuery.of(context).size.width * 0.075,
+                          width: MediaQuery.of(context).size.width * 0.075,
                             ),
                           ),
                           Container(
-                            child: Text("Veots",style: TextStyle(fontWeight: FontWeight.bold,fontFamily: "Montserrat-SemiBold",fontSize:  MediaQuery.of(context).size.width * 0.042, fontStyle: FontStyle.italic,),),
+                            child: Text("Veots",style: TextStyle(fontWeight: FontWeight.bold,fontFamily: "Montserrat-SemiBold",fontSize:  MediaQuery.of(context).size.width * 0.042, fontStyle: FontStyle.italic, color: Colors.black),),
                           ),
                           const Spacer(),
                           Container(

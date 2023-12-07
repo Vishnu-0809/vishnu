@@ -150,6 +150,7 @@ class _GenuinePreState extends State<GenuinePre> {
             SizedBox(
               height: MediaQuery.of(context).size.height / 40,
             ),
+            widget.snapshot.details["batchType"] == "manufacturer" ?
             Text(
               "Scanned Product Details",
               style: 
@@ -160,23 +161,54 @@ class _GenuinePreState extends State<GenuinePre> {
                   //  MediaQuery.of(context).size.width * 0.045,
                   fontFamily: "Poppins Medium"
                   ),
+            ):
+            Text(
+              "Scanned Details",
+              style: 
+              // Theme.of(context).textTheme.headlineMedium,
+              TextStyle(
+                  color: const Color(0xff002060),
+                  fontSize: 16,
+                  fontFamily: "Poppins Medium",
+                  ),
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height / 100,
             ),
-            if(widget.snapshot.details["prodName"]!=null)
+            if(widget.snapshot.details["batchType"] == "retailor")...[
             Text(
-              widget.snapshot.details["prodName"],
-              textAlign: TextAlign.center,
-              style: 
-              // Theme.of(context).textTheme.headlineSmall,
-              TextStyle(
-                color: const Color(0xff00b7ff),
-                // fontSize: MediaQuery.of(context).size.width * 0.045,
-                fontSize: 12,
-                fontFamily: "Poppins Medium"
-              ),
+            widget.snapshot.details["brand"],
+            style:
+            //  Theme.of(context).textTheme.headlineSmall,
+            TextStyle(
+              color: const Color(0xff00b7ff),
+              fontSize: 12,
+                  // fontSize: MediaQuery.of(context).size.width * 0.055,
+                  fontFamily: "Poppins Medium",
             ),
+          )]
+          else...[
+          if(widget.snapshot.details["prodName"]!=null)...[
+          Text(
+            widget.snapshot.details["prodName"],
+            style:
+            //  Theme.of(context).textTheme.headlineSmall,
+            TextStyle(
+              color: const Color(0xff00b7ff),
+              fontSize: 12,
+                  // fontSize: MediaQuery.of(context).size.width * 0.055,
+                  fontFamily: "Poppins Medium",
+            ),
+          ),]
+          else...[
+            Text(
+            "unable to display name",
+            style: TextStyle(
+              color: const Color(0xff0b53be),
+                  fontSize: MediaQuery.of(context).size.width * 0.055,
+            ),
+          ),
+          ]],
             // SizedBox(
             //   height: MediaQuery.of(context).size.height / 35,
             // ),
@@ -661,12 +693,13 @@ YoutubePlayer(
                         temp_class.details["batchNo"] = widget.snapshot.details["batchNo"];
                         temp_class.details["warranty"] = widget.snapshot.details["warranty"];
                          temp_class.details["imageQrOnProd"] = widget.snapshot.details["imageQrOnProd"];
-                         temp_class.details["mfgdate"] = widget.snapshot.details["mfgdate"];
+                         temp_class.details["mfgDate"] = widget.snapshot.details["mfgDate"];
                          temp_class.details["shelflife"] = widget.snapshot.details["shelflife"];
                          temp_class.details["manuLicenseNo"] = widget.snapshot.details["manuLicenseNo"];
                          temp_class.details["manuAddress"] = widget.snapshot.details["manuAddress"];
                          temp_class.details["additionalDetails"] =widget.snapshot.details["additionalDetails"];
                          temp_class.details["additionalImages"] = widget.snapshot.details["additionalImages"];
+                         temp_class.details['prodVedioLink']=widget.snapshot.details['prodVedioLink'];
                          print("=====================================");
                          print(widget.snapshot.details["additionalImageDetails"]);
                          print("======================================");
@@ -682,7 +715,9 @@ YoutubePlayer(
                                   primary: Colors.transparent,
                                   shadowColor: Colors.transparent),
                               child:  FittedBox(
-                                child: Text(
+                                child: 
+                                widget.snapshot.details["batchType"] == "manufacturer" ?
+                                Text(
                                   'Product Details',
                                   style: 
                                   // Theme.of(context).textTheme.bodyMedium,
@@ -691,7 +726,17 @@ YoutubePlayer(
                                   fontSize: 13.5
                                   // fontSize: MediaQuery.of(context).size.width*0.030
                                   ),
-                                ),
+                                ):
+                                 Text(
+                          'Details',
+                          style: 
+                          // Theme.of(context).textTheme.bodyMedium,
+                          TextStyle(
+                            // fontWeight: FontWeight.bold,
+                          fontFamily: "Poppins Medium",
+                          fontSize: 12
+                          ),
+                        ),
                               ),
                             ),
                           )
