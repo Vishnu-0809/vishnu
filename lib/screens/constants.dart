@@ -1,0 +1,10 @@
+import 'package:geolocator/geolocator.dart';
+String? UDID;
+String? ID;
+Position? LOCATION;
+String? NAME;
+bool? MOB_not_EM;
+String? GENDER;
+String? COMNAME;
+String? custId_coupon;
+String? DOB;
