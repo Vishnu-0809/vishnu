@@ -69,14 +69,14 @@ class ProdDetails extends StatelessWidget {
   int warranty_left = 0;
 
   print("PURCHASE DATE");
-  print(snapshot.details["purchaseDetails"]);
-  if (snapshot.details["purchaseDetails"]!=null)
+  print(snapshot.details["purchaseDate"]);
+  if (snapshot.details["purchaseDate"]!=null)
   {
 
     print("CHECKING WARRANTY LEFT");
   DateTime today = DateTime.now();
 
-  DateTime providedDate = DateTime.parse(snapshot.details["purchaseDetails"]);
+  DateTime providedDate = DateTime.parse(snapshot.details["purchaseDate"]);
 
   Duration difference = today.difference(providedDate);
   print("difference");
@@ -115,10 +115,11 @@ else{
   }
 
 if(snapshot.details["expiry"] != null){
-  if( snapshot.details["expiry"] == "not applicable")
+  if( snapshot.details["expiry"] == "not available")
 expdate = "Please refer to product";
 else{
    print("going to enddate");
+   print(snapshot.details["expiry"]);
    print(snapshot.details["expiry"]);
                                 temp2 =
                                 snapshot.details["expiry"].substring(0, 10);

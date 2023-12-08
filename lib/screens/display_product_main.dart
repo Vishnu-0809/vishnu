@@ -109,8 +109,7 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
           temp_class.details["batchType"] =
           responseData["details"]["batchType"];
           temp_class.details["productVedio"] =
-          responseData["batchDetails"]["productVedio"];
-          print( temp_class.details["productVedio"]);
+          responseData["details"]["productVedio"];
         print("wdhbweifuhqwofijqeofnweoviwekfjwcwnociwefnwelf");
         print(temp_class.details["additionalImageDetails"]);
 
@@ -242,12 +241,11 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
           responseData["details"]["addtionalImages"];
       temp_class.details['tracking'] = responseData['tracking'];
       temp_class.details["additionalImageDetails"] =
-          responseData["batchDetails"]["additionalImageDetails"];
+          responseData["details"]["additionalImageDetails"];
           temp_class.details["batchType"] =
           responseData["details"]["batchType"];
           temp_class.details["productVedio"] =
-          responseData["batchDetails"]["productVedio"];
-          print( temp_class.details["productVedio"]);
+          responseData["details"]["productVedio"];
       print(responseData["message"]);
       return temp_class;
     } else if (responseData["message"] == "Genuine Post Sale") {
@@ -305,8 +303,7 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       temp_class.details["batchType"] =
           responseData["details"]["batchType"];
           temp_class.details["productVedio"] =
-          responseData["batchDetails"]["productVedio"];
-          print( temp_class.details["productVedio"]);
+          responseData["details"]["productVedio"];
       // print(responseData["bill"]); // chnage billl
       return temp_class;
     } else if (responseData["message"] == "Info" ||
@@ -340,8 +337,7 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       temp_class.details["batchType"] =
           responseData["details"]["batchType"];
       temp_class.details["productVedio"] =
-          responseData["batchDetails"]["productVedio"];
-          print( temp_class.details["productVedio"]);
+          responseData["details"]["productVedio"];
       return temp_class;
     }
   }
