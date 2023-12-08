@@ -108,8 +108,8 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
           responseData["details"]["additionalImageDetails"];
           temp_class.details["batchType"] =
           responseData["details"]["batchType"];
-          // temp_class.details["prodVedioLink"] =
-          // responseData["batchDetails"]["prodVedioLink"];
+          temp_class.details["prodVedioLink"] =
+          responseData["details"]["prodVedioLink"];
         print("wdhbweifuhqwofijqeofnweoviwekfjwcwnociwefnwelf");
         print(temp_class.details["additionalImageDetails"]);
 
@@ -240,11 +240,11 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
           responseData["details"]["addtionalImages"];
       temp_class.details['tracking'] = responseData['tracking'];
       temp_class.details["additionalImageDetails"] =
-          responseData["batchDetails"]["additionalImageDetails"];
+          responseData["details"]["additionalImageDetails"];
           temp_class.details["batchType"] =
           responseData["details"]["batchType"];
           temp_class.details["prodVedioLink"] =
-          responseData["batchDetails"]["prodVedioLink"];
+          responseData["details"]["prodVedioLink"];
       print(responseData["message"]);
       return temp_class;
     } else if (responseData["message"] == "Genuine Post Sale") {
@@ -302,7 +302,7 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       temp_class.details["batchType"] =
           responseData["details"]["batchType"];
           temp_class.details["prodVedioLink"] =
-          responseData["batchDetails"]["prodVedioLink"];
+          responseData["details"]["prodVedioLink"];
       // print(responseData["bill"]); // chnage billl
       return temp_class;
     } else if (responseData["message"] == "Info" ||
@@ -336,7 +336,7 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       temp_class.details["batchType"] =
           responseData["details"]["batchType"];
       temp_class.details["prodVedioLink"] =
-          responseData["batchDetails"]["prodVedioLink"];
+          responseData["details"]["prodVedioLink"];
       return temp_class;
     }
   }
