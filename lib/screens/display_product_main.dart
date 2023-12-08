@@ -108,8 +108,8 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
           responseData["details"]["additionalImageDetails"];
           temp_class.details["batchType"] =
           responseData["details"]["batchType"];
-          temp_class.details["prodVedioLink"] =
-          responseData["batchDetails"]["prodVedioLink"];
+          // temp_class.details["prodVedioLink"] =
+          // responseData["batchDetails"]["prodVedioLink"];
         print("wdhbweifuhqwofijqeofnweoviwekfjwcwnociwefnwelf");
         print(temp_class.details["additionalImageDetails"]);
 
