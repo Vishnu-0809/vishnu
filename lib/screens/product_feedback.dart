@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 
@@ -10,6 +11,7 @@ import 'package:Veots/screens/home_page.dart';
 import 'package:Veots/screens/login.dart';
 import 'package:Veots/widgets/send_accept.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import '../models/class_models.dart';
 import '../widgets/Requests.dart';
 import 'package:uuid/uuid.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -18,13 +20,10 @@ import 'constants.dart';
 import 'final_forgot_password.dart';
 
 class Product_Feedback extends StatefulWidget {
-  Product_Feedback({
-    super.key,
-
-    // required this.password,
-
-    // required this.location_on
-  });
+  Product_Feedback(
+    {super.key, required this.snapshot});
+ 
+  final Details snapshot;
   //  final bool location_on;
   // final String password;
 
@@ -34,9 +33,14 @@ class Product_Feedback extends StatefulWidget {
 
 class _Product_FeedbackState extends State<Product_Feedback> {
   // var uuid = Uuid();
+
+
+  TextEditingController content=TextEditingController(text: '');
   int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
+
+    
     final textScale = MediaQuery.of(context).textScaleFactor;
     bool someBooleanValue = true;
     String Review1="Very Bad";
@@ -75,7 +79,8 @@ class _Product_FeedbackState extends State<Product_Feedback> {
    
 
     return Scaffold(
-        body: Column(
+        body: SingleChildScrollView(
+          child: Column(
       children: [
           SizedBox(
           height: MediaQuery.of(context).size.height * 0.05,
@@ -139,7 +144,7 @@ class _Product_FeedbackState extends State<Product_Feedback> {
                       borderRadius: BorderRadius.circular(0),
                       child: CachedNetworkImage(
                         imageUrl:
-                            "https://hips.hearstapps.com/hmg-prod/images/mango-fruit-sugar-1530136260.jpg",
+                            widget.snapshot.details["imageProd"],
                         progressIndicatorBuilder: (context, url, progress) =>
                             Center(
                           child: CircularProgressIndicator(
@@ -170,7 +175,7 @@ class _Product_FeedbackState extends State<Product_Feedback> {
                       // fit: BoxFit.fitWidth,
                       width: MediaQuery.of(context).size.width * 0.5,
                       child: Text(
-                        "asd",
+                        widget.snapshot.details["prodName"],
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontFamily: "Poppins Medium",
@@ -184,7 +189,7 @@ class _Product_FeedbackState extends State<Product_Feedback> {
                     FittedBox(
                       fit: BoxFit.fitWidth,
                       child: Text(
-                        "ss",
+                        widget.snapshot.details["brand"],
                         style: TextStyle(
                           // fontWeight: FontWeight.bold,
                           fontFamily: "Poppins Medium",
@@ -241,7 +246,7 @@ class _Product_FeedbackState extends State<Product_Feedback> {
           onRatingUpdate: (rating) {
             print("rating "+rating.toString());
 
-
+ReviewValue=rating;
             // updateValue(rating);
             // setState(() {
             //   if(rating==1.0){
@@ -308,7 +313,7 @@ class _Product_FeedbackState extends State<Product_Feedback> {
   ),
           width: MediaQuery.of(context).size.width * 0.95,
           child: TextField(
-            
+            controller: content,
             maxLines: 15, //or null
             decoration: InputDecoration.collapsed(
                 hintText:
@@ -344,8 +349,68 @@ class _Product_FeedbackState extends State<Product_Feedback> {
                                 gradient: LinearGradient(
                                     colors: [Color(0xff00b7ff), Color(0xffaa2aae)])),
                             child: ElevatedButton(
-                              onPressed: () {
-                                
+                              onPressed: ()async {
+                                print("ggggggggggggggggg");
+                                print(ReviewValue);
+                                print(content.text);
+                                 final token = await createProductFeedback(
+        widget.snapshot.details["prodID"],ReviewValue.toInt(),content.text);
+    
+    // final token = await createAlbumPurchaseHistoryDetailsEmail(
+    //     "email", "wkhan5776@gmail.com");
+    // print(token);
+  var responseData = (token.message);
+  print("ads"+responseData);
+  if(responseData=="Update sucessfull"){
+    Navigator.pop(context);
+     {
+            // print("Not ------------------------verified");
+            final show = SnackBar(
+                duration: Duration(seconds: 1, milliseconds: 500),
+                content: Text(
+                  // token!.message,
+                  "Feedback sent!",
+                  style: TextStyle(color: Color.fromRGBO(255, 255, 255, 0.9)),
+                  textAlign: TextAlign.center,
+                ),
+                backgroundColor: Color.fromRGBO(72, 72, 72, 0.8),
+                behavior: SnackBarBehavior.floating,
+                margin: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width * 0.25,
+                  right: MediaQuery.of(context).size.width * 0.25,
+                  bottom: MediaQuery.of(context).size.height * 0.05,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                ));
+            ScaffoldMessenger.of(context).showSnackBar(show);
+          }
+    }
+    else{
+       {
+            print("Not ------------------------verified");
+            final show = SnackBar(
+                duration: Duration(seconds: 1, milliseconds: 500),
+                content: Text(
+                  // token!.message,
+                  "Please try again!",
+                  style: TextStyle(color: Color.fromRGBO(255, 255, 255, 0.9)),
+                  textAlign: TextAlign.center,
+                ),
+                backgroundColor: Color.fromRGBO(72, 72, 72, 0.8),
+                behavior: SnackBarBehavior.floating,
+                margin: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width * 0.25,
+                  right: MediaQuery.of(context).size.width * 0.25,
+                  bottom: MediaQuery.of(context).size.height * 0.05,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                ));
+            ScaffoldMessenger.of(context).showSnackBar(show);
+          }
+    }
+    // if()
                               },
                               style: ElevatedButton.styleFrom(
                                   primary: Colors.transparent,
@@ -404,7 +469,8 @@ class _Product_FeedbackState extends State<Product_Feedback> {
         )
       ],
       
-    ));
+    ),
+        ));
   }
 
   Widget buildFittedWidthText(String text) => Container(

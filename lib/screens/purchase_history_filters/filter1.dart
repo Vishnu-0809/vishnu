@@ -22,6 +22,8 @@ import 'package:Veots/screens/phone_view.dart';
 
 import 'package:Veots/models/class_models.dart';
 
+import '../product_feedback.dart';
+
 class PurchaseHistoryFIlter1 extends StatefulWidget {
   const PurchaseHistoryFIlter1({
     super.key,
@@ -1512,19 +1514,78 @@ Navigator.of(context).push(MaterialPageRoute(
                                     ),
                                   ),
                                               ),
+                                             SizedBox(height: 5,),
+
+                                   Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+           Container(
+            height: MediaQuery.of(context).size.height*0.035,
+            child:  TextButton(
+      child: Text(
+        "Details",
+        style: TextStyle(fontSize: 10)
+      ),
+      style: ButtonStyle(
+        
+        foregroundColor: MaterialStateProperty.all<Color>(
+          Color.fromARGB(255, 123, 119, 119)
+        ),
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
+            side: BorderSide(color: Color.fromARGB(255, 123, 119, 119))
+          )
+        )
+      ),
+      onPressed: () {   Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) =>ProdDetails(link:"",snapshot: sea,)
+                  ));;}
+    ),
+           ),
+    SizedBox(width: 10,),
+    Container(
+      height: MediaQuery.of(context).size.height*0.035,
+      child: TextButton(
+      child: Text(
+        "Feedback",
+        style: TextStyle(fontSize: 10)
+      ),
+      style: ButtonStyle(
+        
+        foregroundColor: MaterialStateProperty.all<Color>(
+          Color.fromARGB(255, 123, 119, 119)
+        ),
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
+            side: BorderSide(color: Color.fromARGB(255, 123, 119, 119))
+          )
+        )
+      ),
+      onPressed: () =>   Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) =>Product_Feedback(snapshot: sea,)
+                  ))
+    ),
+    )
+                                   ],),
                                              InkWell(
                                                   onTap: 
                                               // nullp
                                               // ("g");n
                                               (){
-                                                    Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) =>ProdDetails(link:"",snapshot: sea,)
-                  ));
+                                                 
                                               },
-                                              child: FittedBox(
+                                              child:Row(children: [
+                                                      Icon(
+        Icons.playlist_add_check_outlined,
+        size: 20.0,
+      ),
+
+                                                 FittedBox(
                                                 fit: BoxFit.fitWidth,
                                                 child: Text(
-                                    "Product Details >",
+                                    "Enter manufacturing/expiry details",
                                     style: TextStyle(
                                       // fontWeight: FontWeight.bold,
                                       fontFamily: "Poppins Medium",
@@ -1534,10 +1595,11 @@ Navigator.of(context).push(MaterialPageRoute(
                                       // fontStyle: FontStyle.italic,
                                      fontSize:
                                           MediaQuery.of(context).size.height *
-                                              0.017,
+                                              0.011,
                                     ),
                                   ),
                                               ),
+                                              ],)
                                              )
                                               // SizedBox(height: 15),
                                               // Text(

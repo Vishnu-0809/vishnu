@@ -602,18 +602,18 @@ Future<AlbumTracking> createAlbumTracking(String batchNo, String clientId,
 
 
 class AlbumProductFeedback {
-  var trackingDetails;
-  AlbumProductFeedback({required this.trackingDetails});
+  String message;
+  AlbumProductFeedback({required this.message});
 
   factory AlbumProductFeedback.fromJson(Map<String, dynamic> json) {
     return AlbumProductFeedback(
-      trackingDetails: json['message']['trackingDetails'],
+      message: json['message'],
     );
   }
 }
 
-Future<AlbumProductFeedback> createProductFeedback(String batchNo, String clientId,
-    String preSaleCode, String postSaleCode) async {
+Future<AlbumProductFeedback> createProductFeedback(String prodID, int rating,
+    String feedback)async {
   final response = await http.post(
     Uri.parse(
         'http://ec2-13-235-124-84.ap-south-1.compute.amazonaws.com:3000/customer/prod-feedback'),
@@ -621,13 +621,12 @@ Future<AlbumProductFeedback> createProductFeedback(String batchNo, String client
       'Content-Type': 'application/json; charset=UTF-8',
     },
     body: jsonEncode(<String, dynamic>{
-      'batchNo': batchNo,
-      'clientId': clientId,
-      'preSaleCode': preSaleCode,
-      'postSaleCode': postSaleCode
+     'productId':prodID,
+      'rating ':rating ,
+       'feedback':feedback!,
     }),
   );
-  // print(response.body);
-  print(json.decode(response.body));
+  print(response.statusCode);
+  print(json.decode(response.body.toString()));
   return AlbumProductFeedback.fromJson(json.decode(response.body));
 }

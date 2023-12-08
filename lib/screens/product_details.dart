@@ -12,10 +12,12 @@ import 'package:Veots/widgets/ham.dart';
 import 'package:Veots/widgets/view_image.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:video_player/video_player.dart';
 import '../models/class_models.dart';
 import '../widgets/NetworkCheck.dart';
 import '../widgets/send_accept.dart';
 import 'Notifications_view.dart';
+import 'finalvideoplayer.dart';
 import 'home_page.dart';
 import 'constants.dart';
 import 'package:flutter_file_downloader/flutter_file_downloader.dart';
@@ -845,6 +847,8 @@ reupload_bill() async
                             SizedBox(
                               width: MediaQuery.of(context).size.width * 0.05,
                             ),
+
+                            
                             Container(
                               height:MediaQuery.of(context).size.height*0.15,
                               width: MediaQuery.of(context).size.width*0.35,
@@ -856,18 +860,9 @@ reupload_bill() async
                               Image.network( snapshot.details["additionalImages"][0][1]["url"] ,
                                fit: BoxFit.fill,) : null,
                             ),
-                           InkWell(
-                            onTap:(){},
-                            child:  Container(
-                              height:MediaQuery.of(context).size.height*0.15,
-                              width: MediaQuery.of(context).size.width*0.35,
-                            color: const Color(0xff002060),
-                              child: Center(
-                                child: Icon(Icons.play_arrow),
-                              )
-                            ),
-                           )
-                            
+
+                        
+                       
                              
                         
                           
@@ -875,6 +870,116 @@ reupload_bill() async
                         ]
                         ]
                         ]
+,
+    // Text(snapshot.details["productVedio"]),
+                         if(snapshot.details["productVedio"]!=null)
+                        ...[   InkWell(
+                            onTap:(){showDialog(
+                            barrierDismissible: false,
+                            context: context,
+                            builder: (context) {
+                              return WillPopScope(
+                         onWillPop: () async => false,
+                         child: AlertDialog(
+                                backgroundColor: const Color(0xff002060),
+                                titlePadding: EdgeInsets.fromLTRB(0, 0, 0, 6),
+                                shape: const RoundedRectangleBorder(
+                                    //<-- SEE HERE
+                                    // side: BorderSide(
+                                    //   color: Colors.greenAccent,
+                                    // ),
+                                    borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(10),
+                                        bottomRight: Radius.circular(10))),
+                                title: Stack(
+                                  children: [
+                                    Container(
+                                        height:
+                                            50,
+                                        width:
+                                            MediaQuery.of(context).size.width,
+                                        decoration: const BoxDecoration(
+                                            gradient: LinearGradient(colors: [
+                                         Color(0xff003296), Color(0xff662da4)
+                                        ])),
+                                        // color: Colors.blue,
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            if (MediaQuery.of(context)
+                                                    .size
+                                                    .width <
+                                                600) ...[
+                                              const FittedBox(
+                                                child: Text(
+                                                "Product Video",
+                                                textAlign: TextAlign.center,
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontFamily: "Poppins Medium",
+                                                    fontSize: 20),
+                                              ),
+                                              )
+                                            ] else
+                                              const FittedBox(
+                                                fit: BoxFit.fitHeight,
+                                                child: Text(
+                                                "Product Video",
+                                                textAlign: TextAlign.center,
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontFamily: "Poppins Medium",
+
+                                                
+                                                    fontSize: 30),
+                                              ),
+                                              )
+                                          ],
+                                        )),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        IconButton(
+                                          onPressed: (() {
+                                            Navigator.pop(context);
+                                            SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown
+  ]);
+                                            
+                                          }),
+                                          icon: const Icon(
+                                            Icons.close,
+                                            color: Colors.white,
+                                          ),
+                                          iconSize: 20,
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                content: 
+
+          VideoPlayerView(
+            url:
+                snapshot.details["productVedio"]!,
+            dataSourceType: DataSourceType.network,
+          ),
+
+                              ),
+                              );
+                            });},
+                            child:  Container(
+                              height:MediaQuery.of(context).size.height*0.15,
+                              width: MediaQuery.of(context).size.width*0.35,
+                            color: const Color(0xff01ccfa),
+                              child: Center(
+                                child: Icon(Icons.play_arrow),
+                              )
+                            ),
+                           )]
+                            
                         ,
                          SizedBox(
                                     height: MediaQuery.of(context).size.height *

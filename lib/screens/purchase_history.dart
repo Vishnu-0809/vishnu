@@ -170,7 +170,7 @@ Future getSearchData() async {
       temp_class.details["expiry"] = responseData["data"][i]["expiry"];
       temp_class.details["batchNo"] = responseData["data"][i]["batchNo"];
 
-     
+      temp_class.details["prodID"] = responseData["data"][i]["_id"];
 
 
         temp_class.details["warranty"] =responseData["data"][i]["warranty"];
@@ -282,6 +282,7 @@ for (int i = 0; i < responseData["data"].length; i++) {
       //     responseData["batchDetails"]["QROnProd"];
       temp_class.details["expiry"] = responseData["data"][i]["expiry"];
       temp_class.details["batchNo"] = responseData["data"][i]["batchNo"];
+      temp_class.details["prodID"] = responseData["data"][i]["_id"];
         temp_class.details["warranty"] =responseData["data"][i]["warranty"];
       //  temp_class.details["imageQrOnProd"] = responseData["data"][i]["imageQrOnProd"];
       temp_class.details["mfgdate"] = responseData["data"][i]["mfgdate"];
@@ -391,7 +392,7 @@ for (int i = 0; i < responseData["data"].length; i++) {
       //     responseData["batchDetails"]["QROnProd"];
       temp_class.details["expiry"] = responseData["data"][i]["expiry"];
       temp_class.details["batchNo"] = responseData["data"][i]["batchNo"];
-
+temp_class.details["prodID"] = responseData["data"][i]["_id"];
     
  
       temp_class.details["warranty"] =responseData["data"][i]["warranty"];
@@ -513,6 +514,7 @@ searchItems.add(temp_class.details["purchaseDate"]);
       //     responseData["batchDetails"]["QROnProd"];
       temp_class.details["expiry"] = responseData["data"][i]["expiry"];
       temp_class.details["batchNo"] = responseData["data"][i]["batchNo"];
+      temp_class.details["prodID"] = responseData["data"][i]["_id"];
             String current_Date=DateTime.now().toString().substring(0,10);
       print("qqqqqqqqqqqqqqqqqqqqqqqq "+current_Date);
 
@@ -1819,18 +1821,20 @@ final sea = SuggestionsDetailsList[index];
                                     ),
                                   ),
                                               ),
-
+SizedBox(height: 5,),
 
                                    Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
-            TextButton(
+           Container(
+            height: MediaQuery.of(context).size.height*0.035,
+            child:  TextButton(
       child: Text(
         "Details",
         style: TextStyle(fontSize: 10)
       ),
       style: ButtonStyle(
-        padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(15)),
+        
         foregroundColor: MaterialStateProperty.all<Color>(
           Color.fromARGB(255, 123, 119, 119)
         ),
@@ -1841,111 +1845,21 @@ final sea = SuggestionsDetailsList[index];
           )
         )
       ),
-      onPressed: () {showDialog(
-                            barrierDismissible: false,
-                            context: context,
-                            builder: (context) {
-                              return WillPopScope(
-                         onWillPop: () async => false,
-                         child: AlertDialog(
-                                backgroundColor: const Color(0xff002060),
-                                titlePadding: EdgeInsets.fromLTRB(0, 0, 0, 6),
-                                shape: const RoundedRectangleBorder(
-                                    //<-- SEE HERE
-                                    // side: BorderSide(
-                                    //   color: Colors.greenAccent,
-                                    // ),
-                                    borderRadius: BorderRadius.only(
-                                        bottomLeft: Radius.circular(10),
-                                        bottomRight: Radius.circular(10))),
-                                title: Stack(
-                                  children: [
-                                    Container(
-                                        height:
-                                            50,
-                                        width:
-                                            MediaQuery.of(context).size.width,
-                                        decoration: const BoxDecoration(
-                                            gradient: LinearGradient(colors: [
-                                         Color(0xff003296), Color(0xff662da4)
-                                        ])),
-                                        // color: Colors.blue,
-                                        child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            if (MediaQuery.of(context)
-                                                    .size
-                                                    .width <
-                                                600) ...[
-                                              const FittedBox(
-                                                child: Text(
-                                                "How to use",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                    color: Colors.white,
-                                                    fontFamily: "Poppins Medium",
-                                                    fontSize: 20),
-                                              ),
-                                              )
-                                            ] else
-                                              const FittedBox(
-                                                fit: BoxFit.fitHeight,
-                                                child: Text(
-                                                "How to use",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                    color: Colors.white,
-                                                    fontFamily: "Poppins Medium",
-
-                                                
-                                                    fontSize: 30),
-                                              ),
-                                              )
-                                          ],
-                                        )),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        IconButton(
-                                          onPressed: (() {
-                                            Navigator.pop(context);
-                                            SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown
-  ]);
-                                            
-                                          }),
-                                          icon: const Icon(
-                                            Icons.close,
-                                            color: Colors.white,
-                                          ),
-                                          iconSize: 20,
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                content: 
-
-          VideoPlayerView(
-            url:
-                'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4',
-            dataSourceType: DataSourceType.network,
-          ),
-
-                              ),
-                              );
-                            });}
+      onPressed: () {   Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) =>ProdDetails(link:"",snapshot: sea,)
+                  ));;}
     ),
+           ),
     SizedBox(width: 10,),
-    TextButton(
+    Container(
+      height: MediaQuery.of(context).size.height*0.035,
+      child: TextButton(
       child: Text(
         "Feedback",
         style: TextStyle(fontSize: 10)
       ),
       style: ButtonStyle(
-        padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(15)),
+        
         foregroundColor: MaterialStateProperty.all<Color>(
           Color.fromARGB(255, 123, 119, 119)
         ),
@@ -1957,23 +1871,28 @@ final sea = SuggestionsDetailsList[index];
         )
       ),
       onPressed: () =>   Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) =>Product_Feedback()
+                    builder: (context) =>Product_Feedback(snapshot: sea,)
                   ))
     ),
-                                   ],)
-                                             ,InkWell(
+    )
+                                   ],),
+                                             InkWell(
                                                   onTap: 
                                               // nullp
                                               // ("g");n
                                               (){
-                                                    Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) =>ProdDetails(link:"",snapshot: sea,)
-                  ));
+                                                 
                                               },
-                                              child: FittedBox(
+                                              child:Row(children: [
+                                                      Icon(
+        Icons.playlist_add_check_outlined,
+        size: 20.0,
+      ),
+
+                                                 FittedBox(
                                                 fit: BoxFit.fitWidth,
                                                 child: Text(
-                                    "Product Details >",
+                                    "Enter manufacturing/expiry details",
                                     style: TextStyle(
                                       // fontWeight: FontWeight.bold,
                                       fontFamily: "Poppins Medium",
@@ -1983,10 +1902,11 @@ final sea = SuggestionsDetailsList[index];
                                       // fontStyle: FontStyle.italic,
                                      fontSize:
                                           MediaQuery.of(context).size.height *
-                                              0.017,
+                                              0.011,
                                     ),
                                   ),
                                               ),
+                                              ],)
                                              )
                                               // SizedBox(height: 15),
                                               // Text(

@@ -797,7 +797,7 @@ YoutubePlayer(
                           temp_class.details["additionalImageDetails"] = widget.snapshot.details["additionalImageDetails"]; 
                           temp_class.details["shelfLife"] = widget.snapshot.details["shelflife"];
                           temp_class.details['tracking']=widget.snapshot.details['tracking']; ///changed
-                          temp_class.details['prodVedioLink']=widget.snapshot.details['prodVedioLink'];
+                         temp_class.details['productVedio']=widget.snapshot.details['productVedio'];
                           print("&&&&&&&&&&&");
                           print(temp_class.details["mfgDate"]);
                           print("&&&&&&&&&&&&&");
