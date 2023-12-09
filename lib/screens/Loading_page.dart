@@ -64,7 +64,7 @@ class _SplashState extends State<Splash>with TickerProviderStateMixin  {
           link = value!;
         }));
     
-    Timer(Duration(seconds: 3, milliseconds: 800), () {
+    Timer(Duration(seconds: 3, milliseconds: 780), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -100,7 +100,7 @@ class _SplashState extends State<Splash>with TickerProviderStateMixin  {
            decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(
-                    'assets/Veots2.gif',
+                    'assets/Veots5.gif',
                     // <-- BACKGROUND IMAGE
                   ),
                   fit: BoxFit.fill,
@@ -110,12 +110,12 @@ class _SplashState extends State<Splash>with TickerProviderStateMixin  {
         } else {
           return Center(
             child: Container(
-              height: MediaQuery.of(context).size.height* 0.2,
-              width: MediaQuery.of(context).size.width * 0.4,
+              height: MediaQuery.of(context).size.height*0.2,
+              width: MediaQuery.of(context).size.width *0.4,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(
-                    'assets/Veots.gif',
+                    'assets/Veots5.gif',
                     // <-- BACKGROUND IMAGE
                   ),
                   fit: BoxFit.fill,

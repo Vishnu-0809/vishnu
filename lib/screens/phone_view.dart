@@ -340,6 +340,7 @@ class _Phone_viewState extends State<Phone_view> {
                         fontWeight: FontWeight.bold,
                         fontFamily: "Poppins Medium",
                         fontSize: MediaQuery.of(context).size.width * 0.042,
+                        fontStyle: FontStyle.italic
                       ),
                     ),
                   ),

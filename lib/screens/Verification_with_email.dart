@@ -79,7 +79,7 @@ class _VerificationEmailState extends State<VerificationEmail> {
         pref.setString('udid', v1);
         pref.setString('name', widget.Username);
             // pref.setString('Companyname', widget.CompanyName);
-            pref.setString('custId_coupon',token2!.custId_coupon);
+            pref.setString('custId_coupon',token2!.custId_coupon!);
         pref.setString('id', widget.Email);
         pref.setString('gender',widget.gender);
         pref.setString('companyName', widget.CompanyName);
@@ -178,7 +178,7 @@ class _VerificationEmailState extends State<VerificationEmail> {
         pref.setString('udid', v1);
         pref.setString('name', widget.Username);
             // pref.setString('Companyname', widget.CompanyName);
-            pref.setString('custId_coupon',token2!.custId_coupon);
+            pref.setString('custId_coupon',token2!.custId_coupon!);
         pref.setString('id', widget.Email);
         pref.setString('gender',widget.gender);
         pref.setString('companyName', widget.CompanyName);

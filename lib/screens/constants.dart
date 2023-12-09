@@ -8,3 +8,4 @@ String? GENDER;
 String? COMNAME;
 String? custId_coupon;
 String? DOB;
+bool? INTRO;

@@ -46,17 +46,12 @@ print('----------------');
         child: Scaffold(
        
           body: LayoutBuilder(builder: (context, constraints) {
-            if (constraints.maxWidth < 420) {
+           
               return Phone_view(
                 mainLink: widget.mainLink,
                 location_on: widget.location_on,
               );
-            } else {
-              return Tab_view(
-                mainLink: widget.mainLink,
-                location_on: widget.location_on,
-              );
-            }
+            
           }),
         ),
       )

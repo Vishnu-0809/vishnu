@@ -86,7 +86,7 @@ factory AlbumotpverifyforgotpwdEmail.fromJson(Map<String, dynamic> json) {
 
 class AlbumPhoneRegister{
 final int status;
-final String custId_coupon;
+final String? custId_coupon;
 
 
   AlbumPhoneRegister({ required this.status ,required this.custId_coupon});
@@ -94,7 +94,7 @@ final String custId_coupon;
 factory AlbumPhoneRegister.fromJson(Map<String, dynamic> json) {
 	return AlbumPhoneRegister(
 	status: json['status'],
-  custId_coupon:json['UserInfo']['customerUdid']
+  custId_coupon:json['UserInfo']?['customerUdid']
 
 	);
 }

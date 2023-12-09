@@ -185,6 +185,7 @@ class _Tab_viewState extends State<Tab_view> {
         pref.setString('udid', credentials.Udid);
         pref.setString('name', credentials.name);
         pref.setString('id', id.text);
+         pref.setString('dob', credentials.dob);
         credentials.companyName==null? null:pref.setString('companyName',credentials.companyName);
        pref.setString('gender',credentials.gender);
         UDID=credentials.Udid;
@@ -192,11 +193,21 @@ class _Tab_viewState extends State<Tab_view> {
         NAME=credentials.name;
         GENDER=credentials.gender;
         COMNAME=credentials.companyName;
+        DOB = credentials.dob;
+         if ((ID!.length == 10 && reg.hasMatch(ID.toString()))) {
+            MOB_not_EM = true;
+          } else {
+            MOB_not_EM = false;
+          }
+          print(ID);
+          print(GENDER);
+          print(NAME);
+          print(COMNAME);
         loginNotification();
         loginWarranty();
         SharedPreferences shref=await SharedPreferences.getInstance();
        await  shref.setString('notification',"show");
-       await Future.delayed(Duration(seconds: 2));
+       await Future.delayed(Duration(seconds: 1));
         (widget.mainLink != "" && widget.location_on)
             ? Navigator.of(context).pushAndRemoveUntil(
                 MaterialPageRoute(

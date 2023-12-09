@@ -926,12 +926,14 @@ var coupon_img;
               ),
               // DemoItem('Carousel with indicator controller demo', '/indicator'),,
               //  CarouselWithIndicatorDemo(),
-               Stack(
+            Stack(
       children: [
         CarouselSlider.builder(
           // carouselController: _carouselController,
+          
           itemCount: 9,
           options: CarouselOptions(
+            height: MediaQuery.of(context).size.height * 0.24,
             disableCenter: true,
             enlargeCenterPage: false,
             autoPlay: true,
@@ -978,7 +980,7 @@ var coupon_img;
           },
         ),
         Positioned(
-          bottom: 50.0, // Adjust the position of the dots as needed
+          bottom: 20.0, // Adjust the position of the dots as needed
           left: 0,
           right: 0,
           child: Row(

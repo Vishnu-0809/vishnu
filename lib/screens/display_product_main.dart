@@ -108,8 +108,8 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
           responseData["details"]["additionalImageDetails"];
           temp_class.details["batchType"] =
           responseData["details"]["batchType"];
-          temp_class.details["prodVedioLink"] =
-          responseData["details"]["prodVedioLink"];
+          temp_class.details["productVedio"] =
+          responseData["details"]["productVedio"];
         print("wdhbweifuhqwofijqeofnweoviwekfjwcwnociwefnwelf");
         print(temp_class.details["additionalImageDetails"]);
 
@@ -147,8 +147,9 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
           responseData["details"]["additionalImageDetails"];
           temp_class.details["batchType"] =
           responseData["details"]["batchType"];
-          temp_class.details["prodVedioLink"] =
-          responseData["details"]["prodVedioLink"];
+          temp_class.details["productVedio"] =
+          responseData["details"]["productVedio"];
+          print( temp_class.details["productVedio"]);
       // temp_class.details['tracking']=responseData['tracking'];
       return temp_class;
     } else if (responseData["message"] == "Fake") {
@@ -205,10 +206,10 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       temp_class.details['tracking'] = responseData['tracking'];
       temp_class.details["batchType"] =
           responseData["batchDetails"]["batchType"];
-          temp_class.details["prodVedioLink"] =
-          responseData["batchDetails"]["prodVedioLink"];
+          temp_class.details["productVedio"] =
+          responseData["batchDetails"]["productVedio"];
           print("9999999999999999");
-          print(temp_class.details["prodVedioLink"]);
+          print(temp_class.details["productVedio"]);
       print(temp_class.details);
       // print(responseData);
       return temp_class;
@@ -243,8 +244,8 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
           responseData["details"]["additionalImageDetails"];
           temp_class.details["batchType"] =
           responseData["details"]["batchType"];
-          temp_class.details["prodVedioLink"] =
-          responseData["details"]["prodVedioLink"];
+          temp_class.details["productVedio"] =
+          responseData["details"]["productVedio"];
       print(responseData["message"]);
       return temp_class;
     } else if (responseData["message"] == "Genuine Post Sale") {
@@ -301,8 +302,8 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       temp_class.bill = responseData["bill"];
       temp_class.details["batchType"] =
           responseData["details"]["batchType"];
-          temp_class.details["prodVedioLink"] =
-          responseData["details"]["prodVedioLink"];
+          temp_class.details["productVedio"] =
+          responseData["details"]["productVedio"];
       // print(responseData["bill"]); // chnage billl
       return temp_class;
     } else if (responseData["message"] == "Info" ||
@@ -335,8 +336,8 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       temp_class.details['tracking'] = responseData['tracking'];
       temp_class.details["batchType"] =
           responseData["details"]["batchType"];
-      temp_class.details["prodVedioLink"] =
-          responseData["details"]["prodVedioLink"];
+      temp_class.details["productVedio"] =
+          responseData["details"]["productVedio"];
       return temp_class;
     }
   }

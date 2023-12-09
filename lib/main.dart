@@ -1,13 +1,18 @@
 import 'package:Veots/providers/theme_provider.dart';
+import 'package:Veots/screens/IntroSlide1.dart';
+
 import 'package:Veots/screens/Notifications_view.dart';
 import 'package:Veots/screens/bill_comment.dart';
 import 'package:Veots/screens/cash_back.dart';
 import 'package:Veots/screens/coupons_details.dart';
+import 'package:Veots/screens/product_feedback.dart';
 import 'package:Veots/screens/rewards_page.dart';
 import 'package:Veots/screens/track_history.dart';
 import 'package:Veots/widgets/NetworkCheck.dart';
 import 'package:Veots/widgets/background_fetch.dart';
+import 'package:Veots/widgets/dummy3.dart';
 import 'package:Veots/widgets/not_icon.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -104,7 +109,11 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
   void loggedin() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
+    print("dddddddddddddd ");
+    print(preferences.getString("asd")==null);
+    print("ddddddddddddd");
     setState(() {
+      INTRO = preferences.getBool("INTRO");
       ID = preferences.getString("id");
       UDID = preferences.getString("udid");
     });
@@ -180,12 +189,13 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
             // theme: MyThemes.lightTheme,
             // darkTheme: MyThemes.darkTheme,
             home:
+           INTRO==null?IntroSlider():
              ID == null
                 ? Login(
                     mainLink: widget.link.toString(),
                     location_on: widget.is_on,
                   )
-                : 
+                : (
                   (widget.link == "" || !widget.is_on)
                     ? HomeScreen(
                         first_time: 0,
@@ -194,17 +204,15 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
                       )
                     : DisplayProdMain(subLink: widget.link!.substring(32)
                     )
-                // Coupon_Details(),
+                // Product_Feedback()
                 // Rewards()
                 // Coupon_Details()
-                // dummy3()
+                // Dummy3()
                 // DisplayProdMain(subLink: '25983251281605230614app280400000',)
                 // MyHomePage()
                 // Tracking_history()
-
+        ))
+                ));
                 
-                )
-                )
-                );
   }
 }

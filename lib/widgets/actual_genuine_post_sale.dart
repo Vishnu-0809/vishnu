@@ -484,7 +484,7 @@ class ActualGPSale extends StatelessWidget {
                          temp_class.details["additionalImages"] = snapshot.details["additionalImages"];
                          temp_class.details["additionalImageDetails"] = snapshot.details["additionalImageDetails"]; 
                          temp_class.details['tracking']=snapshot.details['tracking']; ///changed
-                         temp_class.details['prodVedioLink']=snapshot.details['prodVedioLink'];
+                         temp_class.details['productVedio']=snapshot.details['productVedio'];
                          temp_class.bill = snapshot.bill;
                          print("--------------------");
                          print(temp_class.bill);

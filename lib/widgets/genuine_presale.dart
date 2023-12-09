@@ -699,7 +699,7 @@ YoutubePlayer(
                          temp_class.details["manuAddress"] = widget.snapshot.details["manuAddress"];
                          temp_class.details["additionalDetails"] =widget.snapshot.details["additionalDetails"];
                          temp_class.details["additionalImages"] = widget.snapshot.details["additionalImages"];
-                         temp_class.details['prodVedioLink']=widget.snapshot.details['prodVedioLink'];
+                         temp_class.details['productVedio']=widget.snapshot.details['productVedio'];
                          print("=====================================");
                          print(widget.snapshot.details["additionalImageDetails"]);
                          print("======================================");

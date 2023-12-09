@@ -428,7 +428,7 @@ YoutubePlayer(
                          temp_class.details["manuAddress"] = snapshot.details["manuAddress"];
                          temp_class.details["additionalDetails"] =snapshot.details["additionalDetails"];
                          temp_class.details["additionalImages"] = snapshot.details["additionalImages"];
-                         temp_class.details['prodVedioLink']=snapshot.details['prodVedioLink'];
+                        temp_class.details['productVedio']=snapshot.details['productVedio'];
                          print("=====================================");
                          print(snapshot.details["additionalImageDetails"]);
                          print("======================================");

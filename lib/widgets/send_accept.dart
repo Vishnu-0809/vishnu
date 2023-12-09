@@ -565,3 +565,68 @@ class Album_Warranty {
     return list;
   }
 }
+
+
+
+class AlbumTracking {
+  var trackingDetails;
+  AlbumTracking({required this.trackingDetails});
+
+  factory AlbumTracking.fromJson(Map<String, dynamic> json) {
+    return AlbumTracking(
+      trackingDetails: json['message']['trackingDetails'],
+    );
+  }
+}
+
+Future<AlbumTracking> createAlbumTracking(String batchNo, String clientId,
+    String preSaleCode, String postSaleCode) async {
+  final response = await http.post(
+    Uri.parse(
+        'http://ec2-13-235-124-84.ap-south-1.compute.amazonaws.com:3000/customer/claimed-product-tracking'),
+    headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+    body: jsonEncode(<String, dynamic>{
+      'batchNo': batchNo,
+      'clientId': clientId,
+      'preSaleCode': preSaleCode,
+      'postSaleCode': postSaleCode
+    }),
+  );
+  // print(response.body);
+  print(json.decode(response.body));
+  return AlbumTracking.fromJson(json.decode(response.body));
+}
+
+
+
+class AlbumProductFeedback {
+  String message;
+  AlbumProductFeedback({required this.message});
+
+  factory AlbumProductFeedback.fromJson(Map<String, dynamic> json) {
+    return AlbumProductFeedback(
+      message: json['message'],
+    );
+  }
+}
+
+Future<AlbumProductFeedback> createProductFeedback(String prodID, int rating,
+    String feedback)async {
+  final response = await http.post(
+    Uri.parse(
+        'http://ec2-13-235-124-84.ap-south-1.compute.amazonaws.com:3000/customer/prod-feedback'),
+    headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+    body: jsonEncode(<String, dynamic>{
+     'productId':prodID,
+      'rating ':rating ,
+       'feedback':feedback!,
+    }),
+  );
+  print(response.statusCode);
+  print(json.decode(response.body.toString()));
+  return AlbumProductFeedback.fromJson(json.decode(response.body));
+}

@@ -1,8 +1,9 @@
 import 'dart:convert';
 
-import 'package:Veots/screens/constants.dart';
+// import 'package:Veots/screens/constants.dart';
 import 'package:Veots/screens/home_page.dart';
 import 'package:Veots/screens/product_details.dart';
+import 'package:Veots/screens/product_feedback.dart';
 import 'package:Veots/screens/purchase_history.dart';
 import 'package:Veots/screens/purchase_history_filters/filter1.dart';
 import 'package:Veots/screens/purchase_history_filters/filter2.dart';
@@ -1217,19 +1218,37 @@ Navigator.of(context).push(MaterialPageRoute(
 
                   
 
-                  String WarrantyDate= " 0 days ";
+                  // String WarrantyDate= " 0 days ";
                  
                   final sea = SuggestionsDetailsList[index];
-                  if(sea.details["warranty"]!=null)
-                  {
-                    if(((sea.details["warranty"])/30).toInt()==0)
-                    {
-                      WarrantyDate=(((sea.details["warranty"])).toInt()).toString()+ " days ";
-                    }
-                    else{
-                      WarrantyDate=(((sea.details["warranty"])/30).toInt()).toString()+" months ";
-                    }
-                  }
+                  // String WarrantyDate= " 0 days ";
+                     String current_Date=DateTime.now().toString().substring(0,10);
+      print("qqqqqqqqqqqqqqqqqqqqqqqq "+current_Date);
+
+        String Purchase_Date=sea.details["purchaseDate"].toString().substring(0,10);
+        print("qqqqqqqqqqqqqqqqqqqqqqqq "+Purchase_Date);
+
+
+        DateTime endDate = DateTime(int.parse(current_Date.substring(0,4)), int.parse(current_Date.substring(5,7)), int.parse(current_Date.substring(8,10)));
+       
+  DateTime startDate = DateTime(int.parse(Purchase_Date.substring(0,4)), int.parse(Purchase_Date.substring(5,7)), int.parse(Purchase_Date.substring(8,10)));
+       print(startDate);
+
+       Duration difference = endDate.difference(startDate);
+       int numberOfDays = difference.inDays;
+      print(numberOfDays);
+      int Warranty_Left= int.parse(sea.details["warranty"].toString())-numberOfDays;
+     print(Warranty_Left);
+                  // if(sea.details["warranty"]!=null)
+                  // {
+                  //   if(((sea.details["warranty"])/30).toInt()==0)
+                  //   {
+                  //     WarrantyDate=(((sea.details["warranty"])).toInt()).toString()+ " days ";
+                  //   }
+                  //   else{
+                  //     WarrantyDate=(((sea.details["warranty"])/30).toInt()).toString()+" months ";
+                  //   }
+                  // }
                   String prevDate(){
                   if(index!=0)
                   {
@@ -1471,7 +1490,7 @@ Navigator.of(context).push(MaterialPageRoute(
                                                 fit: BoxFit.fitWidth,
                                                 child: sea.details["warranty"]==null?
                                                 Text(
-                                    "Warranty of" +WarrantyDate+ "applicable",
+                                    "Warranty of" +" 0 days "+ "applicable",
                                     style: TextStyle(
                                       // fontWeight: FontWeight.bold,
                                       fontFamily: "Poppins Medium",
@@ -1483,7 +1502,7 @@ Navigator.of(context).push(MaterialPageRoute(
                                               0.014,
                                     ),
                                   ):Text(
-                                    "Warranty of" +" "+ WarrantyDate+ "applicable",
+                                    "Warranty of" +" "+Warranty_Left.toString() + " days applicable",
                                     style: TextStyle(
                                       // fontWeight: FontWeight.bold,
                                       fontFamily: "Poppins Medium",
@@ -1496,19 +1515,78 @@ Navigator.of(context).push(MaterialPageRoute(
                                     ),
                                   ),
                                               ),
+                                            SizedBox(height: 5,),
+
+                                   Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+           Container(
+            height: MediaQuery.of(context).size.height*0.035,
+            child:  TextButton(
+      child: Text(
+        "Details",
+        style: TextStyle(fontSize: 10)
+      ),
+      style: ButtonStyle(
+        
+        foregroundColor: MaterialStateProperty.all<Color>(
+          Color.fromARGB(255, 123, 119, 119)
+        ),
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
+            side: BorderSide(color: Color.fromARGB(255, 123, 119, 119))
+          )
+        )
+      ),
+      onPressed: () {   Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) =>ProdDetails(link:"",snapshot: sea,)
+                  ));;}
+    ),
+           ),
+    SizedBox(width: 10,),
+    Container(
+      height: MediaQuery.of(context).size.height*0.035,
+      child: TextButton(
+      child: Text(
+        "Feedback",
+        style: TextStyle(fontSize: 10)
+      ),
+      style: ButtonStyle(
+        
+        foregroundColor: MaterialStateProperty.all<Color>(
+          Color.fromARGB(255, 123, 119, 119)
+        ),
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
+            side: BorderSide(color: Color.fromARGB(255, 123, 119, 119))
+          )
+        )
+      ),
+      onPressed: () =>   Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) =>Product_Feedback(snapshot: sea,)
+                  ))
+    ),
+    )
+                                   ],),
                                              InkWell(
                                                   onTap: 
                                               // nullp
                                               // ("g");n
                                               (){
-                                                    Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) =>ProdDetails(link:"",snapshot: sea,)
-                  ));
+                                                 
                                               },
-                                              child: FittedBox(
+                                              child:Row(children: [
+                                                      Icon(
+        Icons.playlist_add_check_outlined,
+        size: 20.0,
+      ),
+
+                                                 FittedBox(
                                                 fit: BoxFit.fitWidth,
                                                 child: Text(
-                                    "Product Details >",
+                                    "Enter manufacturing/expiry details",
                                     style: TextStyle(
                                       // fontWeight: FontWeight.bold,
                                       fontFamily: "Poppins Medium",
@@ -1518,10 +1596,11 @@ Navigator.of(context).push(MaterialPageRoute(
                                       // fontStyle: FontStyle.italic,
                                      fontSize:
                                           MediaQuery.of(context).size.height *
-                                              0.017,
+                                              0.011,
                                     ),
                                   ),
                                               ),
+                                              ],)
                                              )
                                               // SizedBox(height: 15),
                                               // Text(

@@ -1,5 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:Veots/screens/VideoPlayer.dart';
+import 'package:Veots/screens/finalvideoplayer.dart';
+import 'package:Veots/screens/product_feedback.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:Veots/dummy.dart';
 import 'package:Veots/screens/Notifications_view.dart';
@@ -24,6 +27,7 @@ import 'package:uni_links/uni_links.dart';
 import 'package:Veots/screens/tab_view.dart';
 import 'package:Veots/screens/phone_view.dart';
 import 'package:badges/badges.dart' as badges;
+import 'package:video_player/video_player.dart';
 // import 'package:connectivity_plus/connectivity_plus.dart';
 import '../models/class_models.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -150,8 +154,13 @@ Future getSearchData() async {
       Details temp_class = new Details();
       temp_class.details["purchaseDate"] =
           responseData["data"][i]["purchaseDate"];
+          temp_class.details["preSaleCode"] = responseData["data"][i]["preSaleCode"];
+          temp_class.details["postSaleCode"] = responseData["data"][i]["postSaleCode"];
+          temp_class.details["isTrackingAvailable"] = responseData["data"][i]["isTrackingAvailable"];
+          temp_class.details["clientId"] = responseData["data"][i]["clientId"];
       temp_class.details["brand"] = responseData["data"][i]["brand"];
       temp_class.details["serialNo"] = responseData["data"][i]["serialNo"];
+
       // temp_class.details["warrantyApp"] = responseData["data"]["warrantyApp"];
       temp_class.details["price"] = responseData["data"][i]["price"];
       temp_class.details["prodName"] = responseData["data"][i]["name"];
@@ -160,7 +169,11 @@ Future getSearchData() async {
       //     responseData["batchDetails"]["QROnProd"];
       temp_class.details["expiry"] = responseData["data"][i]["expiry"];
       temp_class.details["batchNo"] = responseData["data"][i]["batchNo"];
-      temp_class.details["warranty"] = responseData["data"][i]["warranty"];
+
+      temp_class.details["prodID"] = responseData["data"][i]["_id"];
+
+
+        temp_class.details["warranty"] =responseData["data"][i]["warranty"];
       //  temp_class.details["imageQrOnProd"] = responseData["data"][i]["imageQrOnProd"];
       temp_class.details["mfgdate"] = responseData["data"][i]["mfgdate"];
       temp_class.details["shelflife"] = responseData["data"][i]["shelflife"];
@@ -255,6 +268,10 @@ for (int i = 0; i < responseData["data"].length; i++) {
       Details temp_class = new Details();
       temp_class.details["purchaseDate"] =
           responseData["data"][i]["purchaseDate"];
+           temp_class.details["preSaleCode"] = responseData["data"][i]["preSaleCode"];
+          temp_class.details["postSaleCode"] = responseData["data"][i]["postSaleCode"];
+           temp_class.details["isTrackingAvailable"] = responseData["data"][i]["isTrackingAvailable"];
+          temp_class.details["clientId"] = responseData["data"][i]["clientId"];
       temp_class.details["brand"] = responseData["data"][i]["brand"];
       temp_class.details["serialNo"] = responseData["data"][i]["serialNo"];
       // temp_class.details["warrantyApp"] = responseData["data"]["warrantyApp"];
@@ -265,7 +282,8 @@ for (int i = 0; i < responseData["data"].length; i++) {
       //     responseData["batchDetails"]["QROnProd"];
       temp_class.details["expiry"] = responseData["data"][i]["expiry"];
       temp_class.details["batchNo"] = responseData["data"][i]["batchNo"];
-      temp_class.details["warranty"] = responseData["data"][i]["warranty"];
+      temp_class.details["prodID"] = responseData["data"][i]["_id"];
+        temp_class.details["warranty"] =responseData["data"][i]["warranty"];
       //  temp_class.details["imageQrOnProd"] = responseData["data"][i]["imageQrOnProd"];
       temp_class.details["mfgdate"] = responseData["data"][i]["mfgdate"];
       temp_class.details["shelflife"] = responseData["data"][i]["shelflife"];
@@ -360,6 +378,10 @@ for (int i = 0; i < responseData["data"].length; i++) {
         Details temp_class = new Details();
       temp_class.details["purchaseDate"] =
           responseData["data"][i]["purchaseDate"];
+           temp_class.details["preSaleCode"] = responseData["data"][i]["preSaleCode"];
+          temp_class.details["postSaleCode"] = responseData["data"][i]["postSaleCode"];
+           temp_class.details["isTrackingAvailable"] = responseData["data"][i]["isTrackingAvailable"];
+          temp_class.details["clientId"] = responseData["data"][i]["clientId"];
       temp_class.details["brand"] = responseData["data"][i]["brand"];
       temp_class.details["serialNo"] = responseData["data"][i]["serialNo"];
       // temp_class.details["warrantyApp"] = responseData["data"]["warrantyApp"];
@@ -370,7 +392,10 @@ for (int i = 0; i < responseData["data"].length; i++) {
       //     responseData["batchDetails"]["QROnProd"];
       temp_class.details["expiry"] = responseData["data"][i]["expiry"];
       temp_class.details["batchNo"] = responseData["data"][i]["batchNo"];
-      temp_class.details["warranty"] = responseData["data"][i]["warranty"];
+temp_class.details["prodID"] = responseData["data"][i]["_id"];
+    
+ 
+      temp_class.details["warranty"] =responseData["data"][i]["warranty"];
       //  temp_class.details["imageQrOnProd"] = responseData["data"][i]["imageQrOnProd"];
       temp_class.details["mfgdate"] = responseData["data"][i]["mfgdate"];
       temp_class.details["shelflife"] = responseData["data"][i]["shelflife"];
@@ -475,6 +500,10 @@ searchItems.add(temp_class.details["purchaseDate"]);
         Details temp_class = new Details();
       temp_class.details["purchaseDate"] =
           responseData["data"][i]["purchaseDate"];
+           temp_class.details["preSaleCode"] = responseData["data"][i]["preSaleCode"];
+          temp_class.details["postSaleCode"] = responseData["data"][i]["postSaleCode"];
+           temp_class.details["isTrackingAvailable"] = responseData["data"][i]["isTrackingAvailable"];
+          temp_class.details["clientId"] = responseData["data"][i]["clientId"];
       temp_class.details["brand"] = responseData["data"][i]["brand"];
       temp_class.details["serialNo"] = responseData["data"][i]["serialNo"];
       // temp_class.details["warrantyApp"] = responseData["data"]["warrantyApp"];
@@ -485,7 +514,27 @@ searchItems.add(temp_class.details["purchaseDate"]);
       //     responseData["batchDetails"]["QROnProd"];
       temp_class.details["expiry"] = responseData["data"][i]["expiry"];
       temp_class.details["batchNo"] = responseData["data"][i]["batchNo"];
-      temp_class.details["warranty"] = responseData["data"][i]["warranty"];
+      temp_class.details["prodID"] = responseData["data"][i]["_id"];
+            String current_Date=DateTime.now().toString().substring(0,10);
+      print("qqqqqqqqqqqqqqqqqqqqqqqq "+current_Date);
+
+        String Purchase_Date=responseData["data"][i]["purchaseDate"].toString().substring(0,10);
+        print("qqqqqqqqqqqqqqqqqqqqqqqq "+Purchase_Date);
+
+
+        DateTime endDate = DateTime(int.parse(current_Date.substring(0,4)), int.parse(current_Date.substring(5,7)), int.parse(current_Date.substring(8,10)));
+       
+  DateTime startDate = DateTime(int.parse(Purchase_Date.substring(0,4)), int.parse(Purchase_Date.substring(5,7)), int.parse(Purchase_Date.substring(8,10)));
+       print(startDate);
+
+       Duration difference = endDate.difference(startDate);
+       int numberOfDays = difference.inDays;
+      print(numberOfDays);
+      int Warranty_Left= int.parse( responseData["data"][i]["warranty"].toString())-numberOfDays;
+     print(Warranty_Left);
+      
+ 
+      temp_class.details["warranty"] = Warranty_Left;
       //  temp_class.details["imageQrOnProd"] = responseData["data"][i]["imageQrOnProd"];
       temp_class.details["mfgdate"] = responseData["data"][i]["mfgdate"];
       temp_class.details["shelflife"] = responseData["data"][i]["shelflife"];
@@ -1479,20 +1528,41 @@ Navigator.of(context).push(MaterialPageRoute(
                 itemBuilder: (context, index) {
 
                   
+final sea = SuggestionsDetailsList[index];
+                  // String WarrantyDate= " 0 days ";
+                     String current_Date=DateTime.now().toString().substring(0,10);
+      print("qqqqqqqqqqqqqqqqqqqqqqqq "+current_Date);
 
-                  String WarrantyDate= " 0 days ";
-                 
-                  final sea = SuggestionsDetailsList[index];
-                  if(sea.details["warranty"]!=null)
-                  {
-                    if(((sea.details["warranty"])/30).toInt()==0)
-                    {
-                      WarrantyDate=(((sea.details["warranty"])).toInt()).toString()+ " days ";
-                    }
-                    else{
-                      WarrantyDate=(((sea.details["warranty"])/30).toInt()).toString()+" months ";
-                    }
-                  }
+        String Purchase_Date=sea.details["purchaseDate"].toString().substring(0,10);
+        print("qqqqqqqqqqqqqqqqqqqqqqqq "+Purchase_Date);
+
+
+        DateTime endDate = DateTime(int.parse(current_Date.substring(0,4)), int.parse(current_Date.substring(5,7)), int.parse(current_Date.substring(8,10)));
+       
+  DateTime startDate = DateTime(int.parse(Purchase_Date.substring(0,4)), int.parse(Purchase_Date.substring(5,7)), int.parse(Purchase_Date.substring(8,10)));
+       print(startDate);
+
+       Duration difference = endDate.difference(startDate);
+       int numberOfDays = difference.inDays;
+      print(numberOfDays);
+      int Warranty_Left= int.parse(sea.details["warranty"].toString())-numberOfDays;
+     print(Warranty_Left);
+      
+     
+                  
+
+
+                  
+                  // if(sea.details["warranty"]!=null)
+                  // {
+                  //   if(((sea.details["warranty"])/30).toInt()==0)
+                  //   {
+                  //     WarrantyDate=(((sea.details["warranty"])).toInt()).toString()+ " days ";
+                  //   }
+                  //   else{
+                  //     WarrantyDate=(((sea.details["warranty"])/30).toInt()).toString()+" months ";
+                  //   }
+                  // }
                   String prevDate(){
                   if(index!=0)
                   {
@@ -1726,7 +1796,7 @@ Navigator.of(context).push(MaterialPageRoute(
                                                 fit: BoxFit.fitWidth,
                                                 child: sea.details["warranty"]==null?
                                                 Text(
-                                    "Warranty of" +WarrantyDate+ "applicable",
+                                    "Warranty of" +"0 days"+ "applicable",
                                     style: TextStyle(
                                       // fontWeight: FontWeight.bold,
                                       fontFamily: "Poppins Medium",
@@ -1737,8 +1807,8 @@ Navigator.of(context).push(MaterialPageRoute(
                                           MediaQuery.of(context).size.height *
                                               0.014,
                                     ),
-                                  ):Text(
-                                    "Warranty of" +" "+ WarrantyDate+ "applicable",
+                                  ):Text( 
+                                    "Warranty of" +" "+ Warranty_Left.toString() + " days applicable",
                                     style: TextStyle(
                                       // fontWeight: FontWeight.bold,
                                       fontFamily: "Poppins Medium",
@@ -1751,19 +1821,78 @@ Navigator.of(context).push(MaterialPageRoute(
                                     ),
                                   ),
                                               ),
+SizedBox(height: 5,),
+
+                                   Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+           Container(
+            height: MediaQuery.of(context).size.height*0.035,
+            child:  TextButton(
+      child: Text(
+        "Details",
+        style: TextStyle(fontSize: 10)
+      ),
+      style: ButtonStyle(
+        
+        foregroundColor: MaterialStateProperty.all<Color>(
+          Color.fromARGB(255, 123, 119, 119)
+        ),
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
+            side: BorderSide(color: Color.fromARGB(255, 123, 119, 119))
+          )
+        )
+      ),
+      onPressed: () {   Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) =>ProdDetails(link:"",snapshot: sea,)
+                  ));;}
+    ),
+           ),
+    SizedBox(width: 10,),
+    Container(
+      height: MediaQuery.of(context).size.height*0.035,
+      child: TextButton(
+      child: Text(
+        "Feedback",
+        style: TextStyle(fontSize: 10)
+      ),
+      style: ButtonStyle(
+        
+        foregroundColor: MaterialStateProperty.all<Color>(
+          Color.fromARGB(255, 123, 119, 119)
+        ),
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
+            side: BorderSide(color: Color.fromARGB(255, 123, 119, 119))
+          )
+        )
+      ),
+      onPressed: () =>   Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) =>Product_Feedback(snapshot: sea,)
+                  ))
+    ),
+    )
+                                   ],),
                                              InkWell(
                                                   onTap: 
                                               // nullp
                                               // ("g");n
                                               (){
-                                                    Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) =>ProdDetails(link:"",snapshot: sea,)
-                  ));
+                                                 
                                               },
-                                              child: FittedBox(
+                                              child:Row(children: [
+                                                      Icon(
+        Icons.playlist_add_check_outlined,
+        size: 20.0,
+      ),
+
+                                                 FittedBox(
                                                 fit: BoxFit.fitWidth,
                                                 child: Text(
-                                    "Product Details >",
+                                    "Enter manufacturing/expiry details",
                                     style: TextStyle(
                                       // fontWeight: FontWeight.bold,
                                       fontFamily: "Poppins Medium",
@@ -1773,10 +1902,11 @@ Navigator.of(context).push(MaterialPageRoute(
                                       // fontStyle: FontStyle.italic,
                                      fontSize:
                                           MediaQuery.of(context).size.height *
-                                              0.017,
+                                              0.011,
                                     ),
                                   ),
                                               ),
+                                              ],)
                                              )
                                               // SizedBox(height: 15),
                                               // Text(

@@ -341,13 +341,15 @@ class _Tracking_historyState extends State<Tracking_history> {
                             widget.manuAddress == '' ||
                                     widget.manuAddress == null ||
                                     widget.manuAddress == ' '
-                                ? 'UNITECH CYBER PARK, Unit 007 - 008, GF, Tower A, Sector 39, Gurugram, Haryana 122003'
+                                ? 'Not Available'
                                 : widget.manuAddress,
                             style: TextStyle(
-                              fontFamily: 'MontBold',
-                              fontSize:
-                                  MediaQuery.of(context).size.width * 0.016,
-                            ),
+                                fontFamily: 'MontBold',
+                                fontSize:
+                                    MediaQuery.of(context).size.width * 0.016,
+                                color: Colors.black),
+                            maxLines: 3,
+                            overflow: TextOverflow.ellipsis,
                           ),
                         ] else ...[
                           Text(
@@ -368,18 +370,18 @@ class _Tracking_historyState extends State<Tracking_history> {
                           Text(
                             'Lat    :${widget.tracking[index - 1]['loc'][0]}',
                             style: TextStyle(
-                              fontFamily: 'MontBold',
-                              fontSize:
-                                  MediaQuery.of(context).size.width * 0.016,
-                            ),
+                                fontFamily: 'MontBold',
+                                fontSize:
+                                    MediaQuery.of(context).size.width * 0.016,
+                                color: Colors.black),
                           ),
                           Text(
                             'Long :${widget.tracking[index - 1]['loc'][1]}',
                             style: TextStyle(
-                              fontFamily: 'MontBold',
-                              fontSize:
-                                  MediaQuery.of(context).size.width * 0.016,
-                            ),
+                                fontFamily: 'MontBold',
+                                fontSize:
+                                    MediaQuery.of(context).size.width * 0.016,
+                                color: Colors.black),
                           ),
                         ]
                       ],

@@ -212,7 +212,18 @@ class HamWidget extends StatelessWidget {
                                           // pref.remove('expiredDatawarranty');
                                           // pref.remove('weekexpiredwarranty');
                                           // pref.remove('notification');
-                                          
+                                               pref.remove('token');
+                                          pref.remove('udid');
+                                          pref.remove('name');
+                                          pref.remove('gender');
+                                          pref.remove('id');
+                                          pref.remove("data");
+                                          pref.remove('expiredData');
+                                          pref.remove('weekexpired');
+                                          pref.remove("datawarranty");
+                                          pref.remove('expiredDatawarranty');
+                                          pref.remove('weekexpiredwarranty');
+                                          pref.remove('notification');
                                           UDID=null;
                                           ID=null;
                                           NAME=null;
@@ -406,7 +417,20 @@ class HamWidget extends StatelessWidget {
                               // pref.remove("datawarranty");
                               // pref.remove('expiredDatawarranty');
                               // pref.remove('weekexpiredwarranty');
-                              // pref.remove('notification');
+                              // pref.remove('notification');'
+
+                              pref.remove('token');
+                                          pref.remove('udid');
+                                          pref.remove('name');
+                                          pref.remove('gender');
+                                          pref.remove('id');
+                                          pref.remove("data");
+                                          pref.remove('expiredData');
+                                          pref.remove('weekexpired');
+                                          pref.remove("datawarranty");
+                                          pref.remove('expiredDatawarranty');
+                                          pref.remove('weekexpiredwarranty');
+                                          pref.remove('notification');
                               UDID=null;
                               ID=null;
                               NAME=null;

@@ -78,7 +78,7 @@ class _VerificationState extends State<Verification> {
         pref.setString('udid', v1);
         pref.setString('name', widget.Username);
         pref.setString('Companyname', widget.CompanyName);
-        pref.setString('custId_coupon',token2!.custId_coupon);
+        pref.setString('custId_coupon',token2!.custId_coupon!);
         pref.setString('dob',widget.dob);
         pref.setString('id', widget.phoneNum);
         pref.setString('gender',widget.gender);
@@ -171,9 +171,11 @@ setState(() {
 
       else{
         {
+
+          print("entered loop for creating new user");
           token2 = await createAlbum4_2(widget.Username, widget.password,
           widget.gender, IsPhoneNo, widget.phoneNum, v1,widget.dob);
-
+print("enloop for creating new user");
       print(token2!.status);
       print("the above is the response of register api");
       if (token2!.status==201) //register successful
@@ -183,7 +185,7 @@ setState(() {
         pref.setString('udid', v1);
         pref.setString('name', widget.Username);
         // pref.setString('Companyname', widget.CompanyName);
-        pref.setString('custId_coupon',token2!.custId_coupon);
+        pref.setString('custId_coupon',token2!.custId_coupon!);
         pref.setString('dob',widget.dob);
         pref.setString('id', widget.phoneNum);
         pref.setString('gender',widget.gender);

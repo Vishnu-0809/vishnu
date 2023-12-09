@@ -1,3 +1,5 @@
+import 'dart:core';
+
 import 'package:flutter/material.dart';
 import 'package:Veots/models/class_models.dart';
 import 'package:Veots/screens/product_details.dart';
