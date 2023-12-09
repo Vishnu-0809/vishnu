@@ -55,7 +55,7 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
   Future getData() async {
       requestCount = requestCount + 1;
     String url =
-        "https://api.veots.in/verify/" +
+        "https://7875-203-192-204-83.ngrok.io/verify/" +
             widget.subLink +
             "/" +
             UDID.toString();
