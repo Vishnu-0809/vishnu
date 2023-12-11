@@ -97,7 +97,7 @@ class ProdDetails extends StatelessWidget {
 
   if(snapshot.details["mfgDate"] != null)    {
                 
-if( snapshot.details["mfgDate"] == "not available")
+if( snapshot.details["mfgDate"] == "notAvailable")
 mfgdate = "Please refer to product";
 else{
 
@@ -115,7 +115,7 @@ else{
   }
 
 if(snapshot.details["expiry"] != null){
-  if( snapshot.details["expiry"] == "not available")
+  if( snapshot.details["expiry"] == "notAvailable")
 expdate = "Please refer to product";
 else{
    print("going to enddate");
@@ -577,10 +577,9 @@ reupload_bill() async
                                     height: MediaQuery.of(context).size.height *
                                         0.002,
                                   ),
-                                if(snapshot.details["brand"] != null)
+                                if(snapshot.details["brand"] != null && snapshot.details["batchType"] == "Manufacturer")...[
                                 
                               Text(
-                                
                                   "Brand Name: ${snapshot.details["brand"]}",
                                   style: TextStyle(
                                       color: Colors.white,
@@ -590,8 +589,20 @@ reupload_bill() async
                                               0.026,
                                       ),
                                 ),
-                            
-                            if(snapshot.details["prodName"] != null)    
+                                ]
+                                else...[
+                                  Text(
+                                  "Sold by: ${snapshot.details["brand"]}",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontFamily: "Poppins Medium",
+                                      fontSize:
+                                           MediaQuery.of(context).size.width *
+                                              0.026,
+                                      ),
+                                ),
+                                ],
+                            if(snapshot.details["prodName"] != null && snapshot.details["batchType"] == "Manufacturer")    
                               Text(
                                   "Product Name: ${snapshot.details["prodName"]}",
                                   style: TextStyle(
@@ -601,11 +612,7 @@ reupload_bill() async
                                           MediaQuery.of(context).size.width *
                                               0.026,
                                       ),
-                                ),       
-                               
-                              
-                                
-                                
+                                ),        
                                 ],
                               ),
                               // Spacer(),
@@ -630,7 +637,7 @@ reupload_bill() async
                           child:Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              if(snapshot.details["price"] != null)    
+                              if(snapshot.details["price"] != null && snapshot.details["batchType"] == "Manufacturer")    
                               Text(
                                   "MRP: ${snapshot.details["price"]}",
                                   style: TextStyle(
@@ -641,7 +648,7 @@ reupload_bill() async
                                               0.026,
                                       ),
                                 ),
-                                if(mfgdate == "Please refer to product")...[
+                                if(mfgdate == "Please refer to product" && snapshot.details["batchType"] == "Manufacturer")...[
                                 Text(
                                   "MFG Date: "+mfgdate,
                                   style: TextStyle(
@@ -652,7 +659,7 @@ reupload_bill() async
                                               0.026,
                                       ),
                                 ), ]
-                                 else if(temp!="")    
+                                 else if(temp!="" && snapshot.details["batchType"] == "Manufacturer")    
                               Text(
                                   "MFG Date: "+mfgdate,
                                   style: TextStyle(
@@ -663,7 +670,7 @@ reupload_bill() async
                                               0.026,
                                       ),
                                 ), 
-                                 if(snapshot.details["shelflife"] != null && snapshot.details["shelflife"] != 0)    
+                                 if(snapshot.details["shelflife"] != null && snapshot.details["shelflife"] != 0 && snapshot.details["batchType"] == "Manufacturer")    
                               Text(
                                   "Shelf life: ${snapshot.details["shelflife"]}",
                                   style: TextStyle(
@@ -674,7 +681,7 @@ reupload_bill() async
                                               0.026,
                                       ),
                                 ), 
-                                if(expdate == "Please refer to product")...[
+                                if(expdate == "Please refer to product" && snapshot.details["batchType"] == "Manufacturer")...[
                                 Text(
                                   "Expiry Date: "+expdate,
                                   style: TextStyle(
@@ -685,7 +692,7 @@ reupload_bill() async
                                               0.026,
                                       ),
                                 ), ]
-                              else if(temp2!="")    
+                              else if(temp2!="" && snapshot.details["batchType"] == "Manufacturer")    
                               Text(
                                   "Expiry Date: "+expdate,
                                   style: TextStyle(
@@ -696,7 +703,7 @@ reupload_bill() async
                                               0.026,
                                       ),
                                 ), 
-                                if(snapshot.details["batchNo"] != null)    
+                                if(snapshot.details["batchNo"] != null && snapshot.details["batchType"] == "Manufacturer")    
                               Text(
                                   "Batch No: ${snapshot.details["batchNo"]}",
                                   style: TextStyle(
@@ -707,7 +714,7 @@ reupload_bill() async
                                               0.026,
                                       ),
                                 ),
-                              if(snapshot.details["serialNo"] != null)    
+                              if(snapshot.details["serialNo"] != null && snapshot.details["batchType"] == "Manufacturer")    
                               Text(
                                   "Serial No: ${snapshot.details["serialNo"]}",
                                   style: TextStyle(
@@ -718,7 +725,7 @@ reupload_bill() async
                                               0.026,
                                       ),
                                 ),
-                                if(snapshot.details["warranty"] != null )    
+                                if(snapshot.details["warranty"] != null && snapshot.details["batchType"] == "Manufacturer")    
                               Text(
                                   "Warranty: ${snapshot.details["warranty"]}",
                                   style: TextStyle(
@@ -729,8 +736,7 @@ reupload_bill() async
                                               0.026,
                                       ),
                                 ),
-                        if(snapshot.details["manuLicenseNo"] != null)
-                                  
+                        if(snapshot.details["manuLicenseNo"] != null && snapshot.details["batchType"] == "Manufacturer")...[
                               Container(
                                 child: Text(
                                     "Manufacturer License no: ${snapshot.details["manuLicenseNo"]}",
@@ -743,8 +749,23 @@ reupload_bill() async
                                         ),
                                   ),
                               ),
+                        ],
+                        if(snapshot.details["batchType"] == "Retailer")...[
+                          Container(
+                                child: Text(
+                                    "License no: ${snapshot.details["manuLicenseNo"]}",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontFamily: "Poppins Medium",
+                                        fontSize:
+                                            MediaQuery.of(context).size.width *
+                                                0.026,
+                                        ),
+                                  ),
+                              ),
+                        ],
                        
-                        if(snapshot.details["manuAddress"] !="" && snapshot.details["manuAddress"]!=null )...[
+                        if(snapshot.details["manuAddress"] !="" && snapshot.details["manuAddress"]!=null && snapshot.details["batchType"] == "Manufacturer")...[
                             
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.015,
@@ -778,6 +799,19 @@ reupload_bill() async
                               // Text('hello ${widget.snapshot.details["additionalImages"][0][0]["url"]}'),
                              
 
+                      ]
+                      else...[
+                        Text(
+                                  "Address: ${snapshot.details["manuAddress"]}",
+                                  
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontFamily: "Poppins Medium",
+                                      fontSize:
+                                          MediaQuery.of(context).size.width *
+                                              0.026,
+                                      ),
+                              ),
                       ],
                        if(snapshot.details["additionalDetails"] != ""  && snapshot.details["additionalDetails"]!=null  ) ...[
                         SizedBox(

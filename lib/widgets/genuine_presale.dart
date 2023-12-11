@@ -150,7 +150,7 @@ class _GenuinePreState extends State<GenuinePre> {
             SizedBox(
               height: MediaQuery.of(context).size.height / 40,
             ),
-            widget.snapshot.details["batchType"] == "manufacturer" ?
+            widget.snapshot.details["batchType"] == "Manufacturer" ?
             Text(
               "Scanned Product Details",
               style: 
@@ -175,7 +175,7 @@ class _GenuinePreState extends State<GenuinePre> {
             SizedBox(
               height: MediaQuery.of(context).size.height / 100,
             ),
-            if(widget.snapshot.details["batchType"] == "retailor")...[
+            if(widget.snapshot.details["batchType"] == "Retailer")...[
             Text(
             widget.snapshot.details["brand"],
             style:
@@ -700,8 +700,9 @@ YoutubePlayer(
                          temp_class.details["additionalDetails"] =widget.snapshot.details["additionalDetails"];
                          temp_class.details["additionalImages"] = widget.snapshot.details["additionalImages"];
                          temp_class.details['productVedio']=widget.snapshot.details['productVedio'];
+                         temp_class.details['batchType']=widget.snapshot.details['batchType'];
                          print("=====================================");
-                         print(widget.snapshot.details["additionalImageDetails"]);
+                         print(temp_class.details['productVedio']);
                          print("======================================");
                          
                          temp_class.details["additionalImageDetails"] = widget.snapshot.details["additionalImageDetails"];
@@ -716,7 +717,7 @@ YoutubePlayer(
                                   shadowColor: Colors.transparent),
                               child:  FittedBox(
                                 child: 
-                                widget.snapshot.details["batchType"] == "manufacturer" ?
+                                widget.snapshot.details["batchType"] == "Manufacturer" ?
                                 Text(
                                   'Product Details',
                                   style: 

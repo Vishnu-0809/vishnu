@@ -104,7 +104,7 @@ class ActualGPSale extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                snapshot.details["batchType"] == "manufacturer" ?
+                snapshot.details["batchType"] == "Manufacturer" ?
                 Text(
               "Scanned Product Details",
               style: 
@@ -134,7 +134,7 @@ class ActualGPSale extends StatelessWidget {
             SizedBox(
               height: MediaQuery.of(context).size.height / 100,
             ),
-            if(snapshot.details["batchType"] == "retailor")...[
+            if(snapshot.details["batchType"] == "Retailer")...[
             Text(
             snapshot.details["brand"],
             style:
@@ -485,6 +485,7 @@ class ActualGPSale extends StatelessWidget {
                          temp_class.details["additionalImageDetails"] = snapshot.details["additionalImageDetails"]; 
                          temp_class.details['tracking']=snapshot.details['tracking']; ///changed
                          temp_class.details['productVedio']=snapshot.details['productVedio'];
+                         temp_class.details['batchType']=snapshot.details['batchType'];
                          temp_class.bill = snapshot.bill;
                          print("--------------------");
                          print(temp_class.bill);

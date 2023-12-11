@@ -201,6 +201,11 @@ Future<Album_reset> createAlbum_reset(
 Future createAlbum_verify(String link, Position? LOCATION, String id,
     String establishmentname, String checklink) async {
   print("hello");
+  print("11111111111111111111111111111111111111111111");
+  print(LOCATION?.latitude);
+  print( LOCATION?.longitude);
+  print(id);
+  print("000000000000000000000000000000000000000000000");
   final response = await http.post(
     Uri.parse(link),
     headers: <String, String>{

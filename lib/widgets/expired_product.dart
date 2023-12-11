@@ -132,7 +132,7 @@ class ExpiredProd extends StatelessWidget {
             SizedBox(
               height: MediaQuery.of(context).size.height / 100,
             ),
-            if(snapshot.details["batchType"] == "retailor")...[
+            if(snapshot.details["batchType"] == "Retailer")...[
             Text(
             snapshot.details["brand"],
             style:
@@ -429,6 +429,7 @@ YoutubePlayer(
                          temp_class.details["additionalDetails"] =snapshot.details["additionalDetails"];
                          temp_class.details["additionalImages"] = snapshot.details["additionalImages"];
                         temp_class.details['productVedio']=snapshot.details['productVedio'];
+                        temp_class.details['batchType']=snapshot.details['batchType'];
                          print("=====================================");
                          print(snapshot.details["additionalImageDetails"]);
                          print("======================================");
