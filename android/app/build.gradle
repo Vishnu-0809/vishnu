@@ -55,7 +55,7 @@ android {
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-build-configuration.
         minSdkVersion 23
-        targetSdkVersion 33
+        targetSdkVersion 35
         versionCode 15
         versionName "15.0.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJunitRunner"
@@ -63,7 +63,7 @@ android {
 
 //     buildTypes {
 //        release {
-//            signingConfig signingConfigs.debug
+//            signingConfig signingConfigs.release
 //        }
 //    }
 
@@ -87,7 +87,7 @@ android {
        // TODO: Add your own signing config for the release build.
        // Signing with the debug keys for now,
        // so `flutter run --release` works.
-       signingConfig signingConfigs.debug
+       signingConfig signingConfigs.release
    }}
 
    

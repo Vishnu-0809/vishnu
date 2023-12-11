@@ -59,6 +59,7 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
             widget.subLink +
             "/" +
             UDID.toString();
+            
     print(url);
     print("udid: ${UDID}");
     print('-----------');

@@ -177,13 +177,20 @@ Future getSearchData() async {
       //  temp_class.details["imageQrOnProd"] = responseData["data"][i]["imageQrOnProd"];
       temp_class.details["mfgdate"] = responseData["data"][i]["mfgdate"];
       temp_class.details["shelflife"] = responseData["data"][i]["shelflife"];
+      
       temp_class.details["manuLicenseNo"] =
           responseData["data"][i]["manuLicenseNo"];
       temp_class.details["manuAddress"] =
           responseData["data"][i]["manuAddress"];
-      //  temp_class.details["additionalDetails"] = responseData["data"][i]["addtionalDetails"];
-      temp_class.details["additionalImages"] =
-          responseData["data"][i]["addtionalImages"];
+  temp_class.details["additionalDetails"] = responseData["data"][i]["addtionalDetails"];
+      // temp_class.details["additionalImages"] =
+      //     responseData["data"][i]["addtionalImages"];
+       temp_class.details["prodVedioLink"] = responseData["data"][i]["prodVedioLink"];
+      temp_class.details["additionalImages"]=[responseData["data"][i]["extraImages"]];
+      print("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
+      print(temp_class.details["additionalImages"]);
+
+           temp_class.details["additionalImageDetails"] = responseData["data"][i]["additionalImageDetails"];
       print(temp_class.details["brand"]);
       print(i);
        print(responseData["data"].length);
@@ -282,18 +289,27 @@ for (int i = 0; i < responseData["data"].length; i++) {
       //     responseData["batchDetails"]["QROnProd"];
       temp_class.details["expiry"] = responseData["data"][i]["expiry"];
       temp_class.details["batchNo"] = responseData["data"][i]["batchNo"];
+      
       temp_class.details["prodID"] = responseData["data"][i]["_id"];
         temp_class.details["warranty"] =responseData["data"][i]["warranty"];
       //  temp_class.details["imageQrOnProd"] = responseData["data"][i]["imageQrOnProd"];
       temp_class.details["mfgdate"] = responseData["data"][i]["mfgdate"];
       temp_class.details["shelflife"] = responseData["data"][i]["shelflife"];
+     
       temp_class.details["manuLicenseNo"] =
           responseData["data"][i]["manuLicenseNo"];
       temp_class.details["manuAddress"] =
           responseData["data"][i]["manuAddress"];
-      //  temp_class.details["additionalDetails"] = responseData["data"][i]["addtionalDetails"];
-      temp_class.details["additionalImages"] =
-          responseData["data"][i]["addtionalImages"];
+        temp_class.details["additionalDetails"] = responseData["data"][i]["addtionalDetails"];
+      // temp_class.details["additionalImages"] =
+      //     responseData["data"][i]["addtionalImages"];
+       temp_class.details["prodVedioLink"] = responseData["data"][i]["prodVedioLink"];
+      temp_class.details["additionalImages"]=[responseData["data"][i]["extraImages"]];
+      print("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
+      print(temp_class.details["additionalImages"]);
+
+           temp_class.details["additionalImageDetails"] = responseData["data"][i]["additionalImageDetails"];
+      
       print(temp_class.details["brand"]);
       print(i);
       //  print(responseData["data"].length);
@@ -376,6 +392,7 @@ for (int i = 0; i < responseData["data"].length; i++) {
       // {
       if(i<responseData["data"].length){
         Details temp_class = new Details();
+        
       temp_class.details["purchaseDate"] =
           responseData["data"][i]["purchaseDate"];
            temp_class.details["preSaleCode"] = responseData["data"][i]["preSaleCode"];
@@ -399,13 +416,24 @@ temp_class.details["prodID"] = responseData["data"][i]["_id"];
       //  temp_class.details["imageQrOnProd"] = responseData["data"][i]["imageQrOnProd"];
       temp_class.details["mfgdate"] = responseData["data"][i]["mfgdate"];
       temp_class.details["shelflife"] = responseData["data"][i]["shelflife"];
+     
+    
       temp_class.details["manuLicenseNo"] =
           responseData["data"][i]["manuLicenseNo"];
       temp_class.details["manuAddress"] =
           responseData["data"][i]["manuAddress"];
-      //  temp_class.details["additionalDetails"] = responseData["data"][i]["addtionalDetails"];
-      temp_class.details["additionalImages"] =
-          responseData["data"][i]["addtionalImages"];
+      temp_class.details["additionalDetails"] = responseData["data"][i]["addtionalDetails"];
+      // temp_class.details["additionalImages"] =
+      //     responseData["data"][i]["addtionalImages"];
+       temp_class.details["prodVedioLink"] = responseData["data"][i]["prodVedioLink"];
+      temp_class.details["additionalImages"]=[responseData["data"][i]["extraImages"]];
+      print("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
+      print(temp_class.details["additionalImages"]);
+
+           temp_class.details["additionalImageDetails"] = responseData["data"][i]["additionalImageDetails"];
+
+
+
       print(temp_class.details["brand"]);
       // print(i);
 
@@ -515,36 +543,27 @@ searchItems.add(temp_class.details["purchaseDate"]);
       temp_class.details["expiry"] = responseData["data"][i]["expiry"];
       temp_class.details["batchNo"] = responseData["data"][i]["batchNo"];
       temp_class.details["prodID"] = responseData["data"][i]["_id"];
-            String current_Date=DateTime.now().toString().substring(0,10);
-      print("qqqqqqqqqqqqqqqqqqqqqqqq "+current_Date);
-
-        String Purchase_Date=responseData["data"][i]["purchaseDate"].toString().substring(0,10);
-        print("qqqqqqqqqqqqqqqqqqqqqqqq "+Purchase_Date);
-
-
-        DateTime endDate = DateTime(int.parse(current_Date.substring(0,4)), int.parse(current_Date.substring(5,7)), int.parse(current_Date.substring(8,10)));
-       
-  DateTime startDate = DateTime(int.parse(Purchase_Date.substring(0,4)), int.parse(Purchase_Date.substring(5,7)), int.parse(Purchase_Date.substring(8,10)));
-       print(startDate);
-
-       Duration difference = endDate.difference(startDate);
-       int numberOfDays = difference.inDays;
-      print(numberOfDays);
-      int Warranty_Left= int.parse( responseData["data"][i]["warranty"].toString())-numberOfDays;
-     print(Warranty_Left);
       
- 
-      temp_class.details["warranty"] = Warranty_Left;
+     
+
+      temp_class.details["warranty"] =responseData["data"][i]["warranty"];
       //  temp_class.details["imageQrOnProd"] = responseData["data"][i]["imageQrOnProd"];
       temp_class.details["mfgdate"] = responseData["data"][i]["mfgdate"];
       temp_class.details["shelflife"] = responseData["data"][i]["shelflife"];
+      temp_class.details["productVedio"] = responseData["data"][i]["productVedio"];
       temp_class.details["manuLicenseNo"] =
           responseData["data"][i]["manuLicenseNo"];
       temp_class.details["manuAddress"] =
           responseData["data"][i]["manuAddress"];
-      //  temp_class.details["additionalDetails"] = responseData["data"][i]["addtionalDetails"];
-      temp_class.details["additionalImages"] =
-          responseData["data"][i]["addtionalImages"];
+      temp_class.details["additionalDetails"] = responseData["data"][i]["addtionalDetails"];
+      // temp_class.details["additionalImages"] =
+      //     responseData["data"][i]["addtionalImages"];
+       temp_class.details["prodVedioLink"] = responseData["data"][i]["prodVedioLink"];
+      temp_class.details["additionalImages"]=[responseData["data"][i]["extraImages"]];
+      print("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
+      print(temp_class.details["additionalImages"]);
+
+           temp_class.details["additionalImageDetails"] = responseData["data"][i]["additionalImageDetails"];
       print(temp_class.details["brand"]);
       // print(i);
 
@@ -1550,7 +1569,10 @@ final sea = SuggestionsDetailsList[index];
       
      
                   
-
+if(Warranty_Left<0)
+{
+  Warranty_Left=0;
+}
 
                   
                   // if(sea.details["warranty"]!=null)
@@ -1717,7 +1739,7 @@ final sea = SuggestionsDetailsList[index];
                                                       .width /
                                                   3,
                                               margin: EdgeInsets.all(8),
-                                              child: ClipRRect(
+                                              child: sea.details["imageProd"]!=null?ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(0),
                                                 child: CachedNetworkImage(
@@ -1730,7 +1752,7 @@ final sea = SuggestionsDetailsList[index];
         
         errorWidget: (context, url, error) => Icon(Icons.error),
      ),
-                                              ),
+                                              ):Container()
                                             )
                                           ],
                                         )),
@@ -1752,7 +1774,7 @@ final sea = SuggestionsDetailsList[index];
                                               SizedBox(
                                                 // fit: BoxFit.fitWidth,
                                                 width: MediaQuery.of(context).size.width*0.5,
-                                                child: Text(
+                                                child: sea.details["prodName"]!=null?Text(
                                     sea.details["prodName"],
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
@@ -1763,10 +1785,10 @@ final sea = SuggestionsDetailsList[index];
                                           MediaQuery.of(context).size.height *
                                               0.018,
                                     ),
-                                  ),
+                                  ):Container()
                                               ),
                                               // SizedBox(height: 8),
-                                              FittedBox(
+                                               sea.details["brand"]!=null?FittedBox(
                                                 fit: BoxFit.fitWidth,
                                                 child: Text(
                                     sea.details["brand"],
@@ -1781,7 +1803,7 @@ final sea = SuggestionsDetailsList[index];
                                               0.018,
                                     ),
                                   ),
-                                              ),
+                                              ):Container(),
                                               SizedBox(height: MediaQuery.of(context).size.width*0.02,),
                                               // Text(
                                               //   ('Firm Name : ${data.docs[index]['Firm_Details']['Firm_name']}'),

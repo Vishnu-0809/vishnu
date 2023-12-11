@@ -591,7 +591,7 @@ Future<AlbumTracking> createAlbumTracking(String batchNo, String clientId,
       'batchNo': batchNo,
       'clientId': clientId,
       'preSaleCode': preSaleCode,
-      'postSaleCode': postSaleCode
+      'postSaleCode': postSaleCode 
     }),
   );
   // print(response.body);

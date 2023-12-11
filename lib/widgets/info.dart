@@ -1,11 +1,13 @@
 import 'dart:core';
 
+import 'package:Veots/screens/finalvideoplayer.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:Veots/models/class_models.dart';
 import 'package:Veots/screens/InfoQR_prod_details.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:video_player/video_player.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 // import 'package:badges/badges.dart' as badges;
 import '../screens/Notifications_view.dart';
@@ -267,16 +269,11 @@ class Info extends StatelessWidget {
                                 ),
                                 content: 
 
-YoutubePlayer(
-  width: MediaQuery.of(context).size.width/2,
-    controller: _controller,
-    showVideoProgressIndicator: true,
-    // videoProgressIndicatorColor: Colors.amber,
-    // progressColors:Colors.amber,
-    // onReady () {
-    //     _controller.addListener(listener);
-    // },
-),
+VideoPlayerView(
+            url:
+                "https://veots.s3.ap-south-1.amazonaws.com/How+to+use+info+.mp4",
+            dataSourceType: DataSourceType.network,
+          )
                               ),
                               );
                             });
