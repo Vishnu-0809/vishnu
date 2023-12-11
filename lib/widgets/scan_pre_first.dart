@@ -107,7 +107,7 @@ class ScanPreFirstScreen extends StatelessWidget {
                Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                snapshot.details["batchType"] == "manufacturer" ?
+                snapshot.details["batchType"] == "Manufacturer" ?
                 Text(
               "Scanned Product Details",
               style: 
@@ -141,7 +141,7 @@ class ScanPreFirstScreen extends StatelessWidget {
               //     fontSize: MediaQuery.of(context).size.width * 0.055,
               //   ),
               // ),
-          if(snapshot.details["batchType"] == "retailor")...[
+          if(snapshot.details["batchType"] == "Retailer")...[
             Text(
             snapshot.details["brand"],
             style:
@@ -500,6 +500,7 @@ class ScanPreFirstScreen extends StatelessWidget {
                          temp_class.details["additionalImages"] = snapshot.details["additionalImages"];
                          temp_class.details['tracking']=snapshot.details['tracking']; ///changed
                          temp_class.details['prodVedioLink']=snapshot.details['prodVedioLink'];
+                         temp_class.details['batchType']=snapshot.details['batchType'];
                         Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => ProdDetails(link:link,snapshot: temp_class),
                         ));
@@ -509,7 +510,7 @@ class ScanPreFirstScreen extends StatelessWidget {
                           shadowColor: Colors.transparent),
                       child:  FittedBox(
                         child: 
-                        snapshot.details["batchType"] == "manufacturer" ?
+                        snapshot.details["batchType"] == "Manufacturer" ?
                         Text(
                           'Product Details',
                           style: TextStyle(

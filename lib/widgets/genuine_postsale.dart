@@ -270,7 +270,7 @@ Future CheckUserConnection() async {
               SizedBox(
               height: MediaQuery.of(context).size.height / 40,
             ),
-            widget.snapshot.details["batchType"] == "manufacturer" ?
+            widget.snapshot.details["batchType"] == "Manufacturer" ?
             Text(
               "Scanned Product Details",
               style: 
@@ -294,7 +294,7 @@ Future CheckUserConnection() async {
             SizedBox(
               height: MediaQuery.of(context).size.height / 100,
             ),
-              if(widget.snapshot.details["batchType"] == "retailor")...[
+              if(widget.snapshot.details["batchType"] == "Retailer")...[
             Text(
             widget.snapshot.details["brand"],
             style:
@@ -793,8 +793,9 @@ VideoPlayerView(
                           temp_class.details["shelfLife"] = widget.snapshot.details["shelflife"];
                           temp_class.details['tracking']=widget.snapshot.details['tracking']; ///changed
                          temp_class.details['productVedio']=widget.snapshot.details['productVedio'];
+                         temp_class.details['batchType']=widget.snapshot.details['batchType'];
                           print("&&&&&&&&&&&");
-                          print(temp_class.details["mfgDate"]);
+                          print(temp_class.details['productVedio']);
                           print("&&&&&&&&&&&&&");
                             Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => ProdDetails(link:widget.link,snapshot: temp_class),
@@ -804,7 +805,7 @@ VideoPlayerView(
                               primary: Colors.transparent,
                               shadowColor: Colors.transparent),
                           child: 
-                          widget.snapshot.details["batchType"] == "manufacturer" ?
+                          widget.snapshot.details["batchType"] == "Manufacturer" ?
                           Text(
                             'Product Details',
                             textAlign: TextAlign.center,
