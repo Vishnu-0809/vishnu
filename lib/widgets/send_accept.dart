@@ -130,7 +130,7 @@ Future<Album3> createAlbum56(
   final response = http.MultipartRequest(
       'POST',
       Uri.parse(
-          "http://ec2-13-235-124-84.ap-south-1.compute.amazonaws.com:3000/customer/claim-product"));
+          "https://2589-157-33-229-12.ngrok.io/customer/claim-product"));
 
   //  final headers={"Content-type":"multipart/form-data; charset=UTF-8"};
   final headers = <String, String>{
@@ -157,9 +157,16 @@ Future<Album3> createAlbum56(
     );
   }
   response.headers.addAll(headers);
+  
   final responsefinal = await response.send();
   var responseString = await responsefinal.stream.bytesToString();
   final decodedMap = json.decode(responseString);
+  print("hhhhhhhhhhhhhhhhhhhhhhhh");
+  print(responsefinal.statusCode);
+print ("------------------------------------");
+print (responseString);
+print ("------------------------------------");
+
   return Album3.fromJson(decodedMap);
 }
 

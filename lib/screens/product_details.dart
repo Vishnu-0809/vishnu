@@ -131,8 +131,12 @@ else{
 }
                         
 }
+print ("-----------------------------------------------");
 
- 
+print (snapshot.details["additionalImageDetails"]);
+
+print ("-----------------------------------------------");
+
  String? Filename;
  String? myFuture="";
  late PlatformFile file;
@@ -910,8 +914,9 @@ reupload_bill() async
                                     height: MediaQuery.of(context).size.height *
                                         0.002,
                                   ),
-    // Text(snapshot.details["prodVedioLink"]),
-                         if(snapshot.details["prodVedioLink"]!=null)
+  //                                 Text("asdd"),
+  //  Text(snapshot.details["productVedio"]),
+                         if(snapshot.details["productVedio"]!=null && snapshot.details["productVedio"]!="")
                         ...[   InkWell(
                             onTap:(){showDialog(
                             barrierDismissible: false,
@@ -1002,7 +1007,7 @@ reupload_bill() async
 
           VideoPlayerView(
             url:
-                snapshot.details["prodVedioLink"]!,
+                snapshot.details["productVedio"]!,
             dataSourceType: DataSourceType.network,
           ),
 
@@ -1057,13 +1062,15 @@ reupload_bill() async
                                               )),
                             ),
                               Spacer(),
-                             (((snapshot.details["isTrackingAvailable"] !=
-                                                              null) &&
-                                                          snapshot.details[
-                                                              "isTrackingAvailable"]) ||
-                                                      (snapshot.details[
-                                                              "isTrackingAvailable"] ==
-                                                          null))
+                             snapshot.details["isTrackingAvailable"] == true 
+                            //  (((snapshot.details["isTrackingAvailable"] !=
+                            //                                   null) &&
+                            //                               snapshot.details[
+                            //                                   "isTrackingAvailable"]) ||
+                            //                           (snapshot.details[
+                            //                                   "isTrackingAvailable"] ==
+                            //                               null&&
+                            //                               ( snapshot.details['tracking'] != []  )))
                                                   ? SizedBox(
                                                       height:
                                                           MediaQuery.of(context)

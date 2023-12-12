@@ -185,12 +185,14 @@ Future getSearchData() async {
   temp_class.details["additionalDetails"] = responseData["data"][i]["addtionalDetails"];
       // temp_class.details["additionalImages"] =
       //     responseData["data"][i]["addtionalImages"];
-       temp_class.details["prodVedioLink"] = responseData["data"][i]["prodVedioLink"];
+       temp_class.details["productVedio"] = responseData["data"][i]["prodVedioLink"];
       temp_class.details["additionalImages"]=[responseData["data"][i]["extraImages"]];
       print("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
       print(temp_class.details["additionalImages"]);
 
            temp_class.details["additionalImageDetails"] = responseData["data"][i]["additionalImageDetails"];
+           
+           temp_class.details["batchType"] = responseData["data"][i]["batchType"];
       print(temp_class.details["brand"]);
       print(i);
        print(responseData["data"].length);
@@ -303,13 +305,13 @@ for (int i = 0; i < responseData["data"].length; i++) {
         temp_class.details["additionalDetails"] = responseData["data"][i]["addtionalDetails"];
       // temp_class.details["additionalImages"] =
       //     responseData["data"][i]["addtionalImages"];
-       temp_class.details["prodVedioLink"] = responseData["data"][i]["prodVedioLink"];
+       temp_class.details["productVedio"] = responseData["data"][i]["prodVedioLink"];
       temp_class.details["additionalImages"]=[responseData["data"][i]["extraImages"]];
       print("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
       print(temp_class.details["additionalImages"]);
 
            temp_class.details["additionalImageDetails"] = responseData["data"][i]["additionalImageDetails"];
-      
+      temp_class.details["batchType"] = responseData["data"][i]["batchType"];
       print(temp_class.details["brand"]);
       print(i);
       //  print(responseData["data"].length);
@@ -425,13 +427,13 @@ temp_class.details["prodID"] = responseData["data"][i]["_id"];
       temp_class.details["additionalDetails"] = responseData["data"][i]["addtionalDetails"];
       // temp_class.details["additionalImages"] =
       //     responseData["data"][i]["addtionalImages"];
-       temp_class.details["prodVedioLink"] = responseData["data"][i]["prodVedioLink"];
+       temp_class.details["productVedio"] = responseData["data"][i]["prodVedioLink"];
       temp_class.details["additionalImages"]=[responseData["data"][i]["extraImages"]];
       print("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
       print(temp_class.details["additionalImages"]);
 
            temp_class.details["additionalImageDetails"] = responseData["data"][i]["additionalImageDetails"];
-
+temp_class.details["batchType"] = responseData["data"][i]["batchType"];
 
 
       print(temp_class.details["brand"]);
@@ -550,7 +552,7 @@ searchItems.add(temp_class.details["purchaseDate"]);
       //  temp_class.details["imageQrOnProd"] = responseData["data"][i]["imageQrOnProd"];
       temp_class.details["mfgdate"] = responseData["data"][i]["mfgdate"];
       temp_class.details["shelflife"] = responseData["data"][i]["shelflife"];
-      temp_class.details["productVedio"] = responseData["data"][i]["productVedio"];
+      temp_class.details["productVedio"] = responseData["data"][i]["prodVedioLink"];
       temp_class.details["manuLicenseNo"] =
           responseData["data"][i]["manuLicenseNo"];
       temp_class.details["manuAddress"] =
@@ -565,6 +567,7 @@ searchItems.add(temp_class.details["purchaseDate"]);
 
            temp_class.details["additionalImageDetails"] = responseData["data"][i]["additionalImageDetails"];
       print(temp_class.details["brand"]);
+      temp_class.details["batchType"] = responseData["data"][i]["batchType"];
       // print(i);
 
       print("the length of items now is :");
