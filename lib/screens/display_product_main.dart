@@ -53,6 +53,9 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
   String dummy = "qwe";
   int requestCount = 1;
   Future getData() async {
+    print("subink lengthhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
+    print(widget.subLink.length);
+    print("subink lengthhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
       requestCount = requestCount + 1;
     String url =
         "https://api.veots.in/verify/" +
@@ -172,7 +175,7 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       temp_class.i = responseData["i"];
       temp_class.details["brand"] = responseData["batchDetails"]["brand"];
       temp_class.details["serialNo"] = responseData["batchDetails"]["serialNo"];
-      temp_class.details["price"] = responseData["batchDetails"]["mrp"];
+      temp_class.details["price"] = responseData["batchDetails"]["price"];
       temp_class.details["prodName"] = responseData["batchDetails"]["prodName"];
       temp_class.details["imageProd"] = responseData["batchDetails"]["Pimage"];
       // temp_class.details["QROnProd"] =
@@ -211,7 +214,8 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
           temp_class.details["productVedio"] =
           responseData["batchDetails"]["prodVedioLink"];
           print("9999999999999999");
-          responseData["batchDetails"]["batchType"];
+          responseData["batchDetails"]["price"];
+          
           print("9999999999999999");
       print(temp_class.details);
       // print(responseData);

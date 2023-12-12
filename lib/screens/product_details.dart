@@ -95,8 +95,7 @@ class ProdDetails extends StatelessWidget {
 
   }
 
-  if(snapshot.details["mfgDate"] != null)    {
-                
+if(snapshot.details["mfgDate"] != null)    {
 if( snapshot.details["mfgDate"] == "notAvailable")
 mfgdate = "Please refer to product";
 else{
@@ -440,7 +439,21 @@ reupload_bill() async
               ,
             ],
           ),
-          
+          Text(
+              "Scanned Details",
+              style: 
+              // Theme.of(context).textTheme.headlineMedium,
+              TextStyle(
+                  color: const Color(0xff002060),
+                  // fontSize: MediaQuery.of(context).size.width * 0.045,
+                  fontSize: 16,
+                  fontFamily: "Poppins Medium",
+                  // fontWeight: FontWeight.bold
+                  ),
+            ),
+            SizedBox(
+            height: MediaQuery.of(context).size.height / 80,
+          ),
           if (snapshot.details["message"] == "Genuine Post Sale")...[
             Text(
                     "Warranty left",
@@ -517,19 +530,19 @@ reupload_bill() async
               const Center(child: Text('Sorry couldn\'t show the product image')),
                 )),],
 
-                if(snapshot.details["prodName"] != null)...[
-            Text(
-              "${snapshot.details["prodName"]}",
-              style: TextStyle(
-                  fontSize: 
-                  12,
-                  fontFamily: "Poppins Medium",
-                  color: const Color(0xff002060),
-                  ),
-            ),],
-          SizedBox(
-            height: MediaQuery.of(context).size.height / 80,
-          ),
+          //       if(snapshot.details["prodName"] != null)...[
+          //   Text(
+          //     "${snapshot.details["prodName"]}",
+          //     style: TextStyle(
+          //         fontSize: 
+          //         12,
+          //         fontFamily: "Poppins Medium",
+          //         color: const Color(0xff002060),
+          //         ),
+          //   ),],
+          // SizedBox(
+          //   height: MediaQuery.of(context).size.height / 80,
+          // ),
           SizedBox(
             height: MediaQuery.of(context).size.height / 80,
           ),
@@ -577,8 +590,8 @@ reupload_bill() async
                                     height: MediaQuery.of(context).size.height *
                                         0.002,
                                   ),
-                                if(snapshot.details["brand"] != null && snapshot.details["batchType"] == "Manufacturer")...[
-                                
+                                if(snapshot.details["batchType"] == "Manufacturer")...[
+                                if(snapshot.details["brand"] != null)
                               Text(
                                   "Brand Name: ${snapshot.details["brand"]}",
                                   style: TextStyle(
@@ -591,8 +604,9 @@ reupload_bill() async
                                 ),
                                 ]
                                 else...[
+                                  if(snapshot.details["prodName"] != null)
                                   Text(
-                                  "Sold by: ${snapshot.details["brand"]}",
+                                  "Sold by: ${snapshot.details["prodName"]}",
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontFamily: "Poppins Medium",
@@ -602,7 +616,8 @@ reupload_bill() async
                                       ),
                                 ),
                                 ],
-                            if(snapshot.details["prodName"] != null && snapshot.details["batchType"] == "Manufacturer")    
+                            if( snapshot.details["batchType"] == "Manufacturer")...[ 
+                            if(snapshot.details["prodName"] != null)
                               Text(
                                   "Product Name: ${snapshot.details["prodName"]}",
                                   style: TextStyle(
@@ -612,7 +627,7 @@ reupload_bill() async
                                           MediaQuery.of(context).size.width *
                                               0.026,
                                       ),
-                                ),        
+                                )],      
                                 ],
                               ),
                               // Spacer(),
@@ -637,7 +652,8 @@ reupload_bill() async
                           child:Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              if(snapshot.details["price"] != null && snapshot.details["batchType"] == "Manufacturer")    
+                              if(snapshot.details["batchType"] == "Manufacturer")...[
+                                if(snapshot.details["price"] != null)
                               Text(
                                   "MRP: ${snapshot.details["price"]}",
                                   style: TextStyle(
@@ -647,7 +663,7 @@ reupload_bill() async
                                           MediaQuery.of(context).size.width *
                                               0.026,
                                       ),
-                                ),
+                                )],
                                 if(mfgdate == "Please refer to product" && snapshot.details["batchType"] == "Manufacturer")...[
                                 Text(
                                   "MFG Date: "+mfgdate,
@@ -670,7 +686,8 @@ reupload_bill() async
                                               0.026,
                                       ),
                                 ), 
-                                 if(snapshot.details["shelflife"] != null && snapshot.details["shelflife"] != 0 && snapshot.details["batchType"] == "Manufacturer")    
+                                 if(snapshot.details["batchType"] == "Manufacturer")...[
+                                  if(snapshot.details["shelflife"] != null && snapshot.details["shelflife"] != 0)
                               Text(
                                   "Shelf life: ${snapshot.details["shelflife"]}",
                                   style: TextStyle(
@@ -680,7 +697,7 @@ reupload_bill() async
                                           MediaQuery.of(context).size.width *
                                               0.026,
                                       ),
-                                ), 
+                                )],
                                 if(expdate == "Please refer to product" && snapshot.details["batchType"] == "Manufacturer")...[
                                 Text(
                                   "Expiry Date: "+expdate,
@@ -703,7 +720,8 @@ reupload_bill() async
                                               0.026,
                                       ),
                                 ), 
-                                if(snapshot.details["batchNo"] != null && snapshot.details["batchType"] == "Manufacturer")    
+                                if(snapshot.details["batchType"] == "Manufacturer")...[ 
+                                  if(snapshot.details["batchNo"] != null)
                               Text(
                                   "Batch No: ${snapshot.details["batchNo"]}",
                                   style: TextStyle(
@@ -713,8 +731,9 @@ reupload_bill() async
                                           MediaQuery.of(context).size.width *
                                               0.026,
                                       ),
-                                ),
-                              if(snapshot.details["serialNo"] != null && snapshot.details["batchType"] == "Manufacturer")    
+                                )],
+                              if( snapshot.details["batchType"] == "Manufacturer")...[
+                                if(snapshot.details["serialNo"] != null)
                               Text(
                                   "Serial No: ${snapshot.details["serialNo"]}",
                                   style: TextStyle(
@@ -724,8 +743,9 @@ reupload_bill() async
                                           MediaQuery.of(context).size.width *
                                               0.026,
                                       ),
-                                ),
-                                if(snapshot.details["warranty"] != null && snapshot.details["batchType"] == "Manufacturer")    
+                                )],
+                                if( snapshot.details["batchType"] == "Manufacturer")...[  
+                                  if(snapshot.details["warranty"] != null)
                               Text(
                                   "Warranty: ${snapshot.details["warranty"]}",
                                   style: TextStyle(
@@ -735,8 +755,9 @@ reupload_bill() async
                                           MediaQuery.of(context).size.width *
                                               0.026,
                                       ),
-                                ),
-                        if(snapshot.details["manuLicenseNo"] != null && snapshot.details["batchType"] == "Manufacturer")...[
+                                )],
+                        if(snapshot.details["batchType"] == "Manufacturer")...[
+                          if(snapshot.details["manuLicenseNo"] != null)
                               Container(
                                 child: Text(
                                     "Manufacturer License no: ${snapshot.details["manuLicenseNo"]}",
@@ -751,6 +772,7 @@ reupload_bill() async
                               ),
                         ],
                         if(snapshot.details["batchType"] == "Retailer")...[
+                          if(snapshot.details["manuLicenseNo"] != null)
                           Container(
                                 child: Text(
                                     "License no: ${snapshot.details["manuLicenseNo"]}",
@@ -765,11 +787,12 @@ reupload_bill() async
                               ),
                         ],
                        
-                        if(snapshot.details["manuAddress"] !="" && snapshot.details["manuAddress"]!=null && snapshot.details["batchType"] == "Manufacturer")...[
+                        if(snapshot.details["batchType"] == "Manufacturer")...[
                             
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.015,
                         ),
+                        if(snapshot.details["manuAddress"] !="" && snapshot.details["manuAddress"]!=null)...[
                         // if(widget.snapshot.details["manuAddress"] != null) 
                         Text("Manufacturer Address",
                             style: TextStyle(
@@ -795,12 +818,13 @@ reupload_bill() async
                                           MediaQuery.of(context).size.width *
                                               0.026,
                                       ),
-                              ),
+                              )],
                               // Text('hello ${widget.snapshot.details["additionalImages"][0][0]["url"]}'),
                              
 
                       ]
                       else...[
+                        if(snapshot.details["manuAddress"] !="" && snapshot.details["manuAddress"]!=null)
                         Text(
                                   "Address: ${snapshot.details["manuAddress"]}",
                                   

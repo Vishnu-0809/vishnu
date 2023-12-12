@@ -157,34 +157,34 @@ class InfoQRProdDet extends StatelessWidget {
           //         ),
           //   ],
           // ),
-          Text(
-                    "Warranty left",
-                    style: TextStyle(
-                        color: Colors.red,
-                          fontSize: 16,
-                        fontFamily: "Poppins Medium",
-                        ),
-                  ),
-                  snapshot.details["warranty"] != null ?
-          Text(
-            "${snapshot.details["warranty"]} days",
-            style: TextStyle(
-                color: const Color(0Xff002060),
-                  fontSize: 12,
-                fontFamily: "Poppins Medium",
-               ),
-          ) : 
-          Text(
-            "Not Applicable",
-            style: TextStyle(
-                color: const Color(0Xff002060),
-                  fontSize: 12,
-                fontFamily: "Poppins Medium",
-               ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height / 80,
-          ),
+          // Text(
+          //           "Warranty left",
+          //           style: TextStyle(
+          //               color: Colors.red,
+          //                 fontSize: 16,
+          //               fontFamily: "Poppins Medium",
+          //               ),
+          //         ),
+          //         snapshot.details["warranty"] != null ?
+          // Text(
+          //   "${snapshot.details["warranty"]} days",
+          //   style: TextStyle(
+          //       color: const Color(0Xff002060),
+          //         fontSize: 12,
+          //       fontFamily: "Poppins Medium",
+          //      ),
+          // ) : 
+          // Text(
+          //   "Not Applicable",
+          //   style: TextStyle(
+          //       color: const Color(0Xff002060),
+          //         fontSize: 12,
+          //       fontFamily: "Poppins Medium",
+          //      ),
+          // ),
+          // SizedBox(
+          //   height: MediaQuery.of(context).size.height / 80,
+          // ),
           if(snapshot.details["imageProd"] == null)...[
             const Text("null")
           ]

@@ -142,6 +142,7 @@ class ScanPreFirstScreen extends StatelessWidget {
               //   ),
               // ),
           if(snapshot.details["batchType"] == "Retailer")...[
+            if( snapshot.details["brand"] !=null)
             Text(
             snapshot.details["brand"],
             style:

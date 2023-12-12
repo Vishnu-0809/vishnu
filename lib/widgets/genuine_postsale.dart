@@ -293,6 +293,7 @@ Future CheckUserConnection() async {
               height: MediaQuery.of(context).size.height / 100,
             ),
               if(widget.snapshot.details["batchType"] == "Retailer")...[
+                if(widget.snapshot.details["brand"]!=null)
             Text(
             widget.snapshot.details["brand"],
             style:
@@ -775,7 +776,7 @@ YoutubePlayer(
                            temp_class.details["message"] = widget.snapshot.message;
                           temp_class.details["brand"] = widget.snapshot.details["brand"];
                           temp_class.details["serialNo"] = widget.snapshot.details["serialNo"];
-                          temp_class.details["price"] = widget.snapshot.details["mrp"];
+                          temp_class.details["price"] = widget.snapshot.details["price"];
                           temp_class.details["prodName"] = widget.snapshot.details["prodName"];
                           temp_class.details["imageProd"] = widget.snapshot.details["imageProd"];
                           // temp_class.details["QROnProd"] =
