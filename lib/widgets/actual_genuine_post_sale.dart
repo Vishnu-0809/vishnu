@@ -135,6 +135,7 @@ class ActualGPSale extends StatelessWidget {
               height: MediaQuery.of(context).size.height / 100,
             ),
             if(snapshot.details["batchType"] == "Retailer")...[
+              if(snapshot.details["brand"] != null)
             Text(
             snapshot.details["brand"],
             style:

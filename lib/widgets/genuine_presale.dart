@@ -178,6 +178,7 @@ class _GenuinePreState extends State<GenuinePre> {
               height: MediaQuery.of(context).size.height / 100,
             ),
             if(widget.snapshot.details["batchType"] == "Retailer")...[
+              if(widget.snapshot.details["brand"]!=null)
             Text(
             widget.snapshot.details["brand"],
             style:
