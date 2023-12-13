@@ -499,7 +499,7 @@ class ActualGPSale extends StatelessWidget {
                           shadowColor: Colors.transparent),
                       child: FittedBox(
                         child: 
-                        snapshot.details["batchType"] == "manufacturer" ?
+                        snapshot.details["batchType"] == "Manufacturer" ?
                         Text(
                           'Product Details',
                           style: 

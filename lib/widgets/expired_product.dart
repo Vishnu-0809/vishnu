@@ -107,7 +107,7 @@ class ExpiredProd extends StatelessWidget {
             SizedBox(
               height: MediaQuery.of(context).size.height / 40,
             ),
-            snapshot.details["batchType"] == "manufacturer" ?
+            snapshot.details["batchType"] == "Manufacturer" ?
             Text(
               "Scanned Product Details",
               style: 

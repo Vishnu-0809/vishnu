@@ -521,7 +521,7 @@ class ScanPreFirstScreen extends StatelessWidget {
                           ),
                         ):
                          Text(
-                          'Product Details',
+                          'Details',
                           style: 
                           // Theme.of(context).textTheme.bodyMedium,
                           TextStyle(

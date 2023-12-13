@@ -57,6 +57,7 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
     print(widget.subLink.length);
     print("subink lengthhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
       requestCount = requestCount + 1;
+      //https://api.veots.in
     String url =
         "https://api.veots.in/verify/" +
             widget.subLink +
@@ -215,7 +216,6 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
           responseData["batchDetails"]["prodVedioLink"];
           print("9999999999999999");
           responseData["batchDetails"]["price"];
-          
           print("9999999999999999");
       print(temp_class.details);
       // print(responseData);
