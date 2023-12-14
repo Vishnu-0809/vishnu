@@ -394,7 +394,17 @@ class ActualGPSale extends StatelessWidget {
                                         ),
                                       ],
                                     ),
-                                    content:snapshot.details["expiry"]=="notAvailable"? Text(
+                                    content:
+                                    snapshot.details["batchType"]!=null?
+                                    snapshot.details["batchType"]=="Retailer"?Text(
+                                      'Not Applicable',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize:
+                                              MediaQuery.of(context).size.width *
+                                                  0.05),
+                                    ):snapshot.details["expiry"]=="notAvailable"? Text(
                                       'Not Available',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
@@ -404,6 +414,14 @@ class ActualGPSale extends StatelessWidget {
                                                   0.05),
                                     ):Text(
                                       'The product is good to be used until $res',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize:
+                                              MediaQuery.of(context).size.width *
+                                                  0.05),
+                                    ):Text(
+                                      'No Response',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                           color: Colors.white,

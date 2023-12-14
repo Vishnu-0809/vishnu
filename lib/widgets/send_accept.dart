@@ -130,7 +130,7 @@ Future<Album3> createAlbum56(
   final response = http.MultipartRequest(
       'POST',
       Uri.parse(
-          "https://2589-157-33-229-12.ngrok.io/customer/claim-product"));
+          "http://ec2-13-235-124-84.ap-south-1.compute.amazonaws.com:3000/customer/claim-product"));
 
   //  final headers={"Content-type":"multipart/form-data; charset=UTF-8"};
   final headers = <String, String>{

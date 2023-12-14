@@ -62,7 +62,7 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
             widget.subLink +
             "/" +
             UDID.toString();
-            
+    print("xxxxxxxxxxxxxxxx");
     print(url);
     print("udid: ${UDID}");
     print('-----------');
@@ -176,8 +176,9 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       print ("-----------------------------------------------");
       print ( responseData['tracking']);
       print ( responseData["isTrackingAvailable"]);
-      print(responseData["additionalImageDetails"]);
-      print(responseData["batchDetails"]["prodVedioLink"]);
+      print(responseData["batchDetails"]["additionalImageDetails"]);
+      print(responseData["batchDetails"]["extraImages"]);
+      print(responseData["prodVedioLink"]);
       print ("-----------------------------------------------");
 
       ClaimProd temp_class = new ClaimProd();
@@ -225,8 +226,10 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
           responseData["batchDetails"]["batchType"];
           temp_class.details["productVedio"] =
           responseData["batchDetails"]["prodVedioLink"];
-          print("9999999999999999");
-          responseData["batchDetails"]["price"];
+          print("sadasdasdadsad");
+
+          // print(responseData["batchDetails"]["expiryDate"]);
+          // responseData["batchDetails"]["price"];
           
           print("9999999999999999");
       print(temp_class.details);
