@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import 'home_page.dart';
+
 class NoCBWar extends StatefulWidget {
   const NoCBWar({super.key});
 
@@ -15,9 +17,15 @@ class _NoCBWarState extends State<NoCBWar> {
     // TODO: implement initState
     super.initState();
     Timer(
-      Duration(seconds: 4),
+      Duration(seconds: 3),
       () { 
-        Navigator.pop(context);
+         Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(
+                              builder: ((context) => const HomeScreen(
+                                    first_time: 0,mainLink: '',location_on: true,
+                                  ))),
+                          (Route<dynamic> route) => false,
+                        );
       }
        
     

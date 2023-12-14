@@ -118,15 +118,29 @@ class Info extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.height / 40,
               ),
-              Text(
+              snapshot.details["batchType"] == "Manufacturer" ?
+                Text(
               "Scanned Product Details",
-              style:
-              //  Theme.of(context).textTheme.headlineMedium,
+              style: 
+              // Theme.of(context).textTheme.headlineMedium,
               TextStyle(
                   color: const Color(0xff002060),
+                  // fontSize: MediaQuery.of(context).size.width * 0.045,
                   fontSize: 16,
-                 
-                  fontFamily: "Poppins Medium"
+                  fontFamily: "Poppins Medium",
+                  // fontWeight: FontWeight.bold
+                  ),
+            ):
+             Text(
+              "Scanned Details",
+              style: 
+              // Theme.of(context).textTheme.headlineMedium,
+              TextStyle(
+                  color: const Color(0xff002060),
+                  // fontSize: MediaQuery.of(context).size.width * 0.045,
+                  fontSize: 16,
+                  fontFamily: "Poppins Medium",
+                  // fontWeight: FontWeight.bold
                   ),
             ),
             SizedBox(
@@ -687,20 +701,35 @@ VideoPlayerView(
                          temp_class.details["additionalImages"] = snapshot.details["additionalImages"];
                          temp_class.details['tracking']=snapshot.details['tracking']; ///changed
                         Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) =>InfoQRProdDet(snapshot: temp_class),
+                          builder: (context) =>ProdDetails(link: link,snapshot: temp_class),
                         ));
                       },
                       style: ElevatedButton.styleFrom(
                           primary: Colors.transparent,
                           shadowColor: Colors.transparent),
-                      child: const FittedBox(
-                        child: Text(
+                      child: FittedBox(
+                        child: 
+                        snapshot.details["batchType"] == "Manufacturer" ?
+                        Text(
                           'Product Details',
-                          style: TextStyle(
+                          style: 
+                          // Theme.of(context).textTheme.bodyMedium,
+                          TextStyle(
+                            // fontWeight: FontWeight.bold,
                           fontFamily: "Poppins Medium",
-                          fontSize: 13.5
+                          fontSize: 12
                           ),
-                        ),
+                        ):
+                         Text(
+                          'Details',
+                          style: 
+                          // Theme.of(context).textTheme.bodyMedium,
+                          TextStyle(
+                            // fontWeight: FontWeight.bold,
+                          fontFamily: "Poppins Medium",
+                          fontSize: 12
+                          ),
+                        )
                       ),
                     ),
               )
