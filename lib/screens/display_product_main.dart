@@ -63,6 +63,7 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
             widget.subLink +
             "/" +
             UDID.toString();
+    print("xxxxxxxxxxxxxxxx");
     print(url);
     print("udid: ${UDID}");
     print('-----------');
@@ -108,6 +109,8 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       temp_class.details["additionalImages"] =
           responseData["details"]["addtionalImages"];
       temp_class.details['tracking'] = responseData['tracking'];
+      temp_class.details["isTrackingAvailable"] = responseData["isTrackingAvailable"];
+
       temp_class.details["additionalImageDetails"] =
           responseData["details"]["additionalImageDetails"];
           temp_class.details["batchType"] =
@@ -149,6 +152,7 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       temp_class.details["additionalImages"] =
           responseData["details"]["addtionalImages"];
       temp_class.details['tracking'] = responseData['tracking'];
+      temp_class.details["isTrackingAvailable"] = responseData["isTrackingAvailable"];
       temp_class.details["additionalImageDetails"] =
           responseData["details"]["additionalImageDetails"];
           temp_class.details["batchType"] =
@@ -159,7 +163,7 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       // temp_class.details['tracking']=responseData['tracking'];
       return temp_class;
     } else if (responseData["message"] == "Fake") {
-      Fake temp_class = new Fake();
+      Fake temp_class = new Fake ();
       temp_class.message = responseData["message"];
       temp_class.image = responseData["image"];
       temp_class.name = responseData["name"];
@@ -170,7 +174,14 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       // print(temp_class.message);
       return temp_class;
     } else if (responseData["message"] == "claim product") {
-      print(responseData["batchDetails"]["mfgDate"]);
+      print ("-----------------------------------------------");
+      print ( responseData['tracking']);
+      print ( responseData["isTrackingAvailable"]);
+      print(responseData["batchDetails"]["additionalImageDetails"]);
+      print(responseData["batchDetails"]["extraImages"]);
+      print(responseData["prodVedioLink"]);
+      print ("-----------------------------------------------");
+
       ClaimProd temp_class = new ClaimProd();
       temp_class.message = responseData["message"];
       temp_class.i = responseData["i"];
@@ -210,6 +221,8 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       temp_class.details["shelflife"] =
           responseData["batchDetails"]["shelfLife"];
       temp_class.details['tracking'] = responseData['tracking'];
+      temp_class.details["isTrackingAvailable"] = responseData["isTrackingAvailable"];
+
       temp_class.details["batchType"] =
           responseData["batchDetails"]["batchType"];
           temp_class.details["productVedio"] =
@@ -248,6 +261,8 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       temp_class.details["additionalImages"] =
           responseData["details"]["addtionalImages"];
       temp_class.details['tracking'] = responseData['tracking'];
+      temp_class.details["isTrackingAvailable"] = responseData["isTrackingAvailable"];
+
       temp_class.details["additionalImageDetails"] =
           responseData["details"]["additionalImageDetails"];
           temp_class.details["batchType"] =
@@ -303,6 +318,8 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
           responseData["details"]["addtionalImages"];
       //     print(responseData["details"]["addtionalImages"]);
       temp_class.details['tracking'] = responseData['tracking'];
+      temp_class.details["isTrackingAvailable"] = responseData["isTrackingAvailable"];
+
       // print( responseData['tracking']);
       temp_class.details["additionalImageDetails"] =
           responseData["details"]["additionalImageDetails"];
@@ -342,6 +359,8 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       temp_class.details["additionalImages"] =
           responseData["details"]["addtionalImages"];
       temp_class.details['tracking'] = responseData['tracking'];
+      temp_class.details["isTrackingAvailable"] = responseData["isTrackingAvailable"];
+
       temp_class.details["batchType"] =
           responseData["details"]["batchType"];
       temp_class.details["productVedio"] =

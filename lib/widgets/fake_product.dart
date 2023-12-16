@@ -27,7 +27,7 @@ class FakeProduct extends StatelessWidget {
     initialVideoId: 'jY1nvK2wIX0',
     flags: YoutubePlayerFlags(
         autoPlay: true,
-        mute: true,
+      
         showLiveFullscreenButton: true
     ),
 );

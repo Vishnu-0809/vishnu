@@ -11,6 +11,7 @@ import 'package:Veots/screens/warranty_bill_upload.dart';
 
 import 'package:Veots/widgets/send_accept.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:video_player/video_player.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import '../models/class_models.dart';
 import 'package:http/http.dart' as http;
@@ -20,6 +21,7 @@ import 'package:flutter/services.dart';
 import 'package:local_auth/error_codes.dart' as local_auth_error;
 
 import '../screens/Notifications_view.dart';
+import '../screens/finalvideoplayer.dart';
 import '../screens/home_page.dart';
 import '../screens/product_details.dart';
 import 'not_icon.dart';
@@ -438,25 +440,18 @@ Future CheckUserConnection() async {
                                 ),
                                 content: 
 widget.sublink.length==32 ?
-YoutubePlayer(
-  width: MediaQuery.of(context).size.width/2,
-    controller: _controllerCovert,
-    showVideoProgressIndicator: true,
-    // videoProgressIndicatorColor: Colors.amber,
-    // progressColors:Colors.amber,
-    // onReady () {
-    //     _controller.addListener(listener);
-    // },
-) : YoutubePlayer(
-  width: MediaQuery.of(context).size.width/2,
-    controller: _controllerOvert,
-    showVideoProgressIndicator: true,
-    // videoProgressIndicatorColor: Colors.amber,
-    // progressColors:Colors.amber,
-    // onReady () {
-    //     _controller.addListener(listener);
-    // },
-)
+VideoPlayerView(
+            url:
+                "https://veots.s3.ap-south-1.amazonaws.com/How+to+use+Copvert.mp4",
+            dataSourceType: DataSourceType.network,
+          ) :
+          
+          
+          VideoPlayerView(
+            url:
+                "https://veots.s3.ap-south-1.amazonaws.com/How+to+use+Overt.mp4",
+            dataSourceType: DataSourceType.network,
+          )
                               ),
                               );
                             });
@@ -628,15 +623,40 @@ YoutubePlayer(
                                         ],
                                       ),
                                       
-                                      content: Text(
-                                        'The product is good to be used until $res',
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize:
-                                                MediaQuery.of(context).size.width *
-                                                    0.05),
-                                      ),
+                                      content:widget.snapshot.details["batchType"]!=null?
+                                    widget.snapshot.details["batchType"]=="Retailer"?Text(
+                                      'Not Applicable',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize:
+                                              MediaQuery.of(context).size.width *
+                                                  0.05),
+                                    ):widget.snapshot.details["expiry"]=="notAvailable"? Text(
+                                      'Not Available',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize:
+                                              MediaQuery.of(context).size.width *
+                                                  0.05),
+                                    ):Text(
+                                      'The product is good to be used until $res',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize:
+                                              MediaQuery.of(context).size.width *
+                                                  0.05),
+                                    ):Text(
+                                      'No Response',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize:
+                                              MediaQuery.of(context).size.width *
+                                                  0.05),
+                                    )
                                     );
                                   });
                             } else {

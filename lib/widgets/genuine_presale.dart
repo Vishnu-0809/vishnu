@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:Veots/screens/hidden_qr.dart';
 // import 'package:Veots/screens/phone_view.dart';
 import 'package:Veots/screens/product_details.dart';
+import 'package:video_player/video_player.dart';
 // import 'package:shared_preferences/shared_preferences.dart';
 import '../models/class_models.dart';
 // import '../screens/Notifications_view.dart';
 // import '../screens/constants.dart';
+import '../screens/finalvideoplayer.dart';
 import '../screens/home_page.dart';
 import '../screens/psmm_report.dart';
 // import '../screens/scanner.dart';
@@ -38,7 +40,7 @@ class _GenuinePreState extends State<GenuinePre> {
     initialVideoId: 'wHXZknRQhRc',
     flags: YoutubePlayerFlags(
         autoPlay: true,
-        mute: true,
+        // mute: true,
         showLiveFullscreenButton: true
     ),
 );
@@ -320,18 +322,13 @@ class _GenuinePreState extends State<GenuinePre> {
                                 ),
                                 content: 
 
-YoutubePlayer(
-  width: MediaQuery.of(context).size.width/2,
-    controller: _controller,
-    showVideoProgressIndicator: true,
-    // videoProgressIndicatorColor: Colors.amber,
-    // progressColors:Colors.amber,
-    // onReady () {
-    //     _controller.addListener(listener);
-    // },
-),
-                              ),
-                              );
+VideoPlayerView(
+            url:
+                "https://veots.s3.ap-south-1.amazonaws.com/How+to+use+Copvert.mp4",
+            dataSourceType: DataSourceType.network,
+          )
+                              
+                         )); 
                             });
                       },
                       child: const FittedBox(
@@ -639,16 +636,41 @@ YoutubePlayer(
                                           ),
                                           content:
                                           res==null?null:
-                                           Text(
-                                            'The product is good to be used until $res',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize:
-                                                    MediaQuery.of(context).size.width *
-                                                        0.05),
-                                          ),
-                                        );
+                                          widget.snapshot.details["batchType"]!=null?
+                                    widget.snapshot.details["batchType"]=="Retailer"?Text(
+                                      'Not Applicable',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize:
+                                              MediaQuery.of(context).size.width *
+                                                  0.05),
+                                    ):widget.snapshot.details["expiry"]=="notAvailable"? Text(
+                                      'Not Available',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize:
+                                              MediaQuery.of(context).size.width *
+                                                  0.05),
+                                    ):Text(
+                                      'The product is good to be used until $res',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize:
+                                              MediaQuery.of(context).size.width *
+                                                  0.05),
+                                    ):Text(
+                                      'No Response',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize:
+                                              MediaQuery.of(context).size.width *
+                                                  0.05),
+                                    )
+                                    );
                                       });
                                 }
                               },

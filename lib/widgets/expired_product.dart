@@ -20,7 +20,7 @@ class ExpiredProd extends StatelessWidget {
     initialVideoId: 'jY1nvK2wIX0',
     flags: const YoutubePlayerFlags(
         autoPlay: true,
-        mute: true,
+      
         showLiveFullscreenButton: true
     ),
 );

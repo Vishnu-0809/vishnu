@@ -394,15 +394,41 @@ class ActualGPSale extends StatelessWidget {
                                         ),
                                       ],
                                     ),
-                                    content: Text(
-                                      'The product is good to be used untill $res',
+                                    content:
+                                    snapshot.details["batchType"]!=null?
+                                    snapshot.details["batchType"]=="Retailer"?Text(
+                                      'Not Applicable',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize:
                                               MediaQuery.of(context).size.width *
                                                   0.05),
-                                    ),
+                                    ):snapshot.details["expiry"]=="notAvailable"? Text(
+                                      'Not Available',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize:
+                                              MediaQuery.of(context).size.width *
+                                                  0.05),
+                                    ):Text(
+                                      'The product is good to be used until $res',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize:
+                                              MediaQuery.of(context).size.width *
+                                                  0.05),
+                                    ):Text(
+                                      'No Response',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize:
+                                              MediaQuery.of(context).size.width *
+                                                  0.05),
+                                    )
                                   );
                                 });
                           }

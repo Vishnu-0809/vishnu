@@ -37,12 +37,7 @@ class _Product_FeedbackState extends State<Product_Feedback> {
 
   TextEditingController content=TextEditingController(text: '');
   int currentIndex = 0;
-  @override
-  Widget build(BuildContext context) {
-
-    
-    final textScale = MediaQuery.of(context).textScaleFactor;
-    bool someBooleanValue = true;
+   bool someBooleanValue = true;
     String Review1="Very Bad";
     String Review2="Bad";
     String Review3="Good";
@@ -50,6 +45,12 @@ class _Product_FeedbackState extends State<Product_Feedback> {
     String Review5="Excellent";
     String ReviewStringFinal="";
     double ReviewValue=0.0;
+  @override
+  Widget build(BuildContext context) {
+
+    
+    final textScale = MediaQuery.of(context).textScaleFactor;
+   
     List<String> Heading = [
       "Scan to Verify Authenticity",
       "Expiry check, alerts & Notification",
@@ -174,7 +175,7 @@ class _Product_FeedbackState extends State<Product_Feedback> {
                     SizedBox(
                       // fit: BoxFit.fitWidth,
                       width: MediaQuery.of(context).size.width * 0.5,
-                      child: Text(
+                      child: widget.snapshot.details["prodName"]!=null?Text(
                         widget.snapshot.details["prodName"],
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -183,10 +184,10 @@ class _Product_FeedbackState extends State<Product_Feedback> {
                           // fontStyle: FontStyle.italic,
                           fontSize: MediaQuery.of(context).size.height * 0.018,
                         ),
-                      ),
+                      ):Container()
                     ),
                     // SizedBox(height: 8),
-                    FittedBox(
+                    widget.snapshot.details["brand"]!=null?FittedBox(
                       fit: BoxFit.fitWidth,
                       child: Text(
                         widget.snapshot.details["brand"],
@@ -199,7 +200,7 @@ class _Product_FeedbackState extends State<Product_Feedback> {
                           fontSize: MediaQuery.of(context).size.height * 0.018,
                         ),
                       ),
-                    ),
+                    ):Container()
                   ]))
             ],
           ),
@@ -245,32 +246,24 @@ class _Product_FeedbackState extends State<Product_Feedback> {
           ),
           onRatingUpdate: (rating) {
             print("rating "+rating.toString());
-
-ReviewValue=rating;
-            // updateValue(rating);
-            // setState(() {
-            //   if(rating==1.0){
-            //     ReviewStringFinal="2323a";
-            //   } 
-            //   if(rating==2.0){
-            //     ReviewStringFinal="2323a";
-            //   } 
-            //   if(rating==3.0){
-            //     ReviewStringFinal="2323a";
-            //   } 
-            //   if(rating==4.0){
-            //     ReviewStringFinal="2323a";
-            //   } 
-            //   if(rating==5.0){
-            //     ReviewStringFinal="2323a";
-            //   } 
-            // });
-              
-              if(rating==1.0){
-               setState(() {
-                  ReviewStringFinal="2323a";
-               });
-              }
+ setState(() {
+                ReviewValue = rating;
+                if (rating == 1.0) {
+                  ReviewStringFinal = Review1;
+                }
+                 if (rating == 2.0) {
+                  ReviewStringFinal = Review2;
+                }
+                  if (rating == 3.0) {
+                  ReviewStringFinal = Review3;
+                }
+                  if (rating == 4.0) {
+                  ReviewStringFinal = Review4;
+                }
+                  if (rating == 5.0) {
+                  ReviewStringFinal = Review5;
+                }
+              });
               // print(ReviewStringFinal+"gg");
 
           },
@@ -279,7 +272,37 @@ ReviewValue=rating;
 
           //ReviewValue==0?Container():(ReviewValue==1?Text(Review1):(ReviewValue==2?Text(Review1):ReviewValue==3?Text(Review3):ReviewValue==4?Text(Review4):ReviewValue==5?Text(Review5)))
 
-          Text(ReviewStringFinal.toString())
+          if (ReviewValue == 1.0) ...[
+
+             Text(ReviewStringFinal
+ ,style: TextStyle(color: Colors.red),),
+          ]
+          ,
+          if (ReviewValue == 2.0) ...[
+
+             Text(ReviewStringFinal
+ ,style: TextStyle(color: Colors.orange),),
+          ]
+          ,
+          if (ReviewValue == 3.0) ...[
+
+             Text(ReviewStringFinal
+ ,style: TextStyle(color: Colors.green),),
+          ]
+          ,
+          if (ReviewValue == 4.0) ...[
+
+             Text(ReviewStringFinal
+ ,style: TextStyle(color: Colors.green),),
+          ]
+          ,
+          if (ReviewValue == 5.0) ...[
+
+             Text(ReviewStringFinal
+ ,style: TextStyle(color: Colors.green),),
+          ]
+                  
+                
           
           
           ],
@@ -287,6 +310,7 @@ ReviewValue=rating;
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
+           
             Container(
                padding: EdgeInsets.all(10),
               child: Text(

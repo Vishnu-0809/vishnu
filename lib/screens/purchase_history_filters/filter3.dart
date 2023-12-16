@@ -1241,6 +1241,11 @@ Navigator.of(context).push(MaterialPageRoute(
       print(numberOfDays);
       int Warranty_Left= int.parse(sea.details["warranty"].toString())-numberOfDays;
      print(Warranty_Left);
+                       
+if(Warranty_Left<0)
+{
+  Warranty_Left=0;
+}
                   // if(sea.details["warranty"]!=null)
                   // {
                   //   if(((sea.details["warranty"])/30).toInt()==0)
@@ -1405,7 +1410,7 @@ Navigator.of(context).push(MaterialPageRoute(
                                                       .width /
                                                   3,
                                               margin: EdgeInsets.all(8),
-                                              child: ClipRRect(
+                                              child: sea.details["imageProd"]!=null?ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(0),
                                                 child: CachedNetworkImage(
@@ -1418,7 +1423,7 @@ Navigator.of(context).push(MaterialPageRoute(
         
         errorWidget: (context, url, error) => Icon(Icons.error),
      ),
-                                              ),
+                                              ):Container()
                                             )
                                           ],
                                         )),
@@ -1440,7 +1445,7 @@ Navigator.of(context).push(MaterialPageRoute(
                                               SizedBox(
                                                 // fit: BoxFit.fitWidth,
                                                 width: MediaQuery.of(context).size.width*0.5,
-                                                child: Text(
+                                                child: sea.details["prodName"]!=null?Text(
                                     sea.details["prodName"],
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
@@ -1451,10 +1456,10 @@ Navigator.of(context).push(MaterialPageRoute(
                                           MediaQuery.of(context).size.height *
                                               0.018,
                                     ),
-                                  ),
+                                  ):Container()
                                               ),
                                               // SizedBox(height: 8),
-                                              FittedBox(
+                                               sea.details["brand"]!=null?FittedBox(
                                                 fit: BoxFit.fitWidth,
                                                 child: Text(
                                     sea.details["brand"],
@@ -1469,7 +1474,7 @@ Navigator.of(context).push(MaterialPageRoute(
                                               0.018,
                                     ),
                                   ),
-                                              ),
+                                              ):Container(),
                                               // Text(
                                               //   ('Firm Name : ${data.docs[index]['Firm_Details']['Firm_name']}'),
                                               //   style: TextStyle(
@@ -1504,7 +1509,7 @@ Navigator.of(context).push(MaterialPageRoute(
                                               0.014,
                                     ),
                                   ):Text(
-                                    "Warranty of" +" "+ Warranty_Left.toString() + " days applicable",
+                                    "Warranty of" +" "+ sea.details["warranty"].toString() + " days applicable",
                                     style: TextStyle(
                                       // fontWeight: FontWeight.bold,
                                       fontFamily: "Poppins Medium",

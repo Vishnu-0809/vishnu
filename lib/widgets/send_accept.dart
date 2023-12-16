@@ -157,9 +157,16 @@ Future<Album3> createAlbum56(
     );
   }
   response.headers.addAll(headers);
+  
   final responsefinal = await response.send();
   var responseString = await responsefinal.stream.bytesToString();
   final decodedMap = json.decode(responseString);
+  print("hhhhhhhhhhhhhhhhhhhhhhhh");
+  print(responsefinal.statusCode);
+print ("------------------------------------");
+print (responseString);
+print ("------------------------------------");
+
   return Album3.fromJson(decodedMap);
 }
 
@@ -596,7 +603,7 @@ Future<AlbumTracking> createAlbumTracking(String batchNo, String clientId,
       'batchNo': batchNo,
       'clientId': clientId,
       'preSaleCode': preSaleCode,
-      'postSaleCode': postSaleCode
+      'postSaleCode': postSaleCode 
     }),
   );
   // print(response.body);
