@@ -70,7 +70,7 @@ class ProdDetails extends StatelessWidget {
 
   print("PURCHASE DATE");
   print(snapshot.details["purchaseDate"]);
-  if (snapshot.details["purchaseDate"]!=null && snapshot.details["warrantyApp"]!=null)
+  if (snapshot.details["purchaseDate"]!=null && (snapshot.details["warrantyApp"]==true))
   {
 
     print("CHECKING WARRANTY LEFT");
@@ -84,8 +84,9 @@ class ProdDetails extends StatelessWidget {
 
   int differenceInDays = difference.inDays;
   print(difference);
-
-  warranty_left = snapshot.details["warrantyPeriod"] - differenceInDays;
+  if (snapshot.details["warranty"]!=null)
+  warranty_left = snapshot.details["warranty"] - differenceInDays;
+  
 
   print("warranty left");
   print(warranty_left);
@@ -278,7 +279,7 @@ reupload_bill() async
           SizedBox(
             height: MediaQuery.of(context).size.height / 70,
           ),
-          if(snapshot.details["message"] == "Genuine Post Sale")
+          if(snapshot.details["purchaseDate"] != null)
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -463,7 +464,7 @@ reupload_bill() async
                         fontFamily: "Poppins Medium",
                         ),
                   ),
-                  snapshot.details["warrantyApp"] != null ?
+                  (snapshot.details["warrantyApp"]==true) ?
           Text(
             "${warranty_left} days",
             style: TextStyle(
@@ -647,6 +648,7 @@ reupload_bill() async
                             ],
                           ),
                         ),
+
                         Container(
                           margin: EdgeInsets.only(right: 20),
                           child:Column(

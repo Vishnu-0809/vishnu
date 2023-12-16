@@ -483,7 +483,7 @@ class ScanPreFirstScreen extends StatelessWidget {
                         temp_class.details["message"] = snapshot.message;
                         temp_class.details["brand"] = snapshot.details["brand"];
                         temp_class.details["serialNo"] = snapshot.details["serialNo"];
-                        // temp_class.details["warrantyApp"] = responseData["batchDetails"]["warrantyApp"];
+                        temp_class.details["warrantyApp"] = snapshot.details["warrantyApp"];
                         temp_class.details["price"] = snapshot.details["price"];
                         temp_class.details["prodName"] = snapshot.details["name"];
                         temp_class.details["imageProd"] = snapshot.details["imageProd"];
