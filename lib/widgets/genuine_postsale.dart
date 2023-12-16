@@ -805,7 +805,7 @@ VideoPlayerView(
                           temp_class.details["batchNo"] = widget.snapshot.details["batchNo"];
                           temp_class.details["clientId"] = widget.snapshot.details["clientId"];
                           temp_class.details["warrantyApp"] = widget.snapshot.details["warrantyApp"];
-                          temp_class.details["warrantyPeriod"] = widget.snapshot.details["warrantyPeriod"];
+                          temp_class.details["warranty"] = widget.snapshot.details["warrantyPeriod"];
                           temp_class.details["cashBackApp"] =widget.snapshot.details["cashBackApp"];
                           temp_class.details["cashBackPts"] = widget.snapshot.details["cashBackPts"];
                           temp_class.details["id"] = widget.snapshot.details["id"];

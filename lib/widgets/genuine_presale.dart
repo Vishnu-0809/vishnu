@@ -706,7 +706,7 @@ VideoPlayerView(
                         temp_class.details["message"] = widget.snapshot.message;
                         temp_class.details["brand"] = widget.snapshot.details["brand"];
                         temp_class.details["serialNo"] = widget.snapshot.details["serialNo"];
-                        // temp_class.details["warrantyApp"] = responseData["batchDetails"]["warrantyApp"];
+                        temp_class.details["warrantyApp"] = widget.snapshot.details["warrantyApp"];
                         temp_class.details["price"] = widget.snapshot.details["price"];
                         temp_class.details["prodName"] = widget.snapshot.details["prodName"];
                         temp_class.details["imageProd"] = widget.snapshot.details["imageProd"];
