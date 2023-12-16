@@ -161,7 +161,7 @@ Future getSearchData() async {
       temp_class.details["brand"] = responseData["data"][i]["brand"];
       temp_class.details["serialNo"] = responseData["data"][i]["serialNo"];
       
-      temp_class.details["warrantyApp"] = responseData["data"]["warrantyApp"];
+      temp_class.details["warrantyApp"] = responseData["data"][i]["warrantyApp"];
       temp_class.details["price"] =    responseData["data"][i]["price"];
       temp_class.details["prodName"] = responseData["data"][i]["name"];
       
@@ -287,7 +287,7 @@ for (int i = 0; i < responseData["data"].length; i++) {
           temp_class.details["clientId"] = responseData["data"][i]["clientId"];
       temp_class.details["brand"] = responseData["data"][i]["brand"];
       temp_class.details["serialNo"] = responseData["data"][i]["serialNo"];
-      temp_class.details["warrantyApp"] = responseData["data"]["warrantyApp"];
+      temp_class.details["warrantyApp"] = responseData["data"][i]["warrantyApp"];
       temp_class.details["price"] = responseData["data"][i]["price"];
       temp_class.details["prodName"] = responseData["data"][i]["name"];
       temp_class.details["imageProd"] = responseData["data"][i]["imageProd"];
@@ -407,7 +407,7 @@ for (int i = 0; i < responseData["data"].length; i++) {
           temp_class.details["clientId"] = responseData["data"][i]["clientId"];
       temp_class.details["brand"] = responseData["data"][i]["brand"];
       temp_class.details["serialNo"] = responseData["data"][i]["serialNo"];
-      temp_class.details["warrantyApp"] = responseData["data"]["warrantyApp"];
+      temp_class.details["warrantyApp"] = responseData["data"][i]["warrantyApp"];
       temp_class.details["price"] = responseData["data"][i]["price"];
       temp_class.details["prodName"] = responseData["data"][i]["name"];
       temp_class.details["imageProd"] = responseData["data"][i]["imageProd"];
@@ -540,7 +540,7 @@ searchItems.add(temp_class.details["purchaseDate"]);
           temp_class.details["clientId"] = responseData["data"][i]["clientId"];
       temp_class.details["brand"] = responseData["data"][i]["brand"];
       temp_class.details["serialNo"] = responseData["data"][i]["serialNo"];
-      temp_class.details["warrantyApp"] = responseData["data"]["warrantyApp"];
+      temp_class.details["warrantyApp"] = responseData["data"][i]["warrantyApp"];
       temp_class.details["price"] = responseData["data"][i]["price"];
       temp_class.details["prodName"] = responseData["data"][i]["name"];
       temp_class.details["imageProd"] = responseData["data"][i]["imageProd"];
