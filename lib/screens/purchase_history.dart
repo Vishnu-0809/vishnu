@@ -160,10 +160,14 @@ Future getSearchData() async {
           temp_class.details["clientId"] = responseData["data"][i]["clientId"];
       temp_class.details["brand"] = responseData["data"][i]["brand"];
       temp_class.details["serialNo"] = responseData["data"][i]["serialNo"];
-
+      
       // temp_class.details["warrantyApp"] = responseData["data"]["warrantyApp"];
-      temp_class.details["price"] = responseData["data"][i]["price"];
+      temp_class.details["price"] =    responseData["data"][i]["price"];
       temp_class.details["prodName"] = responseData["data"][i]["name"];
+      
+      print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+      print(responseData["data"][i]["name"]);
+      print(responseData["data"][i]["brand"]);
       temp_class.details["imageProd"] = responseData["data"][i]["imageProd"];
       // temp_class.details["QROnProd"] 
       //     responseData["batchDetails"]["QROnProd"];
@@ -175,7 +179,7 @@ Future getSearchData() async {
 
         temp_class.details["warranty"] =responseData["data"][i]["warranty"];
       //  temp_class.details["imageQrOnProd"] = responseData["data"][i]["imageQrOnProd"];
-      temp_class.details["mfgdate"] = responseData["data"][i]["mfgdate"];
+      temp_class.details["mfgdate"] =   responseData["data"][i]["mfgdate"];
       temp_class.details["shelflife"] = responseData["data"][i]["shelflife"];
       
       temp_class.details["manuLicenseNo"] =
@@ -1833,7 +1837,7 @@ if(Warranty_Left<0)
                                               0.014,
                                     ),
                                   ):Text( 
-                                    "Warranty of" +" "+ Warranty_Left.toString() + " days applicable",
+                                    "Warranty of" +" "+ sea.details["warranty"].toString() + " days applicable",
                                     style: TextStyle(
                                       // fontWeight: FontWeight.bold,
                                       fontFamily: "Poppins Medium",

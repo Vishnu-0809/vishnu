@@ -1509,7 +1509,7 @@ if(Warranty_Left<0)
                                               0.014,
                                     ),
                                   ):Text(
-                                    "Warranty of" +" "+ Warranty_Left.toString() + " days applicable",
+                                    "Warranty of" +" "+ sea.details["warranty"].toString() + " days applicable",
                                     style: TextStyle(
                                       // fontWeight: FontWeight.bold,
                                       fontFamily: "Poppins Medium",
