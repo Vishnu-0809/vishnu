@@ -95,7 +95,7 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       //     responseData["batchDetails"]["QROnProd"];
       temp_class.details["expiry"] = responseData["details"]["expiry"];
       temp_class.details["batchNo"] = responseData["details"]["batchNo"];
-      temp_class.details["warranty"] = responseData["details"]["warrantyPeriod"];
+      temp_class.details["warrantyPeriod"] = responseData["details"]["warrantyPeriod"];
       temp_class.details["imageQrOnProd"] =
           responseData["details"]["imageQrOnProd"];
       temp_class.details["mfgDate"] = responseData["details"]["mfgdate"];
@@ -138,7 +138,7 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       // //     responseData["batchDetails"]["QROnProd"];
       temp_class.details["expiry"] = responseData["details"]["expiry"];
       temp_class.details["batchNo"] = responseData["details"]["batchNo"];
-      temp_class.details["warranty"] = responseData["details"]["warrantyPeriod"];
+      temp_class.details["warrantyPeriod"] = responseData["details"]["warrantyPeriod"];
       temp_class.details["imageQrOnProd"] =
           responseData["details"]["imageQrOnProd"];
       temp_class.details["mfgDate"] = responseData["details"]["mfgdate"];
@@ -247,7 +247,7 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       //     responseData["batchDetails"]["QROnProd"];
       temp_class.details["expiry"] = responseData["details"]["expiry"];
       temp_class.details["batchNo"] = responseData["details"]["batchNo"];
-      temp_class.details["warranty"] = responseData["details"]["warrantyPeriod"];
+      temp_class.details["warrantyPeriod"] = responseData["details"]["warrantyPeriod"];
       temp_class.details["imageQrOnProd"] =
           responseData["details"]["imageQrOnProd"];
       temp_class.details["mfgDate"] = responseData["details"]["mfgdate"];
@@ -296,7 +296,7 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       //  print(responseData["details"]["expiry"]);
       temp_class.details["batchNo"] = responseData["details"]["batchNo"];
       // print(responseData["details"]["batchNo"]);
-      temp_class.details["warranty"] = responseData["details"]["warrantyPeriod"];
+      temp_class.details["warrantyPeriod"] = responseData["details"]["warrantyPeriod"];
       // print(responseData["details"]["warranty"]);
       temp_class.details["imageQrOnProd"] =
           responseData["details"]["imageQrOnProd"];
@@ -345,7 +345,7 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       //     responseData["batchDetails"]["QROnProd"];
       temp_class.details["expiry"] = responseData["details"]["expiry"];
       temp_class.details["batchNo"] = responseData["details"]["batchNo"];
-      temp_class.details["warranty"] = responseData["details"]["warrantyPeriod"];
+      temp_class.details["warrantyPeriod"] = responseData["details"]["warrantyPeriod"];
       temp_class.details["imageQrOnProd"] =
           responseData["details"]["imageQrOnProd"];
       temp_class.details["mfgDate"] = responseData["details"]["mfgdate"];

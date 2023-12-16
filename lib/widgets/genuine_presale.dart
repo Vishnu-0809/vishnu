@@ -714,7 +714,7 @@ VideoPlayerView(
                         //     responseData["batchDetails"]["QROnProd"];
                         temp_class.details["expiry"] = widget.snapshot.details["expiry"];
                         temp_class.details["batchNo"] = widget.snapshot.details["batchNo"];
-                        temp_class.details["warranty"] = widget.snapshot.details["warranty"];
+                        temp_class.details["warrantyPeriod"] = widget.snapshot.details["warrantyPeriod"];
                          temp_class.details["imageQrOnProd"] = widget.snapshot.details["imageQrOnProd"];
                          temp_class.details["mfgDate"] = widget.snapshot.details["mfgDate"];
                          temp_class.details["shelflife"] = widget.snapshot.details["shelflife"];

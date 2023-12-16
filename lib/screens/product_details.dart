@@ -84,8 +84,8 @@ class ProdDetails extends StatelessWidget {
 
   int differenceInDays = difference.inDays;
   print(difference);
-  if (snapshot.details["warranty"]!=null)
-  warranty_left = snapshot.details["warranty"] - differenceInDays;
+  if (snapshot.details["warrantyPeriod"]!=null)
+  warranty_left = snapshot.details["warrantyPeriod"] - differenceInDays;
   
 
   print("warranty left");
@@ -752,9 +752,9 @@ reupload_bill() async
                                       ),
                                 )],
                                 if( snapshot.details["batchType"] == "Manufacturer")...[  
-                                  if(snapshot.details["warranty"] != null)
+                                  if(snapshot.details["warrantyPeriod"] != null)
                               Text(
-                                  "Warranty: ${snapshot.details["warranty"]}",
+                                  "Warranty: ${snapshot.details["warrantyPeriod"]}",
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontFamily: "Poppins Medium",
