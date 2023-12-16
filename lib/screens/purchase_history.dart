@@ -177,7 +177,7 @@ Future getSearchData() async {
       temp_class.details["prodID"] = responseData["data"][i]["_id"];
 
 
-        temp_class.details["warranty"] =responseData["data"][i]["warranty"];
+        temp_class.details["warrantyPeriod"] =responseData["data"][i]["warranty"];
       //  temp_class.details["imageQrOnProd"] = responseData["data"][i]["imageQrOnProd"];
       temp_class.details["mfgdate"] =   responseData["data"][i]["mfgdate"];
       temp_class.details["shelflife"] = responseData["data"][i]["shelflife"];
@@ -297,7 +297,7 @@ for (int i = 0; i < responseData["data"].length; i++) {
       temp_class.details["batchNo"] = responseData["data"][i]["batchNo"];
       
       temp_class.details["prodID"] = responseData["data"][i]["_id"];
-        temp_class.details["warranty"] =responseData["data"][i]["warranty"];
+        temp_class.details["warrantyPeriod"] =responseData["data"][i]["warranty"];
       //  temp_class.details["imageQrOnProd"] = responseData["data"][i]["imageQrOnProd"];
       temp_class.details["mfgdate"] = responseData["data"][i]["mfgdate"];
       temp_class.details["shelflife"] = responseData["data"][i]["shelflife"];
@@ -418,7 +418,7 @@ for (int i = 0; i < responseData["data"].length; i++) {
 temp_class.details["prodID"] = responseData["data"][i]["_id"];
     
  
-      temp_class.details["warranty"] =responseData["data"][i]["warranty"];
+      temp_class.details["warrantyPeriod"] =responseData["data"][i]["warranty"];
       //  temp_class.details["imageQrOnProd"] = responseData["data"][i]["imageQrOnProd"];
       temp_class.details["mfgdate"] = responseData["data"][i]["mfgdate"];
       temp_class.details["shelflife"] = responseData["data"][i]["shelflife"];
@@ -552,7 +552,7 @@ searchItems.add(temp_class.details["purchaseDate"]);
       
      
 
-      temp_class.details["warranty"] =responseData["data"][i]["warranty"];
+      temp_class.details["warrantyPeriod"] =responseData["data"][i]["warranty"];
       //  temp_class.details["imageQrOnProd"] = responseData["data"][i]["imageQrOnProd"];
       temp_class.details["mfgdate"] = responseData["data"][i]["mfgdate"];
       temp_class.details["shelflife"] = responseData["data"][i]["shelflife"];
@@ -1556,30 +1556,30 @@ Navigator.of(context).push(MaterialPageRoute(
                   
 final sea = SuggestionsDetailsList[index];
                   // String WarrantyDate= " 0 days ";
-                     String current_Date=DateTime.now().toString().substring(0,10);
-      print("qqqqqqqqqqqqqqqqqqqqqqqq "+current_Date);
+//                      String current_Date=DateTime.now().toString().substring(0,10);
+//       print("qqqqqqqqqqqqqqqqqqqqqqqq "+current_Date);
 
-        String Purchase_Date=sea.details["purchaseDate"].toString().substring(0,10);
-        print("qqqqqqqqqqqqqqqqqqqqqqqq "+Purchase_Date);
+//         String Purchase_Date=sea.details["purchaseDate"].toString().substring(0,10);
+//         print("qqqqqqqqqqqqqqqqqqqqqqqq "+Purchase_Date);
 
 
-        DateTime endDate = DateTime(int.parse(current_Date.substring(0,4)), int.parse(current_Date.substring(5,7)), int.parse(current_Date.substring(8,10)));
+//         DateTime endDate = DateTime(int.parse(current_Date.substring(0,4)), int.parse(current_Date.substring(5,7)), int.parse(current_Date.substring(8,10)));
        
-  DateTime startDate = DateTime(int.parse(Purchase_Date.substring(0,4)), int.parse(Purchase_Date.substring(5,7)), int.parse(Purchase_Date.substring(8,10)));
-       print(startDate);
+//   DateTime startDate = DateTime(int.parse(Purchase_Date.substring(0,4)), int.parse(Purchase_Date.substring(5,7)), int.parse(Purchase_Date.substring(8,10)));
+//        print(startDate);
 
-       Duration difference = endDate.difference(startDate);
-       int numberOfDays = difference.inDays;
-      print(numberOfDays);
-      int Warranty_Left= int.parse(sea.details["warranty"].toString())-numberOfDays;
-     print(Warranty_Left);
+//        Duration difference = endDate.difference(startDate);
+//        int numberOfDays = difference.inDays;
+//       print(numberOfDays);
+//       int Warranty_Left= int.parse(sea.details["warranty"].toString())-numberOfDays;
+//      print(Warranty_Left);
       
      
                   
-if(Warranty_Left<0)
-{
-  Warranty_Left=0;
-}
+// if(Warranty_Left<0)
+// {
+//   Warranty_Left=0;
+// }
 
                   
                   // if(sea.details["warranty"]!=null)
@@ -1823,9 +1823,9 @@ if(Warranty_Left<0)
                                               // ),
                                               FittedBox(
                                                 fit: BoxFit.fitWidth,
-                                                child: sea.details["warranty"]==null?
+                                                child: sea.details["warrantyPeriod"]==null?
                                                 Text(
-                                    "Warranty of" +"0 days"+ "applicable",
+                                    "Warranty of" +" "+"0 days"+ " applicable",
                                     style: TextStyle(
                                       // fontWeight: FontWeight.bold,
                                       fontFamily: "Poppins Medium",
@@ -1837,7 +1837,7 @@ if(Warranty_Left<0)
                                               0.014,
                                     ),
                                   ):Text( 
-                                    "Warranty of" +" "+ sea.details["warranty"].toString() + " days applicable",
+                                    "Warranty of" +" "+ sea.details["warrantyPeriod"].toString() + " days applicable",
                                     style: TextStyle(
                                       // fontWeight: FontWeight.bold,
                                       fontFamily: "Poppins Medium",
