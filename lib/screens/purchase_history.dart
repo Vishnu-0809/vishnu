@@ -177,7 +177,7 @@ Future getSearchData() async {
       temp_class.details["prodID"] = responseData["data"][i]["_id"];
 
 
-        temp_class.details["warranty"] =responseData["data"][i]["warranty"];
+        temp_class.details["warrantyPeriod"] =responseData["data"][i]["warranty"];
       //  temp_class.details["imageQrOnProd"] = responseData["data"][i]["imageQrOnProd"];
       temp_class.details["mfgdate"] =   responseData["data"][i]["mfgdate"];
       temp_class.details["shelflife"] = responseData["data"][i]["shelflife"];
@@ -297,7 +297,7 @@ for (int i = 0; i < responseData["data"].length; i++) {
       temp_class.details["batchNo"] = responseData["data"][i]["batchNo"];
       
       temp_class.details["prodID"] = responseData["data"][i]["_id"];
-        temp_class.details["warranty"] =responseData["data"][i]["warranty"];
+        temp_class.details["warrantyPeriod"] =responseData["data"][i]["warranty"];
       //  temp_class.details["imageQrOnProd"] = responseData["data"][i]["imageQrOnProd"];
       temp_class.details["mfgdate"] = responseData["data"][i]["mfgdate"];
       temp_class.details["shelflife"] = responseData["data"][i]["shelflife"];
@@ -418,7 +418,7 @@ for (int i = 0; i < responseData["data"].length; i++) {
 temp_class.details["prodID"] = responseData["data"][i]["_id"];
     
  
-      temp_class.details["warranty"] =responseData["data"][i]["warranty"];
+      temp_class.details["warrantyPeriod"] =responseData["data"][i]["warranty"];
       //  temp_class.details["imageQrOnProd"] = responseData["data"][i]["imageQrOnProd"];
       temp_class.details["mfgdate"] = responseData["data"][i]["mfgdate"];
       temp_class.details["shelflife"] = responseData["data"][i]["shelflife"];
@@ -552,7 +552,7 @@ searchItems.add(temp_class.details["purchaseDate"]);
       
      
 
-      temp_class.details["warranty"] =responseData["data"][i]["warranty"];
+      temp_class.details["warrantyPeriod"] =responseData["data"][i]["warranty"];
       //  temp_class.details["imageQrOnProd"] = responseData["data"][i]["imageQrOnProd"];
       temp_class.details["mfgdate"] = responseData["data"][i]["mfgdate"];
       temp_class.details["shelflife"] = responseData["data"][i]["shelflife"];
