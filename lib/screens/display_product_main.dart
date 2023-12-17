@@ -31,7 +31,7 @@ String? udid;
 
 // Album_verify? verify;
 class DisplayProdMain extends StatefulWidget {
-   const DisplayProdMain({super.key, required this.subLink});
+  const DisplayProdMain({super.key, required this.subLink});
   final String subLink;
   @override
   State<DisplayProdMain> createState() => _DisplayProdMainState();
@@ -49,20 +49,17 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
     print(LOCATION);
     // _getDataFuture = getData();
   }
-  
+
   String dummy = "qwe";
   int requestCount = 1;
   Future getData() async {
     print("subink lengthhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
     print(widget.subLink.length);
     print("subink lengthhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
-      requestCount = requestCount + 1;
-      //https://api.veots.in
+    requestCount = requestCount + 1;
+    //https://api.veots.in
     String url =
-        "https://api.veots.in/verify/" +
-            widget.subLink +
-            "/" +
-            UDID.toString();
+        "https://api.veots.in/verify/" + widget.subLink + "/" + UDID.toString();
     print("xxxxxxxxxxxxxxxx");
     print(url);
     print("udid: ${UDID}");
@@ -87,7 +84,8 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       temp_class.message = responseData["message"];
       temp_class.details["brand"] = responseData["details"]["brand"];
       temp_class.details["serialNo"] = responseData["details"]["serialNo"];
-      temp_class.details["warrantyApp"] = responseData["details"]["warrantyApp"];
+      temp_class.details["warrantyApp"] =
+          responseData["details"]["warrantyApp"];
       temp_class.details["price"] = responseData["details"]["price"];
       temp_class.details["prodName"] = responseData["details"]["name"];
       temp_class.details["imageProd"] = responseData["details"]["imageProd"];
@@ -95,7 +93,8 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       //     responseData["batchDetails"]["QROnProd"];
       temp_class.details["expiry"] = responseData["details"]["expiry"];
       temp_class.details["batchNo"] = responseData["details"]["batchNo"];
-      temp_class.details["warrantyPeriod"] = responseData["details"]["warrantyPeriod"];
+      temp_class.details["warrantyPeriod"] =
+          responseData["details"]["warrantyPeriod"];
       temp_class.details["imageQrOnProd"] =
           responseData["details"]["imageQrOnProd"];
       temp_class.details["mfgDate"] = responseData["details"]["mfgdate"];
@@ -109,20 +108,18 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       temp_class.details["additionalImages"] =
           responseData["details"]["addtionalImages"];
       temp_class.details['tracking'] = responseData['tracking'];
-      temp_class.details["isTrackingAvailable"] = responseData["isTrackingAvailable"];
-      print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
-      print(responseData["details"]["isTrackingAvailable"]);
-      print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+      temp_class.details["isTrackingAvailable"] =
+          responseData["details"]["isTrackingAvailable"];
+      temp_class.details["preSaleCode"] = widget.subLink;
       temp_class.details["additionalImageDetails"] =
           responseData["details"]["additionalImageDetails"];
-          temp_class.details["batchType"] =
-          responseData["details"]["batchType"];
-          temp_class.details["productVedio"] =
+      temp_class.details["batchType"] = responseData["details"]["batchType"];
+      temp_class.details["productVedio"] =
           responseData["details"]["prodVedioLink"];
-        print("wdhbweifuhqwofijqeofnweoviwekfjwcwnociwefnwelf");
-        print(responseData["details"]["type"]);
-        print("wdhbweifuhqwofijqeofnweoviwekfjwcwnociwefnwelf");
-        print(responseData["details"]["batchType"]);
+      print("wdhbweifuhqwofijqeofnweoviwekfjwcwnociwefnwelf");
+      print(responseData["details"]["type"]);
+      print("wdhbweifuhqwofijqeofnweoviwekfjwcwnociwefnwelf");
+      print(responseData["details"]["batchType"]);
 
       return temp_class;
     } else if (responseData["message"] == "Expired") {
@@ -132,7 +129,8 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       temp_class.prodName = responseData["name"];
       temp_class.details["brand"] = responseData["details"]["brand"];
       temp_class.details["serialNo"] = responseData["details"]["serialNo"];
-      temp_class.details["warrantyApp"] = responseData["details"]["warrantyApp"];
+      temp_class.details["warrantyApp"] =
+          responseData["details"]["warrantyApp"];
       temp_class.details["price"] = responseData["details"]["price"];
       temp_class.details["prodName"] = responseData["details"]["name"];
       temp_class.details["imageProd"] = responseData["details"]["imageProd"];
@@ -140,7 +138,8 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       // //     responseData["batchDetails"]["QROnProd"];
       temp_class.details["expiry"] = responseData["details"]["expiry"];
       temp_class.details["batchNo"] = responseData["details"]["batchNo"];
-      temp_class.details["warrantyPeriod"] = responseData["details"]["warrantyPeriod"];
+      temp_class.details["warrantyPeriod"] =
+          responseData["details"]["warrantyPeriod"];
       temp_class.details["imageQrOnProd"] =
           responseData["details"]["imageQrOnProd"];
       temp_class.details["mfgDate"] = responseData["details"]["mfgdate"];
@@ -153,21 +152,23 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
           responseData["details"]["addtionalDetails"];
       temp_class.details["additionalImages"] =
           responseData["details"]["addtionalImages"];
+
       temp_class.details['tracking'] = responseData['tracking'];
-      temp_class.details["isTrackingAvailable"] = responseData["isTrackingAvailable"];
+      temp_class.details["isTrackingAvailable"] =
+          responseData["details"]["isTrackingAvailable"];
+      temp_class.details["preSaleCode"] = widget.subLink;
+
       temp_class.details["additionalImageDetails"] =
           responseData["details"]["additionalImageDetails"];
-          temp_class.details["batchType"] =
-          responseData["details"]["batchType"];
-          temp_class.details["productVedio"] =
+      temp_class.details["batchType"] = responseData["details"]["batchType"];
+      temp_class.details["productVedio"] =
           responseData["details"]["prodVedioLink"];
-          temp_class.details["type"] =
-          responseData["details"]["type"];
-          print( temp_class.details["productVedio"]);
+      temp_class.details["type"] = responseData["details"]["type"];
+      print(temp_class.details["productVedio"]);
       // temp_class.details['tracking']=responseData['tracking'];
       return temp_class;
     } else if (responseData["message"] == "Fake") {
-      Fake temp_class = new Fake ();
+      Fake temp_class = new Fake();
       temp_class.message = responseData["message"];
       temp_class.image = responseData["image"];
       temp_class.name = responseData["name"];
@@ -178,7 +179,6 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       // print(temp_class.message);
       return temp_class;
     } else if (responseData["message"] == "claim product") {
-  
       ClaimProd temp_class = new ClaimProd();
       temp_class.message = responseData["message"];
       temp_class.i = responseData["i"];
@@ -209,22 +209,27 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
           responseData["batchDetails"]["manuAdd"]; // changed.....
       temp_class.details["additionalDetails"] =
           responseData["batchDetails"]["addDetails"];
-          temp_class.details["additionalImageDetails"] =
+      temp_class.details["additionalImageDetails"] =
           responseData["batchDetails"]["additionalImageDetails"];
+
       ///changed
       temp_class.details["additionalImages"] = [
         responseData["batchDetails"]["extraImages"]
       ]; // changed
+
       temp_class.details["shelflife"] =
           responseData["batchDetails"]["shelfLife"];
+
       temp_class.details['tracking'] = responseData['tracking'];
-      temp_class.details["isTrackingAvailable"] = responseData["isTrackingAvailable"];
+      temp_class.details["isTrackingAvailable"] =
+          responseData["isTrackingAvailable"];
+      temp_class.details["preSaleCode"] = widget.subLink;
 
       temp_class.details["batchType"] =
           responseData["batchDetails"]["batchType"];
-          temp_class.details["productVedio"] =
+      temp_class.details["productVedio"] =
           responseData["batchDetails"]["prodVedioLink"];
-      
+
       print("222222222222222222");
       print(responseData["batchDetails"]["type"]);
       print("222222222222222222");
@@ -236,7 +241,8 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       temp_class.message = responseData["message"];
       temp_class.details["brand"] = responseData["details"]["brand"];
       temp_class.details["serialNo"] = responseData["details"]["serialNo"];
-      temp_class.details["warrantyApp"] = responseData["details"]["warrantyApp"];
+      temp_class.details["warrantyApp"] =
+          responseData["details"]["warrantyApp"];
       temp_class.details["price"] = responseData["details"]["price"];
       temp_class.details["prodName"] = responseData["details"]["name"];
       temp_class.details["imageProd"] = responseData["details"]["imageProd"];
@@ -244,7 +250,8 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       //     responseData["batchDetails"]["QROnProd"];
       temp_class.details["expiry"] = responseData["details"]["expiry"];
       temp_class.details["batchNo"] = responseData["details"]["batchNo"];
-      temp_class.details["warrantyPeriod"] = responseData["details"]["warrantyPeriod"];
+      temp_class.details["warrantyPeriod"] =
+          responseData["details"]["warrantyPeriod"];
       temp_class.details["imageQrOnProd"] =
           responseData["details"]["imageQrOnProd"];
       temp_class.details["mfgDate"] = responseData["details"]["mfgdate"];
@@ -257,13 +264,16 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
           responseData["details"]["addtionalDetails"];
       temp_class.details["additionalImages"] =
           responseData["details"]["addtionalImages"];
+
       temp_class.details['tracking'] = responseData['tracking'];
-      temp_class.details["isTrackingAvailable"] = responseData["isTrackingAvailable"];
+      temp_class.details["isTrackingAvailable"] =
+          responseData["details"]["isTrackingAvailable"];
+      temp_class.details["preSaleCode"] = widget.subLink;
+
       temp_class.details["additionalImageDetails"] =
           responseData["details"]["additionalImageDetails"];
-          temp_class.details["batchType"] =
-          responseData["details"]["batchType"];
-          temp_class.details["productVedio"] =
+      temp_class.details["batchType"] = responseData["details"]["batchType"];
+      temp_class.details["productVedio"] =
           responseData["details"]["prodVedioLink"];
       print(responseData["message"]);
       return temp_class;
@@ -279,7 +289,8 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       // print(responseData["details"]["brand"]);
       temp_class.details["serialNo"] = responseData["details"]["serialNo"];
       // print(responseData["details"]["serialNo"]);
-      temp_class.details["warrantyApp"] = responseData["details"]["warrantyApp"];
+      temp_class.details["warrantyApp"] =
+          responseData["details"]["warrantyApp"];
       temp_class.details["price"] = responseData["details"]["price"];
       // print(responseData["details"]["price"]);
       temp_class.details["prodName"] = responseData["details"]["name"];
@@ -292,7 +303,8 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       //  print(responseData["details"]["expiry"]);
       temp_class.details["batchNo"] = responseData["details"]["batchNo"];
       // print(responseData["details"]["batchNo"]);
-      temp_class.details["warrantyPeriod"] = responseData["details"]["warrantyPeriod"];
+      temp_class.details["warrantyPeriod"] =
+          responseData["details"]["warrantyPeriod"];
       // print(responseData["details"]["warranty"]);
       temp_class.details["imageQrOnProd"] =
           responseData["details"]["imageQrOnProd"];
@@ -314,16 +326,17 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
           responseData["details"]["addtionalImages"];
       //     print(responseData["details"]["addtionalImages"]);
       temp_class.details['tracking'] = responseData['tracking'];
-      temp_class.details["isTrackingAvailable"] = responseData["isTrackingAvailable"];
+      temp_class.details["isTrackingAvailable"] =
+          responseData["details"]["isTrackingAvailable"];
+      temp_class.details["preSaleCode"] = widget.subLink;
 
       // print( responseData['tracking']);
       temp_class.details["additionalImageDetails"] =
           responseData["details"]["additionalImageDetails"];
       //     print(responseData["batchDetails"]["additionalImageDetails"]);
       temp_class.bill = responseData["bill"];
-      temp_class.details["batchType"] =
-          responseData["details"]["batchType"];
-          temp_class.details["productVedio"] =
+      temp_class.details["batchType"] = responseData["details"]["batchType"];
+      temp_class.details["productVedio"] =
           responseData["details"]["prodVedioLink"];
       // print(responseData["bill"]); // chnage billl
       return temp_class;
@@ -333,15 +346,15 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       temp_class.message = responseData["message"];
       temp_class.details["brand"] = responseData["details"]["brand"];
       temp_class.details["serialNo"] = responseData["details"]["serialNo"];
-      temp_class.details["warrantyApp"] = responseData["details"]["warrantyApp"];
+      temp_class.details["warrantyApp"] =
+          responseData["details"]["warrantyApp"];
       temp_class.details["price"] = responseData["details"]["price"];
       temp_class.details["prodName"] = responseData["details"]["name"];
       temp_class.details["imageProd"] = responseData["details"]["imageProd"];
-      // temp_class.details["QROnProd"] =
-      //     responseData["batchDetails"]["QROnProd"];
       temp_class.details["expiry"] = responseData["details"]["expiry"];
       temp_class.details["batchNo"] = responseData["details"]["batchNo"];
-      temp_class.details["warrantyPeriod"] = responseData["details"]["warrantyPeriod"];
+      temp_class.details["warrantyPeriod"] =
+          responseData["details"]["warrantyPeriod"];
       temp_class.details["imageQrOnProd"] =
           responseData["details"]["imageQrOnProd"];
       temp_class.details["mfgDate"] = responseData["details"]["mfgdate"];
@@ -354,17 +367,19 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
           responseData["details"]["addtionalDetails"];
       temp_class.details["additionalImages"] =
           responseData["details"]["addtionalImages"];
-          temp_class.details["additionalImageDetails"] =
+      temp_class.details["additionalImageDetails"] =
           responseData["details"]["additionalImageDetails"];
       temp_class.details['tracking'] = responseData['tracking'];
-      temp_class.details["isTrackingAvailable"] = responseData["isTrackingAvailable"];
-      temp_class.details["batchType"] =
-          responseData["details"]["batchType"];
+      temp_class.details["isTrackingAvailable"] =
+          responseData["details"]["isTrackingAvailable"];
+      temp_class.details["preSaleCode"] = widget.subLink;
+
+      temp_class.details["batchType"] = responseData["details"]["batchType"];
       temp_class.details["productVedio"] =
           responseData["details"]["prodVedioLink"];
-          print("infooooooooooooooooooooooooooooooooooooo");
-          print(responseData["isTrackingAvailable"]);
-          print("infooooooooooooooooooooooooooooooooo");
+      print("infooooooooooooooooooooooooooooooooooooo");
+      print(responseData["isTrackingAvailable"]);
+      print("infooooooooooooooooooooooooooooooooo");
       return temp_class;
     }
   }
@@ -401,7 +416,7 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
                     Text(
                       "Veots",
                       style: TextStyle(
-                        fontStyle: FontStyle.italic,
+                          fontStyle: FontStyle.italic,
                           color: Colors.black,
                           fontSize: MediaQuery.of(context).size.width * 0.03,
                           fontFamily: "Montserrat-SemiBold"),
@@ -432,158 +447,162 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
               key: _scaffoldKey,
               backgroundColor: Colors.white,
               body: FutureBuilder(
-                future: _getDataFuture,
-                builder: (BuildContext ctx, AsyncSnapshot snapshot) {
-                  print("555555555555555555");
-                  print(snapshot.data);
-                  print("88888888888888");
-                  if (snapshot.data == null) {
-                    return Container(
-                      child: Center(
-                        child: Image.asset('assets/loading.gif'),
-                      ),
-                    );
-                  } else {
-                    if (snapshot.hasError) {
-                      return Center(
-                        child: Text(
-                          '${snapshot.error} occurred',
-                          style: const TextStyle(fontSize: 18),
+                  future: _getDataFuture,
+                  builder: (BuildContext ctx, AsyncSnapshot snapshot) {
+                    print("555555555555555555");
+                    print(snapshot.data);
+                    print("88888888888888");
+                    if (snapshot.data == null) {
+                      return Container(
+                        child: Center(
+                          child: Image.asset('assets/loading.gif'),
                         ),
                       );
                     } else {
-                      if (snapshot.data.message == "Genuine Pre Sale") {
-                        return GenuinePre(
-                          link: widget.subLink,
-                          snapshot: snapshot.data,
-                          keyD: _scaffoldKey,
-                        );
-                      } else if (snapshot.data.message == "Expired") {
-                        return ExpiredProd(
-                            link: widget.subLink,
-                            snapshot: snapshot.data,
-                            keyD: _scaffoldKey);
-                      } else if (snapshot.data.message == "Invalid Product") {
-                        return InvalidProd(
-                          snapshot: snapshot.data,
-                          keyD: _scaffoldKey,
-                        );
-                      } else if (snapshot.data.message == "Fake") {
-                        return FakeProduct(
-                            snapshot: snapshot.data,
-                            keyD: _scaffoldKey,
-                            subLink: widget.subLink);
-                      } else if (snapshot.data.message == "claim product") {
-                        return GenuinePost(
-                          link: widget.subLink, // change
-                          snapshot: snapshot.data,
-                          i_value: snapshot.data.i,
-                          clientId: snapshot.data.details["clientId"],
-                          batchNo: snapshot.data.details["batchNo"],
-                          keyD: _scaffoldKey,
-                          sublink:  widget.subLink,
-                        );
-                      } else if (snapshot.data.message ==
-                          "Scan pre sale first") {
-                        return ScanPreFirstScreen(
-                          link: "",
-                          keyD: _scaffoldKey,
-                          snapshot: snapshot.data,
-                        );
-                        // return const Center(
-                        //   child: Text(
-                        //     "Scan pre sale first",
-                        //     style: TextStyle(
-                        //         color: Color(0xff003274),
-                        //         fontSize: 30,
-                        //         fontWeight: FontWeight.bold),
-                        //   ),
-                        // );
-                      } else if (snapshot.data.message == "Genuine Post Sale") {
-                        return ActualGPSale(
-                          link: widget.subLink,
-                          snapshot: snapshot.data,
-                          keyD: _scaffoldKey,
-                        );
-                      } else if (snapshot.data.message == "Info" ||
-                          snapshot.data.message == "Tracking") {
-                        return Info(
-                          snapshot: snapshot.data,
-                          keyD: _scaffoldKey,
-                          link: widget.subLink,
+                      if (snapshot.hasError) {
+                        return Center(
+                          child: Text(
+                            '${snapshot.error} occurred',
+                            style: const TextStyle(fontSize: 18),
+                          ),
                         );
                       } else {
-                        if (snapshot.hasError) {
-                          return Center(
-                            child: Text(
-                              '${snapshot.error} occurred',
-                              style: const TextStyle(fontSize: 18),
-                            ),
+                        if (snapshot.data.message == "Genuine Pre Sale") {
+                          return GenuinePre(
+                            link: widget.subLink,
+                            snapshot: snapshot.data,
+                            keyD: _scaffoldKey,
+                          );
+                        } else if (snapshot.data.message == "Expired") {
+                          return ExpiredProd(
+                              link: widget.subLink,
+                              snapshot: snapshot.data,
+                              keyD: _scaffoldKey);
+                        } else if (snapshot.data.message == "Invalid Product") {
+                          return InvalidProd(
+                            snapshot: snapshot.data,
+                            keyD: _scaffoldKey,
+                          );
+                        } else if (snapshot.data.message == "Fake") {
+                          return FakeProduct(
+                              snapshot: snapshot.data,
+                              keyD: _scaffoldKey,
+                              subLink: widget.subLink);
+                        } else if (snapshot.data.message == "claim product") {
+                          return GenuinePost(
+                            link: widget.subLink, // change
+                            snapshot: snapshot.data,
+                            i_value: snapshot.data.i,
+                            clientId: snapshot.data.details["clientId"],
+                            batchNo: snapshot.data.details["batchNo"],
+                            keyD: _scaffoldKey,
+                            sublink: widget.subLink,
+                          );
+                        } else if (snapshot.data.message ==
+                            "Scan pre sale first") {
+                          return ScanPreFirstScreen(
+                            link: "",
+                            keyD: _scaffoldKey,
+                            snapshot: snapshot.data,
+                          );
+                          // return const Center(
+                          //   child: Text(
+                          //     "Scan pre sale first",
+                          //     style: TextStyle(
+                          //         color: Color(0xff003274),
+                          //         fontSize: 30,
+                          //         fontWeight: FontWeight.bold),
+                          //   ),
+                          // );
+                        } else if (snapshot.data.message ==
+                            "Genuine Post Sale") {
+                          return ActualGPSale(
+                            link: widget.subLink,
+                            snapshot: snapshot.data,
+                            keyD: _scaffoldKey,
+                          );
+                        } else if (snapshot.data.message == "Info" ||
+                            snapshot.data.message == "Tracking") {
+                          return Info(
+                            snapshot: snapshot.data,
+                            keyD: _scaffoldKey,
+                            link: widget.subLink,
                           );
                         } else {
-                          if (snapshot.data.message == "Genuine Pre Sale") {
-                            return GenuinePre(
-                              link: widget.subLink,
-                              snapshot: snapshot.data,
-                              keyD: _scaffoldKey,
+                          if (snapshot.hasError) {
+                            return Center(
+                              child: Text(
+                                '${snapshot.error} occurred',
+                                style: const TextStyle(fontSize: 18),
+                              ),
                             );
-                          } else if (snapshot.data.message == "Expired") {
-                            return ExpiredProd(
+                          } else {
+                            if (snapshot.data.message == "Genuine Pre Sale") {
+                              return GenuinePre(
                                 link: widget.subLink,
                                 snapshot: snapshot.data,
-                                keyD: _scaffoldKey);
-                          } else if (snapshot.data.message == "Invalid Product") {
-                            return InvalidProd(
-                              snapshot: snapshot.data,
-                              keyD: _scaffoldKey,
-                            );
-                          } else if (snapshot.data.message == "Fake") {
-                            return FakeProduct(
+                                keyD: _scaffoldKey,
+                              );
+                            } else if (snapshot.data.message == "Expired") {
+                              return ExpiredProd(
+                                  link: widget.subLink,
+                                  snapshot: snapshot.data,
+                                  keyD: _scaffoldKey);
+                            } else if (snapshot.data.message ==
+                                "Invalid Product") {
+                              return InvalidProd(
                                 snapshot: snapshot.data,
                                 keyD: _scaffoldKey,
-                                subLink: widget.subLink);
-                          } else if (snapshot.data.message == "claim product") {
-                            return GenuinePost(
-                              link: widget.subLink, // change
-                              snapshot: snapshot.data,
-                              i_value: snapshot.data.i,
-                              clientId: snapshot.data.details["clientId"],
-                              batchNo: snapshot.data.details["batchNo"],
-                              keyD: _scaffoldKey,
-                              sublink:  widget.subLink,
-                            );
-                          } else if (snapshot.data.message ==
-                              "Scan pre sale first") {
-                            return ScanPreFirstScreen(
-                              link: "",
-                              keyD: _scaffoldKey,
-                              snapshot: snapshot.data,
-                            );
-                          } else if (snapshot.data.message == "Genuine Post Sale") {
-                            return ActualGPSale(
-                              link: widget.subLink,
-                              snapshot: snapshot.data,
-                              keyD: _scaffoldKey,
-                            );
-                          } else if (snapshot.data.message == "Info" ||
-                              snapshot.data.message == "Tracking") {
-                            return Info(
-                              snapshot: snapshot.data,
-                              keyD: _scaffoldKey,
-                              link: widget.subLink,
+                              );
+                            } else if (snapshot.data.message == "Fake") {
+                              return FakeProduct(
+                                  snapshot: snapshot.data,
+                                  keyD: _scaffoldKey,
+                                  subLink: widget.subLink);
+                            } else if (snapshot.data.message ==
+                                "claim product") {
+                              return GenuinePost(
+                                link: widget.subLink, // change
+                                snapshot: snapshot.data,
+                                i_value: snapshot.data.i,
+                                clientId: snapshot.data.details["clientId"],
+                                batchNo: snapshot.data.details["batchNo"],
+                                keyD: _scaffoldKey,
+                                sublink: widget.subLink,
+                              );
+                            } else if (snapshot.data.message ==
+                                "Scan pre sale first") {
+                              return ScanPreFirstScreen(
+                                link: "",
+                                keyD: _scaffoldKey,
+                                snapshot: snapshot.data,
+                              );
+                            } else if (snapshot.data.message ==
+                                "Genuine Post Sale") {
+                              return ActualGPSale(
+                                link: widget.subLink,
+                                snapshot: snapshot.data,
+                                keyD: _scaffoldKey,
+                              );
+                            } else if (snapshot.data.message == "Info" ||
+                                snapshot.data.message == "Tracking") {
+                              return Info(
+                                snapshot: snapshot.data,
+                                keyD: _scaffoldKey,
+                                link: widget.subLink,
+                              );
+                            }
+                            return Center(
+                              child: Text(
+                                dummy,
+                                style: const TextStyle(color: Colors.red),
+                              ),
                             );
                           }
-                          return Center(
-                            child: Text(
-                              dummy,
-                              style: const TextStyle(color: Colors.red),
-                            ),
-                          );
                         }
                       }
                     }
-                  }}
-                  ),
+                  }),
               bottomNavigationBar: poweredby(context),
               drawer: HamWidget())),
     );
