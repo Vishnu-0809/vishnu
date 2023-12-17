@@ -14,16 +14,32 @@ class ExpiredProd extends StatelessWidget {
   final Expired snapshot;
   final keyD;
   @override
-
-
-  YoutubePlayerController _controller = YoutubePlayerController(
-    initialVideoId: 'jY1nvK2wIX0',
-    flags: const YoutubePlayerFlags(
+YoutubePlayerController _controller_info = YoutubePlayerController(
+    initialVideoId: 'SGZXHpGsCSk',
+    flags: YoutubePlayerFlags(
         autoPlay: true,
-      
+        mute: true,
         showLiveFullscreenButton: true
     ),
 );
+
+YoutubePlayerController _controllerCovert = YoutubePlayerController(
+    initialVideoId: 'wHXZknRQhRc',
+    flags: YoutubePlayerFlags(
+        autoPlay: true,
+        mute: true,
+        showLiveFullscreenButton: true
+    ),
+);
+YoutubePlayerController _controllerOvert = YoutubePlayerController(
+    initialVideoId: 'MhIWv_EZDhI',
+    flags: YoutubePlayerFlags(
+        autoPlay: true,
+        mute: true,
+        showLiveFullscreenButton: true
+    ),
+);
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -274,10 +290,9 @@ class ExpiredProd extends StatelessWidget {
                                   ],
                                 ),
                                 content: 
-
 YoutubePlayer(
   width: MediaQuery.of(context).size.width/2,
-    controller: _controller,
+    controller: snapshot.details["type"] == 1 ? _controller_info :  (snapshot.details["type"] == 2 ? _controllerOvert : _controllerCovert) ,
     showVideoProgressIndicator: true,
     // videoProgressIndicatorColor: Colors.amber,
     // progressColors:Colors.amber,

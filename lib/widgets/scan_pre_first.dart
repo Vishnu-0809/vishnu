@@ -510,7 +510,7 @@ class ScanPreFirstScreen extends StatelessWidget {
                         temp_class.details["serialNo"] = snapshot.details["serialNo"];
                         temp_class.details["warrantyApp"] = snapshot.details["warrantyApp"];
                         temp_class.details["price"] = snapshot.details["price"];
-                        temp_class.details["prodName"] = snapshot.details["name"];
+                        temp_class.details["prodName"] = snapshot.details["prodName"];
                         temp_class.details["imageProd"] = snapshot.details["imageProd"];
                         // temp_class.details["QROnProd"] =
                         //     responseData["batchDetails"]["QROnProd"];
@@ -524,6 +524,7 @@ class ScanPreFirstScreen extends StatelessWidget {
                          temp_class.details["manuAddress"] = snapshot.details["manuAddress"];
                          temp_class.details["additionalDetails"] = snapshot.details["additionalDetails"];
                          temp_class.details["additionalImages"] = snapshot.details["additionalImages"];
+                         temp_class.details["additionalImageDetails"] = snapshot.details["additionalImageDetails"];
                          temp_class.details['tracking']=snapshot.details['tracking']; ///changed
                          temp_class.details['prodVedioLink']=snapshot.details['prodVedioLink'];
                          temp_class.details['batchType']=snapshot.details['batchType'];

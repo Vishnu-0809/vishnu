@@ -358,8 +358,8 @@ reupload_bill() async
                                           onPressed: (() {
                                             Navigator.pop(context);
                                             SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown
+        DeviceOrientation.portraitUp,
+        DeviceOrientation.portraitDown
   ]);
                                             
                                           }),
@@ -382,7 +382,7 @@ reupload_bill() async
             // You can use LinearProgressIndicator or CircularProgressIndicator instead
           },
           errorBuilder: (context, error, stackTrace) =>
-              const Center(child: Text('Sorry couldn\'t show the bill image',
+              const Center(child: Text('Sorry couldn\'t show the bill image, Please try again',
               style:TextStyle(color: Colors.white))),
                     )
                                 )
@@ -876,7 +876,6 @@ reupload_bill() async
                                 ),
                                 // Text(widget.snapshot.details["addtionalImages"]),
                                 ],
-                        
                         if(snapshot.details["additionalImages"]!=null && snapshot.details["additionalImageDetails"]!=null) ...[
                         if(snapshot.details["additionalImages"][0].length!=0) ...[
                           if(snapshot.details["additionalImages"][0][0]["url"]!="")...[

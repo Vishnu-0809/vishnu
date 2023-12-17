@@ -699,6 +699,8 @@ VideoPlayerView(
                          temp_class.details["manuAddress"] = snapshot.details["manuAddress"];
                          temp_class.details["additionalDetails"] =snapshot.details["additionalDetails"];
                          temp_class.details["additionalImages"] = snapshot.details["additionalImages"];
+                         temp_class.details["additionalImageDetails"] = snapshot.details["additionalImageDetails"];
+                         temp_class.details["isTrackingAvailable"] = snapshot.details["isTrackingAvailable"];
                          temp_class.details['tracking']=snapshot.details['tracking']; ///changed
                         Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) =>ProdDetails(link: link,snapshot: temp_class),

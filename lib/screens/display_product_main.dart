@@ -87,7 +87,7 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       temp_class.message = responseData["message"];
       temp_class.details["brand"] = responseData["details"]["brand"];
       temp_class.details["serialNo"] = responseData["details"]["serialNo"];
-      temp_class.details["warrantyApp"] = responseData["batchDetails"]["warrantyApp"];
+      temp_class.details["warrantyApp"] = responseData["details"]["warrantyApp"];
       temp_class.details["price"] = responseData["details"]["price"];
       temp_class.details["prodName"] = responseData["details"]["name"];
       temp_class.details["imageProd"] = responseData["details"]["imageProd"];
@@ -110,7 +110,9 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
           responseData["details"]["addtionalImages"];
       temp_class.details['tracking'] = responseData['tracking'];
       temp_class.details["isTrackingAvailable"] = responseData["isTrackingAvailable"];
-
+      print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+      print(responseData["details"]["isTrackingAvailable"]);
+      print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
       temp_class.details["additionalImageDetails"] =
           responseData["details"]["additionalImageDetails"];
           temp_class.details["batchType"] =
@@ -118,7 +120,7 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
           temp_class.details["productVedio"] =
           responseData["details"]["prodVedioLink"];
         print("wdhbweifuhqwofijqeofnweoviwekfjwcwnociwefnwelf");
-        print(temp_class.details["productVedio"]);
+        print(responseData["details"]["type"]);
         print("wdhbweifuhqwofijqeofnweoviwekfjwcwnociwefnwelf");
         print(responseData["details"]["batchType"]);
 
@@ -128,9 +130,9 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       temp_class.message = responseData["message"];
       temp_class.imageProd = responseData["image"];
       temp_class.prodName = responseData["name"];
-      temp_class.details["brand"] = responseData["details"]["name"];
+      temp_class.details["brand"] = responseData["details"]["brand"];
       temp_class.details["serialNo"] = responseData["details"]["serialNo"];
-      temp_class.details["warrantyApp"] = responseData["batchDetails"]["warrantyApp"];
+      temp_class.details["warrantyApp"] = responseData["details"]["warrantyApp"];
       temp_class.details["price"] = responseData["details"]["price"];
       temp_class.details["prodName"] = responseData["details"]["name"];
       temp_class.details["imageProd"] = responseData["details"]["imageProd"];
@@ -159,6 +161,8 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
           responseData["details"]["batchType"];
           temp_class.details["productVedio"] =
           responseData["details"]["prodVedioLink"];
+          temp_class.details["type"] =
+          responseData["details"]["type"];
           print( temp_class.details["productVedio"]);
       // temp_class.details['tracking']=responseData['tracking'];
       return temp_class;
@@ -174,14 +178,7 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       // print(temp_class.message);
       return temp_class;
     } else if (responseData["message"] == "claim product") {
-      print ("-----------------------------------------------");
-      print ( responseData['tracking']);
-      print ( responseData["isTrackingAvailable"]);
-      print(responseData["batchDetails"]["additionalImageDetails"]);
-      print(responseData["batchDetails"]["extraImages"]);
-      print(responseData["prodVedioLink"]);
-      print ("-----------------------------------------------");
-
+  
       ClaimProd temp_class = new ClaimProd();
       temp_class.message = responseData["message"];
       temp_class.i = responseData["i"];
@@ -227,11 +224,11 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
           responseData["batchDetails"]["batchType"];
           temp_class.details["productVedio"] =
           responseData["batchDetails"]["prodVedioLink"];
-          print("9999999999999999");
-          responseData["batchDetails"]["warrantyApp"];
-          responseData["batchDetails"]["warrantyPeriod"];
-          print("9999999999999999");
-      print(temp_class.details);
+      
+      print("222222222222222222");
+      print(responseData["batchDetails"]["type"]);
+      print("222222222222222222");
+
       // print(responseData);
       return temp_class;
     } else if (responseData["message"] == "Scan pre sale first") {
@@ -239,7 +236,7 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       temp_class.message = responseData["message"];
       temp_class.details["brand"] = responseData["details"]["brand"];
       temp_class.details["serialNo"] = responseData["details"]["serialNo"];
-      temp_class.details["warrantyApp"] = responseData["batchDetails"]["warrantyApp"];
+      temp_class.details["warrantyApp"] = responseData["details"]["warrantyApp"];
       temp_class.details["price"] = responseData["details"]["price"];
       temp_class.details["prodName"] = responseData["details"]["name"];
       temp_class.details["imageProd"] = responseData["details"]["imageProd"];
@@ -262,7 +259,6 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
           responseData["details"]["addtionalImages"];
       temp_class.details['tracking'] = responseData['tracking'];
       temp_class.details["isTrackingAvailable"] = responseData["isTrackingAvailable"];
-
       temp_class.details["additionalImageDetails"] =
           responseData["details"]["additionalImageDetails"];
           temp_class.details["batchType"] =
@@ -337,7 +333,7 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       temp_class.message = responseData["message"];
       temp_class.details["brand"] = responseData["details"]["brand"];
       temp_class.details["serialNo"] = responseData["details"]["serialNo"];
-      temp_class.details["warrantyApp"] = responseData["batchDetails"]["warrantyApp"];
+      temp_class.details["warrantyApp"] = responseData["details"]["warrantyApp"];
       temp_class.details["price"] = responseData["details"]["price"];
       temp_class.details["prodName"] = responseData["details"]["name"];
       temp_class.details["imageProd"] = responseData["details"]["imageProd"];
@@ -358,13 +354,17 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
           responseData["details"]["addtionalDetails"];
       temp_class.details["additionalImages"] =
           responseData["details"]["addtionalImages"];
+          temp_class.details["additionalImageDetails"] =
+          responseData["details"]["additionalImageDetails"];
       temp_class.details['tracking'] = responseData['tracking'];
       temp_class.details["isTrackingAvailable"] = responseData["isTrackingAvailable"];
-
       temp_class.details["batchType"] =
           responseData["details"]["batchType"];
       temp_class.details["productVedio"] =
           responseData["details"]["prodVedioLink"];
+          print("infooooooooooooooooooooooooooooooooooooo");
+          print(responseData["isTrackingAvailable"]);
+          print("infooooooooooooooooooooooooooooooooo");
       return temp_class;
     }
   }

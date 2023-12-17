@@ -495,7 +495,7 @@ class ActualGPSale extends StatelessWidget {
                         temp_class.details["serialNo"] = snapshot.details["serialNo"];
                         temp_class.details["warrantyApp"] = snapshot.details["warrantyApp"];
                         temp_class.details["price"] = snapshot.details["price"];
-                        temp_class.details["prodName"] = snapshot.details["name"];
+                        temp_class.details["prodName"] = snapshot.details["prodName"];
                         temp_class.details["imageProd"] = snapshot.details["imageProd"];
                         // temp_class.details["QROnProd"] =
                         //     responseData["batchDetails"]["QROnProd"];
