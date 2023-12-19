@@ -375,19 +375,21 @@ class _Product_FeedbackState extends State<Product_Feedback> {
                             child: ElevatedButton(
                               onPressed: ()async {
                                 print("ggggggggggggggggg");
-                                print(ReviewValue);
+                                print(ReviewValue.toInt());
                                 print(content.text);
-                                 final token = await createProductFeedback(
+                                 
+    final token = await createProductFeedback(
         widget.snapshot.details["prodID"],ReviewValue.toInt(),content.text);
-    
     // final token = await createAlbumPurchaseHistoryDetailsEmail(
     //     "email", "wkhan5776@gmail.com");
     // print(token);
   var responseData = (token.message);
   print("ads"+responseData);
+
   if(responseData=="Update sucessfull"){
     Navigator.pop(context);
      {
+      
             // print("Not ------------------------verified");
             final show = SnackBar(
                 duration: Duration(seconds: 1, milliseconds: 500),

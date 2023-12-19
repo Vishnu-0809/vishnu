@@ -626,6 +626,8 @@ class AlbumProductFeedback {
 
 Future<AlbumProductFeedback> createProductFeedback(String prodID, int rating,
     String feedback)async {
+       print( "xxxxxxxxxxxxx");
+      print(rating);
   final response = await http.post(
     Uri.parse(
         'http://ec2-13-235-124-84.ap-south-1.compute.amazonaws.com:3000/customer/prod-feedback'),
@@ -634,7 +636,7 @@ Future<AlbumProductFeedback> createProductFeedback(String prodID, int rating,
     },
     body: jsonEncode(<String, dynamic>{
      'productId':prodID,
-      'rating ':rating ,
+      'rating':rating!,
        'feedback':feedback!,
     }),
   );
