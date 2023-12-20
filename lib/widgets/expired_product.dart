@@ -446,6 +446,7 @@ YoutubePlayer(
                          temp_class.details["additionalImages"] = snapshot.details["additionalImages"];
                         temp_class.details['productVedio']=snapshot.details['productVedio'];
                         temp_class.details['batchType']=snapshot.details['batchType'];
+                        temp_class.details['manuWebsiteLink']=snapshot.details['manuWebsiteLink'];
                          print("=====================================");
                          print(snapshot.details["additionalImageDetails"]);
                          print("======================================");

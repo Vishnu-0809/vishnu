@@ -513,6 +513,7 @@ class ActualGPSale extends StatelessWidget {
                          temp_class.details['tracking']=snapshot.details['tracking']; ///changed
                          temp_class.details['productVedio']=snapshot.details['productVedio'];
                          temp_class.details['batchType']=snapshot.details['batchType'];
+                         temp_class.details['manuWebsiteLink']=snapshot.details['manuWebsiteLink'];
                          temp_class.bill = snapshot.bill;
                          print("--------------------");
                          print(temp_class.bill);

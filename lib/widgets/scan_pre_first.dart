@@ -528,6 +528,7 @@ class ScanPreFirstScreen extends StatelessWidget {
                          temp_class.details['tracking']=snapshot.details['tracking']; ///changed
                          temp_class.details['prodVedioLink']=snapshot.details['prodVedioLink'];
                          temp_class.details['batchType']=snapshot.details['batchType'];
+                         temp_class.details['manuWebsiteLink']=snapshot.details['manuWebsiteLink'];
                         Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => ProdDetails(link:link,snapshot: temp_class),
                         ));

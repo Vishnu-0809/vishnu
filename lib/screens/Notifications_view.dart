@@ -212,30 +212,38 @@ class _NotificationViewState extends State<NotificationView> {
     print('------------------------');
   }
 
-  List Combining_expiring_warranty(total_expiry, total_warranty) {
-    total = [];
-    print(" expiry");
-    print(total_expiry);
-    print("warranty");
-    print(total_warranty);
-    for (int i = 0; i < total_expiry.length; i++) {
-      total.add(total_expiry[i]);
-    }
+ List Combining_expiring_warranty( total_expiry, total_warranty) {
+  total = [];
+  print("expiry");
+  print(total_expiry);
+  print("warranty");
+  print(total_warranty);
+  print("---------------------");
+  print(total_expiry.length);
+  print(total_warranty.length);
+  print("------------------------");
 
-    for (int i = 0; i < total_warranty.length; i++) {
-      total.add(total_warranty[i]);
-    }
-    print('------------------------');
-    print("total waranty and notifications");
-    print(total);
-    print('------------------------');
-    total.sort((a, b) {
-      DateTime dateA = DateTime.parse(a[4]);
-      DateTime dateB = DateTime.parse(b[4]);
-      return dateA.compareTo(dateB);
-    });
-    return total;
-  }
+  total.addAll(total_expiry);
+  total.addAll(total_warranty);
+
+  print('------------------------');
+  print("total warranty and notifications (unsorted)");
+  print(total);
+  print('------------------------');
+
+  total.sort((a, b) {
+    DateTime dateA = DateTime.parse(a[1]); // Assuming the date is at index 1
+    DateTime dateB = DateTime.parse(b[1]);
+    return dateA.compareTo(dateB);
+  });
+
+  print('------------------------');
+  print("total warranty and notifications (sorted)");
+  print(total);
+  print('------------------------');
+
+  return total;
+}
 
   void notifications() async {
     SharedPreferences shref = await SharedPreferences.getInstance();

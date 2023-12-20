@@ -702,6 +702,7 @@ VideoPlayerView(
                          temp_class.details["additionalImageDetails"] = snapshot.details["additionalImageDetails"];
                          temp_class.details["isTrackingAvailable"] = snapshot.details["isTrackingAvailable"];
                          temp_class.details['tracking']=snapshot.details['tracking']; ///changed
+                         temp_class.details['manuWebsiteLink']=snapshot.details['manuWebsiteLink'];
                         Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) =>ProdDetails(link: link,snapshot: temp_class),
                         ));
