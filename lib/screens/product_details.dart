@@ -1072,7 +1072,7 @@ reupload_bill() async
                                 primary: Color(0xFFD1DEFF),
                                 ),
                                 onPressed: (){final Uri web_url = Uri.parse(
-                                                  'https://veots.com/');
+                                                  snapshot.details["manuWebsiteLink"]);
                                               launchUrl(web_url);}, 
                                 child: Text('Web Link',
                                 style: TextStyle(

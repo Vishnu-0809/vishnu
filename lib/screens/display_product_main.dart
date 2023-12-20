@@ -119,6 +119,8 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
           responseData["details"]["batchType"];
           temp_class.details["productVedio"] =
           responseData["details"]["prodVedioLink"];
+          temp_class.details["manuWebsiteLink"] =
+          responseData["details"]["manuWebsiteLink"];
         print("wdhbweifuhqwofijqeofnweoviwekfjwcwnociwefnwelf");
         print(responseData["details"]["type"]);
         print("wdhbweifuhqwofijqeofnweoviwekfjwcwnociwefnwelf");
@@ -224,6 +226,8 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
           responseData["batchDetails"]["batchType"];
           temp_class.details["productVedio"] =
           responseData["batchDetails"]["prodVedioLink"];
+          temp_class.details["manuWebsiteLink"] =
+          responseData["batchDetails"]["manuWebsiteLink"];
       
       print("222222222222222222");
       print(responseData["batchDetails"]["type"]);

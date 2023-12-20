@@ -820,6 +820,7 @@ VideoPlayerView(
                           temp_class.details['tracking']=widget.snapshot.details['tracking']; ///changed
                          temp_class.details['productVedio']=widget.snapshot.details['productVedio'];
                          temp_class.details['batchType']=widget.snapshot.details['batchType'];
+                         temp_class.details['manuWebsiteLink']=widget.snapshot.details['manuWebsiteLink'];
                           print("&&&&&&&&&&&");
                           print(temp_class.details['productVedio']);
                           print("&&&&&&&&&&&&&");
