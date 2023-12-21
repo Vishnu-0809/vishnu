@@ -840,69 +840,42 @@ class _GenuinePostState extends State<GenuinePost> {
                             //  else if(widget.sublink.length == 31)
                             //  print("=============================overt==============================");
 
-                            print("###########");
-                            print(widget.snapshot.details["mfgDate"]);
-                            print("###########");
-                            temp_class.details["message"] =
-                                widget.snapshot.message;
-                            temp_class.details["brand"] =
-                                widget.snapshot.details["brand"];
-                            temp_class.details["serialNo"] =
-                                widget.snapshot.details["serialNo"];
-                            temp_class.details["price"] =
-                                widget.snapshot.details["price"];
-                            temp_class.details["prodName"] =
-                                widget.snapshot.details["prodName"];
-                            temp_class.details["imageProd"] =
-                                widget.snapshot.details["imageProd"];
-                            // temp_class.details["QROnProd"] =
-                            //     responseData["batchDetails"]["QROnProd"];
-                            temp_class.details["expiry"] =
-                                widget.snapshot.details["expiry"];
-                            temp_class.details["batchNo"] =
-                                widget.snapshot.details["batchNo"];
-                            temp_class.details["clientId"] =
-                                widget.snapshot.details["clientId"];
-                            temp_class.details["warrantyApp"] =
-                                widget.snapshot.details["warrantyApp"];
-                            temp_class.details["warrantyPeriod"] =
-                                widget.snapshot.details["warrantyPeriod"];
-                            temp_class.details["cashBackApp"] =
-                                widget.snapshot.details["cashBackApp"];
-                            temp_class.details["cashBackPts"] =
-                                widget.snapshot.details["cashBackPts"];
-                            temp_class.details["id"] =
-                                widget.snapshot.details["id"];
-                            temp_class.details["QROnprod"] =
-                                widget.snapshot.details["QROnprod"];
-                            temp_class.details["mfgDate"] =
-                                widget.snapshot.details["mfgDate"];
-                            temp_class.details["manuLicenseNo"] =
-                                widget.snapshot.details["manuLicenseNo"];
-                            temp_class.details["manuAddress"] =
-                                widget.snapshot.details["manuAddress"];
-                            temp_class.details["additionalDetails"] =
-                                widget.snapshot.details["additionalDetails"];
-                            temp_class.details["additionalImages"] =
-                                widget.snapshot.details["additionalImages"];
-                            temp_class.details["additionalImageDetails"] =
-                                widget
-                                    .snapshot.details["additionalImageDetails"];
-                            temp_class.details["shelfLife"] =
-                                widget.snapshot.details["shelflife"];
-                            temp_class.details['tracking'] =
-                                widget.snapshot.details['tracking'];
-                            temp_class.details["isTrackingAvailable"] =
-                                widget.snapshot.details["isTrackingAvailable"];
-                            temp_class.details["preSaleCode"] =
-                                widget.snapshot.details["preSaleCode"];
-                            temp_class.details['productVedio'] =
-                                widget.snapshot.details['productVedio'];
-                            temp_class.details['batchType'] =
-                                widget.snapshot.details['batchType'];
-                            print("&&&&&&&&&&&");
-                            print(temp_class.details['productVedio']);
-                            print("&&&&&&&&&&&&&");
+
+
+                          print("###########");
+                          print(widget.snapshot.details["mfgDate"]);
+                          print("###########");
+                           temp_class.details["message"] = widget.snapshot.message;
+                          temp_class.details["brand"] = widget.snapshot.details["brand"];
+                          temp_class.details["serialNo"] = widget.snapshot.details["serialNo"];
+                          temp_class.details["price"] = widget.snapshot.details["price"];
+                          temp_class.details["prodName"] = widget.snapshot.details["prodName"];
+                          temp_class.details["imageProd"] = widget.snapshot.details["imageProd"];
+                          // temp_class.details["QROnProd"] =
+                          //     responseData["batchDetails"]["QROnProd"];
+                          temp_class.details["expiry"] = widget.snapshot.details["expiry"];
+                          temp_class.details["batchNo"] = widget.snapshot.details["batchNo"];
+                          temp_class.details["clientId"] = widget.snapshot.details["clientId"];
+                          temp_class.details["warrantyApp"] = widget.snapshot.details["warrantyApp"];
+                          temp_class.details["warrantyPeriod"] = widget.snapshot.details["warrantyPeriod"];
+                          temp_class.details["cashBackApp"] =widget.snapshot.details["cashBackApp"];
+                          temp_class.details["cashBackPts"] = widget.snapshot.details["cashBackPts"];
+                          temp_class.details["id"] = widget.snapshot.details["id"];
+                          temp_class.details["QROnprod"] = widget.snapshot.details["QROnprod"];
+                          temp_class.details["mfgDate"] = widget.snapshot.details["mfgDate"];
+                          temp_class.details["manuLicenseNo"] = widget.snapshot.details["manuLicenseNo"];
+                          temp_class.details["manuAddress"] = widget.snapshot.details["manuAddress"]; 
+                          temp_class.details["additionalDetails"] =widget.snapshot.details["additionalDetails"];  
+                          temp_class.details["additionalImages"] = widget.snapshot.details["additionalImages"]; 
+                          temp_class.details["additionalImageDetails"] = widget.snapshot.details["additionalImageDetails"]; 
+                          temp_class.details["shelfLife"] = widget.snapshot.details["shelflife"];
+                          temp_class.details['tracking']=widget.snapshot.details['tracking']; ///changed
+                         temp_class.details['productVedio']=widget.snapshot.details['productVedio'];
+                         temp_class.details['batchType']=widget.snapshot.details['batchType'];
+                         temp_class.details['manuWebsiteLink']=widget.snapshot.details['manuWebsiteLink'];
+                          print("&&&&&&&&&&&");
+                          print(temp_class.details['productVedio']);
+                          print("&&&&&&&&&&&&&");
                             Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => ProdDetails(
                                   link: widget.link, snapshot: temp_class),

@@ -1327,7 +1327,7 @@ var coupon_img;
               else
               Container(
                 padding: EdgeInsets.only(top: 70),
-                child: Text("No rewards to show", style: TextStyle(fontSize: 20),  ),
+                child: Text("No rewards to show", style: TextStyle(fontSize: 20, color: Colors.black),  ),
               )
 
 // // -----------------------------------------------------------
