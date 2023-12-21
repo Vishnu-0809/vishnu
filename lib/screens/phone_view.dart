@@ -115,6 +115,7 @@ class _Phone_viewState extends State<Phone_view> {
         if ((id.text.length == 10 && reg.hasMatch(id.text))) {
           token2 = await createAlbum_otpSendforgotPWd(id.text.toString());
           if (token2!.type == 'success') {
+            
             widget.mainLink == ""
                 ? Navigator.of(context).push(
                     MaterialPageRoute(
@@ -133,6 +134,10 @@ class _Phone_viewState extends State<Phone_view> {
                               // location_on: widget.location_on,
                             ))),
                   );
+
+                   setState(() {
+            login_loading = false;
+          });
           } else {
             print("Not ------------------------verified");
             final show = SnackBar(
@@ -154,6 +159,9 @@ class _Phone_viewState extends State<Phone_view> {
                   borderRadius: BorderRadius.circular(15.0),
                 ));
             ScaffoldMessenger.of(context).showSnackBar(show);
+             setState(() {
+            login_loading = false;
+          });
           }
         } else if (id.text.contains('@') && id.text.contains('.')) {
           token3 = await createAlbum_otpSendforgotPWdemdail(id.text.toString());
@@ -180,6 +188,9 @@ class _Phone_viewState extends State<Phone_view> {
                               // location_on: widget.location_on
                             ))),
                   );
+                   setState(() {
+            login_loading = false;
+          });
           } else {
             print("Not ------------------------verified");
             final show = SnackBar(
@@ -201,14 +212,23 @@ class _Phone_viewState extends State<Phone_view> {
                   borderRadius: BorderRadius.circular(15.0),
                 ));
             ScaffoldMessenger.of(context).showSnackBar(show);
+             setState(() {
+            login_loading = false;
+          });
           }
         } else {
           final show_net = Show_snack(context, "Please enter your Email/Phone");
           ScaffoldMessenger.of(context).showSnackBar(show_net);
+           setState(() {
+            login_loading = false;
+          });
         }
       } else {
         final show_net = Show_snack(context, "Please check your connection");
         ScaffoldMessenger.of(context).showSnackBar(show_net);
+         setState(() {
+            login_loading = false;
+          });
       }
     }
   }

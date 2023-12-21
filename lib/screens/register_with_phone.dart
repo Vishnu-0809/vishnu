@@ -733,15 +733,9 @@ class Register_with_phone_State extends State<Register_with_phone_> {
                                                                   "${selectedDate.toLocal()}"
                                                                       .split(
                                                                           ' ')[0],
-                                                                  style: TextStyle(
-                                                                      color: const Color(
-                                                                          0xFF4d4c4c),
-                                                                     fontWeight: FontWeight.bold,
-                                                          fontFamily:
-                                                              "Montserrat",
-                                                                      fontSize:
-                                                                          MediaQuery.of(context).size.height /
-                                                                              48),
+                                                                   style: TextStyle(
+                                                        color: Colors.black),
+                                                   
                                                                 ),
                                                               )
                                                             ]),

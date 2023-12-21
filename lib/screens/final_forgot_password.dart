@@ -28,9 +28,9 @@ class _Forgot_passwordState extends State<Forgot_password> {
 
 final new_password = TextEditingController();
 final confirm_password = TextEditingController();
-final new_formkey = GlobalKey<FormState>();
-final confirm_formkey = GlobalKey<FormState>();
-final formkey= GlobalKey<FormState>();
+// final new_formkey = GlobalKey<FormState>();
+// final confirm_formkey = GlobalKey<FormState>();
+final formkey_0= GlobalKey<FormState>();
 bool visible_new =true;
 bool visible_confirm =true;
   Album_reset? token3;
@@ -38,7 +38,7 @@ bool visible_confirm =true;
 // Albumotpsendforgotpwd? token2;
  void verify () async
  {
-  if (formkey.currentState!.validate() ){
+  if (formkey_0.currentState!.validate() ){
     // token=await createAlbum_reset(123, widget.phoneNum.toString(), confirm_password.text) ;
    // token2 = await createAlbum4(widget.Username, widget.password,
       //     widget.gender, IsPhoneNo, widget.phoneNum, v1);
@@ -60,10 +60,10 @@ bool visible_confirm =true;
         //     builder: (context) => HomeScreen(first_time: 1,),
         //   ),
         // );
-         Navigator.of(context).pushAndRemoveUntil(
+         Navigator.of(context).push(
                                       MaterialPageRoute(
                                           builder: ((context) =>Login(mainLink: widget.main_Link,location_on: true,))),
-                                      (Route<dynamic> route) => false,
+                                      // (Route<dynamic> route) => false,
                                       );
       } else if(token3!.status==400)
       {
@@ -232,18 +232,16 @@ bool visible_confirm =true;
                   ),
                     SizedBox(height: MediaQuery.of(context).size.height*0.043),
                     Form(
-                      key: formkey,
+                      key: formkey_0,
                       child:Column(
                         children: [
                            Container(
                       margin: EdgeInsets.only(left:30,right: 30),
                       child: TextFormField(
-                        key:new_formkey,
+                        // key:new_formkey,
                               autovalidateMode: AutovalidateMode.onUserInteraction,
                                 onChanged: (value) {
-                                  if (!new_formkey.currentState!.validate()) {
-                                    
-                                  }
+                               
                                 },
                                                   //  autovalidateMode: AutovalidateMode.onUserInteraction,
                          validator: (value){
@@ -341,9 +339,9 @@ bool visible_confirm =true;
                               Container(
                       margin: EdgeInsets.only(left:30,right: 30),
                       child: TextFormField(
-                                key:confirm_formkey,
+                                // key:confirm_formkey,
                                 onChanged: (value) {
-                                  if (!confirm_formkey.currentState!.validate()) {}
+                                  // if (!confirm_formkey.currentState!.validate()) {}
                                 },
                                 autovalidateMode: AutovalidateMode.onUserInteraction,
 

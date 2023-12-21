@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:Veots/screens/VideoPlayer.dart';
 import 'package:Veots/screens/finalvideoplayer.dart';
 import 'package:Veots/screens/product_feedback.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:Veots/dummy.dart';
 import 'package:Veots/screens/Notifications_view.dart';
@@ -703,7 +704,7 @@ OverlayEntry? overlayEntry;
   }
 });
   }
-
+bool connectivityResult = true;
   void initState() {
         () async {
       await getSearchData();
@@ -738,6 +739,7 @@ _scrollController.addListener(() {
         
       });
     }();
+    
       }
     });
 
@@ -1553,7 +1555,11 @@ Navigator.of(context).push(MaterialPageRoute(
                 itemCount: SuggestionsDetailsList.length,
                 itemBuilder: (context, index) {
 
-                  
+        //            Future<ScaffoldFeatureController<SnackBar, SnackBarClosedReason>> InternetCheck()async{
+        //             connectivityResult = await InternetConnectionChecker().hasConnection;
+        //              final show_net = Show_snack(context, "Please check your connection");
+        // return ScaffoldMessenger.of(context).showSnackBar(show_net);
+        //           }
 final sea = SuggestionsDetailsList[index];
                   // String WarrantyDate= " 0 days ";
 //                      String current_Date=DateTime.now().toString().substring(0,10);
@@ -1636,7 +1642,7 @@ final sea = SuggestionsDetailsList[index];
                                 String year=temp.substring(2, 4);
                                 String FinalPurchaseDate="On"+" "+Dayinwords+" "+","+ Day+ " " +Month+" "+year; 
 
-
+// InternetCheck();
                   return Container(
                     child: Container(
                     // shadowColor: Color.fromARGB(255, 180, 38, 236),
