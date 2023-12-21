@@ -284,7 +284,7 @@ reupload_bill() async
           SizedBox(
             height: MediaQuery.of(context).size.height / 70,
           ),
-          if(snapshot.details["purchaseDate"] != null)
+          if(snapshot.details["purchaseDate"] != null && snapshot.details["warrantyApp"]==true)
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
