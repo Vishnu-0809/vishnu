@@ -843,6 +843,7 @@ class _GenuinePreState extends State<GenuinePre> {
                                         .details["isTrackingAvailable"];
                                 temp_class.details["preSaleCode"] =
                                     widget.snapshot.details["preSaleCode"];
+                                    temp_class.details['manuWebsiteLink']=widget.snapshot.details['manuWebsiteLink'];
 
                                 print(
                                     "===================gnu==================");
