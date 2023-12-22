@@ -60,10 +60,10 @@ bool visible_confirm =true;
         //     builder: (context) => HomeScreen(first_time: 1,),
         //   ),
         // );
-         Navigator.of(context).push(
+         Navigator.of(context).pushAndRemoveUntil(
                                       MaterialPageRoute(
                                           builder: ((context) =>Login(mainLink: widget.main_Link,location_on: true,))),
-                                      // (Route<dynamic> route) => false,
+                                      (Route<dynamic> route) => false,
                                       );
       } else if(token3!.status==400)
       {
