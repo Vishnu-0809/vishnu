@@ -99,6 +99,7 @@ class Phone_view extends StatefulWidget {
 class _Phone_viewState extends State<Phone_view> {
   Albumotpsendforgotpwd? token2;
   AlbumotpsendforgotpwdEmail? token3;
+  AlbumCheckIfUserExists? token4;
   void send_otp_verify() async {}
 
   void forgotpwd_function() async {
@@ -113,7 +114,14 @@ class _Phone_viewState extends State<Phone_view> {
         // (name.text.length == 10 && reg.hasMatch(name.text)) ? true : false);
         print("--------------------------------------------------");
         if ((id.text.length == 10 && reg.hasMatch(id.text))) {
-          token2 = await createAlbum_otpSendforgotPWd(id.text.toString());
+          token4=await createCheckIfUserExists(true,id.text.toString());
+          print("checkuser api response");
+          print(token4!.message);
+          
+          print(token4!.statusCode);
+          if(token4!.statusCode==200)
+          {
+            token2 = await createAlbum_otpSendforgotPWd(id.text.toString());
           if (token2!.type == 'success') {
             
             widget.mainLink == ""
@@ -163,7 +171,29 @@ class _Phone_viewState extends State<Phone_view> {
             login_loading = false;
           });
           }
+          }
+          else if(token4!.statusCode==404){
+             final show_net = Show_snack(context, "User does not Exist");
+          ScaffoldMessenger.of(context).showSnackBar(show_net);
+           setState(() {
+            login_loading = false;
+          });
+          }
+          else{
+             final show_net = Show_snack(context, "Something went wrong");
+          ScaffoldMessenger.of(context).showSnackBar(show_net);
+           setState(() {
+            login_loading = false;
+          });
+          }
         } else if (id.text.contains('@') && id.text.contains('.')) {
+         token4=await createCheckIfUserExists(false,id.text.toString());
+          print("checkuser api response");
+          print(token4!.message);
+          
+          print(token4!.statusCode);
+          if(token4!.statusCode==200)
+          {
           token3 = await createAlbum_otpSendforgotPWdemdail(id.text.toString());
           print(token3);
           if (token3!.type == 'success') {
@@ -213,6 +243,21 @@ class _Phone_viewState extends State<Phone_view> {
                 ));
             ScaffoldMessenger.of(context).showSnackBar(show);
              setState(() {
+            login_loading = false;
+          });
+          }
+          }
+          else if(token4!.statusCode==404){
+             final show_net = Show_snack(context, "User does not Exist");
+          ScaffoldMessenger.of(context).showSnackBar(show_net);
+           setState(() {
+            login_loading = false;
+          });
+          }
+          else{
+             final show_net = Show_snack(context, "Something went wrong");
+          ScaffoldMessenger.of(context).showSnackBar(show_net);
+           setState(() {
             login_loading = false;
           });
           }

@@ -1,6 +1,7 @@
 // import 'dart:html';
 // import 'dart:io' as http;
 import 'dart:io';
+import 'package:Veots/widgets/Requests.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
@@ -615,13 +616,14 @@ Future<AlbumTracking> createAlbumTracking(String batchNo, String clientId,
 
 class AlbumProductFeedback {
   String message;
-  AlbumProductFeedback({required this.message});
+  int statusCode;
+  AlbumProductFeedback({required this.message,required this.statusCode});
 
-  factory AlbumProductFeedback.fromJson(Map<String, dynamic> json) {
-    return AlbumProductFeedback(
-      message: json['message'],
-    );
-  }
+  // factory AlbumProductFeedback.fromJson(Map<String, dynamic> json) {
+  //   return AlbumProductFeedback(
+  //     message: json['message'],
+  //   );
+  // }
 }
 
 Future<AlbumProductFeedback> createProductFeedback(String prodID, int rating,
@@ -640,7 +642,54 @@ Future<AlbumProductFeedback> createProductFeedback(String prodID, int rating,
        'feedback':feedback!,
     }),
   );
-  print(response.statusCode);
-  print(json.decode(response.body.toString()));
-  return AlbumProductFeedback.fromJson(json.decode(response.body));
+  final statusCode = response.statusCode;
+  final decodedResponse = json.decode(response.body);
+
+  print(statusCode);
+  print(decodedResponse['message']);
+
+  return AlbumProductFeedback(statusCode: statusCode, message: decodedResponse['message']);
 }
+
+
+
+class AlbumCheckIfUserExists {
+  String message;
+   int statusCode;
+
+  AlbumCheckIfUserExists({required this.message,required this.statusCode});
+
+  // factory AlbumCheckIfUserExists.fromJson(Map<String, dynamic> json) {
+  //   return AlbumCheckIfUserExists(
+  //     message: json['message'],
+
+  //   );
+  // }
+}
+
+Future<AlbumCheckIfUserExists> createCheckIfUserExists(bool isPhoneNo, String contact,
+    )async {
+       
+  final response = await http.post(
+    Uri.parse(
+        'https://api.veots.in/api/auth/customer/check-identity'),
+    headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+    body: jsonEncode(<String, dynamic>{
+     
+    "isPhoneNo":isPhoneNo,
+    "contact":contact
+
+
+    }),
+  );
+final statusCode = response.statusCode;
+  final decodedResponse = json.decode(response.body);
+
+  print(statusCode);
+  print(decodedResponse['message']);
+
+  return AlbumCheckIfUserExists(statusCode: statusCode, message: decodedResponse['message']);
+}
+

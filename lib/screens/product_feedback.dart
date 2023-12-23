@@ -385,8 +385,9 @@ class _Product_FeedbackState extends State<Product_Feedback> {
     // print(token);
   var responseData = (token.message);
   print("ads"+responseData);
+  print(token.statusCode);
 
-  if(responseData=="Update sucessfull"){
+  if(token.statusCode==200){
     Navigator.pop(context);
      {
       
@@ -412,14 +413,14 @@ class _Product_FeedbackState extends State<Product_Feedback> {
             ScaffoldMessenger.of(context).showSnackBar(show);
           }
     }
-    else{
+    else if(token!.statusCode==404){
        {
             print("Not ------------------------verified");
             final show = SnackBar(
                 duration: Duration(seconds: 1, milliseconds: 500),
                 content: Text(
                   // token!.message,
-                  "Please try again!",
+                  "Update unsuccessful",
                   style: TextStyle(color: Color.fromRGBO(255, 255, 255, 0.9)),
                   textAlign: TextAlign.center,
                 ),
@@ -436,6 +437,28 @@ class _Product_FeedbackState extends State<Product_Feedback> {
             ScaffoldMessenger.of(context).showSnackBar(show);
           }
     }
+    else {
+            print("Not ------------------------verified");
+            final show = SnackBar(
+                duration: Duration(seconds: 1, milliseconds: 500),
+                content: Text(
+                  // token!.message,
+                  "Please try again",
+                  style: TextStyle(color: Color.fromRGBO(255, 255, 255, 0.9)),
+                  textAlign: TextAlign.center,
+                ),
+                backgroundColor: Color.fromRGBO(72, 72, 72, 0.8),
+                behavior: SnackBarBehavior.floating,
+                margin: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width * 0.25,
+                  right: MediaQuery.of(context).size.width * 0.25,
+                  bottom: MediaQuery.of(context).size.height * 0.05,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                ));
+            ScaffoldMessenger.of(context).showSnackBar(show);
+          }
     // if()
                               },
                               style: ElevatedButton.styleFrom(

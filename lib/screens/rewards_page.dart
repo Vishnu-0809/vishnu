@@ -865,59 +865,67 @@ var coupon_img;
                     //   width: MediaQuery.of(context).size.width * 0.45,
                     // ),
                     Container(
-                        height: MediaQuery.of(context).size.width * 0.08,
-                        width: MediaQuery.of(context).size.width * 0.08,
-                        decoration: BoxDecoration(
-                          color: Color(0xff002060),
-                          borderRadius: BorderRadius.all(Radius.circular(5)),
-                        ),
-                        child: Center(
-                          child: FittedBox(
-                              child: IconButton(
-                                  onPressed: () {
-                                    Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: 
-                                   (context)=>HomeScreen(first_time: 0,
-                                   mainLink: '',location_on: true,)), (route) => false);
-                                  },
-                                  icon: Icon(
-                                    Icons.home,
-                                    // size: MediaQuery.of(context).size.width * 0.06,
-                                    color: Colors.white,
-                                  ))),
-                        )),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.015,
-                    ),
-                  Not_icon(),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.015,
-                  ),
-                    Container(
-                        height: MediaQuery.of(context).size.width * 0.08,
-                        width: MediaQuery.of(context).size.width * 0.08,
-                        decoration: BoxDecoration(
-                          color: Color(0xff002060),
-                          borderRadius: BorderRadius.all(Radius.circular(5)),
-                        ),
-                        child: Center(
-                          child: FittedBox(
-                            child: InkWell(
-                              onTap: () {
-                                // widget.keyD.currentState?.openDrawer();
-                                
-                        _scaffoldKey.currentState?.openDrawer();
-                              },
-                              child: Icon(
-                                Icons.menu,
-                                size: MediaQuery.of(context).size.width * 0.05,
-                                color: Colors.white,
-                              ),
+                            height: MediaQuery.of(context).size.width * 0.07,
+                            width: MediaQuery.of(context).size.width * 0.07,
+                            decoration: const BoxDecoration(
+                              color: Color(0xff002060),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(5)),
                             ),
-                          ),
-                        )),
-                    SizedBox(
-                      width: 12,
-                    )
+                            child: Center(
+                              child: FittedBox(
+                                  child: IconButton(
+                                      onPressed: () {
+                                        Navigator.of(context)
+                                            .pushAndRemoveUntil(
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        HomeScreen(
+                                                          first_time: 0,
+                                                          mainLink: '',
+                                                          location_on: true,
+                                                        )),
+                                                (route) => false);
+                                      },
+                                      icon: const Icon(
+                                        Icons.home,
+                                        color: Colors.white,
+                                      ))),
+                            )),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.015,
+                        ),
+                        Not_icon(),
+
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.015,
+                        ),
+                        Container(
+                            height: MediaQuery.of(context).size.width * 0.07,
+                            width: MediaQuery.of(context).size.width * 0.07,
+                            decoration: const BoxDecoration(
+                              color: Color(0xff002060),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(5)),
+                            ),
+                            child: Center(
+                              child: FittedBox(
+                                child: InkWell(
+                                  onTap: () {
+                                    _scaffoldKey.currentState?.openDrawer();
+                                  },
+                                  child: Icon(
+                                    Icons.menu,
+                                    size: MediaQuery.of(context).size.width *
+                                        0.05,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            )),
+                        const SizedBox(
+                          width: 12,
+                        )
                   ],
                 ),
               ),
