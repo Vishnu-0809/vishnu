@@ -168,7 +168,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
     SystemChrome.setPreferredOrientations(
         [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
     return ScreenUtilInit(
-        builder: ((context, child) => MaterialApp(
+        builder: ((context, child) => MaterialApp( //line 171
             debugShowCheckedModeBanner: false,
             title: 'Veots',
             theme: ThemeData(
