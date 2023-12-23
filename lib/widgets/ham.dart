@@ -1,10 +1,12 @@
+import 'dart:convert';
 import 'dart:io';
-
+import 'package:http/http.dart' as http;
 import 'package:Veots/screens/FAQ.dart';
 import 'package:Veots/screens/TnC.dart';
 import 'package:Veots/screens/privacypolicy.dart';
 import 'package:Veots/screens/profile_new.dart';
 import 'package:Veots/screens/purchase_history.dart';
+import 'package:Veots/screens/rewards_page.dart';
 import 'package:Veots/widgets/send_accept.dart';
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
@@ -21,12 +23,21 @@ import 'NetworkCheck.dart';
  final edit_password =TextEditingController();
  
 
-class HamWidget extends StatelessWidget {
+class HamWidget extends StatefulWidget {
   HamWidget({super.key});
+
+  @override
+  State<HamWidget> createState() => _HamWidgetState();
+}
+
+bool getting_coupons_data = false;
+class _HamWidgetState extends State<HamWidget> {
   final playStore_url = Uri.parse("https://play.google.com/store/apps/details?id=com.Veots");
+
   final appStore_url = Uri.parse("https://apps.apple.com/in/app/veots/id6448496034");
 
   @override
+  
   Widget build(BuildContext context) {
     return Drawer(
           
@@ -143,18 +154,71 @@ class HamWidget extends StatelessWidget {
             title:  Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
+                getting_coupons_data == true ?
               Container(
                 // color: Colors.red,
                 // width: MediaQuery.of(context).size.width*0.07,
                 child: IconButton(
                   color: const Color(0xff002060),
-                  onPressed: (){}, icon: Icon(Icons.currency_rupee_rounded)),
-              ),
+                  onPressed: (){
+                  }, icon: Icon(Icons.currency_rupee_rounded)),
+              ) : Container(
+                      height: 15,
+                      width: 13,
+                      child: CircularProgressIndicator()),
               const Text("Rewards", style: TextStyle(fontFamily: "Poppins Medium"),)
             ],),
-            onTap: () {
+            onTap: () async{
               // Update the state of the app.
               // ...
+              setState(() {
+                         getting_coupons_data = true;
+                      });
+                    SharedPreferences pref= await SharedPreferences.getInstance();
+                    print(LOCATION);
+                    //  int? expiryLength=shref.getInt("expiryLength");
+                    // print(pref.getStringList("data"));
+                    // print( pref.getStringList('expiredData'));
+                    // print(   pref.getStringList('weekexpired'));
+                    // print(   pref.getStringList("datawarranty"));
+                    // print( pref.getStringList('expiredDatawarranty'));
+                    // print(  pref.getStringList('weekexpiredwarranty'));
+                  // pref.remove("data");
+                  // pref.remove('expiredData');
+                  // pref.remove('weekexpired');
+                  // pref.remove("datawarranty");
+                  // pref.remove('expiredDatawarranty');
+                  // pref.remove('weekexpiredwarranty');
+
+                      // trycalback();
+                    // loginNotification();
+                    // loginWarranty();
+                    // await shref.setString('notification',"show");
+        //             int? expiryLength= await shref.getInt("expiryLength");
+        //           int? warrntyLength= await  shref.getInt("warrantyLength");
+        // print((expiryLength! + warrntyLength!).toString());
+     
+        // date=DateTime.now();
+        // print(date.day==25);
+        print(custId_coupon);
+        String url = 'http://ec2-13-235-124-84.ap-south-1.compute.amazonaws.com:3005/api/clients/customer/'+custId_coupon!+'/coupons/';
+        print("------------------------------");
+        print(url);
+        print("------------------------------");
+ final response = await http.get(Uri.parse(url));
+//  print("asd");
+                  //  print(response);
+                   final jsonData = json.decode(response.body);
+                   print("-----------------------------------------");
+                   print("coupons details");
+                   print(jsonData);                    setState(() {
+                         getting_coupons_data = false;
+                      });
+                   Navigator.of(context).push(
+          MaterialPageRoute(
+              builder: ((context) => Rewards(coupons_details: jsonData, customerId: custId_coupon.toString())
+                  )),
+                );
             },
           ),
           ListTile(
