@@ -112,12 +112,11 @@ class _Product_FeedbackState extends State<Product_Feedback> {
               Text(
                 "Product Feedback",
                 style: TextStyle(
-                  // fontWeight: FontWeight.bold,
-                  fontFamily: "Poppins Medium",
-                  color: const Color(0xff002060),
-                  // fontStyle: FontStyle.italic,
-                  fontSize: MediaQuery.of(context).size.width * 0.058,
-                ),
+                              color: const Color(0xff002060),
+                              fontSize:
+                                  MediaQuery.of(context).size.width * 0.042,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: "Poppins Medium"),
               ),
             ],
           ),
@@ -338,6 +337,13 @@ class _Product_FeedbackState extends State<Product_Feedback> {
           width: MediaQuery.of(context).size.width * 0.95,
           child: TextField(
             controller: content,
+            style:TextStyle(
+                  // fontWeight: FontWeight.bold,
+                  fontFamily: "Poppins Medium",
+                  color: const Color(0xff002060),
+                  // fontStyle: FontStyle.italic,
+                  fontSize: MediaQuery.of(context).size.width * 0.028,
+                ) ,
             maxLines: 15, //or null
             decoration: InputDecoration.collapsed(
                 hintText:

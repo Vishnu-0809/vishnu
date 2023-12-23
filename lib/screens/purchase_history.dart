@@ -2147,18 +2147,19 @@ class _PurchaseHistoryState extends State<PurchaseHistory> {
                                                                       sea.details[
                                                                           "prodName"],
                                                                       style:
-                                                                          TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight.bold,
-                                                                        fontFamily:
-                                                                            "Poppins Medium",
+                                                                        TextStyle(
+                                                                      // fontWeight: FontWeight.bold,
+                                                                      fontFamily:
+                                                                          "Poppins Medium",
                                                                         color: const Color(
                                                                             0xff002060),
-                                                                        // fontStyle: FontStyle.italic,
-                                                                        fontSize:
-                                                                            MediaQuery.of(context).size.height *
-                                                                                0.018,
-                                                                      ),
+                                                                      // backgroundColor:Color(0x888888),
+                                                                      // fontStyle: FontStyle.italic,
+                                                                      fontSize: MediaQuery.of(context)
+                                                                              .size
+                                                                              .height *
+                                                                          0.014,
+                                                                    ),
                                                                     )
                                                                   : Container()),
                                                           // SizedBox(height: 8),
@@ -2180,12 +2181,12 @@ class _PurchaseHistoryState extends State<PurchaseHistory> {
                                                                           123,
                                                                           119,
                                                                           119),
-                                                                      //  backgroundColor:Color(0x888888),
+                                                                      // backgroundColor:Color(0x888888),
                                                                       // fontStyle: FontStyle.italic,
                                                                       fontSize: MediaQuery.of(context)
                                                                               .size
                                                                               .height *
-                                                                          0.018,
+                                                                          0.014,
                                                                     ),
                                                                   ),
                                                                 )

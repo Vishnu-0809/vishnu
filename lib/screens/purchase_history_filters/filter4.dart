@@ -1425,14 +1425,18 @@ Navigator.of(context).push(MaterialPageRoute(
                                                 child: sea.details["prodName"]!=null?Text(
                                     sea.details["prodName"],
                                     style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: "Poppins Medium",
-                                      color:const Color(0xff002060),
-                                      // fontStyle: FontStyle.italic,
-                                      fontSize:
-                                          MediaQuery.of(context).size.height *
-                                              0.018,
-                                    ),
+                                                                      // fontWeight: FontWeight.bold,
+                                                                      fontFamily:
+                                                                          "Poppins Medium",
+                                                                        color: const Color(
+                                                                            0xff002060),
+                                                                      // backgroundColor:Color(0x888888),
+                                                                      // fontStyle: FontStyle.italic,
+                                                                      fontSize: MediaQuery.of(context)
+                                                                              .size
+                                                                              .height *
+                                                                          0.014,
+                                                                    ),
                                   ):Container()
                                               ),
                                               // SizedBox(height: 8),
@@ -1441,15 +1445,21 @@ Navigator.of(context).push(MaterialPageRoute(
                                                 child: Text(
                                     sea.details["brand"],
                                     style: TextStyle(
-                                      // fontWeight: FontWeight.bold,
-                                      fontFamily: "Poppins Medium",
-                                      color: Color.fromARGB(255, 123, 119, 119),
-                                      //  backgroundColor:Color(0x888888),
-                                      // fontStyle: FontStyle.italic,
-                                     fontSize:
-                                          MediaQuery.of(context).size.height *
-                                              0.018,
-                                    ),
+                                                                      // fontWeight: FontWeight.bold,
+                                                                      fontFamily:
+                                                                          "Poppins Medium",
+                                                                      color: Color.fromARGB(
+                                                                          255,
+                                                                          123,
+                                                                          119,
+                                                                          119),
+                                                                      // backgroundColor:Color(0x888888),
+                                                                      // fontStyle: FontStyle.italic,
+                                                                      fontSize: MediaQuery.of(context)
+                                                                              .size
+                                                                              .height *
+                                                                          0.014,
+                                                                    ),
                                   ),
                                               ):Container(),
                                               // Text(
