@@ -54,6 +54,10 @@ android {
  dexOptions {
         javaMaxHeapSize "4g"
     }
+    buildFeatures {
+        
+        // buildCache = true
+    }
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.Veots"
