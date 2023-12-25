@@ -154,7 +154,7 @@ class _HamWidgetState extends State<HamWidget> {
             title:  Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                getting_coupons_data == true ?
+                getting_coupons_data == false ?
               Container(
                 // color: Colors.red,
                 // width: MediaQuery.of(context).size.width*0.07,
@@ -163,8 +163,9 @@ class _HamWidgetState extends State<HamWidget> {
                   onPressed: (){
                   }, icon: Icon(Icons.currency_rupee_rounded)),
               ) : Container(
-                      height: 15,
-                      width: 13,
+                margin: EdgeInsets.only(left:8, right: 11),
+                      height: 20,
+                      width: 20,
                       child: CircularProgressIndicator()),
               const Text("Rewards", style: TextStyle(fontFamily: "Poppins Medium"),)
             ],),
