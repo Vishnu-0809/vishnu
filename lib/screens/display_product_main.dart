@@ -549,7 +549,14 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
                               snapshot: snapshot.data,
                               keyD: _scaffoldKey,
                             );
-                          } else if (snapshot.data.message == "Fake") {
+                          }
+                          else if (snapshot.data.message == "Invalid Product") {
+                            return InvalidProd(
+                              snapshot: snapshot.data,
+                              keyD: _scaffoldKey,
+                            );
+                          } 
+                           else if (snapshot.data.message == "Fake") {
                             return FakeProduct(
                                 snapshot: snapshot.data,
                                 keyD: _scaffoldKey,

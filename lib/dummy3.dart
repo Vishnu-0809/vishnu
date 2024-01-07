@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:video_player/video_player.dart';
 
 
-const List<String> list = <String>['Exp. Date', 'Mfg. Date'];
+const List<String> list = <String>[ 'Type', 'Exp. Date', 'Mfg. Date'];
 const List<String> list2 = <String>['DD','1', '2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29', '30','31'];
 const List<String> list3 = <String>['MM','JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUNE', 'JULY', 'AUG', 'SEPT', 'OCT', 'NOV', 'DEC'];
 const List<String> list4 = <String>['YYYY', '2000','2001','2002','2003','2004','2005','2006','2007','2008','2009','2010','2012','2013','2014','2015','2016','2017','2018','2019','2020','2021','2022','2023','2024','2025','2026','2027','2028','2029','2030','2031','2032','2033','2034','2035','2036','2037','2038','2039','2040','2041',];
@@ -178,244 +178,244 @@ class _dummy3State extends State<dummy3> {
                       )),
                           ),
                 ),
-            // Container(
-            //   child: Row(
-            //     children: [
-            //       Container(
-            //         height:MediaQuery.of(context).size.width * 0.075,
-            //           width: MediaQuery.of(context).size.width * 0.075,
-            //         child: IconButton(
-            //           onPressed: () {
-            //             int count = 0;
-            // Navigator.of(context).popUntil((_) => count++ >= 2);
-            //           },
-            //           icon: Icon(
-            //             Icons.arrow_back_ios_new,
-            //             color: const Color(0xff002060),
-            //             size: MediaQuery.of(context).size.width * 0.04,
-            //           )),),
-            //         Image.asset(
-            //           'assets/veots_logo_wo_tl.png',
-            //        height: MediaQuery.of(context).size.width * 0.09,
-            //             width: MediaQuery.of(context).size.width * 0.09,
-            //         ),
-            //       const Spacer(),
-            //       Container(
-            //           height: MediaQuery.of(context).size.width * 0.07,
-            //           width: MediaQuery.of(context).size.width * 0.07,
-            //           decoration: const BoxDecoration(
-            //             color: Color(0xff002060),
-            //             borderRadius: BorderRadius.all(Radius.circular(5)),
-            //           ),
-            //           child: Center(
-            //             child: FittedBox(
-            //                 child: IconButton(
-            //                     onPressed: () {
-            //                       // Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: 
-            //                       //  (context)=>HomeScreen(first_time: 0,
-            //                       //  mainLink: '',location_on: true,)), (route) => false);
-            //                     },
-            //                     icon: const Icon(
-            //                       Icons.home,
-            //                       color: Colors.white,
-            //                     ))),
-            //           )),
-            //       SizedBox(
-            //         width: MediaQuery.of(context).size.width * 0.015,
-            //       ),
-            //     //  Not_icon(),
-            //       SizedBox(
-            //         width: MediaQuery.of(context).size.width * 0.015,
-            //       ),
-            //       Container(
-            //               height: MediaQuery.of(context).size.width * 0.07,
-            //               width: MediaQuery.of(context).size.width * 0.07,
-            //               decoration: const BoxDecoration(
-            //                 color: Color(0xff002060),
-            //                 borderRadius: BorderRadius.all(Radius.circular(5)),
-            //               ),
-            //               child: Center(
-            //                 child: FittedBox(
-            //                   child: 
-            //                   InkWell(
-            //             //      onTap: (){
-            //             // keyD.currentState?.openDrawer();    },
-            //                    child: Icon(
-            //                       Icons.menu,
-            //                       size: MediaQuery.of(context).size.width * 0.05,
-            //                       color: Colors.white,
-            //                     ),
-            //                  ),
-            //                 ),
-            //               )),
-            //       const SizedBox(width: 12,)
-            //     ],
-            //   ),
-            // ),
-            //   SizedBox(
-            //   height: MediaQuery.of(context).size.height / 40,
-            // ),
-            // Text(
-            //   "Product Registered to you successfully",
-            //   style: 
-            //   // Theme.of(context).textTheme.headlineMedium,
-            //   TextStyle(
-            //       color: const Color(0xff002060),
-            //       // fontSize: MediaQuery.of(context).size.width * 0.045,
-            //       fontSize: 16,
-            //       fontFamily: "Poppins Medium",
-            //       // fontWeight: FontWeight.bold
-            //       ),
-            // ),
-            //  Text(
-            //   "Get expiry notifications",
-            //   style: 
-            //   // Theme.of(context).textTheme.headlineMedium,
-            //   TextStyle(
-            //       color: const Color(0xff002060),
-            //       // fontSize: MediaQuery.of(context).size.width * 0.045,
-            //       fontSize: 16,
-            //       fontFamily: "Poppins Medium",
-            //       // fontWeight: FontWeight.bold
-            //       ),
-            // ),
-            // Text(
-            //   "by filling the product Mfg./Exp. date below",
-            //   style: 
-            //   // Theme.of(context).textTheme.headlineMedium,
-            //   TextStyle(
-            //       color: const Color(0xff002060),
-            //       // fontSize: MediaQuery.of(context).size.width * 0.045,
-            //       fontSize: 16,
-            //       fontFamily: "Poppins Medium",
-            //       // fontWeight: FontWeight.bold
-            //       ),
-            // ),
-            // Row(
-            //   children: [
-            //     Container(
-            //       padding: EdgeInsets.all(2),
-            //       decoration: BoxDecoration(
-            //       color: Colors.blue, // Set your desired background color
-            //       borderRadius: BorderRadius.circular(15.0), // Adjust the radius value to change corner roundness
-            //       ),
-            //       child: DropdownButton<String>(
-            //         underline: SizedBox(),
-            //           value: dropdownValue,
-            //           icon: const Icon(Icons.keyboard_arrow_down),
-            //           // elevation: 16,
-            //           style: const TextStyle(color: Colors.deepPurple),
-            //           // underline: Container(
-            //           //   height: 2,
-            //           //   color: Colors.deepPurpleAccent,
-            //           // ),
-            //           onChanged: (String? value) {
-            //             // This is called when the user selects an item.
-            //             setState(() {
-            //               dropdownValue = value!;
-            //             });
-            //           },
-            //           items: list.map<DropdownMenuItem<String>>((String value) {
-            //             return DropdownMenuItem<String>(
-            //               value: value,
-            //               child: Text(value),
-            //             );
-            //           }).toList(),
-            //         ),
-            //     ),
-            //     SizedBox(width: 2,),
-            //     Container(
-            //       padding: EdgeInsets.all(2),
-            //       decoration: BoxDecoration(
-            //       color: Colors.blue, // Set your desired background color
-            //       borderRadius: BorderRadius.circular(15.0), // Adjust the radius value to change corner roundness
-            //       ),
-            //       child: DropdownButton<String>(
-            //         underline: SizedBox(),
-            //           value: dropdownValue2,
-            //           icon: const Icon(Icons.keyboard_arrow_down),
-            //           // elevation: 16,
-            //           style: const TextStyle(color: Colors.deepPurple),
-            //           // underline: Container(
-            //           //   height: 2,
-            //           //   color: Colors.deepPurpleAccent,
-            //           // ),
-            //           onChanged: (String? value) {
-            //             // This is called when the user selects an item.
-            //             setState(() {
-            //               dropdownValue2 = value!;
-            //             });
-            //           },
-            //           items: list2.map<DropdownMenuItem<String>>((String value) {
-            //             return DropdownMenuItem<String>(
-            //               value: value,
-            //               child: Text(value),
-            //             );
-            //           }).toList(),
-            //         ),
-            //     ),
-            //      SizedBox(width: 2,),
-            //      Container(
-            //       padding: EdgeInsets.all(2),
-            //       decoration: BoxDecoration(
-            //       color: Colors.blue, // Set your desired background color
-            //       borderRadius: BorderRadius.circular(15.0), // Adjust the radius value to change corner roundness
-            //       ),
-            //       child: DropdownButton<String>(
-            //         underline: SizedBox(),
-            //           value: dropdownValue3,
-            //           icon: const Icon(Icons.keyboard_arrow_down),
-            //           // elevation: 16,
-            //           style: const TextStyle(color: Colors.deepPurple),
-            //           // underline: Container(
-            //           //   height: 2,
-            //           //   color: Colors.deepPurpleAccent,
-            //           // ),
-            //           onChanged: (String? value) {
-            //             // This is called when the user selects an item.
-            //             setState(() {
-            //               dropdownValue3 = value!;
-            //             });
-            //           },
-            //           items: list3.map<DropdownMenuItem<String>>((String value) {
-            //             return DropdownMenuItem<String>(
-            //               value: value,
-            //               child: Text(value),
-            //             );
-            //           }).toList(),
-            //         ),
-            //     ),Container(
-            //       padding: EdgeInsets.all(2),
-            //       decoration: BoxDecoration(
-            //       color: Colors.blue, // Set your desired background color
-            //       borderRadius: BorderRadius.circular(15.0), // Adjust the radius value to change corner roundness
-            //       ),
-            //       child: DropdownButton<String>(
-            //         underline: SizedBox(),
-            //           value: dropdownValue4,
-            //           icon: const Icon(Icons.keyboard_arrow_down),
-            //           // elevation: 16,
-            //           style: const TextStyle(color: Colors.deepPurple),
-            //           // underline: Container(
-            //           //   height: 2,
-            //           //   color: Colors.deepPurpleAccent,
-            //           // ),
-            //           onChanged: (String? value) {
-            //             // This is called when the user selects an item.
-            //             setState(() {
-            //               dropdownValue4 = value!;
-            //             });
-            //           },
-            //           items: list4.map<DropdownMenuItem<String>>((String value) {
-            //             return DropdownMenuItem<String>(
-            //               value: value,
-            //               child: Text(value),
-            //             );
-            //           }).toList(),
-            //         ),
-            //     ),
-            //   ],
-            // )
+            Container(
+              child: Row(
+                children: [
+                  Container(
+                    height:MediaQuery.of(context).size.width * 0.075,
+                      width: MediaQuery.of(context).size.width * 0.075,
+                    child: IconButton(
+                      onPressed: () {
+                        int count = 0;
+            Navigator.of(context).popUntil((_) => count++ >= 2);
+                      },
+                      icon: Icon(
+                        Icons.arrow_back_ios_new,
+                        color: const Color(0xff002060),
+                        size: MediaQuery.of(context).size.width * 0.04,
+                      )),),
+                    Image.asset(
+                      'assets/veots_logo_wo_tl.png',
+                   height: MediaQuery.of(context).size.width * 0.09,
+                        width: MediaQuery.of(context).size.width * 0.09,
+                    ),
+                  const Spacer(),
+                  Container(
+                      height: MediaQuery.of(context).size.width * 0.07,
+                      width: MediaQuery.of(context).size.width * 0.07,
+                      decoration: const BoxDecoration(
+                        color: Color(0xff002060),
+                        borderRadius: BorderRadius.all(Radius.circular(5)),
+                      ),
+                      child: Center(
+                        child: FittedBox(
+                            child: IconButton(
+                                onPressed: () {
+                                  // Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: 
+                                  //  (context)=>HomeScreen(first_time: 0,
+                                  //  mainLink: '',location_on: true,)), (route) => false);
+                                },
+                                icon: const Icon(
+                                  Icons.home,
+                                  color: Colors.white,
+                                ))),
+                      )),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.015,
+                  ),
+                //  Not_icon(),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.015,
+                  ),
+                  Container(
+                          height: MediaQuery.of(context).size.width * 0.07,
+                          width: MediaQuery.of(context).size.width * 0.07,
+                          decoration: const BoxDecoration(
+                            color: Color(0xff002060),
+                            borderRadius: BorderRadius.all(Radius.circular(5)),
+                          ),
+                          child: Center(
+                            child: FittedBox(
+                              child: 
+                              InkWell(
+                        //      onTap: (){
+                        // keyD.currentState?.openDrawer();    },
+                               child: Icon(
+                                  Icons.menu,
+                                  size: MediaQuery.of(context).size.width * 0.05,
+                                  color: Colors.white,
+                                ),
+                             ),
+                            ),
+                          )),
+                  const SizedBox(width: 12,)
+                ],
+              ),
+            ),
+              SizedBox(
+              height: MediaQuery.of(context).size.height / 40,
+            ),
+            Text(
+              "Product Registered to you successfully",
+              style: 
+              // Theme.of(context).textTheme.headlineMedium,
+              TextStyle(
+                  color: const Color(0xff002060),
+                  // fontSize: MediaQuery.of(context).size.width * 0.045,
+                  fontSize: 16,
+                  fontFamily: "Poppins Medium",
+                  // fontWeight: FontWeight.bold
+                  ),
+            ),
+             Text(
+              "Get expiry notifications",
+              style: 
+              // Theme.of(context).textTheme.headlineMedium,
+              TextStyle(
+                  color: const Color(0xff002060),
+                  // fontSize: MediaQuery.of(context).size.width * 0.045,
+                  fontSize: 16,
+                  fontFamily: "Poppins Medium",
+                  // fontWeight: FontWeight.bold
+                  ),
+            ),
+            Text(
+              "by filling the product Mfg./Exp. date below",
+              style: 
+              // Theme.of(context).textTheme.headlineMedium,
+              TextStyle(
+                  color: const Color(0xff002060),
+                  // fontSize: MediaQuery.of(context).size.width * 0.045,
+                  fontSize: 16,
+                  fontFamily: "Poppins Medium",
+                  // fontWeight: FontWeight.bold
+                  ),
+            ),
+            Row(
+              children: [
+                  Container(
+                    padding: EdgeInsets.all(2),
+                    decoration: BoxDecoration(
+                    color: Colors.blue, // Set your desired background color
+                    borderRadius: BorderRadius.circular(15.0), // Adjust the radius value to change corner roundness
+                    ),
+                    child: DropdownButton<String>(
+                      underline: SizedBox(),
+                        value: dropdownValue,
+                        icon: const Icon(Icons.keyboard_arrow_down),
+                        // elevation: 16,
+                        style: const TextStyle(color: Colors.deepPurple),
+                        // underline: Container(
+                        //   height: 2,
+                        //   color: Colors.deepPurpleAccent,
+                        // ),
+                        onChanged: (String? value) {
+                          // This is called when the user selects an item.
+                          setState(() {
+                            dropdownValue = value!;
+                          });
+                        },
+                        items: list.map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
+                      ),
+                  ),
+                SizedBox(width: 2,),
+                Container(
+                  padding: EdgeInsets.all(2),
+                  decoration: BoxDecoration(
+                  color: Colors.blue, // Set your desired background color
+                  borderRadius: BorderRadius.circular(15.0), // Adjust the radius value to change corner roundness
+                  ),
+                  child: DropdownButton<String>(
+                    underline: SizedBox(),
+                      value: dropdownValue2,
+                      icon: const Icon(Icons.keyboard_arrow_down),
+                      // elevation: 16,
+                      style: const TextStyle(color: Colors.deepPurple),
+                      // underline: Container(
+                      //   height: 2,
+                      //   color: Colors.deepPurpleAccent,
+                      // ),
+                      onChanged: dropdownValue != "Type" ? (String? value) {
+                        // This is called when the user selects an item.
+                        setState(() {
+                          dropdownValue2 = value!;
+                        });
+                      } : null,
+                      items: list2.map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                    ),
+                ),
+                 SizedBox(width: 2,),
+                 Container(
+                  padding: EdgeInsets.all(2),
+                  decoration: BoxDecoration(
+                  color: Colors.blue, // Set your desired background color
+                  borderRadius: BorderRadius.circular(15.0), // Adjust the radius value to change corner roundness
+                  ),
+                  child: DropdownButton<String>(
+                    underline: SizedBox(),
+                      value: dropdownValue3,
+                      icon: const Icon(Icons.keyboard_arrow_down),
+                      // elevation: 16,
+                      style: const TextStyle(color: Colors.deepPurple),
+                      // underline: Container(
+                      //   height: 2,
+                      //   color: Colors.deepPurpleAccent,
+                      // ),
+                      onChanged: (String? value) {
+                        // This is called when the user selects an item.
+                        setState(() {
+                          dropdownValue3 = value!;
+                        });
+                      },
+                      items: list3.map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                    ),
+                ),Container(
+                  padding: EdgeInsets.all(2),
+                  decoration: BoxDecoration(
+                  color: Colors.blue, // Set your desired background color
+                  borderRadius: BorderRadius.circular(15.0), // Adjust the radius value to change corner roundness
+                  ),
+                  child: DropdownButton<String>(
+                    underline: SizedBox(),
+                      value: dropdownValue4,
+                      icon: const Icon(Icons.keyboard_arrow_down),
+                      // elevation: 16,
+                      style: const TextStyle(color: Colors.deepPurple),
+                      // underline: Container(
+                      //   height: 2,
+                      //   color: Colors.deepPurpleAccent,
+                      // ),
+                      onChanged: (String? value) {
+                        // This is called when the user selects an item.
+                        setState(() {
+                          dropdownValue4 = value!;
+                        });
+                      },
+                      items: list4.map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                    ),
+                ),
+              ],
+            )
           ],),
         );
       

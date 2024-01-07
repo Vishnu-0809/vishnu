@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/class_models.dart';
 import '../screens/home_page.dart';
+import 'not_icon.dart';
 
 class InvalidProd extends StatelessWidget {
   const InvalidProd({super.key, required this.snapshot, required this.keyD});
@@ -18,6 +19,90 @@ class InvalidProd extends StatelessWidget {
             children: [
              SizedBox(height: MediaQuery.of(context).size.height/50,),
             Container(
+              child: Row(
+                children: [
+                  Container(
+                    height: MediaQuery.of(context).size.width * 0.08,
+                    width: MediaQuery.of(context).size.width * 0.08,
+                    child: IconButton(
+                        onPressed: () {
+                          int count = 0;
+                          Navigator.of(context).popUntil((_) => count++ >= 2);
+                        },
+                        icon: Icon(
+                          Icons.arrow_back_ios_new,
+                          color: const Color(0xff002060),
+                          size: MediaQuery.of(context).size.width * 0.04,
+                        )),
+                  ),
+                  Container(
+                    // color: Colors.red,
+                    child: Image.asset(
+                      'assets/veots_logo_wo_tl.png',
+                      height: MediaQuery.of(context).size.width * 0.075,
+                      width: MediaQuery.of(context).size.width * 0.075,
+                    ),
+                  ),
+                  const Spacer(),
+                  Container(
+                      height: MediaQuery.of(context).size.width * 0.07,
+                      width: MediaQuery.of(context).size.width * 0.07,
+                      decoration: const BoxDecoration(
+                        color: Color(0xff002060),
+                        borderRadius: BorderRadius.all(Radius.circular(5)),
+                      ),
+                      child: Center(
+                        child: FittedBox(
+                            child: IconButton(
+                                onPressed: () {
+                                  Navigator.of(context).pushAndRemoveUntil(
+                                      MaterialPageRoute(
+                                          builder: (context) => HomeScreen(
+                                                first_time: 0,
+                                                mainLink: '',
+                                                location_on: true,
+                                              )),
+                                      (route) => false);
+                                },
+                                icon: const Icon(
+                                  Icons.home,
+                                  color: Colors.white,
+                                ))),
+                      )),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.015,
+                  ),
+                  Not_icon(),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.015,
+                  ),
+                  Container(
+                      height: MediaQuery.of(context).size.width * 0.07,
+                      width: MediaQuery.of(context).size.width * 0.07,
+                      decoration: const BoxDecoration(
+                        color: Color(0xff002060),
+                        borderRadius: BorderRadius.all(Radius.circular(5)),
+                      ),
+                      child: Center(
+                        child: FittedBox(
+                          child: InkWell(
+                            onTap: () {
+                              keyD.currentState?.openDrawer();
+                            },
+                            child: Icon(
+                              Icons.menu,
+                              size: MediaQuery.of(context).size.width * 0.05,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      )),
+                  const SizedBox(
+                    width: 12,
+                  )
+                ],
+              ),
+            ),Container(
               child: Row(
                 children: [
                   Container(
@@ -57,7 +142,7 @@ class InvalidProd extends StatelessWidget {
                                 },
                                 icon: const Icon(
                                   Icons.home,
-                                  color: Colors.white,
+                                  color: Colors.black,
                                 ))),
                       )),
                   SizedBox(
@@ -107,11 +192,11 @@ class InvalidProd extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.height / 45,
               ),
-              Container(
-                height: MediaQuery.of(context).size.height / 1.8,
-                  width: MediaQuery.of(context).size.width ,
-                child: Image.asset('assets/invalid_cropped.gif', fit: BoxFit.fitWidth,),
-              ),
+              // Container(
+              //   height: MediaQuery.of(context).size.height / 1.8,
+              //     width: MediaQuery.of(context).size.width ,
+              //   child: Image.asset('assets/invalid_cropped.gif', fit: BoxFit.fitWidth,),
+              // ),
               SizedBox(
                 height: MediaQuery.of(context).size.height / 45,
               ),
