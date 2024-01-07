@@ -693,3 +693,43 @@ final statusCode = response.statusCode;
   return AlbumCheckIfUserExists(statusCode: statusCode, message: decodedResponse['message']);
 }
 
+
+
+class AlbumTakeConsent {
+  String message;
+   int statusCode;
+
+  AlbumTakeConsent({required this.message,required this.statusCode});
+
+  // factory AlbumCheckIfUserExists.fromJson(Map<String, dynamic> json) {
+  //   return AlbumCheckIfUserExists(
+  //     message: json['message'],
+
+  //   );
+  // }
+}
+
+Future<AlbumTakeConsent> createTakeConsent(bool Consent
+    )async {
+       
+  final response = await http.post(
+    Uri.parse(
+        'https://ede7-35-150-39-86.ngrok-free.app'),
+    headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+    body: jsonEncode(<String, dynamic>{
+     
+   "isReportConsentGiven":true
+
+    }),
+  );
+final statusCode = response.statusCode;
+  final decodedResponse = json.decode(response.body);
+
+  print(statusCode);
+  print(decodedResponse['message']);
+
+  return AlbumTakeConsent(statusCode: statusCode, message: decodedResponse['message']);
+}
+

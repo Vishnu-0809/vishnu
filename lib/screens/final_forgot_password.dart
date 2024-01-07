@@ -38,7 +38,7 @@ bool visible_confirm =true;
 // Albumotpsendforgotpwd? token2;
  void verify () async
  {
-  WidgetsBinding.instance?.focusManager.primaryFocus?.unfocus();
+  WidgetsBinding.instance.focusManager.primaryFocus!.unfocus();
   // print("Asdasdasdasd");
   // print(vaye!.toString()!);
   if (formkey_0.currentState!.validate() ){
