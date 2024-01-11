@@ -47,7 +47,7 @@ class InvalidLink extends StatelessWidget {
                 height: MediaQuery.of(context).size.height / 45,
               ),
               Text(
-                "Invalid Product",
+                "Invalid Link",
                 style: TextStyle(
                     color: const Color(0xff011f5f),
                     fontSize: MediaQuery.of(context).size.width * 0.060,
