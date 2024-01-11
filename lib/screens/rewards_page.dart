@@ -1028,7 +1028,7 @@ var coupon_img;
                       style: TextStyle(
                         // fontWeight: FontWeight.bold,
                         fontFamily: "Poppins Medium",
-                        color: Colors.black,
+                        color: Color(0xff002060),
                         // fontStyle: FontStyle.italic,
                         fontSize: MediaQuery.of(context).size.width * 0.06,
                       ),
@@ -1051,7 +1051,7 @@ var coupon_img;
                       "Presenting the coupon history",
                       style: TextStyle(
                         // fontWeight: FontWeight.bold,
-                         fontFamily: "Mont",
+                         fontFamily: "Poppins Medium",
                         color: Colors.black,
                         // fontStyle: FontStyle.italic,
                         fontSize: MediaQuery.of(context).size.width * 0.03,

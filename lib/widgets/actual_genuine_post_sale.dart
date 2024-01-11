@@ -430,7 +430,8 @@ class ActualGPSale extends StatelessWidget {
                                                   0.05),
                                     )
                                   );
-                                });
+                                }
+                                );
                           }
                       },
                       style: ElevatedButton.styleFrom(

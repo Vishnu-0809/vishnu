@@ -5,12 +5,12 @@ import 'package:Veots/screens/Notifications_view.dart';
 import 'package:Veots/screens/bill_comment.dart';
 import 'package:Veots/screens/cash_back.dart';
 import 'package:Veots/screens/coupons_details.dart';
+import 'package:Veots/screens/exp_man_dateInput.dart';
 import 'package:Veots/screens/product_feedback.dart';
 import 'package:Veots/screens/rewards_page.dart';
 import 'package:Veots/screens/track_history.dart';
 import 'package:Veots/widgets/NetworkCheck.dart';
 import 'package:Veots/widgets/background_fetch.dart';
-import 'package:Veots/widgets/dummy3.dart';
 import 'package:Veots/widgets/not_icon.dart';
 
 import 'package:flutter/material.dart';
@@ -20,7 +20,6 @@ import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uni_links/uni_links.dart';
-import 'package:Veots/dummy2.dart';
 import 'package:Veots/screens/Invalid_postQR.dart';
 
 import 'package:Veots/screens/hammburger.dart';
@@ -38,7 +37,7 @@ import './screens/display_product_main.dart';
 import './screens/login.dart';
 
 import 'dummy.dart';
-import 'dummy3.dart';
+import './dummy3.dart';
 import 'screens/constants.dart';
 import 'package:flutter_app_badger/flutter_app_badger.dart';
 import 'package:get/get.dart';
@@ -195,7 +194,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
                     mainLink: widget.link.toString(),
                     location_on: widget.is_on,
                   )
-                : (
+                : 
                   (widget.link == "" || !widget.is_on)
                     ? HomeScreen(
                         first_time: 0,
@@ -207,12 +206,15 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
                 // Product_Feedback()
                 // Rewards()
                 // Coupon_Details()
-                // Dummy3()
+                // dummy3()
+                // DateInput()
                 // DisplayProdMain(subLink: '25983251281605230614app280400000',)
                 // MyHomePage()
                 // Tracking_history()
-        ))
-                ));
+        )
+                )
+                
+                );
                 
   }
 }

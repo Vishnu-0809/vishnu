@@ -393,8 +393,11 @@ Future CheckUserConnection() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     setState(() { 
     ID=preferences.getString("id");
-    custId_coupon=preferences.getString("custId_coupon");
     
+    custId_coupon=preferences.getString("custId_coupon");
+    print("fwwehfoeidjlfdqwlfef");
+    print(custId_coupon);
+    print("wjwoifjweofiwefwewe");
     UDID=preferences.getString("udid");
     NAME=preferences.getString('name');
     GENDER=preferences.getString('gender');

@@ -1,6 +1,7 @@
 import 'package:Veots/screens/scanner.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart';
+import '../widgets/invalid_product2.dart';
 import '../widgets/not_icon.dart';
 import '../widgets/scan_pre_first.dart';
 import 'package:flutter/material.dart';
@@ -475,17 +476,25 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
                             link: widget.subLink,
                             snapshot: snapshot.data,
                             keyD: _scaffoldKey);
-                      } else if (snapshot.data.message == "Invalid Product") {
-                        return InvalidProd(
-                          snapshot: snapshot.data,
-                          keyD: _scaffoldKey,
-                        );
-                      } else if (snapshot.data.message == "Fake") {
+                      }  else if (snapshot.data.message == "Fake") {
                         return FakeProduct(
                             snapshot: snapshot.data,
                             keyD: _scaffoldKey,
                             subLink: widget.subLink);
-                      } else if (snapshot.data.message == "claim product") {
+                      } 
+                      else if (snapshot.data.message == "Invalid Product" && widget.subLink.length < 31) {
+                        return InvalidProd(
+                          snapshot: snapshot.data,
+                          keyD: _scaffoldKey,
+                        );
+                      }
+                      else if (snapshot.data.message == "Invalid Product" && widget.subLink.length == 31) {
+                        return InvalidProd2(
+                          snapshot: snapshot.data,
+                          keyD: _scaffoldKey,
+                        );
+                      }
+                      else if (snapshot.data.message == "claim product") {
                         return GenuinePost(
                           link: widget.subLink, // change
                           snapshot: snapshot.data,
@@ -544,12 +553,8 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
                                 link: widget.subLink,
                                 snapshot: snapshot.data,
                                 keyD: _scaffoldKey);
-                          } else if (snapshot.data.message == "Invalid Product") {
-                            return InvalidProd(
-                              snapshot: snapshot.data,
-                              keyD: _scaffoldKey,
-                            );
-                          } else if (snapshot.data.message == "Fake") {
+                          } 
+                           else if (snapshot.data.message == "Fake") {
                             return FakeProduct(
                                 snapshot: snapshot.data,
                                 keyD: _scaffoldKey,
