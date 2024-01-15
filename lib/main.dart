@@ -115,6 +115,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       INTRO = preferences.getBool("INTRO");
       ID = preferences.getString("id");
       UDID = preferences.getString("udid");
+      
     });
 
     RegExp reg = RegExp(r'^[0-9]{10}$');

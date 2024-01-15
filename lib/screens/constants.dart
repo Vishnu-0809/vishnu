@@ -9,3 +9,4 @@ String? COMNAME;
 String? custId_coupon;
 String? DOB;
 bool? INTRO;
+String API="api.veots.in";
