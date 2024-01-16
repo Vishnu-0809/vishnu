@@ -188,21 +188,22 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
             // theme: MyThemes.lightTheme,
             // darkTheme: MyThemes.darkTheme,
             home:
-           INTRO==null?IntroSlider():
-             ID == null
-                ? Login(
-                    mainLink: widget.link.toString(),
-                    location_on: widget.is_on,
-                  )
-                : 
-                  (widget.link == "" || !widget.is_on)
-                    ? HomeScreen(
-                        first_time: 0,
-                        mainLink: widget.link.toString(),
-                        location_on: widget.is_on,
-                      )
-                    : DisplayProdMain(subLink: widget.link!.substring(32)
-                    )
+          //  INTRO==null?IntroSlider():
+          //    ID == null
+          //       ? Login(
+          //           mainLink: widget.link.toString(),
+          //           location_on: widget.is_on,
+          //         )
+          //       : 
+          //         (widget.link == "" || !widget.is_on)
+          //           ? HomeScreen(
+          //               first_time: 0,
+          //               mainLink: widget.link.toString(),
+          //               location_on: widget.is_on,
+          //             )
+          //           : DisplayProdMain(subLink: widget.link!.substring(32)
+          //           )
+          MyHomePage()
                 // Product_Feedback()
                 // Rewards()
                 // Coupon_Details()

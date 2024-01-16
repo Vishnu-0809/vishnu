@@ -26,7 +26,8 @@ class InvalidProd2 extends StatelessWidget {
                       width: MediaQuery.of(context).size.width * 0.08,
                     child: IconButton(
                       onPressed: () {
-                        Navigator.pop(context);
+                        int count = 0;
+                            Navigator.of(context).popUntil((_) => count++ >= 2);
                       },
                       icon: Icon(
                         Icons.arrow_back_ios_new,
