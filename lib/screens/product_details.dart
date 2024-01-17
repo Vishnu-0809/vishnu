@@ -460,7 +460,7 @@ reupload_bill() async
             SizedBox(
             height: MediaQuery.of(context).size.height / 80,
           ),
-          if (snapshot.details["purchaseDate"] != null)...[
+          if (snapshot.details["purchaseDate"] != null && (snapshot.details["warrantyApp"]==true))...[
             Text(
                     "Warranty left",
                     style: TextStyle(
@@ -469,7 +469,6 @@ reupload_bill() async
                         fontFamily: "Poppins Medium",
                         ),
                   ),
-                  (snapshot.details["warrantyApp"]==true) ?
           Text(
             "${warranty_left} days",
             style: TextStyle(
@@ -477,15 +476,15 @@ reupload_bill() async
                   fontSize: 12,
                 fontFamily: "Poppins Medium",
                ),
-          ) : 
-          Text(
-            "Not Applicable",
-            style: TextStyle(
-                color: const Color(0Xff002060),
-                  fontSize: 12,
-                fontFamily: "Poppins Medium",
-               ),
-          ),
+          ) 
+          // Text(
+          //   "Not Applicable",
+          //   style: TextStyle(
+          //       color: const Color(0Xff002060),
+          //         fontSize: 12,
+          //       fontFamily: "Poppins Medium",
+          //      ),
+          // ),
         ],
           SizedBox(
             height: MediaQuery.of(context).size.height / 80,

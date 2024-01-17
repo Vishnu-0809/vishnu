@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 import 'package:Veots/screens/Verification_with_phone.dart';
 import 'package:Veots/screens/login.dart';
+import '../widgets/NetworkCheck.dart';
 import '../widgets/Requests.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../widgets/send_accept.dart';
 
 class Register_with_phone_ extends StatefulWidget {
   Register_with_phone_(
@@ -55,11 +58,25 @@ class Register_with_phone_State extends State<Register_with_phone_> {
   final _ValidationKey = GlobalKey<FormState>();
   List<String> items = ["Male", "Female", "Others"];
   Albumotpsend? token;
+  AlbumCheckIfUserExists? token2;
 
   bool visible = true;
   bool visible2 = true;
   void sign() async {
-    token = await createAlbum10(_Phone_Number.text);
+   token2=await createCheckIfUserExists(true,_Phone_Number.text.toString());
+   print("checkuser api response");
+          print(token2!.message);
+          
+          print(token2!.statusCode);
+ if(token2!.statusCode==200)
+          {
+         final show_net = Show_snack(context, "User already exists");
+          ScaffoldMessenger.of(context).showSnackBar(show_net);
+          
+         
+          }
+          else if(token2!.statusCode==404){
+                token = await createAlbum10(_Phone_Number.text);
     print("ppppppppp");
 
     Navigator.of(context).push(
@@ -76,6 +93,14 @@ class Register_with_phone_State extends State<Register_with_phone_> {
         ),
       ),
     );
+         
+          }
+          else{
+             final show_net = Show_snack(context, "Something went wrong");
+          ScaffoldMessenger.of(context).showSnackBar(show_net);
+        
+          }
+
     if (token!.type == 'success') {
       print("Successful_register");
     } else {

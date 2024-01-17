@@ -1,3 +1,4 @@
+import 'package:Veots/widgets/NetworkCheck.dart';
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 import 'package:Veots/screens/Verification_with_email.dart';
@@ -8,6 +9,8 @@ import '../widgets/Requests.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:bson/bson.dart';
+
+import '../widgets/send_accept.dart';
 
 class Register_with_Email_ extends StatefulWidget {
   Register_with_Email_({super.key, required this.Link,required this.location_on,required this.Country});
@@ -62,11 +65,25 @@ class Register_with_Email_State extends State<Register_with_Email_> {
   List<String> items = ["Male", "Female", "Others"];
   List<String> items2 = ["18-25", "25-40", "40-60","61 and above"];
   Albumotpsend? token;
+  AlbumCheckIfUserExists? token2;
 
   bool visible = true;
   bool visible2 = true;
   void sign() async {
-    token = await createAlbum101(_Email.text);
+    token2=await createCheckIfUserExists(false,_Email.text.toString());
+   print("checkuser api response");
+          print(token2!.message);
+          
+          print(token2!.statusCode);
+ if(token2!.statusCode==200)
+          {
+         final show_net = Show_snack(context, "User already exists");
+          ScaffoldMessenger.of(context).showSnackBar(show_net);
+          
+         
+          }
+          else if(token2!.statusCode==404){
+                token = await createAlbum101(_Email.text);
     print("ppppppppp");
     print(DateofBirth);
 
@@ -85,6 +102,14 @@ class Register_with_Email_State extends State<Register_with_Email_> {
         ),
       ),
     );
+         
+          }
+          else{
+             final show_net = Show_snack(context, "Something went wrong");
+          ScaffoldMessenger.of(context).showSnackBar(show_net);
+           
+          }
+
     if (token!.type == 'success') {
       print("Successful_register");
     } else {

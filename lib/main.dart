@@ -115,6 +115,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       INTRO = preferences.getBool("INTRO");
       ID = preferences.getString("id");
       UDID = preferences.getString("udid");
+      
     });
 
     RegExp reg = RegExp(r'^[0-9]{10}$');
@@ -188,22 +189,22 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
             // theme: MyThemes.lightTheme,
             // darkTheme: MyThemes.darkTheme,
             home:
-          //  INTRO==null?IntroSlider():
-          //    ID == null
-          //       ? Login(
-          //           mainLink: widget.link.toString(),
-          //           location_on: widget.is_on,
-          //         )
-          //       : 
-          //         (widget.link == "" || !widget.is_on)
-          //           ? HomeScreen(
-          //               first_time: 0,
-          //               mainLink: widget.link.toString(),
-          //               location_on: widget.is_on,
-          //             )
-          //           : DisplayProdMain(subLink: widget.link!.substring(32)
-          //           )
-          MyHomePage()
+           INTRO==null?IntroSlider():
+             ID == null
+                ? Login(
+                    mainLink: widget.link.toString(),
+                    location_on: widget.is_on,
+                  )
+                : 
+                  (widget.link == "" || !widget.is_on)
+                    ? HomeScreen(
+                        first_time: 0,
+                        mainLink: widget.link.toString(),
+                        location_on: widget.is_on,
+                      )
+                    : DisplayProdMain(subLink: widget.link!.substring(32)
+                    )
+          // MyHomePage()
                 // Product_Feedback()
                 // Rewards()
                 // Coupon_Details()

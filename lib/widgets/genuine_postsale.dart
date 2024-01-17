@@ -1,5 +1,6 @@
 import 'dart:io';
 // import 'package:badges/badges.dart' as badges;
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -58,6 +59,7 @@ class _GenuinePostState extends State<GenuinePost> {
   //   // }();
   //   info();
   // }
+  bool _isContainerBig = false;
 
   @override
   YoutubePlayerController _controllerCovert = YoutubePlayerController(
@@ -86,9 +88,17 @@ class _GenuinePostState extends State<GenuinePost> {
       setState(() {
         _write();
       });
+      _startAnimation();
     }();
 
     super.initState();
+  }
+   void _startAnimation() {
+    Future.delayed(Duration(milliseconds: 500), () {
+      setState(() {
+        _isContainerBig = true;
+      });
+    });
   }
 
   _write() async {}
@@ -299,7 +309,7 @@ class _GenuinePostState extends State<GenuinePost> {
               if (widget.snapshot.details["batchType"] == "Retailer") ...[
                 if (widget.snapshot.details["brand"] != null)
                   Text(
-                    widget.snapshot.details["brand"],
+                    widget.snapshot.details["prodName"],
                     style:
                         //  Theme.of(context).textTheme.headlineSmall,
                         TextStyle(
@@ -527,6 +537,36 @@ class _GenuinePostState extends State<GenuinePost> {
               SizedBox(
                 height: MediaQuery.of(context).size.height / 45,
               ),
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.check_circle_outline_outlined,
+                  color: Colors.green,),
+                
+                  AnimatedTextKit(
+                  totalRepeatCount: 1,
+               
+                  animatedTexts: [
+                      TyperAnimatedText(widget.snapshot.details["prodName"],
+                      speed: const Duration(milliseconds: 40), 
+                      textStyle: TextStyle(color: Color(0xff003274),
+                      fontFamily: "Poppins Medium",
+                      fontSize:MediaQuery.of(context).size.width*0.041,)
+                      ),                 
+                     ],
+                 ),
+                ],
+              ),
+              AnimatedContainer(
+          duration: Duration(seconds: 1),
+          width: _isContainerBig ? 200.0 : 100.0,
+          height: _isContainerBig ? 200.0 : 100.0,
+          color: _isContainerBig ? Colors.blue : Colors.red,
+          alignment: _isContainerBig ? Alignment.center : Alignment.topCenter,
+          child: Image.asset(
+                        'assets/veots_logo_wo_tl.png',
+                      ),
+        ),
               Container(
                 // margin: EdgeInsets.only(left: 10, right: 10),
                 // width: MediaQuery.of(context).size.width*0.9,
@@ -1109,14 +1149,13 @@ class _GenuinePostState extends State<GenuinePost> {
                                                                               cashBackPts: widget.snapshot.details["couponDetails"],
                                                                             )));
                                                           } else {
-                                                            Navigator.of(
-                                                                    context)
-                                                                .push(
-                                                              MaterialPageRoute(
-                                                                  builder:
-                                                                      ((context) =>
-                                                                          NoCBWar())),
-                                                            );
+                                                            Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(
+                              builder: ((context) => const HomeScreen(
+                                    first_time: 0,mainLink: '',location_on: true,
+                                  ))),
+                          (Route<dynamic> route) => false,
+                        );
                                                           }
                                                           // if(widget.snapshot.details["warrantyApp"] == true)
                                                           // {

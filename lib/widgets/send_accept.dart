@@ -1,6 +1,7 @@
 // import 'dart:html';
 // import 'dart:io' as http;
 import 'dart:io';
+import 'package:Veots/screens/constants.dart';
 import 'package:Veots/widgets/Requests.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
@@ -65,7 +66,7 @@ Future<Object> createAlbum(
     String userId, String password, bool isPhoneNum) async {
   final response = await http.post(
     Uri.parse(
-        'http://ec2-13-235-124-84.ap-south-1.compute.amazonaws.com:3000/api/auth/customer/login/'),
+        'https://'+ API +'/api/auth/customer/login/'),
     headers: <String, String>{
       'Content-Type': 'application/json',
     },
@@ -91,9 +92,11 @@ Future<Object> createAlbum(
 
 Future<Object> createAlbum1(
     String userId, String password, bool isPhoneNum) async {
+      print("LOGINNnnnnnnnnnnnnnnnnn");
+      print('http://'+API+'/customer-auth/login/');
   final response = await http.post(
     Uri.parse(
-        'http://ec2-13-235-124-84.ap-south-1.compute.amazonaws.com:3000/customer-auth/login/'),
+        'http://'+API+'/customer-auth/login/'),
     headers: <String, String>{
       'Content-Type': 'application/json',
     },
@@ -103,6 +106,7 @@ Future<Object> createAlbum1(
       'isPhoneNum': isPhoneNum
     }),
   );
+
   return json.decode(response.body);
 }
 
@@ -131,7 +135,7 @@ Future<Album3> createAlbum56(
   final response = http.MultipartRequest(
       'POST',
       Uri.parse(
-          "http://ec2-13-235-124-84.ap-south-1.compute.amazonaws.com:3000/customer/claim-product"));
+          API + "customer/claim-product"));
 
   //  final headers={"Content-type":"multipart/form-data; charset=UTF-8"};
   final headers = <String, String>{
@@ -231,6 +235,9 @@ Future createAlbum_verify(String link, Position? LOCATION, String id,
             'longitude': LOCATION?.longitude,
           }),
   );
+
+  print("sedddddddddddddddddddddd");
+  print(response);
 
   return response;
 }
@@ -367,7 +374,7 @@ Future createAlbum_decativate(
     String id, bool isPhoneNum, String password) async {
   final response = await http.post(
     Uri.parse(
-        "http://ec2-13-235-124-84.ap-south-1.compute.amazonaws.com:3000/customer/hard-delete-customer-profile"),
+        "https://"+API+"/customer/hard-delete-customer-profile"),
     headers: <String, String>{
       'Content-Type': 'application/json',
     },
@@ -413,7 +420,7 @@ Future<Album_notification> createAlbum_notification(
     String contactType, String id, String dateTime) async {
   final response = await http.post(
     Uri.parse(
-        'http://ec2-13-235-124-84.ap-south-1.compute.amazonaws.com:3000/customer/expiryalert'),
+        'https://'+API+'/customer/expiryalert'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
@@ -459,7 +466,7 @@ Future createAlbum_update_info(
 ) async {
   final response = await http.post(
       Uri.parse(
-          'http://ec2-13-235-124-84.ap-south-1.compute.amazonaws.com:3000/customer/update-customer-profile'),
+          'https://'+API +'/customer/update-customer-profile'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -534,7 +541,7 @@ Future<Album_Warranty> createAlbum_Warranty(
     String contactType, String id, String dateTime) async {
   final response = await http.post(
     Uri.parse(
-        'http://ec2-13-235-124-84.ap-south-1.compute.amazonaws.com:3000/customer/warrantyalert'),
+        'https://'+API+'/customer/warrantyalert'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },

@@ -60,7 +60,7 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       requestCount = requestCount + 1;
       //https://api.veots.in
     String url =
-        "https://api.veots.in/verify/" +
+        "https://" +API +
             widget.subLink +
             "/" +
             UDID.toString();
@@ -77,7 +77,9 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
     final response = await createAlbum_verify(
         url, LOCATION, ID.toString(), COMNAME.toString(), widget.subLink);
     var responseData = json.decode(response.body);
-    print(responseData);
+    print("responseeeeeeee");
+    print(response.statusCode);
+    print("responseeeee");
     if (responseData["message"] == "Invalid Product") // invalid
     {
       InvalidResponse temp_class = new InvalidResponse();
