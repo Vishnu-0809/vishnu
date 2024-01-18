@@ -260,7 +260,7 @@ Future<Album_reupload> createAlbum_reupload(String link, String ID,
   final response = http.MultipartRequest(
       'POST',
       Uri.parse(
-          "http://ec2-13-235-124-84.ap-south-1.compute.amazonaws.com:3000/customer/reupload-bill"));
+          API + "/customer/reupload-bill"));
 
   //  final headers={"Content-type":"multipart/form-data; charset=UTF-8"};
   final headers = <String, String>{
@@ -323,7 +323,7 @@ Future<Album_report> createAlbum_report(
   final response = http.MultipartRequest(
       'POST',
       Uri.parse(
-          "http://ec2-13-235-124-84.ap-south-1.compute.amazonaws.com:3000/customer/reportfake"));
+          API + "/customer/reportfake"));
 
   //  final headers={"Content-type":"multipart/form-data; charset=UTF-8"};
   final headers = <String, String>{
