@@ -63,12 +63,12 @@ class _GenuinePostState extends State<GenuinePost> {
   YoutubePlayerController _controllerCovert = YoutubePlayerController(
     initialVideoId: 'wHXZknRQhRc',
     flags: YoutubePlayerFlags(
-        autoPlay: true, mute: true, showLiveFullscreenButton: true),
+        autoPlay: true,  showLiveFullscreenButton: true),
   );
   YoutubePlayerController _controllerOvert = YoutubePlayerController(
     initialVideoId: 'MhIWv_EZDhI',
     flags: YoutubePlayerFlags(
-        autoPlay: true, mute: true, showLiveFullscreenButton: true),
+        autoPlay: true,  showLiveFullscreenButton: true),
   );
   String? mobile;
   // Future info()  {
@@ -455,18 +455,26 @@ class _GenuinePostState extends State<GenuinePost> {
                                           ],
                                         ),
                                         content: widget.sublink.length == 32
-                                            ? VideoPlayerView(
-                                                url:
-                                                    "https://veots.s3.ap-south-1.amazonaws.com/How+to+use+Copvert.mp4",
-                                                dataSourceType:
-                                                    DataSourceType.network,
-                                              )
-                                            : VideoPlayerView(
-                                                url:
-                                                    "https://veots.s3.ap-south-1.amazonaws.com/How+to+use+Overt.mp4",
-                                                dataSourceType:
-                                                    DataSourceType.network,
-                                              )),
+                                            ? YoutubePlayer(
+  width: MediaQuery.of(context).size.width/2,
+    controller: _controllerCovert,
+    showVideoProgressIndicator: true,
+    // videoProgressIndicatorColor: Colors.amber,
+    // progressColors:Colors.amber,
+    // onReady () {
+    //     _controller.addListener(listener);
+    // },
+)
+                                            : YoutubePlayer(
+  width: MediaQuery.of(context).size.width/2,
+    controller: _controllerOvert,
+    showVideoProgressIndicator: true,
+    // videoProgressIndicatorColor: Colors.amber,
+    // progressColors:Colors.amber,
+    // onReady () {
+    //     _controller.addListener(listener);
+    // },
+)),
                                   );
                                 });
                           },

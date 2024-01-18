@@ -1,6 +1,7 @@
 // import 'dart:html';
 // import 'dart:io' as http;
 import 'dart:io';
+import 'package:Veots/screens/constants.dart';
 import 'package:Veots/widgets/Requests.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
@@ -191,7 +192,7 @@ Future<Album_reset> createAlbum_reset(
     int i, bool isPhoneNo, String Number, String password) async {
   final response = await http.post(
     Uri.parse(
-        'http://ec2-13-235-124-84.ap-south-1.compute.amazonaws.com:3000/api/auth/customer/forgot-password/'),
+        'https://'+API+'/api/auth/customer/forgot-password/'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
@@ -632,7 +633,7 @@ Future<AlbumProductFeedback> createProductFeedback(String prodID, int rating,
       print(rating);
   final response = await http.post(
     Uri.parse(
-        'http://ec2-13-235-124-84.ap-south-1.compute.amazonaws.com:3000/customer/prod-feedback'),
+        'https://'+API+'/customer/prod-feedback'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
@@ -672,7 +673,7 @@ Future<AlbumCheckIfUserExists> createCheckIfUserExists(bool isPhoneNo, String co
        
   final response = await http.post(
     Uri.parse(
-        'https://api.veots.in/api/auth/customer/check-identity'),
+        'https://'+API+'/api/auth/customer/check-identity'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
@@ -708,7 +709,7 @@ class AlbumTakeConsent {
   //   );
   // }
 }
-
+//TODO (kept on hold)
 Future<AlbumTakeConsent> createTakeConsent(bool Consent
     )async {
        

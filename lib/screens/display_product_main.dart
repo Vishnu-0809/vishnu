@@ -60,7 +60,7 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
       requestCount = requestCount + 1;
       //https://api.veots.in
     String url =
-        "https://api.veots.in/verify/" +
+        "http://ec2-13-233-61-129.ap-south-1.compute.amazonaws.com:3000/verify/" +
             widget.subLink +
             "/" +
             UDID.toString();
