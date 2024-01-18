@@ -1205,7 +1205,7 @@ Future<Null> _onrefresh()
         // date=DateTime.now();
         // print(date.day==25);
         print(custId_coupon);
-        String url = API + 'api/clients/customer/'+custId_coupon!+'/coupons/';
+        String url = API + '/api/clients/customer/'+custId_coupon!+'/coupons/';
         print("------------------------------");
         print(url);
         print("------------------------------");

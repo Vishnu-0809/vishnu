@@ -65,12 +65,12 @@ class _GenuinePostState extends State<GenuinePost> {
   YoutubePlayerController _controllerCovert = YoutubePlayerController(
     initialVideoId: 'wHXZknRQhRc',
     flags: YoutubePlayerFlags(
-        autoPlay: true, mute: true, showLiveFullscreenButton: true),
+        autoPlay: true,  showLiveFullscreenButton: true),
   );
   YoutubePlayerController _controllerOvert = YoutubePlayerController(
     initialVideoId: 'MhIWv_EZDhI',
     flags: YoutubePlayerFlags(
-        autoPlay: true, mute: true, showLiveFullscreenButton: true),
+        autoPlay: true,  showLiveFullscreenButton: true),
   );
   String? mobile;
   // Future info()  {
@@ -306,42 +306,42 @@ class _GenuinePostState extends State<GenuinePost> {
               SizedBox(
                 height: MediaQuery.of(context).size.height / 100,
               ),
-              if (widget.snapshot.details["batchType"] == "Retailer") ...[
-                if (widget.snapshot.details["brand"] != null)
-                  Text(
-                    widget.snapshot.details["prodName"],
-                    style:
-                        //  Theme.of(context).textTheme.headlineSmall,
-                        TextStyle(
-                      color: const Color(0xff00b7ff),
-                      fontSize: 12,
-                      // fontSize: MediaQuery.of(context).size.width * 0.055,
-                      fontFamily: "Poppins Medium",
-                    ),
-                  )
-              ] else ...[
-                if (widget.snapshot.details["prodName"] != null) ...[
-                  Text(
-                    widget.snapshot.details["prodName"],
-                    style:
-                        //  Theme.of(context).textTheme.headlineSmall,
-                        TextStyle(
-                      color: const Color(0xff00b7ff),
-                      fontSize: 12,
-                      // fontSize: MediaQuery.of(context).size.width * 0.055,
-                      fontFamily: "Poppins Medium",
-                    ),
-                  ),
-                ] else ...[
-                  Text(
-                    "unable to display name",
-                    style: TextStyle(
-                      color: const Color(0xff0b53be),
-                      fontSize: MediaQuery.of(context).size.width * 0.055,
-                    ),
-                  ),
-                ]
-              ],
+              // if (widget.snapshot.details["batchType"] == "Retailer") ...[
+              //   if (widget.snapshot.details["brand"] != null)
+              //     Text(
+              //       widget.snapshot.details["prodName"],
+              //       style:
+              //           //  Theme.of(context).textTheme.headlineSmall,
+              //           TextStyle(
+              //         color: const Color(0xff00b7ff),
+              //         fontSize: 12,
+              //         // fontSize: MediaQuery.of(context).size.width * 0.055,
+              //         fontFamily: "Poppins Medium",
+              //       ),
+              //     )
+              // ] else ...[
+              //   if (widget.snapshot.details["prodName"] != null) ...[
+              //     Text(
+              //       widget.snapshot.details["prodName"],
+              //       style:
+              //           //  Theme.of(context).textTheme.headlineSmall,
+              //           TextStyle(
+              //         color: const Color(0xff00b7ff),
+              //         fontSize: 12,
+              //         // fontSize: MediaQuery.of(context).size.width * 0.055,
+              //         fontFamily: "Poppins Medium",
+              //       ),
+              //     ),
+              //   ] else ...[
+              //     Text(
+              //       "unable to display name",
+              //       style: TextStyle(
+              //         color: const Color(0xff0b53be),
+              //         fontSize: MediaQuery.of(context).size.width * 0.055,
+              //       ),
+              //     ),
+              //   ]
+              // ],
 
               // SizedBox(
               //   height: MediaQuery.of(context).size.height / 35,
@@ -465,18 +465,26 @@ class _GenuinePostState extends State<GenuinePost> {
                                           ],
                                         ),
                                         content: widget.sublink.length == 32
-                                            ? VideoPlayerView(
-                                                url:
-                                                    "https://veots.s3.ap-south-1.amazonaws.com/How+to+use+Copvert.mp4",
-                                                dataSourceType:
-                                                    DataSourceType.network,
-                                              )
-                                            : VideoPlayerView(
-                                                url:
-                                                    "https://veots.s3.ap-south-1.amazonaws.com/How+to+use+Overt.mp4",
-                                                dataSourceType:
-                                                    DataSourceType.network,
-                                              )),
+                                            ? YoutubePlayer(
+  width: MediaQuery.of(context).size.width/2,
+    controller: _controllerCovert,
+    showVideoProgressIndicator: true,
+    // videoProgressIndicatorColor: Colors.amber,
+    // progressColors:Colors.amber,
+    // onReady () {
+    //     _controller.addListener(listener);
+    // },
+)
+                                            : YoutubePlayer(
+  width: MediaQuery.of(context).size.width/2,
+    controller: _controllerOvert,
+    showVideoProgressIndicator: true,
+    // videoProgressIndicatorColor: Colors.amber,
+    // progressColors:Colors.amber,
+    // onReady () {
+    //     _controller.addListener(listener);
+    // },
+)),
                                   );
                                 });
                           },
@@ -540,15 +548,11 @@ class _GenuinePostState extends State<GenuinePost> {
               Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.check_circle_outline_outlined,
-                  color: Colors.green,),
-                
                   AnimatedTextKit(
                   totalRepeatCount: 1,
-               
                   animatedTexts: [
                       TyperAnimatedText(widget.snapshot.details["prodName"],
-                      speed: const Duration(milliseconds: 40), 
+                      speed: const Duration(milliseconds: 70), 
                       textStyle: TextStyle(color: Color(0xff003274),
                       fontFamily: "Poppins Medium",
                       fontSize:MediaQuery.of(context).size.width*0.041,)
@@ -558,15 +562,16 @@ class _GenuinePostState extends State<GenuinePost> {
                 ],
               ),
               AnimatedContainer(
-          duration: Duration(seconds: 1),
-          width: _isContainerBig ? 200.0 : 100.0,
-          height: _isContainerBig ? 200.0 : 100.0,
-          color: _isContainerBig ? Colors.blue : Colors.red,
+          duration: Duration(milliseconds: 400),
+          width: _isContainerBig ? 130.0 : 20.0,
           alignment: _isContainerBig ? Alignment.center : Alignment.topCenter,
           child: Image.asset(
-                        'assets/veots_logo_wo_tl.png',
+                        'assets/verified transparent background.png',
                       ),
         ),
+        SizedBox(
+                height: MediaQuery.of(context).size.height / 45,
+              ),
               Container(
                 // margin: EdgeInsets.only(left: 10, right: 10),
                 // width: MediaQuery.of(context).size.width*0.9,
@@ -989,7 +994,7 @@ class _GenuinePostState extends State<GenuinePost> {
               //   ),
               // ),
               SizedBox(
-                height: MediaQuery.of(context).size.height / 30,
+                height: MediaQuery.of(context).size.height / 60,
               ),
               Container(
                   child: loading == false

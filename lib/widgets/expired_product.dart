@@ -18,7 +18,6 @@ YoutubePlayerController _controller_info = YoutubePlayerController(
     initialVideoId: 'SGZXHpGsCSk',
     flags: YoutubePlayerFlags(
         autoPlay: true,
-        mute: true,
         showLiveFullscreenButton: true
     ),
 );
@@ -27,7 +26,7 @@ YoutubePlayerController _controllerCovert = YoutubePlayerController(
     initialVideoId: 'wHXZknRQhRc',
     flags: YoutubePlayerFlags(
         autoPlay: true,
-        mute: true,
+       
         showLiveFullscreenButton: true
     ),
 );
@@ -35,7 +34,7 @@ YoutubePlayerController _controllerOvert = YoutubePlayerController(
     initialVideoId: 'MhIWv_EZDhI',
     flags: YoutubePlayerFlags(
         autoPlay: true,
-        mute: true,
+      
         showLiveFullscreenButton: true
     ),
 );

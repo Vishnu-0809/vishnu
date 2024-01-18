@@ -202,7 +202,7 @@ class _HamWidgetState extends State<HamWidget> {
         // date=DateTime.now();
         // print(date.day==25);
         print(custId_coupon);
-        String url = 'http://ec2-13-235-124-84.ap-south-1.compute.amazonaws.com:3005/api/clients/customer/'+custId_coupon!+'/coupons/';
+        String url = API + '/api/clients/customer/'+custId_coupon!+'/coupons/';
         print("------------------------------");
         print(url);
         print("------------------------------");

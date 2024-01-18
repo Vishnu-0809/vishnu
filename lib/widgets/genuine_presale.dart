@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:Veots/screens/hidden_qr.dart';
 // import 'package:Veots/screens/phone_view.dart';
@@ -36,6 +37,8 @@ class GenuinePre extends StatefulWidget {
 
 class _GenuinePreState extends State<GenuinePre> {
   @override
+
+  
   String reason = "postsale mismatch";
   bool scan_hidden_code_loading = false;
   late bool ActiveConnection;
@@ -67,6 +70,7 @@ class _GenuinePreState extends State<GenuinePre> {
 // 	});
 // 	}
 // }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -343,12 +347,16 @@ class _GenuinePreState extends State<GenuinePre> {
                                             ),
                                           ],
                                         ),
-                                        content: VideoPlayerView(
-                                          url:
-                                              "https://veots.s3.ap-south-1.amazonaws.com/How+to+use+Copvert.mp4",
-                                          dataSourceType:
-                                              DataSourceType.network,
-                                        )));
+                                        content:YoutubePlayer(
+  width: MediaQuery.of(context).size.width/2,
+    controller: _controller,
+    showVideoProgressIndicator: true,
+    // videoProgressIndicatorColor: Colors.amber,
+    // progressColors:Colors.amber,
+    // onReady () {
+    //     _controller.addListener(listener);
+    // },
+)));
                               });
                         },
                         child: const FittedBox(

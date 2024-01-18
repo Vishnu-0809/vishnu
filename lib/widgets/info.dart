@@ -31,7 +31,7 @@ class Info extends StatelessWidget {
     initialVideoId: 'SGZXHpGsCSk',
     flags: YoutubePlayerFlags(
         autoPlay: true,
-        mute: true,
+   
         showLiveFullscreenButton: true
     ),
 );
@@ -283,11 +283,16 @@ class Info extends StatelessWidget {
                                 ),
                                 content: 
 
-VideoPlayerView(
-            url:
-                "https://veots.s3.ap-south-1.amazonaws.com/How+to+use+info+.mp4",
-            dataSourceType: DataSourceType.network,
-          )
+YoutubePlayer(
+  width: MediaQuery.of(context).size.width/2,
+    controller: _controller,
+    showVideoProgressIndicator: true,
+    // videoProgressIndicatorColor: Colors.amber,
+    // progressColors:Colors.amber,
+    // onReady () {
+    //     _controller.addListener(listener);
+    // },
+)
                               ),
                               );
                             });
