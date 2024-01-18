@@ -521,7 +521,7 @@ Future createAlbum_edit_info_password(
     String userId, String password, bool isPhoneNum) async {
   final response = await http.post(
     Uri.parse(
-        'http://ec2-13-235-124-84.ap-south-1.compute.amazonaws.com:3000/customer-auth/verify-password'),
+        API+'/customer-auth/verify-password'),
     headers: <String, String>{
       'Content-Type': 'application/json',
     },
