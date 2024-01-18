@@ -59,7 +59,7 @@ class _DisplayProdMainState extends State<DisplayProdMain> {
     print("subink lengthhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
       requestCount = requestCount + 1;
       //https://api.veots.in
-    String url =
+    String url = 
         "http://ec2-13-233-61-129.ap-south-1.compute.amazonaws.com:3000/verify/" +
             widget.subLink +
             "/" +
