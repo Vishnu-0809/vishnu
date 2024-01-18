@@ -603,7 +603,7 @@ Future<AlbumTracking> createAlbumTracking(String batchNo, String clientId,
     String preSaleCode, String postSaleCode) async {
   final response = await http.post(
     Uri.parse(
-        'http://ec2-13-235-124-84.ap-south-1.compute.amazonaws.com:3000/customer/claimed-product-tracking'),
+        API+'/customer/claimed-product-tracking'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
