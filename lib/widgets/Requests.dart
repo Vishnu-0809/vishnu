@@ -118,7 +118,7 @@ factory AlbumPurchaseHistory.fromJson(Map<String, dynamic> json) {
 
 Future<Albumotpsend> createAlbum10(String mobile) async {
 final response = await http.post(  
-  Uri.parse('https://'+API+'/otp/send'),
+  Uri.parse(API+'/otp/send'),
 	headers: <String, String>{
 	'Content-Type': 'application/json; charset=UTF-8',
 	},
@@ -138,7 +138,7 @@ final response = await http.post(
 }
 Future<Albumotpsend> createAlbum101(String email) async {
 final response = await http.post(  
-  Uri.parse('https://'+API+'/otp/send'),
+  Uri.parse(API+'/otp/send'),
 	headers: <String, String>{
 	'Content-Type': 'application/json; charset=UTF-8',
 	},
@@ -160,7 +160,7 @@ final response = await http.post(
 
 Future<Albumotpverify> createAlbum3(String mobile,String otp) async {
 final http.Response response = await http.post(  
-  Uri.parse('https://'+API+'/otp/verify'),
+  Uri.parse(API+'/otp/verify'),
 	headers: <String, String>{
 	'Content-Type': 'application/json; charset=UTF-8',
 	},
@@ -183,7 +183,7 @@ final http.Response response = await http.post(
 }
 Future<Albumotpverify> createAlbum301(String email,String otp) async {
 final http.Response response = await http.post(  
-  Uri.parse('https://'+API+'/otp/verify'),
+  Uri.parse(API+'/otp/verify'),
 	headers: <String, String>{
 	'Content-Type': 'application/json; charset=UTF-8',
 	},
@@ -204,7 +204,7 @@ final http.Response response = await http.post(
 
 Future<Albumotpsendforgotpwd> createAlbum_otpSendforgotPWd(String mobile) async {
 final response = await http.post(  
-  Uri.parse('https://'+API+'/otp/send'),
+  Uri.parse(API+'/otp/send'),
 	headers: <String, String>{
 	'Content-Type': 'application/json; charset=UTF-8',
 	},
@@ -223,7 +223,7 @@ final response = await http.post(
 }
 Future<AlbumotpsendforgotpwdEmail> createAlbum_otpSendforgotPWdemdail(String mobile) async {
 final response = await http.post(  
-  Uri.parse('https://'+API+'/otp/send'),
+  Uri.parse(API+'/otp/send'),
 	headers: <String, String>{
 	'Content-Type': 'application/json; charset=UTF-8',
 	},
@@ -243,7 +243,7 @@ final response = await http.post(
 
 Future<Albumotpverifyforgotpwd> createAlbum_otpverifyforgotpwd(String mobile,String otp) async {
 final http.Response response = await http.post(  
-  Uri.parse('https://'+API+'/otp/verify'),
+  Uri.parse(API+'/otp/verify'),
 	headers: <String, String>{
 	'Content-Type': 'application/json; charset=UTF-8',
 	},
@@ -266,7 +266,7 @@ final http.Response response = await http.post(
 
 Future<AlbumotpverifyforgotpwdEmail> createAlbum_otpverifyforgotpwdEmail(String email,String otp) async {
 final http.Response response = await http.post(  
-  Uri.parse('https://'+API+'/otp/verify'),
+  Uri.parse(API+'/otp/verify'),
 	headers: <String, String>{
 	'Content-Type': 'application/json; charset=UTF-8',
 	},
@@ -288,7 +288,7 @@ final http.Response response = await http.post(
 
 Future<AlbumPhoneRegister> createAlbum4(String Username,String CompanyName,String password,String gender,bool isPhone,String Phone,String uid,String dob )async {
 final response = await http.post(  
-  Uri.parse('https://'+API+'/api/auth/customer/register'),
+  Uri.parse(API+'/api/auth/customer/register'),
 	headers: <String, String>{
 	'Content-Type': 'application/json; charset=UTF-8',
 	},
@@ -324,7 +324,7 @@ final response = await http.post(
 }
 Future<AlbumPhoneRegister> createAlbum4_2(String Username,String password,String gender,bool isPhone,String Phone,String uid,String dob )async {
 final response = await http.post(  
-  Uri.parse('https://'+API+'/api/auth/customer/register'),
+  Uri.parse(API+'/api/auth/customer/register'),
 	headers: <String, String>{
 	'Content-Type': 'application/json; charset=UTF-8',
 	},
@@ -366,7 +366,7 @@ final response = await http.post(
 
 Future<AlbumPhoneRegister> createAlbum401(String Username,String CompanyName,String password,String gender,bool isPhone,String Email,String uid ,String Country,String dob)async {
 final response = await http.post(  
-  Uri.parse('https://'+API+'/api/auth/customer/register'),
+  Uri.parse(API+'/api/auth/customer/register'),
 	headers: <String, String>{
 	'Content-Type': 'application/json; charset=UTF-8',
 	},
@@ -394,7 +394,7 @@ final response = await http.post(
 }
 Future<AlbumPhoneRegister> createAlbum401_2(String Username,String password,String gender,bool isPhone,String Email,String uid ,String Country,String dob)async {
 final response = await http.post(  
-  Uri.parse('https://'+API+'/api/auth/customer/register'),
+  Uri.parse(API+'/api/auth/customer/register'),
 	headers: <String, String>{
 	'Content-Type': 'application/json; charset=UTF-8',
 	},
@@ -449,7 +449,7 @@ final response = await http.post(
 
 Future createAlbumPurchaseHistoryDetailsMobile(String id,String ID)async {
 final response = await http.post(  
-  Uri.parse('https://'+API+'/customer/purchases'),
+  Uri.parse(API+'/customer/purchases'),
 	headers: <String, String>{
 	'Content-Type': 'application/json; charset=UTF-8',
 	},
@@ -470,7 +470,7 @@ final response = await http.post(
 
 Future createAlbumPurchaseHistoryDetailsEmail(String id,String ID)async {
 final response = await http.post(  
-  Uri.parse('https://'+API+'/customer/purchases'),
+  Uri.parse(API+'/customer/purchases'),
 	headers: <String, String>{
 	'Content-Type': 'application/json; charset=UTF-8',
 	},

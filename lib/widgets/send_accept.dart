@@ -66,7 +66,7 @@ Future<Object> createAlbum(
     String userId, String password, bool isPhoneNum) async {
   final response = await http.post(
     Uri.parse(
-        'https://'+ API +'/api/auth/customer/login/'),
+        API +'/api/auth/customer/login/'),
     headers: <String, String>{
       'Content-Type': 'application/json',
     },
@@ -94,7 +94,7 @@ Future<Object> createAlbum1(
     String userId, String password, bool isPhoneNum) async {
   final response = await http.post(
     Uri.parse(
-        'https://'+API+'/customer-auth/login/'),
+        API+'/customer-auth/login/'),
     headers: <String, String>{
       'Content-Type': 'application/json',
     },
@@ -192,7 +192,7 @@ Future<Album_reset> createAlbum_reset(
     int i, bool isPhoneNo, String Number, String password) async {
   final response = await http.post(
     Uri.parse(
-        'https://'+API+'/api/auth/customer/forgot-password/'),
+       API+'/api/auth/customer/forgot-password/'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
@@ -368,7 +368,7 @@ Future createAlbum_decativate(
     String id, bool isPhoneNum, String password) async {
   final response = await http.post(
     Uri.parse(
-        "https://"+API+"/customer/hard-delete-customer-profile"),
+        API+"/customer/hard-delete-customer-profile"),
     headers: <String, String>{
       'Content-Type': 'application/json',
     },
@@ -414,7 +414,7 @@ Future<Album_notification> createAlbum_notification(
     String contactType, String id, String dateTime) async {
   final response = await http.post(
     Uri.parse(
-        'https://'+API+'/customer/expiryalert'),
+       API+'/customer/expiryalert'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
@@ -460,7 +460,7 @@ Future createAlbum_update_info(
 ) async {
   final response = await http.post(
       Uri.parse(
-          'https://'+API +'/customer/update-customer-profile'),
+         API +'/customer/update-customer-profile'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -535,7 +535,7 @@ Future<Album_Warranty> createAlbum_Warranty(
     String contactType, String id, String dateTime) async {
   final response = await http.post(
     Uri.parse(
-        'https://'+API+'/customer/warrantyalert'),
+       API+'/customer/warrantyalert'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
@@ -633,7 +633,7 @@ Future<AlbumProductFeedback> createProductFeedback(String prodID, int rating,
       print(rating);
   final response = await http.post(
     Uri.parse(
-        'https://'+API+'/customer/prod-feedback'),
+        API+'/customer/prod-feedback'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
@@ -673,7 +673,7 @@ Future<AlbumCheckIfUserExists> createCheckIfUserExists(bool isPhoneNo, String co
        
   final response = await http.post(
     Uri.parse(
-        'https://'+API+'/api/auth/customer/check-identity'),
+        API+'/api/auth/customer/check-identity'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
