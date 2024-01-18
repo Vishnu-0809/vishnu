@@ -437,7 +437,7 @@ Future<Album_notification> createAlbum_notification(
 Future createAlbum_notificat_details(String batchNo, String clientId) async {
   final response = await http.post(
     Uri.parse(
-        'http://ec2-13-235-124-84.ap-south-1.compute.amazonaws.com:3000/customer/productdetails'),
+        API+'/customer/productdetails'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
