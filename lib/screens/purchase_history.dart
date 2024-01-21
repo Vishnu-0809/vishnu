@@ -188,9 +188,10 @@ class _PurchaseHistoryState extends State<PurchaseHistory> {
         temp_class.details["additionalImages"] = [
           responseData["data"][i]["extraImages"]
         ];
-        print("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
-        print(temp_class.details["additionalImages"]);
-
+        // print("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
+        // print(temp_class.details["additionalImages"]);
+        temp_class.details["manuWebsiteLink"] =
+              responseData["data"][i]["manuWebsiteLink"];
         temp_class.details["additionalImageDetails"] =
             responseData["data"][i]["additionalImageDetails"];
 
@@ -308,8 +309,10 @@ class _PurchaseHistoryState extends State<PurchaseHistory> {
         temp_class.details["additionalImages"] = [
           responseData["data"][i]["extraImages"]
         ];
-        print("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
-        print(temp_class.details["additionalImages"]);
+        temp_class.details["manuWebsiteLink"] =
+              responseData["data"][i]["manuWebsiteLink"];
+        // print("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
+        // print(temp_class.details["additionalImages"]);
 
         temp_class.details["additionalImageDetails"] =
             responseData["data"][i]["additionalImageDetails"];
@@ -429,8 +432,10 @@ class _PurchaseHistoryState extends State<PurchaseHistory> {
           temp_class.details["additionalImages"] = [
             responseData["data"][i]["extraImages"]
           ];
-          print("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
-          print(temp_class.details["additionalImages"]);
+        temp_class.details["manuWebsiteLink"] =
+              responseData["data"][i]["manuWebsiteLink"];
+          print("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
+          print(temp_class.details["manuWebsiteLink"]);
 
           temp_class.details["additionalImageDetails"] =
               responseData["data"][i]["additionalImageDetails"];
@@ -562,11 +567,16 @@ class _PurchaseHistoryState extends State<PurchaseHistory> {
           temp_class.details["additionalImages"] = [
             responseData["data"][i]["extraImages"]
           ];
+          temp_class.details["manuWebsiteLink"] =
+              responseData["data"][i]["manuWebsiteLink"];
+          
           print("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
           print(temp_class.details["additionalImages"]);
 
           temp_class.details["additionalImageDetails"] =
               responseData["data"][i]["additionalImageDetails"];
+              //  temp_class.details["additionalImageDetails"] =
+              // responseData["data"][i][""];
           print(temp_class.details["brand"]);
           temp_class.details["batchType"] =
               responseData["data"][i]["batchType"];
