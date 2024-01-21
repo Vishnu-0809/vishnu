@@ -435,7 +435,7 @@ class _PurchaseHistoryState extends State<PurchaseHistory> {
         temp_class.details["manuWebsiteLink"] =
               responseData["data"][i]["manuWebsiteLink"];
           print("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
-          print(temp_class.details["manuWebsiteLink"]);
+          print(temp_class.details["isTrackingAvailable"]);
 
           temp_class.details["additionalImageDetails"] =
               responseData["data"][i]["additionalImageDetails"];
@@ -571,7 +571,7 @@ class _PurchaseHistoryState extends State<PurchaseHistory> {
               responseData["data"][i]["manuWebsiteLink"];
           
           print("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
-          print(temp_class.details["additionalImages"]);
+          print(temp_class.details["isTrackingAvailable"]);
 
           temp_class.details["additionalImageDetails"] =
               responseData["data"][i]["additionalImageDetails"];
@@ -1287,7 +1287,7 @@ class _PurchaseHistoryState extends State<PurchaseHistory> {
                                                                     ),
                                                                   ),
                                                                   child: Text(
-                                                                    '2022',
+                                                                    '2023',
                                                                     style:
                                                                         TextStyle(
                                                                       color: Colors
@@ -1372,7 +1372,7 @@ class _PurchaseHistoryState extends State<PurchaseHistory> {
                                                                     ),
                                                                   ),
                                                                   child: Text(
-                                                                    '2021',
+                                                                    '2022',
                                                                     style:
                                                                         TextStyle(
                                                                       color: Colors
@@ -1476,7 +1476,7 @@ class _PurchaseHistoryState extends State<PurchaseHistory> {
                                                                     ),
                                                                   ),
                                                                   child: Text(
-                                                                    '2020',
+                                                                    '2021',
                                                                     style:
                                                                         TextStyle(
                                                                       color: Colors

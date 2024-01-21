@@ -854,7 +854,7 @@ List<Details> uniquelist = SuggestionsDetailsList.where((student) => seen.add(st
       },
     ),),
                   child: Text(
-                    '2022',
+                    '2023',
                     style: TextStyle(
                      color: Colors.black,
                     fontFamily: "Poppins Medium",
@@ -898,7 +898,7 @@ List<Details> uniquelist = SuggestionsDetailsList.where((student) => seen.add(st
       },
     ),),
                   child: Text(
-                    '2021',
+                    '2022',
                     style: TextStyle(
                      color: Colors.black,
                     fontFamily: "Poppins Medium",
@@ -958,7 +958,7 @@ List<Details> uniquelist = SuggestionsDetailsList.where((student) => seen.add(st
       },
     ),),
                   child: Text(
-                    '2020',
+                    '2021',
                     style: TextStyle(
                        color: Colors.black,
                     fontFamily: "Poppins Medium",
