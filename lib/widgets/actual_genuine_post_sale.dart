@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:Veots/models/class_models.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -8,13 +9,34 @@ import '../screens/home_page.dart';
 import '../screens/product_details.dart';
 import 'not_icon.dart';
 
-class ActualGPSale extends StatelessWidget {
+class ActualGPSale extends StatefulWidget {
   const ActualGPSale({super.key,required this.link, required this.snapshot, required this.keyD});
   final String link;
   final GenuinePostSale snapshot;
   final keyD;
   // State<ActualGPSale> createState() => _ActualGPSaleState();
+  State<ActualGPSale> createState() => _ActualGPSaleState();
+}
 
+class _ActualGPSaleState extends State<ActualGPSale> {
+
+void initState() {
+    // TODO: implement initState
+    () async {
+      _startAnimation();
+    }();
+
+    super.initState();
+  }
+   void _startAnimation() {
+    Future.delayed(Duration(milliseconds: 1), () {
+      setState(() {
+        _isContainerBig = true;
+      });
+    });
+  }
+
+  bool _isContainerBig = false;
 
 // class _ActualGPSaleState extends State<ActualGPSale> {
   @override
@@ -85,7 +107,7 @@ class ActualGPSale extends StatelessWidget {
                               child: 
                               InkWell(
                              onTap: (){
-                        keyD.currentState?.openDrawer();    },
+                        widget.keyD.currentState?.openDrawer();    },
                                child: Icon(
                                   Icons.menu,
                                   size: MediaQuery.of(context).size.width * 0.05,
@@ -104,7 +126,7 @@ class ActualGPSale extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                snapshot.details["batchType"] == "Manufacturer" ?
+                widget.snapshot.details["batchType"] == "Manufacturer" ?
                 Text(
               "Scanned Product Details",
               style: 
@@ -134,53 +156,53 @@ class ActualGPSale extends StatelessWidget {
             SizedBox(
               height: MediaQuery.of(context).size.height / 100,
             ),
-            if(snapshot.details["batchType"] == "Retailer")...[
-              if(snapshot.details["brand"] != null)
-            Text(
-            snapshot.details["brand"],
-            style:
-            //  Theme.of(context).textTheme.headlineSmall,
-            TextStyle(
-              color: const Color(0xff00b7ff),
-              fontSize: 12,
-                  // fontSize: MediaQuery.of(context).size.width * 0.055,
-                  fontFamily: "Poppins Medium",
-            ),
-          )]
-          else...[
-          if(snapshot.details["prodName"]!=null)...[
-          Text(
-            snapshot.details["prodName"],
-            style:
-            //  Theme.of(context).textTheme.headlineSmall,
-            TextStyle(
-              color: const Color(0xff00b7ff),
-              fontSize: 12,
-                  // fontSize: MediaQuery.of(context).size.width * 0.055,
-                  fontFamily: "Poppins Medium",
-            ),
-          ),]
-          else...[
-            Text(
-            "unable to display name",
-            style: TextStyle(
-              color: const Color(0xff0b53be),
-                  fontSize: MediaQuery.of(context).size.width * 0.055,
-            ),
-          ),
-          ]],
+          //   if(widget.snapshot.details["batchType"] == "Retailer")...[
+          //     if(widget.snapshot.details["brand"] != null)
+          //   Text(
+          //   widget.snapshot.details["brand"],
+          //   style:
+          //   //  Theme.of(context).textTheme.headlineSmall,
+          //   TextStyle(
+          //     color: const Color(0xff00b7ff),
+          //     fontSize: 12,
+          //         // fontSize: MediaQuery.of(context).size.width * 0.055,
+          //         fontFamily: "Poppins Medium",
+          //   ),
+          // )]
+          // else...[
+          // if(widget.snapshot.details["prodName"]!=null)...[
+          // Text(
+          //   widget.snapshot.details["prodName"],
+          //   style:
+          //   //  Theme.of(context).textTheme.headlineSmall,
+          //   TextStyle(
+          //     color: const Color(0xff00b7ff),
+          //     fontSize: 12,
+          //         // fontSize: MediaQuery.of(context).size.width * 0.055,
+          //         fontFamily: "Poppins Medium",
+          //   ),
+          // ),]
+          // else...[
+          //   Text(
+          //   "unable to display name",
+          //   style: TextStyle(
+          //     color: const Color(0xff0b53be),
+          //         fontSize: MediaQuery.of(context).size.width * 0.055,
+          //   ),
+          // ),
+          // ]],
           // SizedBox(
           //   height: MediaQuery.of(context).size.height / 35,
           // ),
-           SizedBox(
-              height: MediaQuery.of(context).size.height / 45,
-            ),
+          //  SizedBox(
+          //     height: MediaQuery.of(context).size.height / 45,
+          //   ),
           Stack(children: [
                   Container(
                     // color: Colors.red,
                       height: MediaQuery.of(context).size.height / 2.2,
                       width: MediaQuery.of(context).size.width * 0.9,
-                      child: Image.network(snapshot.details["imageProd"], 
+                      child: Image.network(widget.snapshot.details["imageProd"], 
                        loadingBuilder: (context, child, loadingProgress) {
                    if (loadingProgress == null) return child;
                    return const Center(child: CircularProgressIndicator(valueColor:AlwaysStoppedAnimation<Color>(Color(0xff002060)),));
@@ -189,19 +211,30 @@ class ActualGPSale extends StatelessWidget {
           errorBuilder: (context, error, stackTrace) =>
               const Center(child: Text('Sorry couldn\'t show the product image')),
                       )),
-                      Positioned(
-                        top: 30,
-                        left: 20,
-                        child: Container(
-                    // margin: EdgeInsets.only(left: 0),
-                    // color: Colors.yellow,
-                    // alignment: Alignment.bottomRight,
-                    height: MediaQuery.of(context).size.height / 8,
-                    width: MediaQuery.of(context).size.width * 0.3,
-                    child: Image.asset('assets/authentic_sticker.png'),
-                  ),),
+                        AnimatedContainer(
+                          height: _isContainerBig==true ? 130 : 300,
+          duration: Duration(milliseconds: 200),
+          width: _isContainerBig==true ? 130 : 300,
+          alignment: Alignment.topLeft,
+          child: Image.asset(
+                        'assets/authentic_sticker.png',
+                      ),
+        ),
                 ]),
-              
+                SizedBox(
+              height: MediaQuery.of(context).size.height / 45,
+            ),
+              AnimatedTextKit(
+                  totalRepeatCount: 1,
+                  animatedTexts: [
+                      TyperAnimatedText(widget.snapshot.details["prodName"],
+                      speed: const Duration(milliseconds: 70), 
+                      textStyle: TextStyle(color: Color(0xff003274),
+                      fontFamily: "Poppins Medium",
+                      fontSize:MediaQuery.of(context).size.width*0.041,)
+                      ),                 
+                     ],
+                 ),
           // SizedBox(
           //   height: MediaQuery.of(context).size.height / 45,F
           // ),
@@ -228,7 +261,7 @@ class ActualGPSale extends StatelessWidget {
                             colors: [Color(0xff00b7ff), Color(0xffaa2aae)])),
                     child: ElevatedButton(
                       onPressed: () {
-                        if (snapshot.details["expiry"] == null) {
+                        if (widget.snapshot.details["expiry"] == null) {
                             showDialog(
                                 // barrierDismissible: false,
                                 context: context,
@@ -315,7 +348,7 @@ class ActualGPSale extends StatelessWidget {
                                 });
                           } else {
                             String temp =
-                                snapshot.details["expiry"].substring(0, 10);
+                                widget.snapshot.details["expiry"].substring(0, 10);
                             String res = temp.substring(8, 10) +
                                 "-" +
                                 temp.substring(5, 7) +
@@ -395,8 +428,8 @@ class ActualGPSale extends StatelessWidget {
                                       ],
                                     ),
                                     content:
-                                    snapshot.details["batchType"]!=null?
-                                    snapshot.details["batchType"]=="Retailer"?Text(
+                                    widget.snapshot.details["batchType"]!=null?
+                                    widget.snapshot.details["batchType"]=="Retailer"?Text(
                                       'Not Applicable',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
@@ -404,7 +437,7 @@ class ActualGPSale extends StatelessWidget {
                                           fontSize:
                                               MediaQuery.of(context).size.width *
                                                   0.05),
-                                    ):snapshot.details["expiry"]=="notAvailable"? Text(
+                                    ):widget.snapshot.details["expiry"]=="notAvailable"? Text(
                                       'Not Available',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
@@ -490,36 +523,36 @@ class ActualGPSale extends StatelessWidget {
                         // else
                         //   temp.name = "null";f
                         Details temp_class = new Details();
-                        temp_class.details["message"] = snapshot.message;
-                        temp_class.details["purchaseDate"] = snapshot.purchaseDate;
-                        temp_class.details["brand"] = snapshot.details["brand"];
-                        temp_class.details["serialNo"] = snapshot.details["serialNo"];
-                        temp_class.details["warrantyApp"] = snapshot.details["warrantyApp"];
-                        temp_class.details["price"] = snapshot.details["price"];
-                        temp_class.details["prodName"] = snapshot.details["prodName"];
-                        temp_class.details["imageProd"] = snapshot.details["imageProd"];
+                        temp_class.details["message"] = widget.snapshot.message;
+                        temp_class.details["purchaseDate"] = widget.snapshot.purchaseDate;
+                        temp_class.details["brand"] = widget.snapshot.details["brand"];
+                        temp_class.details["serialNo"] = widget.snapshot.details["serialNo"];
+                        temp_class.details["warrantyApp"] = widget.snapshot.details["warrantyApp"];
+                        temp_class.details["price"] = widget.snapshot.details["price"];
+                        temp_class.details["prodName"] = widget.snapshot.details["prodName"];
+                        temp_class.details["imageProd"] = widget.snapshot.details["imageProd"];
                         // temp_class.details["QROnProd"] =
                         //     responseData["batchDetails"]["QROnProd"];
-                        temp_class.details["expiry"] = snapshot.details["expiry"];
-                        temp_class.details["batchNo"] = snapshot.details["batchNo"];
-                        temp_class.details["warrantyPeriod"] = snapshot.details["warrantyPeriod"];
-                         temp_class.details["imageQrOnProd"] = snapshot.details["imageQrOnProd"];
-                         temp_class.details["mfgDate"] = snapshot.details["mfgDate"];
-                         temp_class.details["shelflife"] = snapshot.details["shelflife"];
-                         temp_class.details["manuLicenseNo"] = snapshot.details["manuLicenseNo"];
-                         temp_class.details["manuAddress"] = snapshot.details["manuAddress"];
-                         temp_class.details["additionalDetails"] = snapshot.details["additionalDetails"];
-                         temp_class.details["additionalImages"] = snapshot.details["additionalImages"];
-                         temp_class.details["additionalImageDetails"] = snapshot.details["additionalImageDetails"]; 
-                         temp_class.details['tracking']=snapshot.details['tracking']; ///changed
-                         temp_class.details['productVedio']=snapshot.details['productVedio'];
-                         temp_class.details['batchType']=snapshot.details['batchType'];
-                         temp_class.details['manuWebsiteLink']=snapshot.details['manuWebsiteLink'];
-                         temp_class.bill = snapshot.bill;
+                        temp_class.details["expiry"] = widget.snapshot.details["expiry"];
+                        temp_class.details["batchNo"] = widget.snapshot.details["batchNo"];
+                        temp_class.details["warrantyPeriod"] = widget.snapshot.details["warrantyPeriod"];
+                         temp_class.details["imageQrOnProd"] = widget.snapshot.details["imageQrOnProd"];
+                         temp_class.details["mfgDate"] = widget.snapshot.details["mfgDate"];
+                         temp_class.details["shelflife"] = widget.snapshot.details["shelflife"];
+                         temp_class.details["manuLicenseNo"] = widget.snapshot.details["manuLicenseNo"];
+                         temp_class.details["manuAddress"] = widget.snapshot.details["manuAddress"];
+                         temp_class.details["additionalDetails"] = widget.snapshot.details["additionalDetails"];
+                         temp_class.details["additionalImages"] = widget.snapshot.details["additionalImages"];
+                         temp_class.details["additionalImageDetails"] = widget.snapshot.details["additionalImageDetails"]; 
+                         temp_class.details['tracking']=widget.snapshot.details['tracking']; ///changed
+                         temp_class.details['productVedio']=widget.snapshot.details['productVedio'];
+                         temp_class.details['batchType']=widget.snapshot.details['batchType'];
+                         temp_class.details['manuWebsiteLink']=widget.snapshot.details['manuWebsiteLink'];
+                         temp_class.bill = widget.snapshot.bill;
                          print("--------------------");
                          print(temp_class.bill);
                         Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => ProdDetails(link:link,snapshot: temp_class),
+                          builder: (context) => ProdDetails(link:widget.link,snapshot: temp_class),
                         ));
                       },
                       style: ElevatedButton.styleFrom(
@@ -527,7 +560,7 @@ class ActualGPSale extends StatelessWidget {
                           shadowColor: Colors.transparent),
                       child: FittedBox(
                         child: 
-                        snapshot.details["batchType"] == "Manufacturer" ?
+                        widget.snapshot.details["batchType"] == "Manufacturer" ?
                         Text(
                           'Product Details',
                           style: 

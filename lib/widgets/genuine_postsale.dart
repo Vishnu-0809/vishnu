@@ -60,6 +60,8 @@ class _GenuinePostState extends State<GenuinePost> {
   //   info();
   // }
   bool _isContainerBig = false;
+   bool _isContainerBig2 = false;
+    bool _isContainerBig3 = false;
 
   @override
   YoutubePlayerController _controllerCovert = YoutubePlayerController(
@@ -94,9 +96,27 @@ class _GenuinePostState extends State<GenuinePost> {
     super.initState();
   }
    void _startAnimation() {
-    Future.delayed(Duration(milliseconds: 500), () {
+    Future.delayed(Duration(milliseconds: 1), () {
       setState(() {
         _isContainerBig = true;
+      });
+      _startAnimation2();
+    });
+  }
+
+  void _startAnimation2() {
+    Future.delayed(Duration(milliseconds: 500), () {
+      setState(() {
+        _isContainerBig2 = true;
+      });
+      _startAnimation3();
+    });
+  }
+
+  void _startAnimation3() {
+    Future.delayed(Duration(milliseconds: 1000), () {
+      setState(() {
+        _isContainerBig3 = true;
       });
     });
   }
@@ -507,7 +527,6 @@ class _GenuinePostState extends State<GenuinePost> {
               Container(
                 child: Stack(children: [
                   Container(
-                      // color: Colors.red,
                       // decoration: BoxDecoration(
                       // border: Border.all(width: 1,
                       // color: Color(0xff003296)
@@ -532,22 +551,32 @@ class _GenuinePostState extends State<GenuinePost> {
                                 child: Text(
                                     'Sorry couldn\'t show the product image')),
                       )),
-                  Container(
-                    // margin: EdgeInsets.only(left: 0),
-                    // color: Colors.yellow,
-                    alignment: Alignment.topLeft,
-                    height: MediaQuery.of(context).size.height / 8,
-                    width: MediaQuery.of(context).size.width * 0.3,
-                    child: Image.asset('assets/authentic_sticker.png'),
-                  ),
+                  // Container(
+                  //   // margin: EdgeInsets.only(left: 0),
+                  //   // color: Colors.yellow,
+                  //   alignment: Alignment.topLeft,
+                  //   height: MediaQuery.of(context).size.height / 8,
+                  //   width: MediaQuery.of(context).size.width * 0.3,
+                  //   child: Image.asset('assets/authentic_sticker.png'),
+                  // ),
+                        AnimatedContainer(
+                          height: _isContainerBig==true ? 130 : 300,
+          duration: Duration(milliseconds: 200),
+          width: _isContainerBig==true ? 130 : 300,
+          alignment: Alignment.topLeft,
+          child: Image.asset(
+                        'assets/authentic_sticker.png',fit: BoxFit.fill
+                      ),
+        ),
                 ]),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height / 45,
+                height: MediaQuery.of(context).size.height / 80,
               ),
               Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  _isContainerBig3 ? 
                   AnimatedTextKit(
                   totalRepeatCount: 1,
                   animatedTexts: [
@@ -558,13 +587,14 @@ class _GenuinePostState extends State<GenuinePost> {
                       fontSize:MediaQuery.of(context).size.width*0.041,)
                       ),                 
                      ],
-                 ),
+                 ):
+                 Container(width: 0, height: 0,)
                 ],
               ),
               AnimatedContainer(
           duration: Duration(milliseconds: 400),
-          width: _isContainerBig ? 130.0 : 20.0,
-          alignment: _isContainerBig ? Alignment.center : Alignment.topCenter,
+          width: _isContainerBig2 ? 130.0 : 20.0,
+          alignment: _isContainerBig2 ? Alignment.center : Alignment.topCenter,
           child: Image.asset(
                         'assets/verified transparent background.png',
                       ),

@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:Veots/widgets/send_accept.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/class_models.dart';
@@ -13,14 +14,35 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'not_icon.dart';
 
 
-class FakeProduct extends StatelessWidget {
+class FakeProduct extends StatefulWidget {
    FakeProduct({super.key, required this.snapshot, required this.keyD, required this.subLink});
   final Fake snapshot;
   final keyD;
   final subLink;
+  @override
+  State<FakeProduct> createState() => _FakeProductState();
+}
 
 
-  
+class _FakeProductState extends State<FakeProduct> {
+void initState() {
+    // TODO: implement initState
+    () async {
+      _startAnimation();
+    }();
+
+    super.initState();
+  }
+   void _startAnimation() {
+    Future.delayed(Duration(milliseconds: 1), () {
+      setState(() {
+        _isContainerBig = true;
+      });
+    });
+  }
+
+bool _isContainerBig = false;
+
   YoutubePlayerController _controller = YoutubePlayerController(
     initialVideoId: 'jY1nvK2wIX0',
     flags: YoutubePlayerFlags(
@@ -35,17 +57,17 @@ class FakeProduct extends StatelessWidget {
   String? fakebill;
   String postSaleCode = ""; 
    Future<String> getData() async {
-    if( subLink.length==32 && subLink[31] == "1")
-    postSaleCode = subLink;
-    print(snapshot.reason);
+    if( widget.subLink.length==32 && widget.subLink[31] == "1")
+    postSaleCode = widget.subLink;
+    print(widget.snapshot.reason);
     print(ID.toString());
-    print(snapshot.preSaleCode);
+    print(widget.snapshot.preSaleCode);
     print('helo');
     print(UDID.toString());
     print('---------------------------');
     print(LOCATION);
     print('---------------------------');
-    print(snapshot.batchNo);
+    print(widget.snapshot.batchNo);
     print('---------------------------');
     print(comment);
     print('---------------------------');
@@ -54,8 +76,8 @@ class FakeProduct extends StatelessWidget {
     print(File(fakebill.toString()));
     print(fakebill);
     print('---------------------------');
-     token = await createAlbum_report(snapshot.reason
-          , ID.toString(), snapshot.preSaleCode, UDID.toString(),  LOCATION, snapshot.batchNo, comment, postSaleCode, fakebill );
+     token = await createAlbum_report(widget.snapshot.reason
+          , ID.toString(), widget.snapshot.preSaleCode, UDID.toString(),  LOCATION, widget.snapshot.batchNo, comment, postSaleCode, fakebill );
     print(token?.message);
     return token!.message;
   }
@@ -128,7 +150,7 @@ class FakeProduct extends StatelessWidget {
                               child: 
                               InkWell(
                              onTap: (){
-                        keyD.currentState?.openDrawer();    },
+                        widget.keyD.currentState?.openDrawer();    },
                                child: Icon(
                                   Icons.menu,
                                   size: MediaQuery.of(context).size.width * 0.05,
@@ -157,15 +179,26 @@ class FakeProduct extends StatelessWidget {
             SizedBox(
               height: MediaQuery.of(context).size.height / 100,
             ),
-              Text(
-                snapshot.name,
-                style: TextStyle(
-                  color: const Color(0xff00b7ff),
-                  fontFamily: "Poppins Medium",
-                // fontSize: MediaQuery.of(context).size.width * 0.045,
-                fontSize: 12,
-                ),
-              ),
+              // Text(
+              //   widget.snapshot.name,
+              //   style: TextStyle(
+              //     color: const Color(0xff00b7ff),
+              //     fontFamily: "Poppins Medium",
+              //   // fontSize: MediaQuery.of(context).size.width * 0.045,
+              //   fontSize: 12,
+              //   ),
+              // ),
+              AnimatedTextKit(
+                  totalRepeatCount: 1,
+                  animatedTexts: [
+                      TyperAnimatedText(widget.snapshot.name,
+                      speed: const Duration(milliseconds: 70), 
+                      textStyle: TextStyle(color: Color(0xff003274),
+                      fontFamily: "Poppins Medium",
+                      fontSize:MediaQuery.of(context).size.width*0.041,)
+                      ),                 
+                     ],
+                 ),
               // SizedBox(
               //   height: MediaQuery.of(context).size.height / 35,
               // ),
@@ -306,7 +339,7 @@ YoutubePlayer(
                   Container(
                     height: MediaQuery.of(context).size.height / 3,
                     width: MediaQuery.of(context).size.width * 0.7,
-                    child: Image.network(snapshot.image,
+                    child: Image.network(widget.snapshot.image,
                      loadingBuilder: (context, child, loadingProgress) {
                    if (loadingProgress == null) return child;
                    return const Center(child: CircularProgressIndicator(valueColor:AlwaysStoppedAnimation<Color>(Color(0xff002060)),));
@@ -318,13 +351,15 @@ YoutubePlayer(
                   // Column(
                   //   crossAxisAlignment: CrossAxisAlignment.start,
                     // children: [
-                      Container(
-                        // margin: EdgeInsets.only(left: 0),
-                        alignment: Alignment.topLeft,
-                    height: MediaQuery.of(context).size.height / 8,
-                  width: MediaQuery.of(context).size.width * 0.3,
-                    child: Image.asset('assets/alert.png'),
-                  ),
+                      AnimatedContainer(
+                          height: _isContainerBig==true ? 130 : 300,
+          duration: Duration(milliseconds: 200),
+          width: _isContainerBig==true ? 130 : 300,
+          alignment: Alignment.topLeft,
+          child: Image.asset(
+                        'assets/Picture1.png',
+                      ),
+        ),
                   //   ],
                   // )
                 ]),
@@ -575,3 +610,4 @@ YoutubePlayer(
     );
   }
 }
+
