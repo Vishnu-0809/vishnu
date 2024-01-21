@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:Veots/screens/track_history.dart';
 import 'package:Veots/widgets/not_icon.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/services.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -551,6 +552,20 @@ reupload_bill() async
           SizedBox(
             height: MediaQuery.of(context).size.height / 80,
           ),
+          AnimatedTextKit(
+                  totalRepeatCount: 1,
+                  animatedTexts: [
+                      TyperAnimatedText(snapshot.details["prodName"],
+                      speed: const Duration(milliseconds: 70), 
+                      textStyle: TextStyle(color: Color(0xff003274),
+                      fontFamily: "Poppins Medium",
+                      fontSize:MediaQuery.of(context).size.width*0.041,)
+                      ),                 
+                     ],
+                 ),
+                 SizedBox(
+            height: MediaQuery.of(context).size.height / 80,
+          ),
           Expanded(
             child: Container(
                 width: MediaQuery.of(context).size.width,
@@ -1058,6 +1073,7 @@ reupload_bill() async
                           child: Row(
                             
                             children: [
+                              if(snapshot.details["manuWebsiteLink"]!=null)
                             SizedBox(
                                height:MediaQuery.of(context)
                                                     .size
@@ -1065,7 +1081,6 @@ reupload_bill() async
                                 width:MediaQuery.of(context)
                                                     .size
                                                     .width *0.25 ,
-                                                    
                               child: ElevatedButton(
                                 style:  ElevatedButton.styleFrom(
                                 primary: Color(0xFFD1DEFF),
@@ -1073,7 +1088,8 @@ reupload_bill() async
                                 onPressed: (){final Uri web_url = Uri.parse(
                                                   snapshot.details["manuWebsiteLink"]);
                                               launchUrl(web_url);}, 
-                                child: Text('Web Link',
+                                child: 
+                                Text('Web Link',
                                 style: TextStyle(
                                               fontFamily: "Poppins Medium",
                                               color: Colors.black,
