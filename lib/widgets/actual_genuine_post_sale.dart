@@ -33,10 +33,30 @@ void initState() {
       setState(() {
         _isContainerBig = true;
       });
+      _startAnimation2();
+    });
+  }
+
+  void _startAnimation2() {
+    Future.delayed(Duration(milliseconds: 500), () {
+      setState(() {
+        _isContainerBig2 = true;
+      });
+      _startAnimation3();
+    });
+  }
+
+  void _startAnimation3() {
+    Future.delayed(Duration(milliseconds: 1000), () {
+      setState(() {
+        _isContainerBig3 = true;
+      });
     });
   }
 
   bool _isContainerBig = false;
+  bool _isContainerBig2 = false;
+  bool _isContainerBig3 = false;
 
 // class _ActualGPSaleState extends State<ActualGPSale> {
   @override
@@ -224,6 +244,7 @@ void initState() {
                 SizedBox(
               height: MediaQuery.of(context).size.height / 45,
             ),
+            _isContainerBig3 ? 
               AnimatedTextKit(
                   totalRepeatCount: 1,
                   animatedTexts: [
@@ -234,7 +255,16 @@ void initState() {
                       fontSize:MediaQuery.of(context).size.width*0.041,)
                       ),                 
                      ],
-                 ),
+                 ):
+                 Container(width: 0, height: 0,),
+                 AnimatedContainer(
+          duration: Duration(milliseconds: 400),
+          width: _isContainerBig2 ? 130.0 : 20.0,
+          alignment: _isContainerBig2 ? Alignment.center : Alignment.topCenter,
+          child: Image.asset(
+                        'assets/verified transparent background.png',
+                      ),
+        ),
           // SizedBox(
           //   height: MediaQuery.of(context).size.height / 45,F
           // ),

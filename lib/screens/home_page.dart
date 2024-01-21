@@ -1174,59 +1174,59 @@ Future<Null> _onrefresh()
                 height: 30,
                 child: IconButton(
                 onPressed: ()async  {
-                  print("rewardssssssssssssssssssssssssssssssssssssssssssss");
-                  setState(() {
-                         getting_coupons_data = true;
-                      });
-                    SharedPreferences pref= await SharedPreferences.getInstance();
-                    print(LOCATION);
-                    //  int? expiryLength=shref.getInt("expiryLength");
-                    // print(pref.getStringList("data"));
-                    // print( pref.getStringList('expiredData'));
-                    // print(   pref.getStringList('weekexpired'));
-                    // print(   pref.getStringList("datawarranty"));
-                    // print( pref.getStringList('expiredDatawarranty'));
-                    // print(  pref.getStringList('weekexpiredwarranty'));
-                  // pref.remove("data");
-                  // pref.remove('expiredData');
-                  // pref.remove('weekexpired');
-                  // pref.remove("datawarranty");
-                  // pref.remove('expiredDatawarranty');
-                  // pref.remove('weekexpiredwarranty');
+//                   print("rewardssssssssssssssssssssssssssssssssssssssssssss");
+//                   setState(() {
+//                          getting_coupons_data = true;
+//                       });
+//                     SharedPreferences pref= await SharedPreferences.getInstance();
+//                     print(LOCATION);
+//                     //  int? expiryLength=shref.getInt("expiryLength");
+//                     // print(pref.getStringList("data"));
+//                     // print( pref.getStringList('expiredData'));
+//                     // print(   pref.getStringList('weekexpired'));
+//                     // print(   pref.getStringList("datawarranty"));
+//                     // print( pref.getStringList('expiredDatawarranty'));
+//                     // print(  pref.getStringList('weekexpiredwarranty'));
+//                   // pref.remove("data");
+//                   // pref.remove('expiredData');
+//                   // pref.remove('weekexpired');
+//                   // pref.remove("datawarranty");
+//                   // pref.remove('expiredDatawarranty');
+//                   // pref.remove('weekexpiredwarranty');
 
-                      // trycalback();
-                    // loginNotification();
-                    // loginWarranty();
-                    // await shref.setString('notification',"show");
-        //             int? expiryLength= await shref.getInt("expiryLength");
-        //           int? warrntyLength= await  shref.getInt("warrantyLength");
-        // print((expiryLength! + warrntyLength!).toString());
+//                       // trycalback();
+//                     // loginNotification();
+//                     // loginWarranty();
+//                     // await shref.setString('notification',"show");
+//         //             int? expiryLength= await shref.getInt("expiryLength");
+//         //           int? warrntyLength= await  shref.getInt("warrantyLength");
+//         // print((expiryLength! + warrntyLength!).toString());
      
-        // date=DateTime.now();
-        // print(date.day==25);
-        print(custId_coupon);
-        String url = API + '/api/clients/customer/'+custId_coupon!+'/coupons/';
-        print("------------------------------");
-        print(url);
-        print("------------------------------");
- final response = await http.get(Uri.parse(url));
-//  print("asd");
-                  //  print(response);
-                   final jsonData = json.decode(response.body);
-                   print("-----------------------------------------");
-                   print("coupons details");
-                   print(jsonData);                    setState(() {
-                         getting_coupons_data = false;
-                      });
-                   Navigator.of(context).push(
-          MaterialPageRoute(
-              builder: ((context) => Rewards(coupons_details: jsonData, customerId: custId_coupon.toString())
-                  )),
-                );
-                  setState(() {
+//         // date=DateTime.now();
+//         // print(date.day==25);
+//         print(custId_coupon);
+//         String url = API + '/api/clients/customer/'+custId_coupon!+'/coupons/';
+//         print("------------------------------");
+//         print(url);
+//         print("------------------------------");
+//  final response = await http.get(Uri.parse(url));
+// //  print("asd");
+//                   //  print(response);
+//                    final jsonData = json.decode(response.body);
+//                    print("-----------------------------------------");
+//                    print("coupons details");
+//                    print(jsonData);                    setState(() {
+//                          getting_coupons_data = false;
+//                       });
+//                    Navigator.of(context).push(
+//           MaterialPageRoute(
+//               builder: ((context) => Rewards(coupons_details: jsonData, customerId: custId_coupon.toString())
+//                   )),
+//                 );
+//                   setState(() {
                     
-                    pageIndex = 3;
-                  });
+//                     pageIndex = 3;
+//                   });
                 },
                 icon: getting_coupons_data == true ?
                     // ? Icon(
