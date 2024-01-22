@@ -884,204 +884,204 @@ Future<Null> _onrefresh()
                     pageIndex = 0;
 
                   });
-                   showDialog(
-                                // barrierDismissible: false,
-                                context: context,
-                                builder: (context) {
-                                  return AlertDialog(
-                                    backgroundColor: Color(0xff002060),
-                                    titlePadding: EdgeInsets.fromLTRB(0, 0, 0, 6),
-                                    shape: const RoundedRectangleBorder(
-                                        //<-- SEE HERE
-                                        // side: BorderSide(
-                                        //   color: Colors.greenAccent,
-                                        // ),
-                                        borderRadius: BorderRadius.only(
-                                            bottomLeft: Radius.circular(10),
-                                            bottomRight: Radius.circular(10))),
-                                    title: Stack(
-                                      children: [
-                                        Container(
-                                            height:
-                                                MediaQuery.of(context).size.height /
-                                                    13,
-                                            width:
-                                                MediaQuery.of(context).size.width,
-                                            decoration: const BoxDecoration(
-                                                gradient: LinearGradient(colors: [
-                                              Color(0xff003296),
-                                              Color(0xff662da4)
-                                            ])),
-                                            // color: Colors.blue,
-                                            child: Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                if (MediaQuery.of(context)
-                                                        .size
-                                                        .width <
-                                                    600) ...[
-                                                  const Text(
-                                                    "Consent",
-                                                    textAlign: TextAlign.center,
-                                                    style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontWeight: FontWeight.w400,
-                                                        fontSize: 20),
-                                                  ),
-                                                ] else
-                                                  const Text(
-                                                    "Consent",
-                                                    textAlign: TextAlign.center,
-                                                    style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontWeight: FontWeight.w400,
-                                                        fontSize: 30),
-                                                  ),
-                                              ],
-                                            )),
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.end,
-                                          children: [
-                                            IconButton(
-                                              onPressed: (() {
-                                                Navigator.pop(context);
-                                              }),
-                                              icon: const Icon(
-                                                Icons.close,
-                                                color: Colors.white,
-                                              ),
-                                              iconSize: 20,
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                    content: Container(
-                                      height: 100,
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        children: [Text(
-                                        'Would you like to provide us consent to share your Contact details with Manufacterer for further analysis',
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize:
-                                                MediaQuery.of(context).size.width *
-                                                    0.035),
-                                      ),
-                                      Row(
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .spaceAround,
-                                                              children: [
-                                                                Container(
-                                                                  height: MediaQuery.of(
-                                                                              context)
-                                                                          .size
-                                                                          .height /
-                                                                      28,
-                                                                  width: MediaQuery.of(
-                                                                              context)
-                                                                          .size
-                                                                          .width /
-                                                                      5,
-                                                                  decoration: BoxDecoration(
-                                                                      color: Colors
-                                                                              .deepPurple[
-                                                                          800],
-                                                                      borderRadius:
-                                                                          BorderRadius.all(
-                                                                              Radius.circular(5))),
-                                                                  child:
-                                                                      ElevatedButton(
-                                                                    onPressed:
-                                                                        () async {
+                  //  showDialog(
+                  //               // barrierDismissible: false,
+                  //               context: context,
+                  //               builder: (context) {
+                  //                 return AlertDialog(
+                  //                   backgroundColor: Color(0xff002060),
+                  //                   titlePadding: EdgeInsets.fromLTRB(0, 0, 0, 6),
+                  //                   shape: const RoundedRectangleBorder(
+                  //                       //<-- SEE HERE
+                  //                       // side: BorderSide(
+                  //                       //   color: Colors.greenAccent,
+                  //                       // ),
+                  //                       borderRadius: BorderRadius.only(
+                  //                           bottomLeft: Radius.circular(10),
+                  //                           bottomRight: Radius.circular(10))),
+                  //                   title: Stack(
+                  //                     children: [
+                  //                       Container(
+                  //                           height:
+                  //                               MediaQuery.of(context).size.height /
+                  //                                   13,
+                  //                           width:
+                  //                               MediaQuery.of(context).size.width,
+                  //                           decoration: const BoxDecoration(
+                  //                               gradient: LinearGradient(colors: [
+                  //                             Color(0xff003296),
+                  //                             Color(0xff662da4)
+                  //                           ])),
+                  //                           // color: Colors.blue,
+                  //                           child: Column(
+                  //                             mainAxisAlignment:
+                  //                                 MainAxisAlignment.center,
+                  //                             children: [
+                  //                               if (MediaQuery.of(context)
+                  //                                       .size
+                  //                                       .width <
+                  //                                   600) ...[
+                  //                                 const Text(
+                  //                                   "Consent",
+                  //                                   textAlign: TextAlign.center,
+                  //                                   style: TextStyle(
+                  //                                       color: Colors.white,
+                  //                                       fontWeight: FontWeight.w400,
+                  //                                       fontSize: 20),
+                  //                                 ),
+                  //                               ] else
+                  //                                 const Text(
+                  //                                   "Consent",
+                  //                                   textAlign: TextAlign.center,
+                  //                                   style: TextStyle(
+                  //                                       color: Colors.white,
+                  //                                       fontWeight: FontWeight.w400,
+                  //                                       fontSize: 30),
+                  //                                 ),
+                  //                             ],
+                  //                           )),
+                  //                       Row(
+                  //                         mainAxisAlignment: MainAxisAlignment.end,
+                  //                         children: [
+                  //                           IconButton(
+                  //                             onPressed: (() {
+                  //                               Navigator.pop(context);
+                  //                             }),
+                  //                             icon: const Icon(
+                  //                               Icons.close,
+                  //                               color: Colors.white,
+                  //                             ),
+                  //                             iconSize: 20,
+                  //                           ),
+                  //                         ],
+                  //                       ),
+                  //                     ],
+                  //                   ),
+                  //                   content: Container(
+                  //                     height: 100,
+                  //                     child: Column(
+                  //                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //                       children: [Text(
+                  //                       'Would you like to provide us consent to share your Contact details with Manufacterer for further analysis',
+                  //                       textAlign: TextAlign.center,
+                  //                       style: TextStyle(
+                  //                           color: Colors.white,
+                  //                           fontSize:
+                  //                               MediaQuery.of(context).size.width *
+                  //                                   0.035),
+                  //                     ),
+                  //                     Row(
+                  //                                             mainAxisAlignment:
+                  //                                                 MainAxisAlignment
+                  //                                                     .spaceAround,
+                  //                                             children: [
+                  //                                               Container(
+                  //                                                 height: MediaQuery.of(
+                  //                                                             context)
+                  //                                                         .size
+                  //                                                         .height /
+                  //                                                     28,
+                  //                                                 width: MediaQuery.of(
+                  //                                                             context)
+                  //                                                         .size
+                  //                                                         .width /
+                  //                                                     5,
+                  //                                                 decoration: BoxDecoration(
+                  //                                                     color: Colors
+                  //                                                             .deepPurple[
+                  //                                                         800],
+                  //                                                     borderRadius:
+                  //                                                         BorderRadius.all(
+                  //                                                             Radius.circular(5))),
+                  //                                                 child:
+                  //                                                     ElevatedButton(
+                  //                                                   onPressed:
+                  //                                                       () async {
                                                                                   
-                                                                    },
-                                                                    style: ElevatedButton
-                                                                        .styleFrom(
-                                                                            shape:
-                                                                                RoundedRectangleBorder(
-                                                                              borderRadius:
-                                                                                  BorderRadius.circular(64),
-                                                                            ),
-                                                                            primary: Colors
-                                                                                .transparent,
-                                                                            shadowColor:
-                                                                                Colors.transparent),
-                                                                    child: Text(
-                                                                      'Yes',
-                                                                      style:
-                                                                          TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .bold,
-                                                                        fontFamily:
-                                                                            "Poppins Medium",
-                                                                        fontSize: MediaQuery.of(context)
-                                                                                .size
-                                                                                .height *
-                                                                            0.01,
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  height: MediaQuery.of(
-                                                                              context)
-                                                                          .size
-                                                                          .height /
-                                                                      28,
-                                                                  width: MediaQuery.of(
-                                                                              context)
-                                                                          .size
-                                                                          .width /
-                                                                      5,
-                                                                  decoration: BoxDecoration(
-                                                                      color: Colors
-                                                                              .deepPurple[
-                                                                          800],
-                                                                      borderRadius:
-                                                                          BorderRadius.all(
-                                                                              Radius.circular(5))),
-                                                                  child:
-                                                                      ElevatedButton(
-                                                                    onPressed:
-                                                                        () async {
+                  //                                                   },
+                  //                                                   style: ElevatedButton
+                  //                                                       .styleFrom(
+                  //                                                           shape:
+                  //                                                               RoundedRectangleBorder(
+                  //                                                             borderRadius:
+                  //                                                                 BorderRadius.circular(64),
+                  //                                                           ),
+                  //                                                           primary: Colors
+                  //                                                               .transparent,
+                  //                                                           shadowColor:
+                  //                                                               Colors.transparent),
+                  //                                                   child: Text(
+                  //                                                     'Yes',
+                  //                                                     style:
+                  //                                                         TextStyle(
+                  //                                                       fontWeight:
+                  //                                                           FontWeight
+                  //                                                               .bold,
+                  //                                                       fontFamily:
+                  //                                                           "Poppins Medium",
+                  //                                                       fontSize: MediaQuery.of(context)
+                  //                                                               .size
+                  //                                                               .height *
+                  //                                                           0.01,
+                  //                                                     ),
+                  //                                                   ),
+                  //                                                 ),
+                  //                                               ),
+                  //                                               Container(
+                  //                                                 height: MediaQuery.of(
+                  //                                                             context)
+                  //                                                         .size
+                  //                                                         .height /
+                  //                                                     28,
+                  //                                                 width: MediaQuery.of(
+                  //                                                             context)
+                  //                                                         .size
+                  //                                                         .width /
+                  //                                                     5,
+                  //                                                 decoration: BoxDecoration(
+                  //                                                     color: Colors
+                  //                                                             .deepPurple[
+                  //                                                         800],
+                  //                                                     borderRadius:
+                  //                                                         BorderRadius.all(
+                  //                                                             Radius.circular(5))),
+                  //                                                 child:
+                  //                                                     ElevatedButton(
+                  //                                                   onPressed:
+                  //                                                       () async {
                                                                       
-                                                                    },
-                                                                    style: ElevatedButton.styleFrom(
-                                                                        primary:
-                                                                            Colors
-                                                                                .transparent,
-                                                                        shadowColor:
-                                                                            Colors
-                                                                                .transparent),
-                                                                    child: Text(
-                                                                      'No',
-                                                                      style:
-                                                                          TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .bold,
-                                                                        fontFamily:
-                                                                            "Poppins Medium",
-                                                                        fontSize: MediaQuery.of(context)
-                                                                                .size
-                                                                                .height *
-                                                                            0.01,
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),],
-                                      ),
-                                    )
+                  //                                                   },
+                  //                                                   style: ElevatedButton.styleFrom(
+                  //                                                       primary:
+                  //                                                           Colors
+                  //                                                               .transparent,
+                  //                                                       shadowColor:
+                  //                                                           Colors
+                  //                                                               .transparent),
+                  //                                                   child: Text(
+                  //                                                     'No',
+                  //                                                     style:
+                  //                                                         TextStyle(
+                  //                                                       fontWeight:
+                  //                                                           FontWeight
+                  //                                                               .bold,
+                  //                                                       fontFamily:
+                  //                                                           "Poppins Medium",
+                  //                                                       fontSize: MediaQuery.of(context)
+                  //                                                               .size
+                  //                                                               .height *
+                  //                                                           0.01,
+                  //                                                     ),
+                  //                                                   ),
+                  //                                                 ),
+                  //                                               ),
+                  //                                             ],
+                  //                                           ),],
+                  //                     ),
+                  //                   )
                                     
-                                  );
-                                });
+                  //                 );
+                  //               });
                 },
                 icon: pageIndex != 0
                     ? Icon(
