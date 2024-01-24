@@ -255,9 +255,11 @@ class _Profile_newState extends State<Profile_new> {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Container(
-                                margin: EdgeInsets.only(left: 50, right: 50),
+                                margin: EdgeInsets.symmetric(
+                                    horizontal: 0.1 *
+                                        MediaQuery.of(context).size.width),
                                 height: 25,
-                                width: 60,
+                                width: MediaQuery.of(context).size.width * 0.15,
                                 child: ElevatedButton(
                                     onPressed: () {
                                       setState(() {
@@ -277,7 +279,6 @@ class _Profile_newState extends State<Profile_new> {
                                         Color(0xffaa2aae)
                                       ]))
                                     : BoxDecoration(
-                                        // color: Colors.white,
                                         border: Border.all(
                                           color: Colors.grey,
                                           width: 1,
