@@ -661,7 +661,7 @@ Future<AlbumProductFeedback> createProductFeedback(String prodID, int rating,
 
 
 class AlbumCheckIfUserExists {
-  String message;
+  String? message;
    int statusCode;
 
   AlbumCheckIfUserExists({required this.message,required this.statusCode});
