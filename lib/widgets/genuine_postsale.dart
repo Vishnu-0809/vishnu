@@ -945,6 +945,7 @@ class _GenuinePostState extends State<GenuinePost> {
                           temp_class.details["additionalImageDetails"] = widget.snapshot.details["additionalImageDetails"]; 
                           temp_class.details["shelfLife"] = widget.snapshot.details["shelflife"];
                           temp_class.details['tracking']=widget.snapshot.details['tracking']; ///changed
+                          temp_class.details["isTrackingAvailable"]=widget.snapshot.details["isTrackingAvailable"]; ///changed
                          temp_class.details['productVedio']=widget.snapshot.details['productVedio'];
                          temp_class.details['batchType']=widget.snapshot.details['batchType'];
                          temp_class.details['manuWebsiteLink']=widget.snapshot.details['manuWebsiteLink'];
