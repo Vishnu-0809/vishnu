@@ -191,7 +191,7 @@ class _PurchaseHistoryState extends State<PurchaseHistory> {
         // print("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
         // print(temp_class.details["additionalImages"]);
         temp_class.details["manuWebsiteLink"] =
-              responseData["data"][i]["manuWebsiteLink"];
+            responseData["data"][i]["manuWebsiteLink"];
         temp_class.details["additionalImageDetails"] =
             responseData["data"][i]["additionalImageDetails"];
 
@@ -310,7 +310,7 @@ class _PurchaseHistoryState extends State<PurchaseHistory> {
           responseData["data"][i]["extraImages"]
         ];
         temp_class.details["manuWebsiteLink"] =
-              responseData["data"][i]["manuWebsiteLink"];
+            responseData["data"][i]["manuWebsiteLink"];
         // print("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
         // print(temp_class.details["additionalImages"]);
 
@@ -397,6 +397,7 @@ class _PurchaseHistoryState extends State<PurchaseHistory> {
               responseData["data"][i]["postSaleCode"];
           temp_class.details["isTrackingAvailable"] =
               responseData["data"][i]["isTrackingAvailable"];
+          temp_class.details['tracking'] = null;
           temp_class.details["clientId"] = responseData["data"][i]["clientId"];
           temp_class.details["brand"] = responseData["data"][i]["brand"];
           temp_class.details["serialNo"] = responseData["data"][i]["serialNo"];
@@ -432,7 +433,7 @@ class _PurchaseHistoryState extends State<PurchaseHistory> {
           temp_class.details["additionalImages"] = [
             responseData["data"][i]["extraImages"]
           ];
-        temp_class.details["manuWebsiteLink"] =
+          temp_class.details["manuWebsiteLink"] =
               responseData["data"][i]["manuWebsiteLink"];
           print("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
           print(temp_class.details["isTrackingAvailable"]);
@@ -531,6 +532,7 @@ class _PurchaseHistoryState extends State<PurchaseHistory> {
               responseData["data"][i]["postSaleCode"];
           temp_class.details["isTrackingAvailable"] =
               responseData["data"][i]["isTrackingAvailable"];
+          temp_class.details['tracking'] = null;
           temp_class.details["clientId"] = responseData["data"][i]["clientId"];
           temp_class.details["brand"] = responseData["data"][i]["brand"];
           temp_class.details["serialNo"] = responseData["data"][i]["serialNo"];
@@ -569,14 +571,14 @@ class _PurchaseHistoryState extends State<PurchaseHistory> {
           ];
           temp_class.details["manuWebsiteLink"] =
               responseData["data"][i]["manuWebsiteLink"];
-          
+
           print("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
           print(temp_class.details["isTrackingAvailable"]);
 
           temp_class.details["additionalImageDetails"] =
               responseData["data"][i]["additionalImageDetails"];
-              //  temp_class.details["additionalImageDetails"] =
-              // responseData["data"][i][""];
+          //  temp_class.details["additionalImageDetails"] =
+          // responseData["data"][i][""];
           print(temp_class.details["brand"]);
           temp_class.details["batchType"] =
               responseData["data"][i]["batchType"];
@@ -2157,19 +2159,18 @@ class _PurchaseHistoryState extends State<PurchaseHistory> {
                                                                       sea.details[
                                                                           "prodName"],
                                                                       style:
-                                                                        TextStyle(
-                                                                      // fontWeight: FontWeight.bold,
-                                                                      fontFamily:
-                                                                          "Poppins Medium",
+                                                                          TextStyle(
+                                                                        // fontWeight: FontWeight.bold,
+                                                                        fontFamily:
+                                                                            "Poppins Medium",
                                                                         color: const Color(
                                                                             0xff002060),
-                                                                      // backgroundColor:Color(0x888888),
-                                                                      // fontStyle: FontStyle.italic,
-                                                                      fontSize: MediaQuery.of(context)
-                                                                              .size
-                                                                              .height *
-                                                                          0.014,
-                                                                    ),
+                                                                        // backgroundColor:Color(0x888888),
+                                                                        // fontStyle: FontStyle.italic,
+                                                                        fontSize:
+                                                                            MediaQuery.of(context).size.height *
+                                                                                0.014,
+                                                                      ),
                                                                     )
                                                                   : Container()),
                                                           // SizedBox(height: 8),
